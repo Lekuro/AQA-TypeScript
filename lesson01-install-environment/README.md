@@ -1,4 +1,5 @@
 1.1 install VSC https://code.visualstudio.com/download
+
 1.2 add extension
 
 - Code Spell Checker – перевірка правопису
@@ -18,20 +19,26 @@
 - Version Lens – швидка перевірка версій залежностей
 - Prettier - Code formatter - форматер коду
 - Postman - тестувалка API
+
   2.1 install node.js https://nodejs.org/
+
   2.2 check how it works
   node -v
   npm -v
+
   3.1 install nvm
   Windows: https://github.com/coreybutler/nvm-windows
   macOS/Linux: https://github.com/nvm-sh/nvm
+
   3.2 set node
   nvm install <version example: 24>
   nvm use <version>
+
   3.3 check how it works
   nvm -v
   node -v
   npm -v
+
   4.1 in case you have security error helps such commands run from terminal
   Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
   Get-ExecutionPolicy
