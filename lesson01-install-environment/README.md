@@ -63,12 +63,10 @@ Get-ExecutionPolicy -list
 - Prettier - Code formatter - форматер коду
 - Postman - тестувалка API
 - Windsurf - AI
-
-1.  add extension to VSC
-1.  register account on https://windsurf.com/
-1.  close VSC and open if you don't have redirect to windsurf.com site
-1.  follow instruction:
-
-- Copy the token below to your clipboard (expires in 5 minutes)
-- In VSCode, open the Command Palette (Ctrl/Cmd + Shift + P), type Windsurf: Provide Authentication Token, and hit Enter.
-- You should see a little welcome message on the bottom right of your Visual Studio Code window if authorization was successful. You're all set to use Windsurf Plugin!
+  1.  add extension to VSC
+  1.  register account on https://windsurf.com/
+  1.  close VSC and open if you don't have redirect to windsurf.com site
+  1.  follow instruction:
+      - Copy the token below to your clipboard (expires in 5 minutes)
+      - In VSCode, open the Command Palette (Ctrl/Cmd + Shift + P), type Windsurf: Provide Authentication Token, and hit Enter.
+      - You should see a little welcome message on the bottom right of your Visual Studio Code window if authorization was successful. You're all set to use Windsurf Plugin!
