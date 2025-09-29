@@ -13,26 +13,37 @@ npm -v
 
 ### install nvm
 
-Windows: https://github.com/coreybutler/nvm-windows
-macOS/Linux: https://github.com/nvm-sh/nvm
+**Windows**: https://github.com/coreybutler/nvm-windows
+_macOS/Linux_: https://github.com/nvm-sh/nvm
 
-2.2 set node
+#### install node
+
+```
 nvm install <version example: 24>
 nvm use <version>
+```
 
-2.3 check how it works
+#### check how it works
+
+```
 nvm -v
 node -v
 npm -v
+```
 
-2.4 in case you have security error helps such commands run from terminal
+##### security error helps such commands run from terminal
+
+```
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 Get-ExecutionPolicy
 Get-ExecutionPolicy -list
+```
 
-3.1 install VSC https://code.visualstudio.com/download
+## VSC
 
-3.2 add extension
+#### install VSC https://code.visualstudio.com/download
+
+#### add extension
 
 - Code Spell Checker – перевірка правопису
 - Cucumber (Gherkin) Full Support – підтримка Gherkin-сценаріїв
@@ -51,3 +62,13 @@ Get-ExecutionPolicy -list
 - Version Lens – швидка перевірка версій залежностей
 - Prettier - Code formatter - форматер коду
 - Postman - тестувалка API
+- Windsurf - AI
+
+1.  add extension to VSC
+1.  register account on https://windsurf.com/
+1.  close VSC and open if you don't have redirect to windsurf.com site
+1.  follow instruction:
+
+- Copy the token below to your clipboard (expires in 5 minutes)
+- In VSCode, open the Command Palette (Ctrl/Cmd + Shift + P), type Windsurf: Provide Authentication Token, and hit Enter.
+- You should see a little welcome message on the bottom right of your Visual Studio Code window if authorization was successful. You're all set to use Windsurf Plugin!
