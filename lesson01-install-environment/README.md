@@ -13,7 +13,7 @@ npm -v
 
 ### install nvm
 
-**Windows**: https://github.com/coreybutler/nvm-windows
+**Windows**: https://github.com/coreybutler/nvm-windows  
 _macOS/Linux_: https://github.com/nvm-sh/nvm
 
 #### install node
