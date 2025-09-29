@@ -1,10 +1,16 @@
-1.1 install node.js https://nodejs.org/
+## Node
 
-1.2 check how it works
-node -v
-npm -v
+#### install node.js https://nodejs.org/
 
-2.1 install nvm
+#### check how it works
+
+`node -v
+npm -v`
+
+## NVM
+
+### install nvm
+
 Windows: https://github.com/coreybutler/nvm-windows
 macOS/Linux: https://github.com/nvm-sh/nvm
 
