@@ -10,9 +10,11 @@ Project
 
 - npm init (type: module,)
 - npm i eslint prettier globals eslint-plugin-unicorn @eslint/js @stylistic/eslint-plugin
+- npm i -D @eslint/js eslint globals eslint-plugin-unicorn @stylistic/eslint-plugin prettier
 - touch .gitignore (node_modules)
 - touch README.md
 - touch .prettierrc 
+```
 {
     "printWidth": 140,
     "tabWidth": 4,
@@ -33,7 +35,9 @@ Project
         }
     ]
 }
+```
 - touch eslint.config.mjs
+```
   (import globals from 'globals';
   import pluginJs from '@eslint/js';
   import eslintPluginUnicorn from 'eslint-plugin-unicorn';
@@ -97,3 +101,4 @@ export default [
         }
     }
 ];)
+```
