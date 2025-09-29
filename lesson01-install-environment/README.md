@@ -70,3 +70,11 @@ Get-ExecutionPolicy -list
       - Copy the token below to your clipboard (expires in 5 minutes)
       - In VSCode, open the Command Palette (Ctrl/Cmd + Shift + P), type Windsurf: Provide Authentication Token, and hit Enter.
       - You should see a little welcome message on the bottom right of your Visual Studio Code window if authorization was successful. You're all set to use Windsurf Plugin!
+
+## Useful links
+
+- https://qalight.ua/baza-znaniy/ruchne-ta-avtomatizovane-testuvannya/
+- https://dou.ua/forums/topic/45419/
+- https://qacraft.com/6-stages-of-automation-testing-life-cycle/
+- https://www.browserstack.com/guide/testing-pyramid-for-test-automation
+
