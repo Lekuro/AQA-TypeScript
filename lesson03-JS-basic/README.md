@@ -34,7 +34,7 @@ Project
     ]
 }
 - touch eslint.config.mjs
-  import globals from 'globals';
+  (import globals from 'globals';
   import pluginJs from '@eslint/js';
   import eslintPluginUnicorn from 'eslint-plugin-unicorn';
   import stylistic from '@stylistic/eslint-plugin';
@@ -96,4 +96,4 @@ export default [
             '@stylistic/keyword-spacing': ['error', { before: true, after: true }]
         }
     }
-];
+];)
