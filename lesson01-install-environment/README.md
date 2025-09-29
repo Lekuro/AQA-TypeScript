@@ -4,8 +4,10 @@
 
 #### check how it works
 
-`node -v
-npm -v`
+```
+node -v
+npm -v
+```
 
 ## NVM
 
