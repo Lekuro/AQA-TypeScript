@@ -1,3 +1,4 @@
+//node .\lesson03-JS-basic\src\switch.js
 const day = 3;
 
 switch (day) {

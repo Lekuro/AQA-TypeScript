@@ -1,3 +1,4 @@
+//node .\lesson03-JS-basic\src\arifmetics.js
 const number1 = 5;
 const number2 = 2;
 console.log('number1 = ', number1);
@@ -60,7 +61,7 @@ console.log('null1 / undefined1 = ', null1 / undefined1);
 console.log('null1 % undefined1 = ', null1 % undefined1);
 console.log('null1 ** undefined1 = ', null1 ** undefined1);
 
-console.log('-----different types-----');
+console.log('-----different types of arifmetics operations-----');
 console.log('number1 + string1 = ', number1 + string1);
 console.log('number1 + boolean1 = ', number1 + boolean1);
 console.log('number1 + null1 = ', number1 + null1);
