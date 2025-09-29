@@ -43,3 +43,11 @@ Get-ExecutionPolicy -list
 - Version Lens – швидка перевірка версій залежностей
 - Prettier - Code formatter - форматер коду
 - Postman - тестувалка API
+- Windsurf - Artificial Inteligent
+
+4 Useful links
+
+- https://qalight.ua/baza-znaniy/ruchne-ta-avtomatizovane-testuvannya/
+- https://dou.ua/forums/topic/45419/
+- https://qacraft.com/6-stages-of-automation-testing-life-cycle/
+- https://www.browserstack.com/guide/testing-pyramid-for-test-automation
