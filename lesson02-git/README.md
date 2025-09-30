@@ -11,14 +11,26 @@
    git config --global user.email "твій@email.com"
 ```
 
-1. Create new repository on GitHub and copy link of it
+4. Select or create folder and open GitBush there
 
 ```
-   git clone <посилання>
-   git status
+  git clone <посилання>
+  git status
+  //…or create a new repository on the command line
+  echo "# some123" >> README.md
+  git init
+  git add README.md
+  git commit -m "first commit"
+  git branch -M main
+  git remote add origin https://github.com/Lekuro/some123.git
+  git push -u origin main
+  //…or push an existing repository from the command line
+  git remote add origin https://github.com/Lekuro/some123.git
+  git branch -M main
+  git push -u origin main
 ```
 
-1. Useful Commands
+### Useful Commands
 
 - Оновити master(main) гілку до останньої версії
 
