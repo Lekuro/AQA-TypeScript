@@ -18,14 +18,7 @@
    git status
 ```
 
-1. Commands
-
-- Перейти на гілку master (main) в залежності яку гілку ви вибрали як головну
-
-```
-  git checkout master
-  git checkout main
-```
+1. Useful Commands
 
 - Оновити master(main) гілку до останньої версії
 
@@ -39,6 +32,13 @@
   git checkout-b <branchName>
 ```
 
+- Перейти на гілку master (main) в залежності яку гілку ви вибрали як головну
+
+```
+  git checkout master
+  git checkout main
+```
+
 - Додати зміни в stash після того як ми дадали/поміняли код
 
 ```
@@ -49,6 +49,7 @@
 
 ```
   git commit -m "<comment>"
+  git commit -am "<comment>"
 ```
 
 - Запушити зміни на віддалений репозиторій GitHub
@@ -61,4 +62,28 @@
 
 ```
   git merge <branch>
+```
+
+- List of branches
+
+```
+  git branch
+```
+
+- List of log
+
+```
+  git log
+```
+
+- Delete changes made in file
+
+```
+  git restore <file-name.extension>
+```
+
+- Move 'Head' to another commit
+
+```
+  git reset --soft <commit-hash>
 ```
