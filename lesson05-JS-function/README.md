@@ -28,7 +28,7 @@ npm i eslint prettier globals eslint-plugin-unicorn @eslint/js @stylistic/eslint
 
 ```
 touch .gitignore
-echo 'node_modules' > .gitignore
+echo 'node_modules/' > .gitignore
 touch README.md
 touch .prettierrc
 touch eslint.config.mjs
@@ -46,3 +46,4 @@ npx eslint .\src\
 
 - Ctrl + ` - switch terminal and worked on file
 - Ctrl + Alt + ArrowDown - edit vertically
+- Crtl + / - to comment a block of code by line comment and undo
