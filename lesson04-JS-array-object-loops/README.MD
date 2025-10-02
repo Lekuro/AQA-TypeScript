@@ -1,4 +1,4 @@
-git Bush
+### git Bush
 
 - pwd (where am I)
 - ls (list of folders and files)
@@ -6,7 +6,7 @@ git Bush
 - mkdir (create folder)
 - touch (create file and stage it at once)
 
-Create Project
+### Create Project
 
 - init package.json (type: module,)
 
@@ -40,3 +40,8 @@ mkdir src
 cd .\lesson03-JS-basic\
 npx eslint .\src\
 ```
+
+## VSC
+
+- Ctrl + ` - switch terminal and worked on file
+- Ctrl + Alt + ArrowDown - edit vertically
