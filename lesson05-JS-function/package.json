@@ -1,0 +1,22 @@
+{
+  "name": "lesson05-js-function",
+  "version": "1.0.0",
+  "description": "- pwd (where am I)\r - ls (list of folders and files)\r - cd (move to, .. mean step upper)\r - mkdir (create folder)\r - touch (create file and stage it at once)",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "build": "npm run lint && <build script>",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@stylistic/eslint-plugin": "^5.4.0",
+    "eslint": "^9.36.0",
+    "eslint-plugin-unicorn": "^61.0.2",
+    "globals": "^16.4.0",
+    "prettier": "^3.6.2"
+  }
+}
