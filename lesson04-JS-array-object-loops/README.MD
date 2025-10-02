@@ -37,7 +37,7 @@ mkdir src
 - Check code for mistakes
 
 ```
-cd .\lesson03-JS-basic\
+cd .\lesson04-JS-array-object-loops\
 npx eslint .\src\
 ```
 
