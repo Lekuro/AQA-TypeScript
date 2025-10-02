@@ -8,9 +8,10 @@
 
 ### Create Project
 
-- init package.json (type: module,)
+- init package.json (type: module,) GitBush console
 
 ```
+cd lesson04-JS-array-object-loops/
 npm init
 npm i -D @eslint/js eslint globals eslint-plugin-unicorn @stylistic/eslint-plugin prettier
 npm i eslint prettier globals eslint-plugin-unicorn @eslint/js @stylistic/eslint-plugin
@@ -23,7 +24,7 @@ npm i eslint prettier globals eslint-plugin-unicorn @eslint/js @stylistic/eslint
 "build": "npm run lint && <build script>",
 ```
 
-- create files in project and folder src for your js files
+- create files in project and folder src for your js files GitBush console
 
 ```
 touch .gitignore
@@ -34,7 +35,7 @@ touch eslint.config.mjs
 mkdir src
 ```
 
-- Check code for mistakes
+- Check code for mistakes powershell console
 
 ```
 cd .\lesson04-JS-array-object-loops\
