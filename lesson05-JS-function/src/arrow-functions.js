@@ -1,6 +1,12 @@
-// node lesson05-JS-function/src/function.js
-function getSumOfArrayValues(array) {
-    array = !Array.isArray(array) ? [...arguments] : array;
+// node lesson05-JS-function/src/arrow-functions.js
+const getSumOfArrayValues = (array) => {
+    try {
+        if (!Array.isArray(array)) {
+            throw new Error('The data is not an array');
+        }
+    } catch (error) {
+        return `Error-message: ${error.message}, Error-status: ${error.status}`;
+    }
     try {
         if (array.some((value) => typeof value === 'object')) {
             throw new Error('Array contains objects');
@@ -12,7 +18,7 @@ function getSumOfArrayValues(array) {
     } catch (error) {
         return `Error-message: ${error.message}, Error-status: ${error.status}`;
     }
-}
+};
 console.log(getSumOfArrayValues([1, 2, 3, 4, 5]));
 const arrayNumbers = [1, 2, 3, 4, 5];
 const arrayStrings = ['one', 'two', 'three', 'four', 'five'];
