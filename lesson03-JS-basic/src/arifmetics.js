@@ -72,13 +72,3 @@ console.log('string1 + undefined1 = ', string1 + undefined1);
 console.log('boolean1 + null1 = ', boolean1 + null1);
 console.log('boolean1 + undefined1 = ', boolean1 + undefined1);
 console.log('null1 + undefined1 = ', null1 + undefined1);
-
-// let sum = number1 + number2;
-// let difference = number1 - number2;
-// let product = number1 * number2;
-// let quotient = number1 / number2;
-// let remainder = number1 % number2;
-// let exponent = number1 ** number2;
-// let floor = Math.floor(number1 / number2);
-// let ceil = Math.ceil(number1 / number2);
-// let round = Math.round(number1 / number2);
