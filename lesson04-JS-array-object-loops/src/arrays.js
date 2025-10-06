@@ -4,6 +4,7 @@ const arrayStrings = ['one', 'two', 'three', 'four', 'five', 'six'];
 const arrayBoolean = [true, false, true, false, true];
 const arrayMixed = [1, 'two', true, false, [1, 2, 3], { name: 'John', age: 30 }];
 const arrayMixed2 = [1, '2', true, null, undefined, { key: 'value' }, [1, 2, 3]];
+
 console.log('forEachArrayNumbers');
 arrayNumbers.forEach((item, index) => console.log(`index ${index}, value ${item}`));
 console.log('forEachArrayStrings');
@@ -14,6 +15,7 @@ console.log('forEachArrayMixed');
 arrayMixed.forEach((item, index) => console.log(`index ${index}, value ${item}`));
 console.log('forEachArrayMixed2');
 arrayMixed2.forEach((item, index) => console.log(`index ${index}, value ${item}`));
+
 console.log('-------- ArrayStrings --------');
 const mapArrayStringsToUpperCase = arrayStrings.map((item) => item.toUpperCase());
 console.log('mapArrayStringsToUpperCase', mapArrayStringsToUpperCase);
@@ -21,6 +23,7 @@ const filterArrayStrings = arrayStrings.filter((item) => item.length > 3);
 console.log('filterArrayStrings', filterArrayStrings);
 const getArrayStringsSumByReduce = arrayStrings.reduce((acc, item) => acc + item, '');
 console.log('getArrayStringsSumByReduce', getArrayStringsSumByReduce);
+
 console.log('-------- ArrayNumbers --------');
 arrayNumbers.push(7);
 console.log('pushArrayNumbers', arrayNumbers);

@@ -57,5 +57,6 @@ class User {
         console.log(`${this.#name} has "${this.#courses.join(', ')}" courses and lives in ${this.#address.city}, ${this.#address.country}`);
     }
 }
+
 const userFromClass = new User('Nick', 20, ['Python', 'css', 'Java'], { country: 'USA', city: 'Texas' });
 userFromClass.printUser();
