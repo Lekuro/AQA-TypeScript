@@ -68,6 +68,7 @@
 
 ```
   git push
+  git push --set-upstream origin 05-JS-function
 ```
 
 - Змержати зміни треба перейти на main і тоді
