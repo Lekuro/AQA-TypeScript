@@ -1,3 +1,4 @@
+// node lesson06-JS-try-catch-async-await/src/async-await.js
 const openApi = 'https://jsonplaceholder.typicode.com/posts';
 const apiShopV2Products = 'https://api.predic8.de/shop/v2/products/1';
 const apiShopV2Vendors = 'https://api.predic8.de/shop/v2/vendors/1';
@@ -22,6 +23,7 @@ const apiLinks = [
     api3ArticlesAuthor,
     api3ArticlesComments
 ];
+
 async function getApiData(url) {
     try {
         const response = await fetch(url);
