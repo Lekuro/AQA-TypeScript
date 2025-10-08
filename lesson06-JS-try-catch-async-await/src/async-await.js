@@ -9,7 +9,19 @@ const api3People = 'http://example.com/people/1';
 const api3Comments = 'http://example.com/comments/1';
 const api3ArticlesAuthor = 'http://example.com/articles/1/author';
 const api3ArticlesComments = 'http://example.com/articles/1/comments';
-
+const apiLinks = [
+    openApi,
+    apiShopV2Customers,
+    apiShopV2Vendors,
+    apiShopV2Orders,
+    apiShopV2Products,
+    apiDlpFields,
+    api3Articles,
+    api3People,
+    api3Comments,
+    api3ArticlesAuthor,
+    api3ArticlesComments
+];
 async function getApiData(url) {
     try {
         const response = await fetch(url);
@@ -38,3 +50,29 @@ async function getApiData(url) {
 (async () => {
     const response = await getApiData(apiShopV2Products);
 })();
+
+async function getApiPromise(url) {
+    const response = await fetch(url);
+    return response;
+}
+
+const arrayOfApiLinksPromises = apiLinks.map((url) => getApiPromise(url));
+console.log(arrayOfApiLinksPromises);
+console.log(apiLinks);
+Promise.all(arrayOfApiLinksPromises)
+    .then((responses) => {
+        responses.forEach((response) => {
+            console.log('-------- response --------');
+            console.log(response.json());
+            console.log('-------- response.status --------');
+            console.log(response.status);
+            console.log('-------- response.url --------');
+            console.log(response.url);
+            console.log('-------- response.ok --------');
+            console.log(response.ok);
+        });
+    })
+    .catch((error) => console.log(error))
+    .finally(() => {
+        console.log('-------- finally --------');
+    });
