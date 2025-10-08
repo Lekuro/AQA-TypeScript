@@ -28,13 +28,14 @@ async function getApiData(url) {
     } catch (error) {
         console.log('-------- error --------');
         console.log(error);
+        const response = await fetch(url + '/1');
+        const jsonData = await response.json();
+        return jsonData;
+    } finally {
+        console.log('-------- finally --------');
     }
 }
 
 (async () => {
-    const response = await getApiData(apiShopV2Orders);
-})();
-
-(async () => {
-    const response = await getApiData(apiShopV2Products);
+    const response = await getApiData(apiDlpFields);
 })();
