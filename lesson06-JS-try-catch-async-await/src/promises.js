@@ -1,19 +1,25 @@
 // node lesson06-JS-try-catch-async-await/src/promises.js
-const openApi = 'https://jsonplaceholder.typicode.com/posts';
-const apiShopV2Products = 'https://api.predic8.de/shop/v2/products/1';
-const apiShopV2Vendors = 'https://api.predic8.de/shop/v2/vendors/1';
-const apiShopV2Orders = 'https://api.predic8.de/shop/v2/orders/1';
-const apiShopV2Customers = 'https://api.predic8.de/shop/v2/customers/1';
-const apiDlpFields = 'https://api.predic8.de/dlp/fields'; //take away 1->404 or /1->405
-const api3Articles = 'http://example.com/articles/1';
-const api3People = 'http://example.com/people/1';
-const api3Comments = 'http://example.com/comments/1';
-const api3ArticlesAuthor = 'http://example.com/articles/1/author';
-const api3ArticlesComments = 'http://example.com/articles/1/comments';
+
+import {
+    openApi,
+    apiShopV2Products,
+    apiShopV2Vendors,
+    apiShopV2Orders,
+    apiShopV2Customers,
+    apiDlpFields,
+    api3Articles,
+    api3People,
+    api3Comments,
+    api3ArticlesAuthor,
+    api3ArticlesComments
+} from './models/index.js';
 
 function getApiData(openApi) {
     return fetch(openApi)
         .then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status} for URL: ${response.url}`);
+            }
             console.log('-------- response --------');
             console.log(response);
             console.log('-------- response.ok --------');
@@ -25,7 +31,7 @@ function getApiData(openApi) {
         .then((jsonData) => processData(jsonData))
         .catch((error) => {
             console.log('-------- error --------');
-            console.log(error.error);
+            console.log(error);
         })
         .finally(() => console.log('-------- finally --------'));
 }
