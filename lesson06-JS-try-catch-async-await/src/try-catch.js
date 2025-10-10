@@ -17,31 +17,43 @@ import {
     openApiUrls
 } from './models/index.js';
 
-async function makeRequest(url) {
-    const response = await fetch(url);
-    if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status} for URL: ${response.url}`);
-    }
-    const jsonData = await response.json();
-    console.log('-------- response --------');
-    console.log(response);
-    console.log('-------- response.status --------');
-    console.log(response.status);
-    console.log('-------- response.url --------');
-    console.log(response.url);
-    console.log('-------- response.ok --------');
-    console.log(response.ok);
-    console.log('-------- jsonData --------');
-    console.log(jsonData);
-    return jsonData;
-}
 async function getApiData(url) {
     try {
-        return makeRequest(url);
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status} for URL: ${response.url}`);
+        }
+        const jsonData = await response.json();
+        console.log('-------- response --------');
+        console.log(response);
+        console.log('-------- response.status --------');
+        console.log(response.status);
+        console.log('-------- response.url --------');
+        console.log(response.url);
+        console.log('-------- response.ok --------');
+        console.log(response.ok);
+        console.log('-------- jsonData --------');
+        console.log(jsonData);
+        return jsonData;
     } catch (error) {
         console.log('-------- error getApiData() --------');
         console.log(error);
-        return makeRequest('http://all.api.radio-browser.info/json/servers');
+        const response = await fetch('http://all.api.radio-browser.info/json/servers');
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status} for URL: ${response.url}`);
+        }
+        const jsonData = await response.json();
+        console.log('-------- response --------');
+        console.log(response);
+        console.log('-------- response.status --------');
+        console.log(response.status);
+        console.log('-------- response.url --------');
+        console.log(response.url);
+        console.log('-------- response.ok --------');
+        console.log(response.ok);
+        console.log('-------- jsonData --------');
+        console.log(jsonData);
+        return jsonData;
     }
 }
 
@@ -98,6 +110,6 @@ const jsonResult = openApiUrls.map(async (url) => {
     }
 });
 
-setTimeout(() => console.log('-------- result --------\n', result), 2000);
-setTimeout(() => console.log('-------- separateCallsResult --------\n', separateCallsResult), 2000);
-setTimeout(() => console.log('-------- jsonResult --------\n', jsonResult), 2000);
+setTimeout(() => console.log('-------- result --------\n', result), 3000);
+setTimeout(() => console.log('-------- separateCallsResult --------\n', separateCallsResult), 3000);
+setTimeout(() => console.log('-------- jsonResult --------\n', jsonResult), 3000);
