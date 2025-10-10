@@ -37,7 +37,7 @@ function getApiData(openApi) {
 }
 
 function processData(jsonData) {
-    console.log('-------- jsonData --------');
+    console.log('-------- jsonData under work--------');
     console.log(jsonData);
 }
 

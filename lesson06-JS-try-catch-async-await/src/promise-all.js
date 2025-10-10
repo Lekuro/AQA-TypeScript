@@ -2,10 +2,9 @@
 
 import { openApiUrls } from './models/index.js';
 
-console.log('-------- Promise.all together --------');
-const responses = await Promise.all(openApiUrls.map((url) => fetch(url)));
-responses.forEach((response) => {
+async function requestJsonData(url) {
     try {
+        const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status} for URL: ${response.url}`);
         }
@@ -17,19 +16,44 @@ responses.forEach((response) => {
         console.log(response.status);
         console.log('-------- response.url --------');
         console.log(response.url);
-        console.log('-------- response.json --------');
-        console.log(response.json());
+        return response.json();
     } catch (error) {
-        console.log('-------- error --------');
+        console.log(`-------- error for ${url} --------`);
         console.log(error);
     }
-});
+}
 
-console.log('-------- Promise.all separately --------');
-const [posts, products, vendors] = await Promise.all([fetch(openApiUrls[0]), fetch(openApiUrls[1]), fetch(openApiUrls[2])]);
-console.log('-------- posts --------');
-console.log(posts);
-console.log('-------- products --------');
-console.log(products);
-console.log('-------- vendors --------');
-console.log(vendors);
+(async () => {
+    try {
+        console.log('-------- Promise.all together --------');
+        const jsonResponses = await Promise.all(openApiUrls.map((url) => requestJsonData(url)));
+        console.log('-------- json of Promise.all together --------');
+        jsonResponses.forEach((jsonResponse) => console.log(jsonResponse));
+        //console.log(triggerError);
+    } catch (error) {
+        console.log('-------- error together --------');
+        console.log(error);
+    }
+})();
+
+(async () => {
+    try {
+        console.log('-------- Promise.all separately --------');
+        const [user, posts, todos] = await Promise.all([
+            requestJsonData(openApiUrls[0]),
+            requestJsonData(openApiUrls[1]),
+            requestJsonData(openApiUrls[2])
+        ]);
+        console.log('-------- json of Promise.all separately --------');
+        console.log('-------- user --------');
+        console.log(user);
+        console.log('-------- posts --------');
+        console.log(posts);
+        console.log('-------- todos --------');
+        console.log(todos);
+        //console.log(triggerError);
+    } catch (error) {
+        console.log('-------- error separately --------');
+        console.log(error);
+    }
+})();
