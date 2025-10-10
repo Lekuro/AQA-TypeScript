@@ -24,91 +24,43 @@ async function getApiData(url) {
             throw new Error(`HTTP error! Status: ${response.status} for URL: ${response.url}`);
         }
         const jsonData = await response.json();
-        console.log('-------- response --------');
-        console.log(response);
-        console.log('-------- response.status --------');
-        console.log(response.status);
-        console.log('-------- response.url --------');
-        console.log(response.url);
-        console.log('-------- response.ok --------');
-        console.log(response.ok);
-        console.log('-------- jsonData --------');
-        console.log(jsonData);
         return jsonData;
     } catch (error) {
-        console.log('-------- error getApiData() --------');
-        console.log(error);
-        const response = await fetch('http://all.api.radio-browser.info/json/servers');
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status} for URL: ${response.url}`);
+        if (error.message.includes('HTTP error! Status:')) {
+            const response = await fetch('http://all.api.radio-browser.info/json/servers');
+            const jsonData = await response.json();
+            return jsonData;
+        } else {
+            throw error;
         }
-        const jsonData = await response.json();
-        console.log('-------- response --------');
-        console.log(response);
-        console.log('-------- response.status --------');
-        console.log(response.status);
-        console.log('-------- response.url --------');
-        console.log(response.url);
-        console.log('-------- response.ok --------');
-        console.log(response.ok);
-        console.log('-------- jsonData --------');
-        console.log(jsonData);
-        return jsonData;
     }
-}
-
-function printError(error, msg) {
-    console.log('-------- error from ' + msg + ' --------');
-    console.log(error);
 }
 
 const separateCallsResult = [];
-(async () => {
-    try {
-        separateCallsResult.push(await getApiData(api1user));
-        separateCallsResult.push(await getApiData(api1posts));
-        separateCallsResult.push(await getApiData(api1todos));
-        separateCallsResult.push(await getApiData(apiShopV2Products));
-        separateCallsResult.push(await getApiData(apiShopV2Vendors));
-        separateCallsResult.push(await getApiData(apiShopV2Orders));
-        separateCallsResult.push(await getApiData(apiShopV2Customers));
-        separateCallsResult.push(await getApiData(apiDlpFields));
-        separateCallsResult.push(await getApiData(api3Articles));
-        separateCallsResult.push(await getApiData(api3People));
-        separateCallsResult.push(await getApiData(api3Comments));
-        separateCallsResult.push(await getApiData(api4genres));
-        separateCallsResult.push(await getApiData(api4stories));
-    } catch (error) {
-        printError(error, 'separately calls');
-        separateCallsResult.push(await getApiData('http://all.api.radio-browser.info/json/servers'));
-        console.log('after try to request second resource from separately calls');
-    }
-})();
+separateCallsResult.push(getApiData(api1user).then());
+separateCallsResult.push(getApiData(api1posts).then());
+separateCallsResult.push(getApiData(api1todos).then());
+separateCallsResult.push(getApiData(apiShopV2Products).then());
+separateCallsResult.push(getApiData(apiShopV2Vendors).then());
+separateCallsResult.push(getApiData(apiShopV2Orders).then());
+separateCallsResult.push(getApiData(apiShopV2Customers).then());
+separateCallsResult.push(getApiData(apiDlpFields).then());
+separateCallsResult.push(getApiData(api3Articles).then());
+separateCallsResult.push(getApiData(api3People).then());
+separateCallsResult.push(getApiData(api3Comments).then());
+separateCallsResult.push(getApiData(api4genres).then());
+separateCallsResult.push(getApiData(api4stories).then());
 
 const result = [];
 (async () => {
-    try {
-        let i = 0;
-        while (i < openApiUrls.length) {
-            result.push(await getApiData(openApiUrls[i]));
-            i++;
-        }
-    } catch (error) {
-        printError(error, 'while loop');
+    let i = 0;
+    while (i < openApiUrls.length) {
+        result.push(await getApiData(openApiUrls[i]));
+        i++;
     }
 })();
 
-const jsonResult = openApiUrls.map(async (url) => {
-    try {
-        return await getApiData(url);
-    } catch (error) {
-        printError(error, 'map loop');
-        const someJson = getApiData('http://all.api.radio-browser.info/json/servers');
-        console.log('after try to request second resource from a map loop');
-        console.log(someJson);
-        return someJson;
-    }
-});
+const jsonResult = openApiUrls.map(async (url) => await getApiData(url));
 
 setTimeout(() => console.log('-------- result --------\n', result), 3000);
 setTimeout(() => console.log('-------- separateCallsResult --------\n', separateCallsResult), 3000);
