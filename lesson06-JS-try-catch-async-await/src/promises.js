@@ -1,7 +1,9 @@
 // node lesson06-JS-try-catch-async-await/src/promises.js
 
 import {
-    openApi,
+    api1user,
+    api1posts,
+    api1todos,
     apiShopV2Products,
     apiShopV2Vendors,
     apiShopV2Orders,
@@ -10,8 +12,8 @@ import {
     api3Articles,
     api3People,
     api3Comments,
-    api3ArticlesAuthor,
-    api3ArticlesComments
+    api4genres,
+    api4stories
 } from './models/index.js';
 
 function getApiData(openApi) {
@@ -41,7 +43,9 @@ function processData(jsonData) {
     console.log(jsonData);
 }
 
-getApiData(openApi);
+getApiData(api1user);
+getApiData(api1posts);
+getApiData(api1todos);
 getApiData(apiShopV2Products);
 getApiData(apiShopV2Vendors);
 getApiData(apiShopV2Orders);
@@ -50,5 +54,5 @@ getApiData(apiDlpFields);
 getApiData(api3Articles);
 getApiData(api3People);
 getApiData(api3Comments);
-getApiData(api3ArticlesAuthor);
-getApiData(api3ArticlesComments);
+getApiData(api4genres);
+getApiData(api4stories);
