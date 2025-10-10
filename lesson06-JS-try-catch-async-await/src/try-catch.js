@@ -37,19 +37,22 @@ async function getApiData(url) {
 }
 
 const separateCallsResult = [];
-separateCallsResult.push(getApiData(api1user).then());
-separateCallsResult.push(getApiData(api1posts).then());
-separateCallsResult.push(getApiData(api1todos).then());
-separateCallsResult.push(getApiData(apiShopV2Products).then());
-separateCallsResult.push(getApiData(apiShopV2Vendors).then());
-separateCallsResult.push(getApiData(apiShopV2Orders).then());
-separateCallsResult.push(getApiData(apiShopV2Customers).then());
-separateCallsResult.push(getApiData(apiDlpFields).then());
-separateCallsResult.push(getApiData(api3Articles).then());
-separateCallsResult.push(getApiData(api3People).then());
-separateCallsResult.push(getApiData(api3Comments).then());
-separateCallsResult.push(getApiData(api4genres).then());
-separateCallsResult.push(getApiData(api4stories).then());
+(async () => {
+    separateCallsResult.push(await getApiData(api1user));
+    separateCallsResult.push(await getApiData(api1posts));
+    separateCallsResult.push(await getApiData(api1todos));
+    separateCallsResult.push(await getApiData(apiShopV2Products));
+    separateCallsResult.push(await getApiData(apiShopV2Vendors));
+    separateCallsResult.push(await getApiData(apiShopV2Orders));
+    separateCallsResult.push(await getApiData(apiShopV2Customers));
+    separateCallsResult.push(await getApiData(apiDlpFields));
+    separateCallsResult.push(await getApiData(api3Articles));
+    separateCallsResult.push(await getApiData(api3People));
+    separateCallsResult.push(await getApiData(api3Comments));
+    separateCallsResult.push(await getApiData(api4genres));
+    separateCallsResult.push(await getApiData(api4stories));
+    console.log('-------- separateCallsResult --------\n', separateCallsResult);
+})();
 
 const result = [];
 (async () => {
@@ -58,10 +61,8 @@ const result = [];
         result.push(await getApiData(openApiUrls[i]));
         i++;
     }
+    console.log('-------- result --------\n', result);
 })();
 
-const jsonResult = openApiUrls.map(async (url) => await getApiData(url));
-
-setTimeout(() => console.log('-------- result --------\n', result), 3000);
-setTimeout(() => console.log('-------- separateCallsResult --------\n', separateCallsResult), 3000);
+const jsonResult = openApiUrls.map((url) => getApiData(url).then());
 setTimeout(() => console.log('-------- jsonResult --------\n', jsonResult), 3000);

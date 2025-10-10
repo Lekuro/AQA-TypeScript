@@ -56,17 +56,18 @@ const separateCallsResult = [];
     separateCallsResult.push(await getApiData(api3Comments));
     separateCallsResult.push(await getApiData(api4genres));
     separateCallsResult.push(await getApiData(api4stories));
+    console.log('-------- separateCallsResult --------\n', separateCallsResult);
 })();
 
 const result = [];
-let i = 0;
-while (i < openApiUrls.length) {
-    result.push(getApiData(openApiUrls[i]).then());
-    i++;
-}
+(async () => {
+    let i = 0;
+    while (i < openApiUrls.length) {
+        result.push(await getApiData(openApiUrls[i]));
+        i++;
+    }
+    console.log('-------- result --------\n', result);
+})();
 
-const jsonResult = openApiUrls.map(async (url) => await getApiData(url));
-
-setTimeout(() => console.log('-------- result --------\n', result), 2000);
-setTimeout(() => console.log('-------- separateCallsResult --------\n', separateCallsResult), 2000);
-setTimeout(() => console.log('-------- jsonResult --------\n', jsonResult), 2000);
+const jsonResult = openApiUrls.map((url) => getApiData(url).then());
+setTimeout(() => console.log('-------- jsonResult --------\n', jsonResult), 3000);
