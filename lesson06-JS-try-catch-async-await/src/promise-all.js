@@ -2,6 +2,7 @@
 
 import { openApiUrls } from './models/index.js';
 
+console.log('-------- Promise.all together --------');
 const responses = await Promise.all(openApiUrls.map((url) => fetch(url)));
 responses.forEach((response) => {
     if (!response.ok) {
@@ -20,14 +21,11 @@ responses.forEach((response) => {
     console.log(jsonData);
 });
 
-// const [users, posts, comments] = await Promise.all([
-//     fetch(openApiUrls[0]),
-//     fetch(openApiUrls[2]),
-//     fetch(openApiUrls[3])
-// ]);
-// console.log('-------- users --------');
-// console.log(users);
-// console.log('-------- posts --------');
-// console.log(posts);
-// console.log('-------- comments --------');
-// console.log(comments);
+console.log('-------- Promise.all separately --------');
+const [posts, products, vendors] = await Promise.all([fetch(openApiUrls[0]), fetch(openApiUrls[1]), fetch(openApiUrls[2])]);
+console.log('-------- posts --------');
+console.log(posts);
+console.log('-------- products --------');
+console.log(products);
+console.log('-------- vendors --------');
+console.log(vendors);
