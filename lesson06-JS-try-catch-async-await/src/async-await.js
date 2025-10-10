@@ -41,32 +41,39 @@ async function getApiData(url) {
     }
 }
 
+const separateCallsResult = [];
 (async () => {
     try {
-        await getApiData(api1user);
-        await getApiData(api1posts);
-        await getApiData(api1todos);
-        await getApiData(apiShopV2Products);
-        await getApiData(apiShopV2Vendors);
-        await getApiData(apiShopV2Orders);
-        await getApiData(apiShopV2Customers);
-        await getApiData(apiDlpFields);
-        await getApiData(api3Articles);
-        await getApiData(api3People);
-        await getApiData(api3Comments);
-        await getApiData(api4genres);
-        await getApiData(api4stories);
+        separateCallsResult.push(await getApiData(api1user));
+        separateCallsResult.push(await getApiData(api1posts));
+        separateCallsResult.push(await getApiData(api1todos));
+        separateCallsResult.push(await getApiData(apiShopV2Products));
+        separateCallsResult.push(await getApiData(apiShopV2Vendors));
+        separateCallsResult.push(await getApiData(apiShopV2Orders));
+        separateCallsResult.push(await getApiData(apiShopV2Customers));
+        separateCallsResult.push(await getApiData(apiDlpFields));
+        separateCallsResult.push(await getApiData(api3Articles));
+        separateCallsResult.push(await getApiData(api3People));
+        separateCallsResult.push(await getApiData(api3Comments));
+        separateCallsResult.push(await getApiData(api4genres));
+        separateCallsResult.push(await getApiData(api4stories));
     } catch (error) {
         console.log('-------- error separately calls --------');
         console.log(error);
     }
 })();
 
-openApiUrls.forEach(async (url) => {
-    try {
-        await getApiData(url);
-    } catch (error) {
-        console.log('-------- error together calls --------');
-        console.log(error);
+const result = [];
+(async () => {
+    let i = 0;
+    while (i < openApiUrls.length) {
+        result.push(await getApiData(openApiUrls[i]));
+        i++;
     }
-});
+})();
+
+const jsonResult = openApiUrls.map(async (url) => await getApiData(url));
+
+setTimeout(() => console.log('-------- result --------\n', result), 2000);
+setTimeout(() => console.log('-------- separateCallsResult --------\n', separateCallsResult), 2000);
+setTimeout(() => console.log('-------- jsonResult --------\n', jsonResult), 2000);

@@ -1,6 +1,6 @@
 //free-apis.github.io/#/categories
 
-export const api1user = 'https://jsonplaceholder.typicode.com/users/1';
+export const api1user = 'https://jsonplaceholder.typicode.com/use';
 export const api1posts = 'https://jsonplaceholder.typicode.com/posts?userId=1';
 export const api1todos = 'https://jsonplaceholder.typicode.com/todos?userId=1';
 export const apiShopV2Products = 'https://api.predic8.de/shop/v2/products/1';
