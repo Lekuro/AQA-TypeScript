@@ -1,4 +1,4 @@
-// node lesson05-JS-function/src/function.js
+// node lesson07-TS-basics/src/function.js
 
 function getSumOfArrayValues(arr: number[] | string[]): number | string | void {
     try {

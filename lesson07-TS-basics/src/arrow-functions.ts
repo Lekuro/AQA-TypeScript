@@ -1,4 +1,5 @@
-// node lesson05-JS-function/src/arrow-functions.js
+// node lesson07-TS-basics/src/function.ts
+
 const getSumOfArrayValuesArrow = (array: number[] | string[]): number | string | void => {
     try {
         if (!Array.isArray(array)) {
@@ -24,6 +25,7 @@ const getSumOfArrayValuesArrow = (array: number[] | string[]): number | string |
         return `Error-message: ${error.message}, Error-status: ${error.status}`;
     }
 };
+
 console.log(getSumOfArrayValuesArrow([1, 2, 3, 4, 5]));
 console.log(getSumOfArrayValuesArrow(['one', 'two', 'three', 'four', 'five']));
 // console.log(getSumOfArrayValuesArrow([1, 2, 3, 4, '5']));
