@@ -4,22 +4,12 @@ const getSumOfArrayValuesArrow = (array: number[] | string[]): number | string |
     try {
         if (!Array.isArray(array)) {
             throw new Error('The data is not an array');
-        }
-        if (
-            array.some(
-                (value) =>
-                    typeof value === 'object' ||
-                    typeof value === 'undefined' ||
-                    typeof value === 'boolean' ||
-                    typeof value === 'symbol' ||
-                    typeof value === 'function'
-            )
-        ) {
-            throw new Error('Array contains other types of values than numbers or strings');
-        } else if (array.some((value) => typeof value === 'string')) {
+        } else if (array.every((value) => typeof value === 'string')) {
             return array.reduce((acc, value) => `${acc}${value}`, '');
         } else if (array.every((value) => typeof value === 'number')) {
             return array.reduce((acc, value) => acc + value, 0);
+        } else {
+            throw new Error('Array contains other types of values than numbers or strings');
         }
     } catch (error: any) {
         return `Error-message: ${error.message}, Error-status: ${error.status}`;
