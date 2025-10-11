@@ -19,6 +19,7 @@ import {
 
 async function getApiData(url) {
     try {
+        // console.log('-------- First URL call --------\n');
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status} for URL: ${response.url}`);
@@ -26,12 +27,13 @@ async function getApiData(url) {
         const jsonData = await response.json();
         return jsonData;
     } catch (error) {
-        if (error.message.includes('HTTP error! Status:')) {
-            const response = await fetch('http://all.api.radio-browser.info/json/servers');
+        // console.log('-------- Backup URL call --------\n');
+        try {
+            const response = await fetch('http://all.api.radio-browser.info/json/servers'); // https://dog.ceo/api/breeds/image/random
             const jsonData = await response.json();
             return jsonData;
-        } else {
-            throw error;
+        } catch (e) {
+            throw new Error(`Both fetch attempts failed. Original error: ${error.message}, Backup error: ${e.message}`);
         }
     }
 }
