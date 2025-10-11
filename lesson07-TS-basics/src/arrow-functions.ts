@@ -1,30 +1,37 @@
-// // node lesson05-JS-function/src/arrow-functions.js
-// const getSumOfArrayValues = (array) => {
-//     try {
-//         if (!Array.isArray(array)) {
-//             throw new Error('The data is not an array');
-//         }
-//     } catch (error) {
-//         return `Error-message: ${error.message}, Error-status: ${error.status}`;
-//     }
-//     try {
-//         if (array.some((value) => typeof value === 'object')) {
-//             throw new Error('Array contains objects');
-//         } else if (array.some((value) => typeof value === 'string')) {
-//             return array.reduce((acc, value) => acc + value, '');
-//         } else if (array.every((value) => typeof value === 'number')) {
-//             return array.reduce((acc, value) => acc + value, 0);
-//         }
-//     } catch (error) {
-//         return `Error-message: ${error.message}, Error-status: ${error.status}`;
-//     }
-// };
-// console.log(getSumOfArrayValues([1, 2, 3, 4, 5]));
-// const arrayNumbers = [1, 2, 3, 4, 5];
-// const arrayStrings = ['one', 'two', 'three', 'four', 'five'];
-// const arrayMixed = [1, 'two', true, ['one', 2, false], null, undefined, { one: 1, two: 2, three: 3 }];
-// console.log(getSumOfArrayValues(arrayNumbers, arrayStrings));
-// console.log(getSumOfArrayValues(arrayStrings, arrayNumbers));
-// console.log(getSumOfArrayValues([...arrayNumbers, ...arrayStrings]));
-// console.log(getSumOfArrayValues(...arrayNumbers, ...arrayStrings));
-// console.log(getSumOfArrayValues([...arrayMixed]));
+// node lesson05-JS-function/src/arrow-functions.js
+const getSumOfArrayValuesArrow = (array: number[] | string[]): number | string | void => {
+    try {
+        if (!Array.isArray(array)) {
+            throw new Error('The data is not an array');
+        }
+        if (
+            array.some(
+                (value) =>
+                    typeof value === 'object' ||
+                    typeof value === 'undefined' ||
+                    typeof value === 'boolean' ||
+                    typeof value === 'symbol' ||
+                    typeof value === 'function'
+            )
+        ) {
+            throw new Error('Array contains other types of values than numbers or strings');
+        } else if (array.some((value) => typeof value === 'string')) {
+            return array.reduce((acc, value) => `${acc}${value}`, '');
+        } else if (array.every((value) => typeof value === 'number')) {
+            return array.reduce((acc, value) => acc + value, 0);
+        }
+    } catch (error: any) {
+        return `Error-message: ${error.message}, Error-status: ${error.status}`;
+    }
+};
+console.log(getSumOfArrayValuesArrow([1, 2, 3, 4, 5]));
+console.log(getSumOfArrayValuesArrow(['one', 'two', 'three', 'four', 'five']));
+// console.log(getSumOfArrayValuesArrow([1, 2, 3, 4, '5']));
+// console.log(getSumOfArrayValuesArrow('one'));
+// console.log(getSumOfArrayValuesArrow([1, 2, 3, { name: 'John', age: 30 }, 5]));
+// console.log(getSumOfArrayValuesArrow([1, 2, 3, [1, 2, 3], 5]));
+// console.log(getSumOfArrayValuesArrow([1, 2, 3, undefined, 5]));
+// console.log(getSumOfArrayValuesArrow([1, 2, 3, null, 5]));
+// console.log(getSumOfArrayValuesArrow([1, 2, 3, false, 5]));
+// console.log(getSumOfArrayValuesArrow([1, 2, 3, Symbol('test'), 5]));
+// console.log(getSumOfArrayValuesArrow([1, 2, 3, () => console.log('test'), 5]));

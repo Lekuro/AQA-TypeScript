@@ -7,6 +7,8 @@
   "type": "modules",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
+    "build": "npm run lint && <build script>",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
