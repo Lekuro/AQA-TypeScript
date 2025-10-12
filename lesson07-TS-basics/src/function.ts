@@ -16,28 +16,19 @@ function getSumOfArrayValues(arr: number[] | string[]): number | string | void {
     }
 }
 
-function getSumOfArrayValuesGeneric<T>(arr: T): number | string | void {
-    try {
-        if (!Array.isArray(arr)) throw new Error('Array expected');
+function getSumOfArrayValuesGeneric<T>(arr: T[]): T {
+    if (arr.length === 0) {
+        throw new Error('Array is empty');
+    }
 
-        if (
-            arr.some(
-                (value) =>
-                    typeof value === 'object' ||
-                    typeof value === 'undefined' ||
-                    typeof value === 'boolean' ||
-                    typeof value === 'symbol' ||
-                    typeof value === 'function'
-            )
-        ) {
-            throw new Error('Array contains other types of values than numbers or strings');
-        } else if (arr.some((value) => typeof value === 'string')) {
-            return arr.reduce((acc, value) => `${acc}${value}`, '');
-        } else if (arr.every((value) => typeof value === 'number')) {
-            return arr.reduce((acc, value) => acc + value, 0);
-        }
-    } catch (error: any) {
-        console.error(`Error-message: ${error.message},\nError-status: ${error.status}`);
+    switch (typeof arr[0]) {
+        case 'string':
+            return arr.reduce((acc, value) => `${acc as string}${value as string}`, '') as T;
+        case 'number':
+            return arr.reduce((acc, value) => (acc as number) + (value as number), 0) as T;
+        default:
+            console.log(`Type: ${typeof arr[0]} is not supported`);
+            return undefined as T;
     }
 }
 
