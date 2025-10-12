@@ -1,41 +1,25 @@
 // node lesson07-TS-basics/src/function.js
+// npx ts-node src/function.ts
 
 function getSumOfArrayValues(arr: number[] | string[]): number | string | void {
-    try {
-        if (!Array.isArray(arr)) throw new Error('Array expected');
-
-        if (arr.every((value) => typeof value === 'string')) {
-            return arr.reduce((acc, value) => `${acc}${value}`, '');
-        } else if (arr.every((value) => typeof value === 'number')) {
-            return arr.reduce((acc, value) => acc + value, 0);
-        } else {
-            throw new Error('Array contains other types of values than numbers or strings');
-        }
-    } catch (error: any) {
-        console.error(`Error-message: ${error.message},\nError-status: ${error.status}`);
-    }
-}
-
-function getSumOfArrayValuesGeneric<T>(arr: T[]): T {
     if (arr.length === 0) {
         throw new Error('Array is empty');
     }
 
     switch (typeof arr[0]) {
         case 'string':
-            return arr.reduce((acc, value) => `${acc as string}${value as string}`, '') as T;
+            return arr.reduce((acc, value) => `${acc as string}${value as string}`, '') as string;
         case 'number':
-            return arr.reduce((acc, value) => (acc as number) + (value as number), 0) as T;
+            return arr.reduce((acc, value) => (acc as number) + (value as number), 0) as number;
         default:
             console.log(`Type: ${typeof arr[0]} is not supported`);
-            return undefined as T;
     }
 }
 
+console.log('-------- Normal function --------');
 console.log(getSumOfArrayValues([1, 2, 3, 4, 5]));
 console.log(getSumOfArrayValues(['one', 'two', 'three', 'four', 'five']));
 // console.log(getSumOfArrayValues([1, 2, 3, 4, '5']));
-// console.log(getSumOfArrayValues('one'));
 // console.log(getSumOfArrayValues([1, 2, 3, { name: 'John', age: 30 }, 5]));
 // console.log(getSumOfArrayValues([1, 2, 3, [1, 2, 3], 5]));
 // console.log(getSumOfArrayValues([1, 2, 3, undefined, 5]));
@@ -43,22 +27,10 @@ console.log(getSumOfArrayValues(['one', 'two', 'three', 'four', 'five']));
 // console.log(getSumOfArrayValues([1, 2, 3, false, 5]));
 // console.log(getSumOfArrayValues([1, 2, 3, Symbol('test'), 5]));
 // console.log(getSumOfArrayValues([1, 2, 3, () => console.log('test'), 5]));
-
-console.log('-------- Generic function --------');
-const arrayNumbers = [1, 2, 3, 4, 5];
-const arrayStrings = ['one', 'two', 'three', 'four', 'five'];
-console.log(getSumOfArrayValuesGeneric<number[]>(arrayNumbers));
-console.log(getSumOfArrayValuesGeneric<string[]>(arrayStrings));
-console.log(getSumOfArrayValuesGeneric([1, 2, 3, 4, '5']));
-console.log(getSumOfArrayValuesGeneric('one'));
-console.log(getSumOfArrayValuesGeneric([1, 2, 3, { name: 'John', age: 30 }, 5]));
-console.log(getSumOfArrayValuesGeneric([1, 2, 3, [1, 2, 3], 5]));
-console.log(getSumOfArrayValuesGeneric([1, 2, 3, undefined, 5]));
-console.log(getSumOfArrayValuesGeneric([1, 2, 3, null, 5]));
-console.log(getSumOfArrayValuesGeneric([1, 2, 3, false, 5]));
-console.log(getSumOfArrayValuesGeneric([1, 2, 3, Symbol('test'), 5]));
-console.log(getSumOfArrayValuesGeneric([1, 2, 3, () => console.log('test'), 5]));
-console.log(getSumOfArrayValuesGeneric<null[]>([null]));
-console.log(getSumOfArrayValuesGeneric<undefined[]>([undefined]));
-console.log(getSumOfArrayValuesGeneric<boolean[]>([true, false]));
-console.log(getSumOfArrayValuesGeneric<symbol[]>([Symbol('test'), Symbol(2)]));
+// console.log(getSumOfArrayValues<number>([1, 2, 3, 4, 5]));
+// console.log(getSumOfArrayValues<string>(['one', 'two', 'three', 'four', 'five']));
+// console.log(getSumOfArrayValues<null>([null]));
+// console.log(getSumOfArrayValues<undefined>([undefined]));
+// console.log(getSumOfArrayValues<boolean>([true, false]));
+// console.log(getSumOfArrayValues<symbol>([Symbol('test'), Symbol(2)]));
+// console.log(getSumOfArrayValues('one'));
