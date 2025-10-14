@@ -83,6 +83,7 @@ echo 'node_modules/' > .gitignore
 echo 'build/' >> .gitignore
 echo '.vscode/' >> .gitignore
 echo '.idea/' >> .gitignore
+echo '**/*.js' >> .gitignore
 ```
 
 ### Check as ESLint work add code.ts file
