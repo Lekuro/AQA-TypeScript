@@ -89,12 +89,12 @@ export class ApiUserWithPostClassDto extends ApiUserClassDto {
         this.company = user.company as ApiCompanyClassDto;
         this.posts = [] as ApiPostClassDto[];
         (async () => {
-            await this._getPosts(this.id);
+            await this.getPosts();
         })();
     }
-    private async _getPosts(id: number): Promise<void> {
+    public async getPosts(): Promise<void> {
         try {
-            const response = await fetch(ApiUserWithPostClassDto.postUrl + id);
+            const response = await fetch(ApiUserWithPostClassDto.postUrl + this.id);
             const jsonData = await response.json();
             this.posts = jsonData as ApiPostClassDto[];
         } catch (error) {
