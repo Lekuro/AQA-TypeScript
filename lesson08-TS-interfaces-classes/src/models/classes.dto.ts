@@ -14,11 +14,9 @@ export class ApiUserClassDto {
         this.username = row.username as string;
         this.email = row.email as string;
         this.address = new ApiAddressClassDto(row.address as Record<string, unknown>);
-        // this.address = row.address as { street: string; suite: string; city: string; zipcode: string; geo: { lat: string; lng: string }};
         this.phone = row.phone as string;
         this.website = row.website as string;
         this.company = new ApiCompanyClassDto(row.company as Record<string, unknown>);
-        // this.company = row.company as { name: string; catchPhrase: string; bs: string };
     }
 }
 
@@ -35,7 +33,6 @@ class ApiAddressClassDto {
         this.city = row.city as string;
         this.zipcode = row.zipcode as string;
         this.geo = new ApiGeoClassDto(row.geo as Record<string, unknown>);
-        // this.geo = row.geo as { lat: string; lng: string };
     }
 }
 
@@ -78,7 +75,6 @@ class ApiPostClassDto {
 export class ApiUserWithPostClassDto extends ApiUserClassDto {
     private static postUrl = 'https://jsonplaceholder.typicode.com/posts?userId=';
 
-
     public posts: ApiPostClassDto[];
 
     public constructor(user: Record<string, unknown>) {
@@ -91,7 +87,7 @@ export class ApiUserWithPostClassDto extends ApiUserClassDto {
         this.phone = user.phone as string;
         this.website = user.website as string;
         this.company = user.company as ApiCompanyClassDto;
-        this.posts = [];
+        this.posts = [] as ApiPostClassDto[];
         (async () => {
             await this._getPosts(this.id);
         })();

@@ -33,7 +33,7 @@ async function getApiUsersDataByClass(): Promise<ApiUserClassDto[]> {
 }
 
 function getApiUserWithPostsByClass(user: ApiUserClassDto): ApiUserWithPostClassDto {
-    const userWithPost = new ApiUserWithPostClassDto(user);
+    const userWithPost = new ApiUserWithPostClassDto(user as unknown as Record<string, unknown>);
     return userWithPost as ApiUserWithPostClassDto;
 }
 
@@ -50,6 +50,6 @@ function getApiUserWithPostsByClass(user: ApiUserClassDto): ApiUserWithPostClass
     console.log('-------- user from class dto --------\n', typeof userFromClass);
     const usersFromClass = await getApiUsersDataByClass();
     console.log('-------- user from class dto --------\n', usersFromClass);
-    const userWithPost = getApiUserWithPostsByClass(userFromClass);
+    const userWithPost = await getApiUserWithPostsByClass(userFromClass);
     console.log('-------- user with posts from class dto --------\n', userWithPost);
 })();
