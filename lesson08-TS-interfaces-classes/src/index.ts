@@ -33,7 +33,7 @@ async function getApiUsersDataByClass(): Promise<ApiUserClassDto[]> {
 }
 
 function getApiUserWithPostsByClass(user: ApiUserClassDto): ApiUserWithPostClassDto {
-    const userWithPost = new ApiUserWithPostClassDto(user);
+    const userWithPost = new ApiUserWithPostClassDto(user as unknown as Record<string, unknown>);
     return userWithPost as ApiUserWithPostClassDto;
 }
 
