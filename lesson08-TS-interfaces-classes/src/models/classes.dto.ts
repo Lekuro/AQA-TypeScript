@@ -81,19 +81,19 @@ export class ApiUserWithPostClassDto extends ApiUserClassDto {
 
     public posts: ApiPostClassDto[];
 
-    public constructor(user: ApiUserClassDto) {
-        super({ 'don"t now how to do it': user });
-        this.id = user.id;
-        this.name = user.name;
-        this.username = user.username;
-        this.email = user.email;
+    public constructor(user: Record<string, unknown>) {
+        super(user);
+        this.id = user.id as number;
+        this.name = user.name as string;
+        this.username = user.username as string;
+        this.email = user.email as string;
         this.address = JSON.parse(JSON.stringify(user.address)) as ApiAddressClassDto;
-        this.phone = user.phone;
-        this.website = user.website;
+        this.phone = user.phone as string;
+        this.website = user.website as string;
         this.company = user.company as ApiCompanyClassDto;
         this.posts = [];
         (async () => {
-            await this._getPosts(user.id);
+            await this._getPosts(this.id);
         })();
     }
     private async _getPosts(id: number): Promise<void> {
