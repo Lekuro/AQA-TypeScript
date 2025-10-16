@@ -50,7 +50,7 @@ function getApiUserWithPostsByClass(user: ApiUserClassDto): ApiUserWithPostClass
     console.log('-------- user from class dto --------\n', typeof userFromClass);
     const usersFromClass = await getApiUsersDataByClass();
     console.log('-------- user from class dto --------\n', usersFromClass);
-    const userWithPost = await getApiUserWithPostsByClass(userFromClass);
+    const userWithPost = getApiUserWithPostsByClass(userFromClass);
     await userWithPost.getPosts();
     console.log('-------- user with posts from class dto --------\n', userWithPost);
 })();

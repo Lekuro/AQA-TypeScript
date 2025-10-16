@@ -30,9 +30,15 @@ export abstract class AbstractQuadrangle {
                 throw new Error('Sum of angles must be 360');
             }
             this.angle12 = rest[0];
-            this.angle14 = rest[1];
-            this.angle23 = rest[2];
-            this.angle34 = rest[3];
+            this.angle23 = rest[1];
+            this.angle34 = rest[2];
+            this.angle14 = rest[3];
+            if (rest.some((angle) => angle > 180)) {
+                AbstractQuadrangle.nameOfQuadrangle = 'Concave quadrangle';
+            } else {
+                AbstractQuadrangle.nameOfQuadrangle = 'Convex quadrangle';
+            }
+            // AbstractQuadrangle.nameOfQuadrangle = rest.some((angle) => angle > 180) ? 'Concave quadrangle' : 'Convex quadrangle';
         }
     }
 

@@ -88,9 +88,6 @@ export class ApiUserWithPostClassDto extends ApiUserClassDto {
         this.website = user.website as string;
         this.company = user.company as ApiCompanyClassDto;
         this.posts = [] as ApiPostClassDto[];
-        (async () => {
-            await this.getPosts();
-        })();
     }
     public async getPosts(): Promise<void> {
         try {
