@@ -42,7 +42,7 @@ export abstract class AbstractQuadrangle {
         }
     }
 
-    public abstract getArea(): number;
+    public abstract getArea(): number | string;
 
     public getPerimeter(): number {
         return this.side1 + this.side2 + this.side3 + this.side4;
