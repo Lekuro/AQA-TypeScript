@@ -1,7 +1,7 @@
-import { AbstractQuadrangle } from 'src/abstraction/abstract-quadrangle';
+import { AbstractQuadrangle } from '../abstraction/abstract-quadrangle';
 
 export class Parallelogram extends AbstractQuadrangle {
-    public static nameOfQuadrangle = 'Parallelogram';
+    public nameOfQuadrangle = 'Parallelogram';
 
     public constructor(side1: number, side2: number, angle12: number, angle34: number) {
         super(side1, side2, side1, side2, angle12, angle34, angle12, angle34);
@@ -13,10 +13,13 @@ export class Parallelogram extends AbstractQuadrangle {
 }
 
 export class Kite extends AbstractQuadrangle {
-    public static nameOfQuadrangle = 'Kite';
+    public nameOfQuadrangle = 'Kite';
 
     public constructor(side1: number, side2: number, angle12: number, angle23: number, angle34: number) {
-        super(side1, side1, side2, side2, angle12, angle23, angle34, angle12);
+        if (angle12 + 2 * angle23 + angle34 !== 360) {
+            throw new Error('Sum of Kite angles must be 360');
+        }
+        super(side1, side1, side2, side2, angle12, angle23, angle34, angle23);
     }
 
     public getArea(): string {
@@ -25,7 +28,7 @@ export class Kite extends AbstractQuadrangle {
 }
 
 export class Rectangle extends AbstractQuadrangle {
-    public static nameOfQuadrangle = 'Rectangle';
+    public nameOfQuadrangle = 'Rectangle';
 
     public constructor(side1: number, side2: number) {
         super(side1, side2, side1, side2, 90, 90, 90, 90);
@@ -37,7 +40,7 @@ export class Rectangle extends AbstractQuadrangle {
 }
 
 export class Rhombus extends AbstractQuadrangle {
-    public static nameOfQuadrangle = 'Rhombus';
+    public nameOfQuadrangle = 'Rhombus';
 
     public constructor(side1: number, angle12: number, angle34: number) {
         super(side1, side1, side1, side1, angle12, angle34, angle12, angle34);
@@ -49,7 +52,7 @@ export class Rhombus extends AbstractQuadrangle {
 }
 
 export class Square extends AbstractQuadrangle {
-    public static nameOfQuadrangle = 'Square';
+    public nameOfQuadrangle = 'Square';
 
     public constructor(side1: number) {
         super(side1, side1, side1, side1, 90, 90, 90, 90);

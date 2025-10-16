@@ -1,5 +1,5 @@
 export abstract class AbstractQuadrangle {
-    public static nameOfQuadrangle = 'Quadrangle';
+    public nameOfQuadrangle = 'Quadrangle';
 
     public side1: number;
     public side2: number;
@@ -12,7 +12,7 @@ export abstract class AbstractQuadrangle {
     public angle34?: number;
 
     public constructor(side1: number, side2: number, side3: number, side4: number, ...rest: number[]) {
-        if (side1 <= 0 || side2 <= 0 || side3 <= 0 || side4) {
+        if (side1 <= 0 || side2 <= 0 || side3 <= 0 || side4 <= 0) {
             throw new Error('Sides must be greater than 0');
         }
         if (side1 + side2 + side3 <= side4 || side1 + side3 + side4 <= side2 || side1 + side2 + side4 <= side3) {
@@ -33,11 +33,11 @@ export abstract class AbstractQuadrangle {
             this.angle23 = rest[1];
             this.angle34 = rest[2];
             this.angle14 = rest[3];
-            if (rest.some((angle) => angle > 180)) {
-                AbstractQuadrangle.nameOfQuadrangle = 'Concave quadrangle';
-            } else {
-                AbstractQuadrangle.nameOfQuadrangle = 'Convex quadrangle';
-            }
+            // if (rest.some((angle) => angle > 180)) {
+            //     this.nameOfQuadrangle = 'Concave quadrangle';
+            // } else {
+            //     this.nameOfQuadrangle = 'Convex quadrangle';
+            // }
             // AbstractQuadrangle.nameOfQuadrangle = rest.some((angle) => angle > 180) ? 'Concave quadrangle' : 'Convex quadrangle';
         }
     }
@@ -46,5 +46,16 @@ export abstract class AbstractQuadrangle {
 
     public getPerimeter(): number {
         return this.side1 + this.side2 + this.side3 + this.side4;
+    }
+
+    public print(): void {
+        console.log(`-------- ${this.nameOfQuadrangle} --------`);
+        console.log(`Quadrangle type: ${this.nameOfQuadrangle}`);
+        console.log(`Sides: ${this.side1}, ${this.side2}, ${this.side3}, ${this.side4}`);
+        if (this.angle12 !== undefined) {
+            console.log(`Angles: ${this.angle12}, ${this.angle23}, ${this.angle34}, ${this.angle14}`);
+        }
+        console.log(`Perimeter: ${this.getPerimeter()}`);
+        console.log(`Area: ${this.getArea()}`);
     }
 }
