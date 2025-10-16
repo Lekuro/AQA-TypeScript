@@ -47,9 +47,9 @@ function getApiUserWithPostsByClass(user: ApiUserClassDto): ApiUserWithPostClass
     const todos = await getApiObjectsDataGeneric<ApiTodosDto>(api1todos);
     console.log('-------- todos --------\n', todos);
     const userFromClass = await getApiUserDataByClass(1);
-    console.log('-------- user from class dto --------\n', typeof userFromClass);
+    console.log('-------- user from class dto --------\n', userFromClass);
     const usersFromClass = await getApiUsersDataByClass();
-    console.log('-------- user from class dto --------\n', usersFromClass);
+    console.log('-------- users from class dto --------\n', usersFromClass);
     const userWithPost = getApiUserWithPostsByClass(userFromClass);
     await userWithPost.getPosts();
     console.log('-------- user with posts from class dto --------\n', userWithPost);
