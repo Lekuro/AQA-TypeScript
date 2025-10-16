@@ -15,30 +15,35 @@ export abstract class AbstractQuadrangle {
         if (side1 <= 0 || side2 <= 0 || side3 <= 0 || side4 <= 0) {
             throw new Error('Sides must be greater than 0');
         }
+
         if (side1 + side2 + side3 <= side4 || side1 + side3 + side4 <= side2 || side1 + side2 + side4 <= side3) {
             throw new Error('It is not a quadrangle');
         }
+
         this.side1 = side1;
         this.side2 = side2;
         this.side3 = side3;
         this.side4 = side4;
+
         if (rest.length === 4) {
             if (rest.some((angle) => angle <= 0)) {
                 throw new Error('Angles must be greater than 0');
             }
+
             if (rest.reduce((acc, angle) => acc + angle, 0) !== 360) {
                 throw new Error('Sum of angles must be 360');
             }
+
             this.angle12 = rest[0];
             this.angle23 = rest[1];
             this.angle34 = rest[2];
             this.angle14 = rest[3];
-            // if (rest.some((angle) => angle > 180)) {
-            //     this.nameOfQuadrangle = 'Concave quadrangle';
-            // } else {
-            //     this.nameOfQuadrangle = 'Convex quadrangle';
-            // }
-            // AbstractQuadrangle.nameOfQuadrangle = rest.some((angle) => angle > 180) ? 'Concave quadrangle' : 'Convex quadrangle';
+
+            if (rest.some((angle) => angle > 180)) {
+                this.nameOfQuadrangle += ' Concave';
+            } else {
+                this.nameOfQuadrangle += ' Convex';
+            }
         }
     }
 
