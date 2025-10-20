@@ -1,3 +1,16 @@
+export interface ApiUserWithPostTodosDto {
+    user: ApiUsersDto;
+    posts: ApiPostsDto[];
+    todos: ApiTodosDto[];
+}
+
+export interface ApiUserWithShortPostAndTodosDto {
+    id: number;
+    username: string;
+    posts: string[];
+    todos: string[];
+}
+
 export interface ApiUsersDto {
     id: number;
     name: string;
