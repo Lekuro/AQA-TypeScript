@@ -21,12 +21,15 @@ export class College implements ICollege {
 
     public addStudent(student: IStudent): number {
         this.students.push(student);
-        return this.students.indexOf(student) + 1;
+        const id = this.students.indexOf(student) + 1;
+        student.id = id;
+        return id;
     }
 
     public addClassroom(classroom: IClassroom): number {
         this.classrooms.push(classroom);
-        return this.classrooms.indexOf(classroom) + 1;
+        classroom.id = this.classrooms.indexOf(classroom) + 1;
+        return classroom.id;
     }
 
     public getTeachers(): ITeacher[] {
@@ -49,7 +52,11 @@ export class College implements ICollege {
         return this.students.find((student) => student.id === id) as IStudent;
     }
 
-    public getClassroomByName(name: string): IClassroom {
+    private getClassroomByName(name: string): IClassroom {
         return this.classrooms.find((classroom) => classroom.name === name) as IClassroom;
+    }
+
+    public getClassroomById(id: number): IClassroom {
+        return this.classrooms.find((classroom) => classroom.id === id) as IClassroom;
     }
 }

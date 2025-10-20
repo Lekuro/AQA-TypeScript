@@ -1,5 +1,4 @@
 import { IStudent, ITeacher, IClassroom } from './index';
-import { add } from '../../../lesson07-TS-basics/src/knowledge/void-never';
 
 export interface ICollege {
     name: string;
@@ -16,6 +15,6 @@ export interface ICollege {
     getClassrooms(): IClassroom[];
     getTeacherById(id: number): ITeacher;
     getStudentById(id: number): IStudent;
-    getClassroomByName(name: string): IClassroom;
-
+    getClassroomById(id: number): IClassroom;
+    // getClassroomByName(name: string): IClassroom;
 }

@@ -10,9 +10,9 @@ export enum Level {
 export interface IStudent {
     id: number | undefined;
     name: string;
-    age: number;
+    // age: number;
     courses: string[];
-    address: { country: string; city: string };
+    // address: { country: string; city: string };
     level: Level;
     lessons: ILesson[];
 

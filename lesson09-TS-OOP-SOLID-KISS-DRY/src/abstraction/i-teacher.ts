@@ -3,7 +3,7 @@ import { IClassroom, ILesson } from './index';
 export interface ITeacher {
     id: number | undefined;
     name: string;
-    _age: number;
+    // _age: number;
     subject: string;
     experience: number;
 
