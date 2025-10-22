@@ -3,17 +3,17 @@ import { IStudent, Level, ILesson } from '../abstraction/index';
 export class Student implements IStudent {
     public id: number | undefined;
     public name: string;
-    private age: number;
+    private _age: number;
     public courses: string[];
-    private address: { country: string; city: string };
+    private _address: { country: string; city: string };
     public level: Level;
     public lessons: ILesson[];
 
     public constructor(name: string, age: number, address: { country: string; city: string }, level: Level) {
         this.id = undefined;
         this.name = name;
-        this.age = age;
-        this.address = address;
+        this._age = age;
+        this._address = address;
         this.level = level;
         this.courses = [];
         this.lessons = [];

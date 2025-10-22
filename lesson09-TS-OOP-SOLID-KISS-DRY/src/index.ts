@@ -1,5 +1,5 @@
 import { ApiUserWithPostAndTodos, ApiUserWithShortPostAndTodosDto } from './models/index';
-import { College, Teacher, Student, Classroom, Lesson } from './implementation/index';
+import { College, Teacher, Student, Classroom, Lesson, Intern } from './implementation/index';
 import { Level } from './abstraction/index';
 import { University } from './implementation/university';
 
@@ -27,6 +27,7 @@ const student1 = new Student('John', 20, { country: 'USA', city: 'Texas' }, Leve
 const student2 = new Student('Jane', 21, { country: 'Ukraine', city: 'Kyiv' }, Level.senior);
 const student3 = new Student('Jack', 19, { country: 'Germany', city: 'Berlin' }, Level.sophomore);
 const student4 = new Student('Jill', 18, { country: 'France', city: 'Paris' }, Level.freshman);
+const studentIntern = new Intern('John', 21, { country: 'USA', city: 'New York' }, 'Math');
 const mathTeacher = new Teacher('Mike', 40, 'Math', 10);
 const englishTeacher = new Teacher('Mary', 35, 'English', 8);
 const coach = new Teacher('Bob', 45, 'Coach', 12);
@@ -47,6 +48,8 @@ college.addStudent(student1);
 college.addStudent(student2);
 college.addStudent(student3);
 college.addStudent(student4);
+college.addStudent(studentIntern);
+college.addTeacher(studentIntern);
 if (coach.bookClassroom(gym, '11:00')) {
     coach.giveLesson(lessonTrainings);
 }
@@ -55,6 +58,9 @@ if (mathTeacher.bookClassroom(mathClass, '11:00')) {
 }
 if (englishTeacher.bookClassroom(englishClass, '9:00')) {
     englishTeacher.giveLesson(lesson2);
+}
+if (studentIntern.bookClassroom(mathClass, '13:00')) {
+    studentIntern.giveLesson(lesson1);
 }
 console.log('-------- college --------\n', college);
 console.log('-------- lessons --------\n', student1.lessons);
