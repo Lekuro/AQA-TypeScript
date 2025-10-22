@@ -1,7 +1,12 @@
-export interface ApiUserWithPostTodosDto {
+export interface ApiUserPostTodosDto {
     user: ApiUsersDto;
     posts: ApiPostsDto[];
     todos: ApiTodosDto[];
+}
+
+export interface ApiUserWithPostsAndTodosDto {
+    posts?: ApiPostsDto[];
+    todos?: ApiTodosDto[];
 }
 
 export interface ApiUserWithShortPostAndTodosDto {
@@ -22,7 +27,7 @@ export interface ApiUsersDto {
     company: ApiUserCompanyDto;
 }
 
-interface ApiUserAddressDto {
+export interface ApiUserAddressDto {
     street: string;
     suite: string;
     city: string;
@@ -35,7 +40,7 @@ interface ApiUserAddressGeoDto {
     lng: string;
 }
 
-interface ApiUserCompanyDto {
+export interface ApiUserCompanyDto {
     name: string;
     catchPhrase: string;
     bs: string;
