@@ -1,22 +1,13 @@
-import { ICollege, ITeacher, IStudent, IClassroom } from '../abstraction/index';
+import { IUniversity, ITeacher, IStudent, IClassroom } from '../abstraction/index';
+import { College } from '../implementation/index';
 
-export class University implements ICollege {
-    public name: string;
-    public address: string;
-    public classrooms: IClassroom[] = [];
-    public teachers: ITeacher[] = [];
-    public students: IStudent[] = [];
+// OCP - Open/Closed Principle
+// Open to extension, closed to modification
+export class University extends College implements IUniversity {
     public type = 'university';
 
     public constructor(name: string, address: string) {
-        this.name = name;
-        this.address = address;
-    }
-
-    public addTeacher(teacher: ITeacher): number {
-        this.teachers.push(teacher);
-        teacher.id = this.teachers.indexOf(teacher) + 1;
-        return teacher.id;
+        super(name, address);
     }
 
     public addTeachers(teachers: ITeacher[]): boolean {
@@ -29,12 +20,6 @@ export class University implements ICollege {
         }
     }
 
-    public addStudent(student: IStudent): number {
-        this.students.push(student);
-        student.id = this.students.indexOf(student) + 1;
-        return student.id;
-    }
-
     public addStudents(students: IStudent[]): boolean {
         try {
             students.forEach((student) => this.addStudent(student));
@@ -43,40 +28,6 @@ export class University implements ICollege {
             console.log(error);
             return false;
         }
-    }
-
-    public addClassroom(classroom: IClassroom): number {
-        this.classrooms.push(classroom);
-        classroom.id = this.classrooms.indexOf(classroom) + 1;
-        return classroom.id;
-    }
-
-    public getTeachers(): ITeacher[] {
-        return this.teachers;
-    }
-
-    public getStudents(): IStudent[] {
-        return this.students;
-    }
-
-    public getClassrooms(): IClassroom[] {
-        return this.classrooms;
-    }
-
-    public getTeacherById(id: number): ITeacher {
-        return this.teachers.find((teacher) => teacher.id === id) as ITeacher;
-    }
-
-    public getStudentById(id: number): IStudent {
-        return this.students.find((student) => student.id === id) as IStudent;
-    }
-
-    public getClassroomById(id: number): IClassroom {
-        return this.classrooms.find((classroom) => classroom.id === id) as IClassroom;
-    }
-
-    public getClassroomByName(name: string): IClassroom {
-        return this.classrooms.find((classroom) => classroom.name === name) as IClassroom;
     }
 
     public makeFunEvent(visitors: (IStudent | ITeacher)[], classroom: IClassroom, time: string): boolean {
