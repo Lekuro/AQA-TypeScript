@@ -3,9 +3,9 @@
 ### First steps
 
 ```
-git checkout -b 08-TS-interfaces-classes
-mkdir lesson08-TS-interfaces-classes
-cd lesson08-TS-interfaces-classes
+git checkout -b 09-OOP-SOLID-KISS-DRY
+mkdir lesson09-OOP-SOLID-KISS-DRY
+cd lesson09-OOP-SOLID-KISS-DRY
 touch README.md
 mkdir src
 ```
