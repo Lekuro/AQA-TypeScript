@@ -4,3 +4,5 @@ export * from './lesson';
 export * from './student';
 export * from './teacher';
 export * from './intern';
+export * from './university';
+export * from './inspection';

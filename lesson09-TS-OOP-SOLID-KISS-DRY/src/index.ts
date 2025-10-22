@@ -1,5 +1,5 @@
 import { ApiUserPostsTodos, ApiUserWithPostsAndTodos, ApiUserWithShortPostAndTodosDto } from './models/index';
-import { College, Teacher, Student, Classroom, Lesson, Intern } from './implementation/index';
+import { College, Teacher, Student, Classroom, Lesson, Intern, Inspection } from './implementation/index';
 import { Level } from './abstraction/index';
 import { University } from './implementation/university';
 
@@ -13,19 +13,19 @@ function getUserWithShortInfo(user: ApiUserPostsTodos): ApiUserWithShortPostAndT
     return { id: user.id, username: user.user.username, posts: posts, todos: todos };
 }
 
-(async () => {
-    const user1 = new ApiUserPostsTodos(3);
-    await user1.getUser();
-    await user1.getPosts();
-    await user1.getTodos();
-    printFullUser(user1);
-    const user = new ApiUserWithPostsAndTodos(user1.user);
-    await user.getPosts();
-    await user.getTodos();
-    console.log('-------- user with posts and todos --------\n', user);
-    const shortUser1 = getUserWithShortInfo(user1);
-    console.log('-------- user with short info --------\n', shortUser1);
-})();
+// (async () => {
+//     const user1 = new ApiUserPostsTodos(3);
+//     await user1.getUser();
+//     await user1.getPosts();
+//     await user1.getTodos();
+//     printFullUser(user1);
+//     const user = new ApiUserWithPostsAndTodos(user1.user);
+//     await user.getPosts();
+//     await user.getTodos();
+//     console.log('-------- user with posts and todos --------\n', user);
+//     const shortUser1 = getUserWithShortInfo(user1);
+//     console.log('-------- user with short info --------\n', shortUser1);
+// })();
 
 const student1 = new Student('John', 20, { country: 'USA', city: 'Texas' }, Level.junior);
 const student2 = new Student('Jane', 21, { country: 'Ukraine', city: 'Kyiv' }, Level.senior);
@@ -75,3 +75,7 @@ university.addStudents([student1, student2, student3, student4]);
 university.addTeachers([mathTeacher, englishTeacher, coach]);
 console.log('-------- university --------\n', university);
 university.makeFunEvent([student1, student2, student3, coach], universityGym, '11:00');
+
+const inspection = new Inspection();
+console.log('Williams College is inspected: ', inspection.inspect(college));
+console.log('Johns Hopkins University is inspected: ', inspection.inspect(university));
