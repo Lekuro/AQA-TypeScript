@@ -1,6 +1,8 @@
-import { ILesson, IClassroom, ITeacher } from '../abstraction/index';
+import { ILesson, IClassroom, ITeacher, IExternalCourse } from '../abstraction/index';
 
-export class Teacher implements ITeacher {
+// ISL - Interface Segregation Principle
+// Better example because small interfaces IExternalCourse could be used for ITeacher or IIntern too!
+export class Teacher implements ITeacher, IExternalCourse {
     public id: number | undefined;
     public name: string;
     private _age: number;
@@ -22,5 +24,9 @@ export class Teacher implements ITeacher {
     public giveLesson(lesson: ILesson): boolean {
         lesson.students.forEach((student) => student.attendLesson(lesson));
         return true;
+    }
+
+    public makeExternalCourse(): void {
+        console.log(`The teacher ${this.name} is giving an external course!`);
     }
 }

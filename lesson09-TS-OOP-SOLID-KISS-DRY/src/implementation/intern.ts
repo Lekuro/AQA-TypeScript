@@ -1,6 +1,7 @@
 import { IStudent, Level, ILesson, IClassroom, ITeacher } from '../abstraction/index';
 
 // ISL - Interface Segregation Principle
+// Bad example because it combine two big interfaces
 export class Intern implements IStudent, ITeacher {
     public id: number | undefined;
     public name: string;

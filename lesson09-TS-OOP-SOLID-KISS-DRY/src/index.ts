@@ -13,19 +13,19 @@ function getUserWithShortInfo(user: ApiUserPostsTodos): ApiUserWithShortPostAndT
     return { id: user.id, username: user.user.username, posts: posts, todos: todos };
 }
 
-// (async () => {
-//     const user1 = new ApiUserPostsTodos(3);
-//     await user1.getUser();
-//     await user1.getPosts();
-//     await user1.getTodos();
-//     printFullUser(user1);
-//     const user = new ApiUserWithPostsAndTodos(user1.user);
-//     await user.getPosts();
-//     await user.getTodos();
-//     console.log('-------- user with posts and todos --------\n', user);
-//     const shortUser1 = getUserWithShortInfo(user1);
-//     console.log('-------- user with short info --------\n', shortUser1);
-// })();
+(async () => {
+    const user1 = new ApiUserPostsTodos(3);
+    await user1.getUser();
+    await user1.getPosts();
+    await user1.getTodos();
+    printFullUser(user1);
+    const user = new ApiUserWithPostsAndTodos(user1.user);
+    await user.getPosts();
+    await user.getTodos();
+    console.log('-------- user with posts and todos --------\n', user);
+    const shortUser1 = getUserWithShortInfo(user1);
+    console.log('-------- user with short info --------\n', shortUser1);
+})();
 
 const student1 = new Student('John', 20, { country: 'USA', city: 'Texas' }, Level.junior);
 const student2 = new Student('Jane', 21, { country: 'Ukraine', city: 'Kyiv' }, Level.senior);
@@ -54,6 +54,8 @@ college.addStudent(student3);
 college.addStudent(student4);
 college.addStudent(studentIntern);
 college.addTeacher(studentIntern);
+englishTeacher.makeExternalCourse();
+student1.makeExternalCourse();
 if (coach.bookClassroom(gym, '11:00')) {
     coach.giveLesson(lessonTrainings);
 }
