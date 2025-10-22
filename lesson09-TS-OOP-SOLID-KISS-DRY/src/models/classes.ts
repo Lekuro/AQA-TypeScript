@@ -76,25 +76,6 @@ export class ApiUserClass {
         this.website = user.website;
         this.company = user.company;
     }
-    // public constructor(
-    //     id: number,
-    //     name: string,
-    //     username: string,
-    //     email: string,
-    //     address: ApiUserAddressDto,
-    //     phone: string,
-    //     website: string,
-    //     company: ApiUserCompanyDto
-    // ) {
-    //     this.id = id;
-    //     this.name = name;
-    //     this.username = username;
-    //     this.email = email;
-    //     this.address = address;
-    //     this.phone = phone;
-    //     this.website = website;
-    //     this.company = company;
-    // }
 }
 
 // OCP - Open/Closed Principle

@@ -39,4 +39,7 @@ export class University extends College implements IUniversity {
         }
         return false;
     }
+
+    // private graduateWithBachelor();
+    // private graduateWithMasters();
 }
