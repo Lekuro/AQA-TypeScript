@@ -1,4 +1,4 @@
-declare module 'jasmine';
+// declare module 'jasmine';
 describe('A suite is just a function', function () {
     let a;
 
