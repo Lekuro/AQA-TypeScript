@@ -29,13 +29,19 @@ describe('-------- Classroom unit tests --------', () => {
     describe('FreeTime methods', () => {
         it('should update freeTimes and bookedTimes properties', () => {
             // Arrange
-            classroom.bookTime('11:00');
-            classroom.bookTime('15:00');
-            classroom.bookTime('19:00');
+            class TestClassroom extends Classroom {
+                public callFreeTime(time: string): void {
+                    this.freeTime(time);
+                }
+            }
+            const classroom1 = new TestClassroom('someClassRoom', 25);
+            classroom1.bookTime('11:00');
+            classroom1.bookTime('15:00');
+            classroom1.bookTime('19:00');
             // Act
-            classroom.freeTime('11:00');
-            classroom.freeTime('15:00');
-            classroom.freeTime('19:00');
+            classroom1.callFreeTime('11:00');
+            classroom1.callFreeTime('15:00');
+            classroom1.callFreeTime('19:00');
             // Assert
             expect(classroom.freeTimes).to.deep.equal(schedule);
             expect(classroom.bookedTimes).to.deep.equal([]);

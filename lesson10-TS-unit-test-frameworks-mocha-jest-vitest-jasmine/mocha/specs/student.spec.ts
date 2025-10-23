@@ -13,8 +13,8 @@ describe('-------- Student unit tests --------', () => {
             // Assert
             expect(student.id).to.equal(undefined);
             expect(student.name).to.equal('John Doe');
-            expect(student._age).to.equal(20);
-            expect(student._address).to.deep.equal({ country: 'USA', city: 'New York' });
+            expect(student.age).to.equal(20);
+            expect(student.address).to.deep.equal({ country: 'USA', city: 'New York' });
             expect(student.level).to.equal(Level.junior);
             expect(student.courses).to.deep.equal([]);
             expect(student.lessons).to.deep.equal([]);

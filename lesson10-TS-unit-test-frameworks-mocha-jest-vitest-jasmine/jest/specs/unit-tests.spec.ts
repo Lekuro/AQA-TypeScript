@@ -1,12 +1,4 @@
-// POC - proof of concept
-// MCP - Model Context Protocol
-// LLM - Large Language Model
-// TDD - Test Driven Development - tests are written before the code
-// AAA - Arrange, Act, Assert - structure of the unit test
-// Given, When, Then gercken??? - structure of the unit test
-// "Given" is used to set up the initial state or context for the test scenario.
-// "When" is used to describe the action or event that is being tested.
-// "Then" is used to describe the expected outcome or result of the action or event.
+
 import { CombinedWaterHeater } from '../src/combined-water-heater';
 
 describe('Unit tests', () => {

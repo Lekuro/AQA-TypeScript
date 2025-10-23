@@ -14,7 +14,7 @@ describe('-------- Teacher unit tests --------', () => {
             // Assert
             expect(teacher.id).to.equal(undefined);
             expect(teacher.name).to.equal('John Doe');
-            expect(teacher._age).to.equal(40);
+            expect(teacher.age).to.equal(40);
             expect(teacher.subject).to.equal('Math');
             expect(teacher.experience).to.equal(10);
         });

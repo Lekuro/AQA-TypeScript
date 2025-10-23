@@ -17,6 +17,10 @@ export class Teacher implements ITeacher, IExternalCourse {
         this.experience = experience;
     }
 
+    public get age(): number {
+        return this._age;
+    }
+
     public bookClassroom(classroom: IClassroom, time: string): boolean {
         return classroom.bookTime(time);
     }

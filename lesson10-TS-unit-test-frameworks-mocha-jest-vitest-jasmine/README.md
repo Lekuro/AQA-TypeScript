@@ -16,7 +16,9 @@ cd mocha
 ```
 npm init
 ```
+
 #### If you copied package.json from previous project
+
 ```
 npm i
 ```
@@ -111,3 +113,17 @@ npx tsc ./src/code.ts
 node ./build/<file>.js
 node ./src/code.js
 ```
+
+###### Some abbreviation mentioned
+
+POC - proof of concept
+MCP - Model Context Protocol
+LLM - Large Language Model
+TDD - Test Driven Development - tests are written before the code
+BDD - Behavior-Driven Development Gherkin ???
+BDD - might mean Behavior-Driven Development (керована поведінкою розробка), Binary Decision Diagram (бінарна діаграма рішень), body dysmorphic disorder (дисморфофобія) або binary-to-decimal decoder (двоєчно-десятковий декодер) залежно від контексту. В контексті розробки програмного забезпечення BDD — це методологія, що фокусується на поведінці системи з точки зору користувача, описуючи функціональність на зрозумілій мові.
+AAA - Arrange, Act, Assert - structure of the unit test
+Given, When, Then - structure of the unit test
+"Given" is used to set up the initial state or context for the test scenario.
+"When" is used to describe the action or event that is being tested.
+"Then" is used to describe the expected outcome or result of the action or event.
