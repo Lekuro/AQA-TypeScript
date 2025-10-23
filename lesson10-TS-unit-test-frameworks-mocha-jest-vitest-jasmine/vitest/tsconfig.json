@@ -8,6 +8,8 @@
     "./node_modules/**/*"
   ],
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
     "baseUrl": "./",
     "target": "ES6",
     "lib": ["es6", "DOM"],
