@@ -19,6 +19,7 @@ export class Classroom implements IClassroom {
         if (this.freeTimes.includes(time)) {
             this.freeTimes.splice(this.freeTimes.indexOf(time), 1);
             this.bookedTimes.push(time);
+            this.bookedTimes.sort();
             return true;
         }
         return false;
@@ -28,6 +29,7 @@ export class Classroom implements IClassroom {
         if (this.bookedTimes.includes(time)) {
             this.bookedTimes.splice(this.bookedTimes.indexOf(time), 1);
             this.freeTimes.push(time);
+            this.freeTimes.sort();
             return true;
         }
         return false;
