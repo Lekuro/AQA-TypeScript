@@ -1,5 +1,5 @@
 import { assert, describe, expect, it, test } from 'vitest';
-import { ElectricWaterHeater } from '../src/electric-water-heater';
+import { ElectricWaterHeater } from '../src/teacher-example/electric-water-heater';
 import { expect as expectChai } from 'chai';
 
 describe('ElectricWaterHeater class Unit test suite', () => {
@@ -23,6 +23,6 @@ describe('ElectricWaterHeater class Unit test suite', () => {
         obj.heatCustomWater(80);
 
         // Assert
-        expectChai(obj.currentTemperature).to.be.equal(50);
+        expectChai(obj.currentTemperature).to.be.equal(80);
     });
 });
