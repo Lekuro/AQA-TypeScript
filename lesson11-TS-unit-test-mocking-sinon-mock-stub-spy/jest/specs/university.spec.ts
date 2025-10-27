@@ -89,4 +89,23 @@ describe('-------- University unit tests --------', () => {
         expect(console.log).toHaveBeenCalledTimes(1);
         expect(console.log).toHaveBeenCalledWith('Classroom Math is free at 11:00 and Visitors: John, John Doe, are having fun!');
     });
+
+    it('should stub getClassroomById method', () => {
+        // Arrange
+        const stubClassroom = new Classroom('Stubbed Room', 25);
+        stubClassroom.id = 999;
+        jest.spyOn(university1, 'getClassroomById').mockImplementation(() => {
+            return stubClassroom;
+        });
+
+        // Act
+        const result = university1.getClassroomById(1);
+
+        // Assert
+        expect(university1.getClassroomById).toHaveBeenCalledTimes(1);
+        expect(university1.getClassroomById).toHaveBeenCalledWith(1);
+        expect(result).toBe(stubClassroom);
+        expect(result.name).toBe('Stubbed Room');
+        expect(result.id).toBe(999);
+    });
 });
