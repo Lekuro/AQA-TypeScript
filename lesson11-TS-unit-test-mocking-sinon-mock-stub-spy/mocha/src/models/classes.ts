@@ -91,11 +91,12 @@ export class ApiUserWithPostsAndTodos extends ApiUserClass implements ApiUserWit
         super(user);
     }
 
-    public async getPosts(): Promise<void> {
+    public async getPosts(): Promise<void | ApiPostsDto[]> {
         try {
             const response = await fetch(ApiUserWithPostsAndTodos.postUrl + this.id);
             const jsonData = await response.json();
             this.posts = jsonData as ApiPostsDto[];
+            return this.posts;
         } catch (error) {
             console.log('Error loading posts:', error);
         }

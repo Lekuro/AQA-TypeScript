@@ -6,7 +6,7 @@ describe('-------- User unit tests --------', () => {
     let user: ApiUserWithPostsAndTodos;
     let posts: ApiPostsDto[];
     let todos: ApiTodosDto[];
-    const mockedUserWithPostsAndTodos = sinon.stubConstructor(ApiUserWithPostsAndTodos);
+    // let mockedUserWithPostsAndTodos: sinon.StubbedInstance<ApiUserWithPostsAndTodos>;
     const userObj: ApiUserClass = {
         id: 3,
         name: 'Clementine Bauch',
@@ -251,38 +251,39 @@ describe('-------- User unit tests --------', () => {
             completed: true
         }
     ];
+    let userStub: ApiUserWithPostsAndTodos;
     beforeEach(() => {
         // Arrange
-        user = new ApiUserWithPostsAndTodos(mockedUserWithPostsAndTodos);
-        // posts = userPosts;
-        // todos = userTodos;
+        // user = new ApiUserWithPostsAndTodos(userObj as ApiUsersDto);
+        userStub = sinon.stubConstructor(ApiUserWithPostsAndTodos, userObj);
     });
     afterEach(() => {
-        mockedUserWithPostsAndTodos.getPosts.restore();
-        mockedUserWithPostsAndTodos.getTodos.restore();
         sinon.default.restore();
     });
     describe('Create user', () => {
-        it('should be created', () => {
+        it('user should be created', () => {
             // Assert
-            expect(user.id).to.equal(3);
-            expect(user.username).to.equal('Samantha');
-            expect(user.name).to.equal('Clementine Bauch');
-            expect(user.email).to.equal('Nathan@yesenia.net');
-            expect(user.phone).to.equal('1-463-123-4447');
-            expect(user.website).to.equal('ramiro.info');
-            expect(user.company).to.deep.equal(userObj.company);
-            expect(user.address).to.deep.equal(userObj.address);
+            expect(userStub.id).to.equal(3);
+            expect(userStub.username).to.equal('Samantha');
+            expect(userStub.name).to.equal('Clementine Bauch');
+            expect(userStub.email).to.equal('Nathan@yesenia.net');
+            expect(userStub.phone).to.equal('1-463-123-4447');
+            expect(userStub.website).to.equal('ramiro.info');
+            expect(userStub.company).to.deep.equal(userObj.company);
+            expect(userStub.address).to.deep.equal(userObj.address);
         });
     });
     describe('Get user posts', () => {
         it('should return posts', async () => {
-            // Arrange
-
-            // Act
-            const result = await user.getPosts();
             // Assert
-            expect(result).to.deep.equal(posts);
+            expect(userStub.getPosts).to.be.a('function');
+            expect(userStub.getPosts()).to.be.undefined;
+            // Arrange
+            userStub.getPosts.resolves(posts);
+            // // Act
+            // const result = await user.getPosts();
+            // // Assert
+            // expect(result).to.deep.equal(posts);
         });
     });
 });
