@@ -1,6 +1,5 @@
 import { jest } from '@jest/globals';
 import { ApiPostsDto, ApiTodosDto, ApiUserClass, ApiUserPostsTodos, ApiUsersDto, ApiUserWithPostsAndTodos } from '../src/models/index';
-// import { ApiUserPostTodos } from '../src/implementation/index';
 import { todosOfUser3 } from '../src/data/todos-of-user3';
 import { postsOfUser3 } from '../src/data/posts-of-user3';
 
@@ -25,38 +24,38 @@ const userObj: ApiUserClass = {
     }
 };
 
-// describe('-------- ApiUserPostsTodos unit tests --------', () => {
-//     let mockedUserPostsTodos: jest.Mocked<ApiUserPostsTodos>;
+describe('-------- Mock ApiUserPostsTodos unit tests --------', () => {
+    let mockedUserPostsTodos: jest.Mocked<ApiUserPostsTodos>;
 
-//     beforeEach(() => {
-//         // Arrange
-//         mockedUserPostsTodos = {
-//             user: jest.fn(),
-//             posts: jest.fn(),
-//             todos: jest.fn()
-//         } as Mocked<ApiUserPostsTodos>;
+    beforeEach(() => {
+        // Arrange;
+        mockedUserPostsTodos = {
+            getUser: jest.fn(),
+            getPosts: jest.fn(),
+            getTodos: jest.fn()
+        } as unknown as jest.Mocked<ApiUserPostsTodos>;
+    });
 
-//         const newUser = new ApiUserPostsTodos(3);
-//     });
+    afterEach(() => {
+        jest.restoreAllMocks();
+    });
 
-//     afterEach(() => {
-//         jest.restoreAllMocks();
-//         jest.clearAllMocks();
-//     });
+    it('should be called getUser method', async () => {
+        // Arrange
+        mockedUserPostsTodos.getUser.mockResolvedValue(userObj);
+        // Act
+        const result = await mockedUserPostsTodos.getUser();
+        // Assert
+        expect(mockedUserPostsTodos.getUser).toHaveBeenCalled();
+        expect(mockedUserPostsTodos.getUser).toHaveBeenCalledTimes(1);
+        expect(mockedUserPostsTodos.getUser).toHaveReturnedTimes(1);
+        expect(mockedUserPostsTodos.getUser).toHaveReturned();
+        expect(mockedUserPostsTodos.getUser).toHaveBeenCalledWith();
+        expect(result).toEqual(userObj);
+    });
+});
 
-//     it('should be called user method', async () => {
-//         // Act
-//         await mockedUserPostsTodos.user();
-//         // Assert
-//         expect(mockedUserPostsTodos.user).toHaveBeenCalled();
-//         expect(mockedUserPostsTodos.user).toHaveBeenCalledTimes(1);
-//         expect(mockedUserPostsTodos.user).toHaveReturnedTimes(1);
-//         expect(mockedUserPostsTodos.user).toHaveReturned();
-//         expect(mockedUserPostsTodos.user).toHaveBeenCalledWith(userObj);
-//     });
-// });
-
-describe('-------- ApiUserWithPostsAndTodos unit tests --------', () => {
+describe('-------- Spy ApiUserWithPostsAndTodos unit tests --------', () => {
     let user: ApiUserWithPostsAndTodos;
     const posts: ApiPostsDto[] = postsOfUser3;
     const todos: ApiTodosDto[] = todosOfUser3;
@@ -97,7 +96,7 @@ describe('-------- ApiUserWithPostsAndTodos unit tests --------', () => {
     });
 });
 
-describe('-------- ApiUserPostsTodos unit tests --------', () => {
+describe('-------- Spy ApiUserPostsTodos unit tests --------', () => {
     let user: ApiUserPostsTodos;
 
     beforeEach(() => {
