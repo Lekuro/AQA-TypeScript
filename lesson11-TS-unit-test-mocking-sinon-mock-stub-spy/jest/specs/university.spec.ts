@@ -1,5 +1,5 @@
 import { jest } from '@jest/globals';
-import { University, Student, Teacher, Classroom } from '../src/implementation/index';
+import { University, Student, Teacher, Classroom, Inspection } from '../src/implementation/index';
 import { Level } from '../src/abstraction/index';
 
 describe('-------- University unit tests --------', () => {
@@ -7,6 +7,7 @@ describe('-------- University unit tests --------', () => {
     let mathTeacher: Teacher;
     let student1: Student;
     let mathClassRoom: Classroom;
+    let mockedInspection: jest.Mocked<Inspection>;
 
     beforeEach(() => {
         // Arrange
@@ -14,6 +15,10 @@ describe('-------- University unit tests --------', () => {
         mathTeacher = new Teacher('John Doe', 40, 'Math', 10);
         student1 = new Student('John', 20, { country: 'USA', city: 'Texas' }, Level.junior);
         mathClassRoom = new Classroom('Math', 30);
+
+        mockedInspection = {
+            inspect: jest.fn()
+        };
 
         jest.spyOn(university1, 'addTeachers');
         jest.spyOn(university1, 'addTeacher');
@@ -26,8 +31,21 @@ describe('-------- University unit tests --------', () => {
     });
 
     afterEach(() => {
-        // jest.restoreAllMocks();
+        jest.restoreAllMocks();
         jest.clearAllMocks();
+    });
+
+    describe('Mocked inspection inspect university', () => {
+        it('should be called inspect method', () => {
+            // Arrange
+            mockedInspection.inspect.mockReturnValue(true);
+            // Act
+            const result = mockedInspection.inspect(university1);
+            // Assert
+            expect(mockedInspection.inspect).toHaveBeenCalledTimes(1);
+            expect(mockedInspection.inspect).toHaveBeenCalledWith(university1);
+            expect(result).toBe(true);
+        });
     });
 
     it('should be called addTeachers method', () => {

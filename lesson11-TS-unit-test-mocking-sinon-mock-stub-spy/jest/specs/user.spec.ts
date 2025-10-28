@@ -1,5 +1,6 @@
 import { jest } from '@jest/globals';
 import { ApiPostsDto, ApiTodosDto, ApiUserClass, ApiUserPostsTodos, ApiUsersDto, ApiUserWithPostsAndTodos } from '../src/models/index';
+// import { ApiUserPostTodos } from '../src/implementation/index';
 import { todosOfUser3 } from '../src/data/todos-of-user3';
 import { postsOfUser3 } from '../src/data/posts-of-user3';
 
@@ -23,6 +24,37 @@ const userObj: ApiUserClass = {
         bs: 'e-enable strategic applications'
     }
 };
+
+// describe('-------- ApiUserPostsTodos unit tests --------', () => {
+//     let mockedUserPostsTodos: jest.Mocked<ApiUserPostsTodos>;
+
+//     beforeEach(() => {
+//         // Arrange
+//         mockedUserPostsTodos = {
+//             user: jest.fn(),
+//             posts: jest.fn(),
+//             todos: jest.fn()
+//         } as Mocked<ApiUserPostsTodos>;
+
+//         const newUser = new ApiUserPostsTodos(3);
+//     });
+
+//     afterEach(() => {
+//         jest.restoreAllMocks();
+//         jest.clearAllMocks();
+//     });
+
+//     it('should be called user method', async () => {
+//         // Act
+//         await mockedUserPostsTodos.user();
+//         // Assert
+//         expect(mockedUserPostsTodos.user).toHaveBeenCalled();
+//         expect(mockedUserPostsTodos.user).toHaveBeenCalledTimes(1);
+//         expect(mockedUserPostsTodos.user).toHaveReturnedTimes(1);
+//         expect(mockedUserPostsTodos.user).toHaveReturned();
+//         expect(mockedUserPostsTodos.user).toHaveBeenCalledWith(userObj);
+//     });
+// });
 
 describe('-------- ApiUserWithPostsAndTodos unit tests --------', () => {
     let user: ApiUserWithPostsAndTodos;
