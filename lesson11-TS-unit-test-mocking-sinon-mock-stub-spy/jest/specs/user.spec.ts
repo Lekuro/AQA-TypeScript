@@ -25,16 +25,51 @@ const userObj: ApiUserClass = {
 };
 
 describe('-------- ApiUserWithPostsAndTodos unit tests --------', () => {
-    let user: ApiUserWithPostsAndTodos;
+    let user: jest.Mocked<ApiUserWithPostsAndTodos>;
     const posts: ApiPostsDto[] = postsOfUser3;
     const todos: ApiTodosDto[] = todosOfUser3;
 
-    beforeEach(() => {
-        // Arrange
-        user = new ApiUserWithPostsAndTodos(userObj as ApiUsersDto);
+    const mockUserDto: ApiUsersDto = {
+        id: 3,
+        name: 'Clementine Bauch',
+        username: 'Samantha',
+        email: 'Nathan@yesenia.net',
+        address: {
+            street: 'Douglas Extension',
+            suite: 'Suite 847',
+            city: 'McKenziehaven',
+            zipcode: '59590-4157',
+            geo: { lat: '-68.6102', lng: '-47.0653' }
+        },
+        phone: '1-463-123-4447',
+        website: 'ramiro.info',
+        company: {
+            name: 'Romaguera-Jacobson',
+            catchPhrase: 'Face to face bifurcated interface',
+            bs: 'e-enable strategic applications'
+        }
+    };
 
-        jest.spyOn(user, 'getPosts');
-        jest.spyOn(user, 'getTodos');
+    beforeEach(() => {
+        // Arrange - Create a mocked instance
+        user = {
+            ...mockUserDto,
+            posts: undefined,
+            todos: undefined,
+            getPosts: jest.fn(),
+            getTodos: jest.fn()
+        } as jest.Mocked<ApiUserWithPostsAndTodos>;
+
+        // Set up the mock implementation to populate posts/todos
+        user.getPosts.mockImplementation(() => {
+            user.posts = posts;
+            return Promise.resolve();
+        });
+
+        user.getTodos.mockImplementation(() => {
+            user.todos = todos;
+            return Promise.resolve();
+        });
     });
 
     afterEach(() => {
