@@ -24,7 +24,38 @@ const userObj: ApiUserClass = {
     }
 };
 
-describe('-------- ApiUserWithPostsAndTodos unit tests --------', () => {
+describe('-------- Mock ApiUserPostsTodos unit tests --------', () => {
+    let mockedUserPostsTodos: jest.Mocked<ApiUserPostsTodos>;
+
+    beforeEach(() => {
+        // Arrange;
+        mockedUserPostsTodos = {
+            getUser: jest.fn(),
+            getPosts: jest.fn(),
+            getTodos: jest.fn()
+        } as unknown as jest.Mocked<ApiUserPostsTodos>;
+    });
+
+    afterEach(() => {
+        jest.restoreAllMocks();
+    });
+
+    it('should be called getUser method', async () => {
+        // Arrange
+        mockedUserPostsTodos.getUser.mockResolvedValue(userObj);
+        // Act
+        const result = await mockedUserPostsTodos.getUser();
+        // Assert
+        expect(mockedUserPostsTodos.getUser).toHaveBeenCalled();
+        expect(mockedUserPostsTodos.getUser).toHaveBeenCalledTimes(1);
+        expect(mockedUserPostsTodos.getUser).toHaveReturnedTimes(1);
+        expect(mockedUserPostsTodos.getUser).toHaveReturned();
+        expect(mockedUserPostsTodos.getUser).toHaveBeenCalledWith();
+        expect(result).toEqual(userObj);
+    });
+});
+
+describe('-------- Spy ApiUserWithPostsAndTodos unit tests --------', () => {
     let user: jest.Mocked<ApiUserWithPostsAndTodos>;
     const posts: ApiPostsDto[] = postsOfUser3;
     const todos: ApiTodosDto[] = todosOfUser3;
@@ -100,7 +131,7 @@ describe('-------- ApiUserWithPostsAndTodos unit tests --------', () => {
     });
 });
 
-describe('-------- ApiUserPostsTodos unit tests --------', () => {
+describe('-------- Spy ApiUserPostsTodos unit tests --------', () => {
     let user: ApiUserPostsTodos;
 
     beforeEach(() => {

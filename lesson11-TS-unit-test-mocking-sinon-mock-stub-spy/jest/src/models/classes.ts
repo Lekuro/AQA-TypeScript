@@ -25,11 +25,12 @@ export class ApiUserPostsTodos implements ApiUserPostTodosDto {
         this.todos = [] as ApiTodosDto[];
     }
 
-    public async getUser(): Promise<void> {
+    public async getUser(): Promise<void | ApiUsersDto> {
         try {
             const response = await fetch(ApiUserPostsTodos.userUrl + this.id);
             const jsonData = await response.json();
             this.user = jsonData as ApiUsersDto;
+            return this.user;
         } catch (error) {
             console.log('Error loading user:', error);
         }

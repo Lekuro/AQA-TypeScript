@@ -25,31 +25,34 @@ export class ApiUserPostsTodos implements ApiUserPostTodosDto {
         this.todos = [] as ApiTodosDto[];
     }
 
-    public async getUser(): Promise<void> {
+    public async getUser(): Promise<void | ApiUsersDto> {
         try {
             const response = await fetch(ApiUserPostsTodos.userUrl + this.id);
             const jsonData = await response.json();
             this.user = jsonData as ApiUsersDto;
+            return this.user;
         } catch (error) {
             console.log('Error loading user:', error);
         }
     }
 
-    public async getPosts(): Promise<void> {
+    public async getPosts(): Promise<void | ApiPostsDto[]> {
         try {
             const response = await fetch(ApiUserPostsTodos.postUrl + this.id);
             const jsonData = await response.json();
             this.posts = jsonData as ApiPostsDto[];
+            return this.posts;
         } catch (error) {
             console.log('Error loading posts:', error);
         }
     }
 
-    public async getTodos(): Promise<void> {
+    public async getTodos(): Promise<void | ApiTodosDto[]> {
         try {
             const response = await fetch(ApiUserPostsTodos.todoUrl + this.id);
             const jsonData = await response.json();
             this.todos = jsonData as ApiTodosDto[];
+            return this.todos;
         } catch (error) {
             console.log('Error loading todos:', error);
         }
@@ -102,11 +105,12 @@ export class ApiUserWithPostsAndTodos extends ApiUserClass implements ApiUserWit
         }
     }
 
-    public async getTodos(): Promise<void> {
+    public async getTodos(): Promise<void | ApiTodosDto[]> {
         try {
             const response = await fetch(ApiUserWithPostsAndTodos.todoUrl + this.id);
             const jsonData = await response.json();
             this.todos = jsonData as ApiTodosDto[];
+            return this.todos;
         } catch (error) {
             console.log('Error loading todos:', error);
         }
