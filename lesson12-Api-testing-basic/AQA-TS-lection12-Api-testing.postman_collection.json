@@ -1,0 +1,432 @@
+{
+	"info": {
+		"_postman_id": "311fa8af-ecb6-49cf-aba7-4d830f37d053",
+		"name": "AQA-TS-lection12-Api-testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15286172"
+	},
+	"item": [
+		{
+			"name": "/objects get all",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// pm.test(\"Send request and validate response\", async function () {\r",
+							"//     pm.response.to.have.status(200);\r",
+							"//     console.log(pm.request);\r",
+							"//     const resp = await pm.sendRequest(pm.request);\r",
+							"//     pm.expect(resp.status).to.eql(\"OK\");\r",
+							"//     console.log(\"resp.json()\",resp.json());\r",
+							"// });\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Count objects should be greater than 0\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(response).to.have.length.greaterThan(0);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{basicUrl}}/objects",
+					"host": [
+						"{{basicUrl}}"
+					],
+					"path": [
+						"objects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/objects add object",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Id is not empty, save id and createdObject\", function () {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson).to.be.not.empty;\r",
+							"    pm.expect(responseJson.id).to.be.not.empty;\r",
+							"    pm.expect(responseJson.data.lections).to.have.length(1);\r",
+							"    pm.collectionVariables.set(\"objectId\", responseJson.id);\r",
+							"    pm.collectionVariables.set(\"createdObject\", JSON.stringify(responseJson));\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\": \"Robot dreams test object\",\r\n   \"data\": {\r\n      \"year\": 2025,\r\n      \"price\": 36000,\r\n      \"course\": \"AQA TypeScript\",\r\n      \"lections\": [{\"id\":1,\"name\":\"Test Automation intro\"}]\r\n   }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{basicUrl}}/objects",
+					"host": [
+						"{{basicUrl}}"
+					],
+					"path": [
+						"objects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/objects update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Lections are updated\", function () {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    const previousId = pm.collectionVariables.get(\"objectId\");\r",
+							"    pm.expect(responseJson).to.be.not.empty;\r",
+							"    pm.expect(responseJson.id).to.be.equal(previousId);\r",
+							"    pm.expect(responseJson.data.lections).to.have.length(3);\r",
+							"    pm.collectionVariables.set(\"createdObject\", JSON.stringify(responseJson));\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"data\": {      \r\n      \"lections\": [\r\n        {\"id\":1,\"name\":\"Test Automation intro\"},\r\n        {\"id\":11,\"name\":\"Mocking in Unit testing\"},\r\n        {\"id\":12,\"name\":\"Api testing basics\"}\r\n        ]\r\n   }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{basicUrl}}/objects/{{objectId}}",
+					"host": [
+						"{{basicUrl}}"
+					],
+					"path": [
+						"objects",
+						"{{objectId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/objects by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Should have updated object\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    const response = pm.response.json();\r",
+							"    const savedObject = JSON.parse(pm.collectionVariables.get(\"createdObject\"));\r",
+							"    delete savedObject.updatedAt;\r",
+							"    console.log(\"response\",response);\r",
+							"    console.log(\"savedObject\",savedObject);\r",
+							"    pm.expect(response).to.deep.equal(savedObject);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{basicUrl}}/objects/{{objectId}}",
+					"host": [
+						"{{basicUrl}}"
+					],
+					"path": [
+						"objects",
+						"{{objectId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/objects delete by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Should have deleted message\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    const responseMessage = pm.response.json().message;\r",
+							"    const expectedMessage = `Object with id = ${pm.collectionVariables.get(\"objectId\")} has been deleted.`;\r",
+							"    pm.expect(responseMessage).to.be.equal(expectedMessage);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{basicUrl}}/objects/{{objectId}}",
+					"host": [
+						"{{basicUrl}}"
+					],
+					"path": [
+						"objects",
+						"{{objectId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/objects by id error",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Should 'object was not found' message\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"    const responseMessage = pm.response.json().error;\r",
+							"    const expectedMessage = `Oject with id=${pm.collectionVariables.get(\"objectId\")} was not found.`;\r",
+							"    console.log('responseMessage',responseMessage);\r",
+							"    console.log('expectedMessage', expectedMessage);\r",
+							"    pm.expect(responseMessage).to.be.equal(expectedMessage);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{basicUrl}}/objects/{{objectId}}",
+					"host": [
+						"{{basicUrl}}"
+					],
+					"path": [
+						"objects",
+						"{{objectId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/objects delete error",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Should have deleted message\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"    const responseMessage = pm.response.json().error;\r",
+							"    const expectedMessage = `Object with id = ${pm.collectionVariables.get(\"objectId\")} doesn't exist.`;\r",
+							"    pm.expect(responseMessage).to.be.equal(expectedMessage);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{basicUrl}}/objects/{{objectId}}",
+					"host": [
+						"{{basicUrl}}"
+					],
+					"path": [
+						"objects",
+						"{{objectId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "basicUrl",
+			"value": "https://api.restful-api.dev"
+		},
+		{
+			"key": "objectId",
+			"value": ""
+		},
+		{
+			"key": "createdObject",
+			"value": ""
+		}
+	]
+}

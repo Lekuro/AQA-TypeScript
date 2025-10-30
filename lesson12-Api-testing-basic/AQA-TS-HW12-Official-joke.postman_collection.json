@@ -1,0 +1,830 @@
+{
+	"info": {
+		"_postman_id": "94b39098-9ab5-4718-8ab3-6483399fb8ee",
+		"name": "AQA-TS-HW12-Official-joke",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15286172"
+	},
+	"item": [
+		{
+			"name": "/types",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    console.log(\"Status name\", pm.response.status);\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"There are 4 types\", function () {\r",
+							"    const jsonResponse = pm.response.json();\r",
+							"    pm.expect(jsonResponse.length).to.be.equal(4);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Should return array of all types\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql([\"general\", \"knock-knock\", \"programming\", \"dad\"]);//deep equal\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string 'programming'\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"programming\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body is correct\", function () {\r",
+							"    pm.response.to.have.body('[\"general\",\"knock-knock\",\"programming\",\"dad\"]');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present in response\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Accept is present in request\", function () {\r",
+							"    pm.request.to.have.header(\"Accept\");\r",
+							"    pm.request.to.have.header(\"Accept\", \"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 202]);\r",
+							"});\r",
+							"\r",
+							"var jsonObject = require('xml2js');\r",
+							"console.log(jsonObject);\r",
+							"\r",
+							"var schema = {\r",
+							"    \"type\": \"array\",\r",
+							"    \"items\": {\r",
+							"        \"type\": \"string\"\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"const Ajv = require('ajv');\r",
+							"const ajv = new Ajv();\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    pm.expect(ajv.validate(schema, pm.response.json())).to.be.true;\r",
+							"});\r",
+							"\r",
+							"console.log(\" -------- WorkFlows -------- \");\r",
+							"\r",
+							"pm.test(\"Send Http request and validate response\", async function () {\r",
+							"    try {\r",
+							"        const resp = await pm.sendRequest({\r",
+							"            url: \"https://postman-echo.com/get\",\r",
+							"            method: \"GET\"\r",
+							"        });\r",
+							"\r",
+							"        pm.expect(resp).to.have.status(\"OK\");\r",
+							"        console.log(\"Send request from script using url\", resp.json());\r",
+							"    } catch (err) {\r",
+							"        console.error(err);\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Send Http request from collectionVariables\", async function () {\r",
+							"    try {\r",
+							"        const response = await pm.execution.runRequest(\"15286172-cb1685bc-d977-4121-bd7b-81e74010bfff\");\r",
+							"        pm.expect(response).to.have.status(200);\r",
+							"        console.log(\"Send request from script using collection\", response.json());\r",
+							"    } catch (err) {\r",
+							"        console.error(err);\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"console.log(\" -------- Variables -------- \");\r",
+							"\r",
+							"// Set varaiables\r",
+							"pm.collectionVariables.set(\"jokesTypes\", JSON.stringify(pm.response.json()));//JSON.stringify() - for deep objects\r",
+							"// pm.environment.set(\"variable_key\", \"variable_value\");\r",
+							"// pm.globals.set(\"variable_key\", \"variable_value\");\r",
+							"pm.variables.set(\"arrayOfJokesTypes\", pm.response.json());\r",
+							"\r",
+							"// Get varaiables\r",
+							"console.log(\"Jokes types: \", pm.collectionVariables.get(\"jokesTypes\"));//JSON.parse() - for deep objects\r",
+							"// console.log(\"Jokes types: \", pm.environment.get(\"variable_key\"));\r",
+							"// console.log(\"Jokes types: \", pm.globals.get(\"variable_key\"));\r",
+							"console.log(\"varaiable arrayOfJokesTypes = \",pm.variables.get(\"arrayOfJokesTypes\"));\r",
+							"\r",
+							"// Clear varaiables\r",
+							"pm.collectionVariables.unset(\"jokes-types\");\r",
+							"pm.collection\r",
+							"// pm.environment.unset(\"variable_key\");\r",
+							"// pm.globals.unset(\"variable_key\");\r",
+							"pm.variables.unset(\"variable_key\");\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {
+							"15286172-cb1685bc-d977-4121-bd7b-81e74010bfff": {
+								"workspace": "755a30e4-077d-4571-85c2-6332d630c79a",
+								"collection": "15286172-94b39098-9ab5-4718-8ab3-6483399fb8ee",
+								"location": [
+									"AQA-TS-HW12-Official-joke",
+									"/jokes/random"
+								]
+							}
+						}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\": \"Robot dreams test object\",\r\n   \"data\": {\r\n      \"year\": 2025,\r\n      \"price\": 36000,\r\n      \"course\": \"AQA TypeScript\",\r\n      \"lections\": [{\"id\":1,\"name\":\"Test Automation intro\"}]\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{basicUrl}}/types",
+					"host": [
+						"{{basicUrl}}"
+					],
+					"path": [
+						"types"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/jokes/<id>",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const jokeId = Math.floor(Math.random()*450)+1;\r",
+							"console.log(jokeId)\r",
+							"pm.variables.set(\"jokeId\", jokeId);"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Type of joke is valid\", function () {\r",
+							"    const joke = pm.response.json();\r",
+							"    const types = JSON.parse(pm.collectionVariables.get(\"jokesTypes\"));\r",
+							"    pm.expect(joke.type).to.be.oneOf(types);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content is object\", function () {\r",
+							"    const jsonResponse = pm.response.json();\r",
+							"    pm.expect(jsonResponse).to.be.an('object');\r",
+							"    pm.expect(jsonResponse).to.have.property('type').that.is.a('string');\r",
+							"\tpm.expect(jsonResponse).to.have.property('setup').that.is.an('string');\r",
+							"\tpm.expect(jsonResponse).to.have.property('punchline').that.is.an('string');\r",
+							"\tpm.expect(jsonResponse).to.have.property('id').that.is.a('number');\r",
+							"});\r",
+							"\r",
+							"const schema = {\r",
+							"    $schema: \"http://json-schema.org/draft-07/schema#\",\r",
+							"    title: \"Official Joke\",\r",
+							"    type: \"object\",\r",
+							"    required: [\"type\", \"setup\", \"punchline\", \"id\"],\r",
+							"    properties: {\r",
+							"        type: { type: \"string\" },\r",
+							"        setup: { type: \"string\" },\r",
+							"        punchline: { type: \"string\" },\r",
+							"        id: { type: \"integer\", minimum: 0 }\r",
+							"    },\r",
+							"    additionalProperties: true\r",
+							"};\r",
+							"\r",
+							"const Ajv = require('ajv');\r",
+							"const ajv = new Ajv();\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    pm.expect(ajv.validate(schema, pm.response.json())).to.be.true;\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{basicUrl}}/jokes/{{jokeId}}",
+					"host": [
+						"{{basicUrl}}"
+					],
+					"path": [
+						"jokes",
+						"{{jokeId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/jokes/random",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+							"});\r",
+							"\r",
+							"const schema = {\r",
+							"    $schema: \"http://json-schema.org/draft-07/schema#\",\r",
+							"    title: \"Official Joke\",\r",
+							"    type: \"object\",\r",
+							"    required: [\"type\", \"setup\", \"punchline\", \"id\"],\r",
+							"    properties: {\r",
+							"        type: { type: \"string\" },\r",
+							"        setup: { type: \"string\" },\r",
+							"        punchline: { type: \"string\" },\r",
+							"        id: { type: \"integer\", minimum: 0 }\r",
+							"    },\r",
+							"    additionalProperties: true\r",
+							"};\r",
+							"\r",
+							"const Ajv = require('ajv');\r",
+							"const ajv = new Ajv();\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    pm.expect(ajv.validate(schema, pm.response.json())).to.be.true;\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{basicUrl}}/jokes/random",
+					"host": [
+						"{{basicUrl}}"
+					],
+					"path": [
+						"jokes",
+						"random"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/jokes/<type>/random",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content is array\", function () {\r",
+							"    const jsonResponse = pm.response.json();\r",
+							"    pm.expect(jsonResponse).to.be.an(\"array\");\r",
+							"});\r",
+							"\r",
+							"const itemSchema = {\r",
+							"    $schema: \"http://json-schema.org/draft-07/schema#\",\r",
+							"    title: \"Official Joke\",\r",
+							"    type: \"object\",\r",
+							"    required: [\"type\", \"setup\", \"punchline\", \"id\"],\r",
+							"    properties: {\r",
+							"        type: { type: \"string\" },\r",
+							"        setup: { type: \"string\" },\r",
+							"        punchline: { type: \"string\" },\r",
+							"        id: { type: \"integer\", minimum: 0 }\r",
+							"    },\r",
+							"    additionalProperties: true\r",
+							"};\r",
+							"\r",
+							"const Ajv = require(\"ajv\");\r",
+							"const ajv = new Ajv();\r",
+							"\r",
+							"pm.test('Each joke matches schema', function () {\r",
+							"    const jsonResponse = pm.response.json();\r",
+							"    jsonResponse.forEach((item, idx) => {\r",
+							"        const valid = ajv.validate(itemSchema, item);\r",
+							"        if (!valid) {\r",
+							"            console.log('Schema error at index', idx, ajv.errors);\r",
+							"        }\r",
+							"    });\r",
+							"    // console.log(\"Each item matches shema!\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const jokeType = pm.collectionVariables.get(\"jokesTypes\");\r",
+							"pm.variables.set(\"jokeType\", jokeType[Math.floor(Math.random() * jokeType.length)]);\r",
+							"console.log(\"jokeType: \",jokeType);"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{basicUrl}}/jokes/{{jokeType}}/random",
+					"host": [
+						"{{basicUrl}}"
+					],
+					"path": [
+						"jokes",
+						"{{jokeType}}",
+						"random"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/jokes/random/<amount>",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Number of jokes is valid\", function() {\r",
+							"    const numberOfJokes = pm.response.json().length;\r",
+							"    pm.expect(numberOfJokes).to.be.lessThan(452);\r",
+							"    console.log(\"numberOfJokes = \", numberOfJokes)\r",
+							"});\r",
+							"\r",
+							"const itemSchema = {\r",
+							"    $schema: \"http://json-schema.org/draft-07/schema#\",\r",
+							"    title: \"Official Joke\",\r",
+							"    type: \"object\",\r",
+							"    required: [\"type\", \"setup\", \"punchline\", \"id\"],\r",
+							"    properties: {\r",
+							"        type: { type: \"string\" },\r",
+							"        setup: { type: \"string\" },\r",
+							"        punchline: { type: \"string\" },\r",
+							"        id: { type: \"integer\", minimum: 0 }\r",
+							"    },\r",
+							"    additionalProperties: true\r",
+							"};\r",
+							"\r",
+							"const Ajv = require('ajv');\r",
+							"const ajv = new Ajv();\r",
+							"\r",
+							"pm.test('Each joke matches schema', function () {\r",
+							"    const jsonResponse = pm.response.json();\r",
+							"    jsonResponse.forEach((item, idx) => {\r",
+							"        const valid = ajv.validate(itemSchema, item);\r",
+							"        if (!valid) {\r",
+							"            console.log('Schema error at index', idx, ajv.errors);\r",
+							"        }\r",
+							"    });\r",
+							"    // console.log(\"Each item matches shema!\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const numberOfJokes = Math.floor(Math.random() * 450) + 1; \r",
+							"pm.variables.set(\"numberOfJokes\", numberOfJokes);"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{basicUrl}}/jokes/random/{{numberOfJokes}}",
+					"host": [
+						"{{basicUrl}}"
+					],
+					"path": [
+						"jokes",
+						"random",
+						"{{numberOfJokes}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/jokes/ten",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Number of jokes is 10\", function() {\r",
+							"    const numberOfJokes = pm.response.json().length;\r",
+							"    pm.expect(numberOfJokes).to.be.equal(10);\r",
+							"});\r",
+							"\r",
+							"const itemSchema = {\r",
+							"    $schema: \"http://json-schema.org/draft-07/schema#\",\r",
+							"    title: \"Official Joke\",\r",
+							"    type: \"object\",\r",
+							"    required: [\"type\", \"setup\", \"punchline\", \"id\"],\r",
+							"    properties: {\r",
+							"        type: { type: \"string\" },\r",
+							"        setup: { type: \"string\" },\r",
+							"        punchline: { type: \"string\" },\r",
+							"        id: { type: \"integer\", minimum: 0 }\r",
+							"    },\r",
+							"    additionalProperties: true\r",
+							"};\r",
+							"\r",
+							"const Ajv = require('ajv');\r",
+							"const ajv = new Ajv();\r",
+							"\r",
+							"pm.test('Each joke matches schema', function () {\r",
+							"    const jsonResponse = pm.response.json();\r",
+							"    jsonResponse.forEach((item, idx) => {\r",
+							"        const valid = ajv.validate(itemSchema, item);\r",
+							"        if (!valid) {\r",
+							"            console.log('Schema error at index', idx, ajv.errors);\r",
+							"        }\r",
+							"    });\r",
+							"    // console.log(\"Each item matches shema!\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{basicUrl}}/jokes/ten",
+					"host": [
+						"{{basicUrl}}"
+					],
+					"path": [
+						"jokes",
+						"ten"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/jokes/<type>/ten",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Number of jokes is 10\", function() {\r",
+							"    const numberOfJokes = pm.response.json().length;\r",
+							"    pm.expect(numberOfJokes).to.be.equal(10);\r",
+							"});\r",
+							"\r",
+							"const itemSchema = {\r",
+							"    $schema: \"http://json-schema.org/draft-07/schema#\",\r",
+							"    title: \"Official Joke\",\r",
+							"    type: \"object\",\r",
+							"    required: [\"type\", \"setup\", \"punchline\", \"id\"],\r",
+							"    properties: {\r",
+							"        type: { type: \"string\" },\r",
+							"        setup: { type: \"string\" },\r",
+							"        punchline: { type: \"string\" },\r",
+							"        id: { type: \"integer\", minimum: 0 }\r",
+							"    },\r",
+							"    additionalProperties: true\r",
+							"};\r",
+							"\r",
+							"const Ajv = require('ajv');\r",
+							"const ajv = new Ajv();\r",
+							"\r",
+							"pm.test('Each joke matches schema', function () {\r",
+							"    const jsonResponse = pm.response.json();\r",
+							"    jsonResponse.forEach((item, idx) => {\r",
+							"        const valid = ajv.validate(itemSchema, item);\r",
+							"        if (!valid) {\r",
+							"            console.log('Schema error at index', idx, ajv.errors);\r",
+							"        }\r",
+							"    });\r",
+							"    // console.log(\"Each item matches shema!\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const jokeType = pm.collectionVariables.get(\"jokesTypes\");\r",
+							"pm.variables.set(\"jokeType\", jokeType[Math.floor(Math.random() * jokeType.length)]);\r",
+							"console.log(\"jokeType: \",jokeType);"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{basicUrl}}/jokes/ten",
+					"host": [
+						"{{basicUrl}}"
+					],
+					"path": [
+						"jokes",
+						"ten"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/random_joke",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+							"});\r",
+							"\r",
+							"const schema = {\r",
+							"    $schema: \"http://json-schema.org/draft-07/schema#\",\r",
+							"    title: \"Official Joke\",\r",
+							"    type: \"object\",\r",
+							"    required: [\"type\", \"setup\", \"punchline\", \"id\"],\r",
+							"    properties: {\r",
+							"        type: { type: \"string\" },\r",
+							"        setup: { type: \"string\" },\r",
+							"        punchline: { type: \"string\" },\r",
+							"        id: { type: \"integer\", minimum: 0 }\r",
+							"    },\r",
+							"    additionalProperties: true\r",
+							"};\r",
+							"\r",
+							"const Ajv = require('ajv');\r",
+							"const ajv = new Ajv();\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    pm.expect(ajv.validate(schema, pm.response.json())).to.be.true;\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{basicUrl}}/random_joke",
+					"host": [
+						"{{basicUrl}}"
+					],
+					"path": [
+						"random_joke"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/random_ten",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Number of jokes is 10\", function() {\r",
+							"    const numberOfJokes = pm.response.json().length;\r",
+							"    pm.expect(numberOfJokes).to.be.equal(10);\r",
+							"});\r",
+							"\r",
+							"const itemSchema = {\r",
+							"    $schema: \"http://json-schema.org/draft-07/schema#\",\r",
+							"    title: \"Official Joke\",\r",
+							"    type: \"object\",\r",
+							"    required: [\"type\", \"setup\", \"punchline\", \"id\"],\r",
+							"    properties: {\r",
+							"        type: { type: \"string\" },\r",
+							"        setup: { type: \"string\" },\r",
+							"        punchline: { type: \"string\" },\r",
+							"        id: { type: \"integer\", minimum: 0 }\r",
+							"    },\r",
+							"    additionalProperties: true\r",
+							"};\r",
+							"\r",
+							"const Ajv = require('ajv');\r",
+							"const ajv = new Ajv();\r",
+							"\r",
+							"pm.test('Each joke matches schema', function () {\r",
+							"    const jsonResponse = pm.response.json();\r",
+							"    jsonResponse.forEach((item, idx) => {\r",
+							"        const valid = ajv.validate(itemSchema, item);\r",
+							"        if (!valid) {\r",
+							"            console.log('Schema error at index', idx, ajv.errors);\r",
+							"        }\r",
+							"    });\r",
+							"    // console.log(\"Each item matches shema!\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"packages": {},
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{basicUrl}}/random_ten",
+					"host": [
+						"{{basicUrl}}"
+					],
+					"path": [
+						"random_ten"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "basicUrl",
+			"value": "http://localhost:3005"
+		},
+		{
+			"key": "jokesTypes",
+			"value": "[\"general\",\"knock-knock\",\"programming\",\"dad\"]"
+		}
+	]
+}
