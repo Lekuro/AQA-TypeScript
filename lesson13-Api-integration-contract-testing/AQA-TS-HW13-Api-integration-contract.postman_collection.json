@@ -1,0 +1,2760 @@
+{
+	"info": {
+		"_postman_id": "63819b98-ef39-4def-8d9c-b3fb878c1512",
+		"name": "AQA-TS-HW13-Api-integration-contract",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15286172"
+	},
+	"item": [
+		{
+			"name": "Breeds",
+			"item": [
+				{
+					"name": "/breeds",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.variables.set(\"breedsLimit\", pm.response.json().length);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Length is 67\", function () {\r",
+									"    pm.expect(pm.response.json().length).to.equal(pm.variables.get(\"breedsLimit\"));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"idBreed is written to collection variable\", function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    const randomBreed = jsonResponse[Math.floor(Math.random()*pm.variables.get(\"breedsLimit\"))];\r",
+									"    pm.collectionVariables.set(\"idBreed\", randomBreed.id);\r",
+									"    console.log(\"idBreed: \",  pm.collectionVariables.get(\"idBreed\"));\r",
+									"    pm.expect(pm.collectionVariables.get(\"idBreed\")).to.be.a(\"string\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    \"$schema\": \"http://json-schema.org/draft-07/schema#\",\r",
+									"    \"title\": \"Cat Information\",\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"weight\": {\r",
+									"            \"type\": \"object\",\r",
+									"            \"properties\": {\r",
+									"                \"imperial\": { \"type\": \"string\" },\r",
+									"                \"metric\": { \"type\": \"string\" }\r",
+									"            },\r",
+									"            \"required\": [\"imperial\", \"metric\"]\r",
+									"        },\r",
+									"        \"id\": { \"type\": \"string\" },\r",
+									"        \"name\": { \"type\": \"string\" },\r",
+									"        \"cfa_url\": { \"type\": \"string\", \"format\": \"url\" },\r",
+									"        \"vetstreet_url\": { \"type\": \"string\", \"format\": \"uri\" },\r",
+									"        \"vcahospitals_url\": { \"type\": \"string\", \"format\": \"url\", \"nullable\": true, \"optional\": true },\r",
+									"        \"temperament\": { \"type\": \"string\" },\r",
+									"        \"origin\": { \"type\": \"string\" },\r",
+									"        \"country_codes\": { \"type\": \"string\" },\r",
+									"        \"country_code\": { \"type\": \"string\" },\r",
+									"        \"description\": { \"type\": \"string\" },\r",
+									"        \"life_span\": { \"type\": \"string\" },\r",
+									"        \"indoor\": { \"type\": \"integer\" },\r",
+									"        \"lap\": { \"type\": \"integer\" },\r",
+									"        \"alt_names\": { \"type\": \"string\" },\r",
+									"        \"adaptability\": { \"type\": \"integer\" },\r",
+									"        \"affection_level\": { \"type\": \"integer\" },\r",
+									"        \"child_friendly\": { \"type\": \"integer\" },\r",
+									"        \"dog_friendly\": { \"type\": \"integer\" },\r",
+									"        \"energy_level\": { \"type\": \"integer\" },\r",
+									"        \"grooming\": { \"type\": \"integer\" },\r",
+									"        \"health_issues\": { \"type\": \"integer\" },\r",
+									"        \"intelligence\": { \"type\": \"integer\" },\r",
+									"        \"shedding_level\": { \"type\": \"integer\" },\r",
+									"        \"social_needs\": { \"type\": \"integer\" },\r",
+									"        \"stranger_friendly\": { \"type\": \"integer\" },\r",
+									"        \"vocalisation\": { \"type\": \"integer\" },\r",
+									"        \"experimental\": { \"type\": \"integer\" },\r",
+									"        \"hairless\": { \"type\": \"integer\" },\r",
+									"        \"natural\": { \"type\": \"integer\" },\r",
+									"        \"rare\": { \"type\": \"integer\" },\r",
+									"        \"rex\": { \"type\": \"integer\" },\r",
+									"        \"suppressed_tail\": { \"type\": \"integer\" },\r",
+									"        \"short_legs\": { \"type\": \"integer\" },\r",
+									"        \"wikipedia_url\": { \"type\": \"string\", \"format\": \"uri\" },\r",
+									"        \"hypoallergenic\": { \"type\": \"integer\" },\r",
+									"        \"reference_image_id\": { \"type\": \"string\" },\r",
+									"        \"image\": {\r",
+									"            \"type\": \"object\",\r",
+									"            \"properties\": {\r",
+									"                \"id\": { \"type\": \"string\" },\r",
+									"                \"width\": { \"type\": \"integer\" },\r",
+									"                \"height\": { \"type\": \"integer\" },\r",
+									"                \"url\": { \"type\": \"string\", \"format\": \"uri\" }\r",
+									"            },\r",
+									"            \"required\": [\"id\", \"width\", \"height\", \"url\"]\r",
+									"        }\r",
+									"    },\r",
+									"    \"required\": [\"weight\", \"id\", \"name\", \"temperament\", \"origin\", \"country_codes\", \"country_code\", \"description\", \"life_span\", \"indoor\", \"adaptability\", \"affection_level\", \"child_friendly\", \"dog_friendly\", \"energy_level\", \"grooming\", \"health_issues\", \"intelligence\", \"shedding_level\", \"social_needs\", \"stranger_friendly\", \"vocalisation\", \"experimental\", \"hairless\", \"natural\", \"rare\", \"rex\", \"suppressed_tail\", \"short_legs\", \"hypoallergenic\", \"reference_image_id\", \"image\"]\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Each element matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    jsonResponse.forEach((item, idx) => {\r",
+									"        const valid = ajv.validate(itemSchema, item);\r",
+									"        if (!valid) {\r",
+									"            console.log('Schema error at index', idx, ajv.errors);\r",
+									"        }\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/breeds",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"breeds"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/breeds/:idBreed",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"reference_image_id is valid\", function(){\r",
+									"    const imageId = pm.response.json().reference_image_id;\r",
+									"    pm.expect(imageId).to.be.a(\"string\");\r",
+									"    pm.expect(imageId).to.match(/^[0-9a-zA-Z-_]{9}$/); \r",
+									"    pm.collectionVariables.set(\"imageId\", imageId);\r",
+									"    console.log(\"imageId: \", imageId)\r",
+									"})\r",
+									"\r",
+									"pm.test(\"imageId is written to collection variable\", function () {\r",
+									"    pm.expect(pm.variables.get(\"imageId\")).to.be.not.empty;\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    \"$schema\": \"http://json-schema.org/draft-07/schema#\",\r",
+									"    \"title\": \"Cat Information\",\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"weight\": {\r",
+									"            \"type\": \"object\",\r",
+									"            \"properties\": {\r",
+									"                \"imperial\": { \"type\": \"string\" },\r",
+									"                \"metric\": { \"type\": \"string\" }\r",
+									"            },\r",
+									"            \"required\": [\"imperial\", \"metric\"]\r",
+									"        },\r",
+									"        \"id\": { \"type\": \"string\" },\r",
+									"        \"name\": { \"type\": \"string\" },\r",
+									"        \"temperament\": { \"type\": \"string\" },\r",
+									"        \"origin\": { \"type\": \"string\" },\r",
+									"        \"country_codes\": { \"type\": \"string\" },\r",
+									"        \"country_code\": { \"type\": \"string\" },\r",
+									"        \"description\": { \"type\": \"string\" },\r",
+									"        \"life_span\": { \"type\": \"string\" },\r",
+									"        \"indoor\": { \"type\": \"integer\" },\r",
+									"        \"lap\": { \"type\": \"integer\" },\r",
+									"        \"alt_names\": { \"type\": \"string\" },\r",
+									"        \"adaptability\": { \"type\": \"integer\" },\r",
+									"        \"affection_level\": { \"type\": \"integer\" },\r",
+									"        \"child_friendly\": { \"type\": \"integer\" },\r",
+									"        \"dog_friendly\": { \"type\": \"integer\" },\r",
+									"        \"energy_level\": { \"type\": \"integer\" },\r",
+									"        \"grooming\": { \"type\": \"integer\" },\r",
+									"        \"health_issues\": { \"type\": \"integer\" },\r",
+									"        \"intelligence\": { \"type\": \"integer\" },\r",
+									"        \"shedding_level\": { \"type\": \"integer\" },\r",
+									"        \"social_needs\": { \"type\": \"integer\" },\r",
+									"        \"stranger_friendly\": { \"type\": \"integer\" },\r",
+									"        \"vocalisation\": { \"type\": \"integer\" },\r",
+									"        \"experimental\": { \"type\": \"integer\" },\r",
+									"        \"hairless\": { \"type\": \"integer\" },\r",
+									"        \"natural\": { \"type\": \"integer\" },\r",
+									"        \"rare\": { \"type\": \"integer\" },\r",
+									"        \"rex\": { \"type\": \"integer\" },\r",
+									"        \"suppressed_tail\": { \"type\": \"integer\" },\r",
+									"        \"short_legs\": { \"type\": \"integer\" },\r",
+									"        \"wikipedia_url\": { \"type\": \"string\" },\r",
+									"        \"hypoallergenic\": { \"type\": \"integer\" },\r",
+									"        \"reference_image_id\": { \"type\": \"string\" }\r",
+									"    },\r",
+									"    \"required\": [\"weight\", \"id\", \"name\", \"temperament\", \"origin\", \"country_codes\", \"country_code\", \"description\", \"life_span\", \"indoor\", \"adaptability\", \"affection_level\", \"child_friendly\", \"dog_friendly\", \"energy_level\", \"grooming\", \"health_issues\", \"intelligence\", \"shedding_level\", \"social_needs\", \"stranger_friendly\", \"vocalisation\", \"experimental\", \"hairless\", \"natural\", \"rare\", \"rex\", \"suppressed_tail\", \"short_legs\", \"hypoallergenic\", \"reference_image_id\"]\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Breed object matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect( ajv.validate(itemSchema, jsonResponse)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/breeds/{{idBreed}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"breeds",
+								"{{idBreed}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Favourites",
+			"item": [
+				{
+					"name": "/favourites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.variables.set(\"breedsLimit\", pm.response.json().length);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"idFavorite is written to collection variable\", function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.collectionVariables.set(\"idFavorite\", jsonResponse.id);\r",
+									"    console.log(\"idFavorite: \",  pm.collectionVariables.get(\"idFavorite\"));\r",
+									"    pm.expect(pm.collectionVariables.get(\"idFavorite\")).to.match(/[0-9]{9}/);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"message\": { \"type\": \"string\" },\r",
+									"        \"id\": { \"type\": \"integer\" }\r",
+									"    },\r",
+									"    \"required\": [\"message\", \"id\"]\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Response object matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect( ajv.validate(itemSchema, jsonResponse)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "// actually it is id of breed!!! aege abys asf2 abob acur \r\n{\r\n\t\"image_id\": \"{{idBreed}}\",\r\n\t\"sub_id\": \"{{idSub}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/favourites",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"favourites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/favourites/:idFavorites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// \r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"id\": { \"type\": \"integer\" },\r",
+									"        \"user_id\": { \"type\": \"string\" },\r",
+									"        \"image_id\": { \"type\": \"string\" },\r",
+									"        \"sub_id\": { \"type\": \"string\" },\r",
+									"        \"created_at\": { \"type\": \"string\", \"format\": \"date-time\" },\r",
+									"        \"image\": { \"type\": \"object\" }\r",
+									"    },\r",
+									"    \"required\": [\"id\", \"user_id\", \"image_id\", \"sub_id\", \"created_at\", \"image\"]\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Response object matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect( ajv.validate(itemSchema, jsonResponse)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/favourites/{{idFavorite}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"favourites",
+								"{{idFavorite}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/favourites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// \r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"id\": { \"type\": \"integer\" },\r",
+									"        \"user_id\": { \"type\": \"string\" },\r",
+									"        \"image_id\": { \"type\": \"string\" },\r",
+									"        \"sub_id\": { \"type\": \"string\" },\r",
+									"        \"created_at\": { \"type\": \"string\", \"format\": \"date-time\" },\r",
+									"        \"image\": { \"type\": \"object\" }\r",
+									"    },\r",
+									"    \"required\": [\"id\", \"user_id\", \"image_id\", \"sub_id\", \"created_at\", \"image\"]\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Each element matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    jsonResponse.forEach((item, idx) => {\r",
+									"        const valid = ajv.validate(itemSchema, item);\r",
+									"        if (!valid) {\r",
+									"            console.log('Schema error at index', idx, ajv.errors);\r",
+									"        }\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/favourites",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"favourites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/favourites/:idFavorites Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// \r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"pm.test('Response message is SUCCESS', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect(jsonResponse.message).to.be.equal(\"SUCCESS\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/favourites/{{idFavorite}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"favourites",
+								"{{idFavorite}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Votes",
+			"item": [
+				{
+					"name": "/votes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"idVote is written to collection variable\", function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.collectionVariables.set(\"idVote\", jsonResponse.id);\r",
+									"    console.log(\"idVote: \",  pm.collectionVariables.get(\"idVote\"));\r",
+									"    pm.expect(pm.collectionVariables.get(\"idVote\")).to.match(/[0-9]{7}/);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"message\": { \"type\": \"string\" },\r",
+									"        \"id\": { \"type\": \"integer\" },\r",
+									"        \"image_id\": { \"type\": \"string\" },\r",
+									"        \"sub_id\": { \"type\": \"string\" },\r",
+									"        \"value\": { \"type\": \"integer\" },\r",
+									"        \"country_code\": { \"type\": \"string\" }\r",
+									"    },\r",
+									"    \"required\": [\"message\", \"id\", \"image_id\", \"sub_id\", \"value\", \"country_code\"]\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Response object matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect( ajv.validate(itemSchema, jsonResponse)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "// actually it is id of breed!!! aege abys asf2 abob acur \r\n{\r\n\t\"image_id\": \"{{idBreed}}\",\r\n\t\"sub_id\": \"{{idSub}}\",\r\n    \"value\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/votes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"votes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/votes/:idVote",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// \r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"id\": { \"type\": \"integer\" },\r",
+									"        \"user_id\": { \"type\": \"string\" },\r",
+									"        \"image_id\": { \"type\": \"string\" },\r",
+									"        \"sub_id\": { \"type\": \"string\" },\r",
+									"        \"created_at\": { \"type\": \"string\", \"format\": \"date-time\" },\r",
+									"        \"value\": { \"type\": \"integer\" },\r",
+									"        \"country_code\": { \"type\": \"string\" },\r",
+									"        \"image\": { \"type\": \"object\" }\r",
+									"    },\r",
+									"    \"required\": [\"id\", \"user_id\", \"image_id\", \"sub_id\", \"created_at\", \"value\", \"country_code\", \"image\"]\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Response bject matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect( ajv.validate(itemSchema, jsonResponse)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/votes/{{idVote}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"votes",
+								"{{idVote}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/votes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// \r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"id\": { \"type\": \"integer\" },\r",
+									"        \"image_id\": { \"type\": \"string\" },\r",
+									"        \"sub_id\": { \"type\": \"string\" },\r",
+									"        \"created_at\": { \"type\": \"string\", \"format\": \"date-time\" },\r",
+									"        \"value\": { \"type\": \"integer\" },\r",
+									"        \"country_code\": { \"type\": \"string\" },\r",
+									"        \"image\": { \"type\": \"object\" }\r",
+									"    },\r",
+									"    \"required\": [\"id\", \"image_id\", \"sub_id\", \"created_at\", \"value\", \"country_code\", \"image\"]\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Each element matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    jsonResponse.forEach((item, idx) => {\r",
+									"        const valid = ajv.validate(itemSchema, item);\r",
+									"        if (!valid) {\r",
+									"            console.log('Schema error at index', idx, ajv.errors);\r",
+									"        }\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/votes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"votes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/votes/:idVote",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// \r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"pm.test('Response message is SUCCESS', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect(jsonResponse.message).to.be.equal(\"SUCCESS\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/votes/{{idVote}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"votes",
+								"{{idVote}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Images",
+			"item": [
+				{
+					"name": "/images/search - random image",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    console.log(pm.response)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    pm.response.to.have.header(\"authenticated\", \"true\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    $schema: \"http://json-schema.org/draft-07/schema#\",\r",
+									"    title: \"Images\",\r",
+									"    type: \"object\",\r",
+									"    required: [\"url\", \"width\", \"height\", \"id\", \"breeds\"],\r",
+									"    properties: {\r",
+									"        url: { type: \"string\" },\r",
+									"        width: { type: \"integer\" },\r",
+									"        height: { type: \"integer\" },\r",
+									"        id: { type: \"integer\", minimum: 0 },\r",
+									"        breeds:{ type: \"array\" },\r",
+									"        categories: { type: \"array\" }\r",
+									"    },\r",
+									"    additionalProperties: true\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Each element matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    jsonResponse.forEach((item, idx) => {\r",
+									"        const valid = ajv.validate(itemSchema, item);\r",
+									"        if (!valid) {\r",
+									"            console.log('Schema error at index', idx, ajv.errors);\r",
+									"        }\r",
+									"    });\r",
+									"    // console.log(\"Each item matches shema!\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/images/search",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"images",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/images/:imageId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    $schema: 'http://json-schema.org/draft-07/schema#',\r",
+									"    title: 'Images',\r",
+									"    type: 'object',\r",
+									"    required: ['url', 'width', 'height', 'id', 'breeds'],\r",
+									"    properties: {\r",
+									"        url: { type: 'string' },\r",
+									"        width: { type: 'integer' },\r",
+									"        height: { type: 'integer' },\r",
+									"        id: { type: 'string' },\r",
+									"        breeds: {\r",
+									"            type: 'array',\r",
+									"            items: {\r",
+									"                type: 'object',\r",
+									"                properties: {\r",
+									"                    weight: {\r",
+									"                        type: 'object',\r",
+									"                        properties: {\r",
+									"                            imperial: { type: 'string' },\r",
+									"                            metric: { type: 'string' }\r",
+									"                        },\r",
+									"                        required: ['imperial', 'metric']\r",
+									"                    },\r",
+									"                    id: { type: 'string' },\r",
+									"                    name: { type: 'string' },\r",
+									"                    temperament: { type: 'string' },\r",
+									"                    origin: { type: 'string' },\r",
+									"                    country_codes: { type: 'string' },\r",
+									"                    country_code: { type: 'string' },\r",
+									"                    description: { type: 'string' },\r",
+									"                    life_span: { type: 'string' },\r",
+									"                    indoor: { type: 'integer' },\r",
+									"                    lap: { type: 'integer' },\r",
+									"                    alt_names: { type: 'string' },\r",
+									"                    adaptability: { type: 'integer' },\r",
+									"                    affection_level: { type: 'integer' },\r",
+									"                    child_friendly: { type: 'integer' },\r",
+									"                    dog_friendly: { type: 'integer' },\r",
+									"                    energy_level: { type: 'integer' },\r",
+									"                    grooming: { type: 'integer' },\r",
+									"                    health_issues: { type: 'integer' },\r",
+									"                    intelligence: { type: 'integer' },\r",
+									"                    shedding_level: { type: 'integer' },\r",
+									"                    social_needs: { type: 'integer' },\r",
+									"                    stranger_friendly: { type: 'integer' },\r",
+									"                    vocalisation: { type: 'integer' },\r",
+									"                    experimental: { type: 'integer' },\r",
+									"                    hairless: { type: 'integer' },\r",
+									"                    natural: { type: 'integer' },\r",
+									"                    rare: { type: 'integer' },\r",
+									"                    rex: { type: 'integer' },\r",
+									"                    suppressed_tail: { type: 'integer' },\r",
+									"                    short_legs: { type: 'integer' },\r",
+									"                    wikipedia_url: { type: 'string' },\r",
+									"                    hypoallergenic: { type: 'integer' },\r",
+									"                    reference_image_id: { type: 'string' }\r",
+									"                },\r",
+									"                required: [\r",
+									"                    'weight',\r",
+									"                    'id',\r",
+									"                    'name',\r",
+									"                    'temperament',\r",
+									"                    'origin',\r",
+									"                    'country_codes',\r",
+									"                    'country_code',\r",
+									"                    'description',\r",
+									"                    'life_span',\r",
+									"                    'indoor',\r",
+									"                    'adaptability',\r",
+									"                    'affection_level',\r",
+									"                    'child_friendly',\r",
+									"                    'dog_friendly',\r",
+									"                    'energy_level',\r",
+									"                    'grooming',\r",
+									"                    'health_issues',\r",
+									"                    'intelligence',\r",
+									"                    'shedding_level',\r",
+									"                    'social_needs',\r",
+									"                    'stranger_friendly',\r",
+									"                    'vocalisation',\r",
+									"                    'experimental',\r",
+									"                    'hairless',\r",
+									"                    'natural',\r",
+									"                    'rare',\r",
+									"                    'rex',\r",
+									"                    'suppressed_tail',\r",
+									"                    'short_legs',\r",
+									"                    'hypoallergenic',\r",
+									"                    'reference_image_id'\r",
+									"                ]\r",
+									"            }\r",
+									"        }\r",
+									"    },\r",
+									"    additionalProperties: false\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Image object matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect( ajv.validate(itemSchema, jsonResponse)).to.be.true;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const imagesLimit = Math.floor(Math.random()*100);\r",
+									"pm.variables.set(\"imagesLimit\", imagesLimit);"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/images/{{imageId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"images",
+								"{{imageId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/images/:imageId/analysis",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const result=pm.response.json();\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    \"type\": \"array\",\r",
+									"    \"items\": {\r",
+									"        \"type\": \"object\",\r",
+									"        \"properties\": {\r",
+									"            \"labels\": {\r",
+									"                \"type\": \"array\",\r",
+									"                \"items\": {\r",
+									"                    \"type\": \"object\",\r",
+									"                    \"properties\": {\r",
+									"                        \"Name\": { \"type\": \"string\" },\r",
+									"                        \"Confidence\": { \"type\": \"number\" }\r",
+									"                    },\r",
+									"                    \"required\": [\"Name\", \"Confidence\"]\r",
+									"                }\r",
+									"            },\r",
+									"            \"moderation_labels\": { \"type\": \"array\", \"items\": { \"type\": \"string\" } },\r",
+									"            \"vendor\": { \"type\": \"string\" },\r",
+									"            \"image_id\": { \"type\": \"string\" },\r",
+									"            \"created_at\": { \"type\": \"string\", \"format\": \"date-time\" }\r",
+									"        },\r",
+									"        \"required\": [\"labels\", \"vendor\", \"image_id\", \"created_at\"]\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Image object matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect( ajv.validate(itemSchema, jsonResponse)).to.be.true;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/images/{{imageId}}/analysis",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"images",
+								"{{imageId}}",
+								"analysis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/images/:imageId/breeds",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    \"$schema\": \"http://json-schema.org/draft-07/schema#\",\r",
+									"    \"title\": \"Cat Information\",\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"weight\": {\r",
+									"            \"type\": \"object\",\r",
+									"            \"properties\": {\r",
+									"                \"imperial\": { \"type\": \"string\" },\r",
+									"                \"metric\": { \"type\": \"string\" }\r",
+									"            },\r",
+									"            \"required\": [\"imperial\", \"metric\"]\r",
+									"        },\r",
+									"        \"id\": { \"type\": \"string\" },\r",
+									"        \"name\": { \"type\": \"string\" },\r",
+									"        \"temperament\": { \"type\": \"string\" },\r",
+									"        \"origin\": { \"type\": \"string\" },\r",
+									"        \"country_codes\": { \"type\": \"string\" },\r",
+									"        \"country_code\": { \"type\": \"string\" },\r",
+									"        \"description\": { \"type\": \"string\" },\r",
+									"        \"life_span\": { \"type\": \"string\" },\r",
+									"        \"indoor\": { \"type\": \"integer\" },\r",
+									"        \"lap\": { \"type\": \"integer\" },\r",
+									"        \"alt_names\": { \"type\": \"string\" },\r",
+									"        \"adaptability\": { \"type\": \"integer\" },\r",
+									"        \"affection_level\": { \"type\": \"integer\" },\r",
+									"        \"child_friendly\": { \"type\": \"integer\" },\r",
+									"        \"dog_friendly\": { \"type\": \"integer\" },\r",
+									"        \"energy_level\": { \"type\": \"integer\" },\r",
+									"        \"grooming\": { \"type\": \"integer\" },\r",
+									"        \"health_issues\": { \"type\": \"integer\" },\r",
+									"        \"intelligence\": { \"type\": \"integer\" },\r",
+									"        \"shedding_level\": { \"type\": \"integer\" },\r",
+									"        \"social_needs\": { \"type\": \"integer\" },\r",
+									"        \"stranger_friendly\": { \"type\": \"integer\" },\r",
+									"        \"vocalisation\": { \"type\": \"integer\" },\r",
+									"        \"experimental\": { \"type\": \"integer\" },\r",
+									"        \"hairless\": { \"type\": \"integer\" },\r",
+									"        \"natural\": { \"type\": \"integer\" },\r",
+									"        \"rare\": { \"type\": \"integer\" },\r",
+									"        \"rex\": { \"type\": \"integer\" },\r",
+									"        \"suppressed_tail\": { \"type\": \"integer\" },\r",
+									"        \"short_legs\": { \"type\": \"integer\" },\r",
+									"        \"wikipedia_url\": { \"type\": \"string\" },\r",
+									"        \"hypoallergenic\": { \"type\": \"integer\" },\r",
+									"        \"reference_image_id\": { \"type\": \"string\" }\r",
+									"    },\r",
+									"    \"required\": [\"weight\", \"id\", \"name\", \"temperament\", \"origin\", \"country_codes\", \"country_code\", \"description\", \"life_span\", \"indoor\", \"adaptability\", \"affection_level\", \"child_friendly\", \"dog_friendly\", \"energy_level\", \"grooming\", \"health_issues\", \"intelligence\", \"shedding_level\", \"social_needs\", \"stranger_friendly\", \"vocalisation\", \"experimental\", \"hairless\", \"natural\", \"rare\", \"rex\", \"suppressed_tail\", \"short_legs\", \"hypoallergenic\", \"reference_image_id\"]\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Each element matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    jsonResponse.forEach((item, idx) => {\r",
+									"        const valid = ajv.validate(itemSchema, item);\r",
+									"        if (!valid) {\r",
+									"            console.log('Schema error at index', idx, ajv.errors);\r",
+									"        }\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/images/{{imageId}}/breeds",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"images",
+								"{{imageId}}",
+								"breeds"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/images/upload",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"idUpload is valid\", function(){\r",
+									"    const idUpload = pm.response.json().id;\r",
+									"    pm.expect(idUpload).to.be.a(\"string\");\r",
+									"    pm.expect(idUpload).to.match(/^[0-9a-zA-Z-_]{9}$/); \r",
+									"    pm.collectionVariables.set(\"idUpload\", idUpload);\r",
+									"    console.log(\"idUpload: \", idUpload)\r",
+									"})\r",
+									"\r",
+									"pm.test(\"sub_id is valid\", function(){\r",
+									"    const idSub = pm.response.json().sub_id;\r",
+									"    pm.expect(idSub).to.be.a(\"string\");\r",
+									"    pm.expect(idSub).to.match(/^[0-9a-zA-Z-_]+$/); \r",
+									"    pm.collectionVariables.set(\"idSub\", idSub);\r",
+									"    console.log(\"idSub: \", idSub)\r",
+									"})\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"id\": { \"type\": \"string\" },\r",
+									"        \"url\": { \"type\": \"string\", \"format\": \"uri\" },\r",
+									"        \"sub_id\": { \"type\": \"string\" },\r",
+									"        \"width\": { \"type\": \"integer\" },\r",
+									"        \"height\": { \"type\": \"integer\" },\r",
+									"        \"original_filename\": { \"type\": \"string\" },\r",
+									"        \"pending\": { \"type\": \"integer\" },\r",
+									"        \"approved\": { \"type\": \"integer\" }\r",
+									"    },\r",
+									"    \"required\": [\"id\", \"url\", \"sub_id\", \"width\", \"height\", \"original_filename\", \"pending\", \"approved\"]\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Image object matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect( ajv.validate(itemSchema, jsonResponse)).to.be.true;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/D:/other/robot_dreams/AQA-TypeScript/lesson13-Api-integration-contract-testing/images/pexels-cat.jpg"
+								},
+								{
+									"key": "sub_id",
+									"value": "my-sub-id",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/images/upload",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"images",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/images/:imageId/breeds",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"id\": {\r",
+									"            \"type\": \"string\",\r",
+									"            \"pattern\": \"^([a-z]{4})$\"\r",
+									"        }\r",
+									"    },\r",
+									"    \"required\": [\"id\"]\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Image object matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect( ajv.validate(itemSchema, jsonResponse)).to.be.true;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// i used idUpload in Url to insert this bread to created image by images/upload\r\n{\r\n\t\"breed_id\": \"aege\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/images/{{idUpload}}/breeds",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"images",
+								"{{idUpload}}",
+								"breeds"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/images/:imageId/breeds",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"id\": {\r",
+									"            \"type\": \"string\",\r",
+									"            \"pattern\": \"^([a-z]{4})$\"\r",
+									"        }\r",
+									"    },\r",
+									"    \"required\": [\"id\"]\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Image object matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect( ajv.validate(itemSchema, jsonResponse)).to.be.true;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// i used idUpload in Url to insert this bread to created image by images/upload\r\n{\r\n\t\"breed_id\": \"abys\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/images/{{idUpload}}/breeds",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"images",
+								"{{idUpload}}",
+								"breeds"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/images/:idUpload",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    $schema: 'http://json-schema.org/draft-07/schema#',\r",
+									"    title: 'Images',\r",
+									"    type: 'object',\r",
+									"    required: ['url', 'width', 'height', 'id', 'breeds'],\r",
+									"    properties: {\r",
+									"        url: { type: 'string' },\r",
+									"        width: { type: 'integer' },\r",
+									"        height: { type: 'integer' },\r",
+									"        id: { type: 'string' },\r",
+									"        breeds: {\r",
+									"            type: 'array',\r",
+									"            items: {\r",
+									"                type: 'object',\r",
+									"                properties: {\r",
+									"                    weight: {\r",
+									"                        type: 'object',\r",
+									"                        properties: {\r",
+									"                            imperial: { type: 'string' },\r",
+									"                            metric: { type: 'string' }\r",
+									"                        },\r",
+									"                        required: ['imperial', 'metric']\r",
+									"                    },\r",
+									"                    id: { type: 'string' },\r",
+									"                    name: { type: 'string' },\r",
+									"                    temperament: { type: 'string' },\r",
+									"                    origin: { type: 'string' },\r",
+									"                    country_codes: { type: 'string' },\r",
+									"                    country_code: { type: 'string' },\r",
+									"                    description: { type: 'string' },\r",
+									"                    life_span: { type: 'string' },\r",
+									"                    indoor: { type: 'integer' },\r",
+									"                    lap: { type: 'integer' },\r",
+									"                    alt_names: { type: 'string' },\r",
+									"                    adaptability: { type: 'integer' },\r",
+									"                    affection_level: { type: 'integer' },\r",
+									"                    child_friendly: { type: 'integer' },\r",
+									"                    dog_friendly: { type: 'integer' },\r",
+									"                    energy_level: { type: 'integer' },\r",
+									"                    grooming: { type: 'integer' },\r",
+									"                    health_issues: { type: 'integer' },\r",
+									"                    intelligence: { type: 'integer' },\r",
+									"                    shedding_level: { type: 'integer' },\r",
+									"                    social_needs: { type: 'integer' },\r",
+									"                    stranger_friendly: { type: 'integer' },\r",
+									"                    vocalisation: { type: 'integer' },\r",
+									"                    experimental: { type: 'integer' },\r",
+									"                    hairless: { type: 'integer' },\r",
+									"                    natural: { type: 'integer' },\r",
+									"                    rare: { type: 'integer' },\r",
+									"                    rex: { type: 'integer' },\r",
+									"                    suppressed_tail: { type: 'integer' },\r",
+									"                    short_legs: { type: 'integer' },\r",
+									"                    wikipedia_url: { type: 'string' },\r",
+									"                    hypoallergenic: { type: 'integer' },\r",
+									"                    reference_image_id: { type: 'string' }\r",
+									"                },\r",
+									"                required: [\r",
+									"                    'weight',\r",
+									"                    'id',\r",
+									"                    'name',\r",
+									"                    'temperament',\r",
+									"                    'origin',\r",
+									"                    'country_codes',\r",
+									"                    'country_code',\r",
+									"                    'description',\r",
+									"                    'life_span',\r",
+									"                    'indoor',\r",
+									"                    'adaptability',\r",
+									"                    'affection_level',\r",
+									"                    'child_friendly',\r",
+									"                    'dog_friendly',\r",
+									"                    'energy_level',\r",
+									"                    'grooming',\r",
+									"                    'health_issues',\r",
+									"                    'intelligence',\r",
+									"                    'shedding_level',\r",
+									"                    'social_needs',\r",
+									"                    'stranger_friendly',\r",
+									"                    'vocalisation',\r",
+									"                    'experimental',\r",
+									"                    'hairless',\r",
+									"                    'natural',\r",
+									"                    'rare',\r",
+									"                    'rex',\r",
+									"                    'suppressed_tail',\r",
+									"                    'short_legs',\r",
+									"                    'hypoallergenic',\r",
+									"                    'reference_image_id'\r",
+									"                ]\r",
+									"            }\r",
+									"        }\r",
+									"    },\r",
+									"    additionalProperties: false\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Image object matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect( ajv.validate(itemSchema, jsonResponse)).to.be.true;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const imagesLimit = Math.floor(Math.random()*100);\r",
+									"pm.variables.set(\"imagesLimit\", imagesLimit);"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/images/{{idUpload}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"images",
+								"{{idUpload}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/images/:imageId/breeds/:breedId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// delete only uploaded item by id\r",
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"No Content\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/images/{{idUpload}}/breeds/abys",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"images",
+								"{{idUpload}}",
+								"breeds",
+								"abys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/images/:imageId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// delete only uploaded item by id\r",
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"No Content\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"followOriginalHttpMethod": true,
+						"followAuthorizationHeader": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/images/{{idUpload}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"images",
+								"{{idUpload}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Extra request",
+			"item": [
+				{
+					"name": "/breeds?limit=",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"    console.log(pm.response.json().length);\r",
+									"});\r",
+									"\r",
+									"pm.test(`Length is ${pm.variables.get(\"breedsLimit\")}`, function () {\r",
+									"    pm.expect(pm.response.json().length).to.equal(pm.variables.get(\"breedsLimit\"));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"idBreed is written to collection variable\", function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    const randomBreed = jsonResponse[Math.floor(Math.random()*pm.variables.get(\"breedsLimit\"))];\r",
+									"    pm.collectionVariables.set(\"idBreed\", randomBreed.id);\r",
+									"    pm.expect(pm.collectionVariables.get(\"idBreed\")).to.not.be.null;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    // pm.response.to.have.header(\"authenticated\", \"true\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    \"$schema\": \"http://json-schema.org/draft-07/schema#\",\r",
+									"    \"title\": \"Cat Information\",\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"weight\": {\r",
+									"            \"type\": \"object\",\r",
+									"            \"properties\": {\r",
+									"                \"imperial\": { \"type\": \"string\" },\r",
+									"                \"metric\": { \"type\": \"string\" }\r",
+									"            },\r",
+									"            \"required\": [\"imperial\", \"metric\"]\r",
+									"        },\r",
+									"        \"id\": { \"type\": \"string\" },\r",
+									"        \"name\": { \"type\": \"string\" },\r",
+									"        \"cfa_url\": { \"type\": \"string\", \"format\": \"url\" },\r",
+									"        \"vetstreet_url\": { \"type\": \"string\", \"format\": \"uri\" },\r",
+									"        \"vcahospitals_url\": { \"type\": \"string\", \"format\": \"url\", \"nullable\": true, \"optional\": true },\r",
+									"        \"temperament\": { \"type\": \"string\" },\r",
+									"        \"origin\": { \"type\": \"string\" },\r",
+									"        \"country_codes\": { \"type\": \"string\" },\r",
+									"        \"country_code\": { \"type\": \"string\" },\r",
+									"        \"description\": { \"type\": \"string\" },\r",
+									"        \"life_span\": { \"type\": \"string\" },\r",
+									"        \"indoor\": { \"type\": \"integer\" },\r",
+									"        \"lap\": { \"type\": \"integer\" },\r",
+									"        \"alt_names\": { \"type\": \"string\" },\r",
+									"        \"adaptability\": { \"type\": \"integer\" },\r",
+									"        \"affection_level\": { \"type\": \"integer\" },\r",
+									"        \"child_friendly\": { \"type\": \"integer\" },\r",
+									"        \"dog_friendly\": { \"type\": \"integer\" },\r",
+									"        \"energy_level\": { \"type\": \"integer\" },\r",
+									"        \"grooming\": { \"type\": \"integer\" },\r",
+									"        \"health_issues\": { \"type\": \"integer\" },\r",
+									"        \"intelligence\": { \"type\": \"integer\" },\r",
+									"        \"shedding_level\": { \"type\": \"integer\" },\r",
+									"        \"social_needs\": { \"type\": \"integer\" },\r",
+									"        \"stranger_friendly\": { \"type\": \"integer\" },\r",
+									"        \"vocalisation\": { \"type\": \"integer\" },\r",
+									"        \"experimental\": { \"type\": \"integer\" },\r",
+									"        \"hairless\": { \"type\": \"integer\" },\r",
+									"        \"natural\": { \"type\": \"integer\" },\r",
+									"        \"rare\": { \"type\": \"integer\" },\r",
+									"        \"rex\": { \"type\": \"integer\" },\r",
+									"        \"suppressed_tail\": { \"type\": \"integer\" },\r",
+									"        \"short_legs\": { \"type\": \"integer\" },\r",
+									"        \"wikipedia_url\": { \"type\": \"string\", \"format\": \"uri\" },\r",
+									"        \"hypoallergenic\": { \"type\": \"integer\" },\r",
+									"        \"reference_image_id\": { \"type\": \"string\" },\r",
+									"        \"image\": {\r",
+									"            \"type\": \"object\",\r",
+									"            \"properties\": {\r",
+									"                \"id\": { \"type\": \"string\" },\r",
+									"                \"width\": { \"type\": \"integer\" },\r",
+									"                \"height\": { \"type\": \"integer\" },\r",
+									"                \"url\": { \"type\": \"string\", \"format\": \"uri\" }\r",
+									"            },\r",
+									"            \"required\": [\"id\", \"width\", \"height\", \"url\"]\r",
+									"        }\r",
+									"    },\r",
+									"    \"required\": [\"weight\", \"id\", \"name\", \"temperament\", \"origin\", \"country_codes\", \"country_code\", \"description\", \"life_span\", \"indoor\", \"adaptability\", \"affection_level\", \"child_friendly\", \"dog_friendly\", \"energy_level\", \"grooming\", \"health_issues\", \"intelligence\", \"shedding_level\", \"social_needs\", \"stranger_friendly\", \"vocalisation\", \"experimental\", \"hairless\", \"natural\", \"rare\", \"rex\", \"suppressed_tail\", \"short_legs\", \"hypoallergenic\", \"reference_image_id\", \"image\"]\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Each element matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    jsonResponse.forEach((item, idx) => {\r",
+									"        const valid = ajv.validate(itemSchema, item);\r",
+									"        if (!valid) {\r",
+									"            console.log('Schema error at index', idx, ajv.errors);\r",
+									"        }\r",
+									"    });\r",
+									"    // console.log(\"Each item matches shema!\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let breedsLimitTop;\r",
+									"const queryParameterPageValue = pm.request.url.query.toObject().page;\r",
+									"switch (queryParameterPageValue) {\r",
+									"    case \"0\": breedsLimitTop = 67;\r",
+									"    break;\r",
+									"    case \"1\": breedsLimitTop =33;\r",
+									"    break;\r",
+									"    case \"2\": breedsLimitTop = 22;\r",
+									"    break;\r",
+									"    case \"3\": breedsLimitTop = 16;\r",
+									"    break;\r",
+									"    case \"4\": breedsLimitTop = 13;\r",
+									"    break;\r",
+									"};\r",
+									"const breedsLimit = 13;//Math.floor(Math.random()*breedsLimitTop);\r",
+									"pm.variables.set(\"breedsLimit\", breedsLimit);"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/breeds?limit={{breedsLimit}}&page=4",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"breeds"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "{{breedsLimit}}"
+								},
+								{
+									"key": "page",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "breeds/search",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Length is 6\", function () {\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.length).to.equal(6);\r",
+									"    const idBreeds = responseJson.map(item => item.id);\r",
+									"    pm.collectionVariables.set(\"idBreeds\", JSON.stringify(idBreeds));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    // pm.response.to.have.header(\"authenticated\", \"true\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    \"$schema\": \"http://json-schema.org/draft-07/schema#\",\r",
+									"    \"title\": \"Cat Information\",\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"weight\": {\r",
+									"            \"type\": \"object\",\r",
+									"            \"properties\": {\r",
+									"                \"imperial\": { \"type\": \"string\" },\r",
+									"                \"metric\": { \"type\": \"string\" }\r",
+									"            },\r",
+									"            \"required\": [\"imperial\", \"metric\"]\r",
+									"        },\r",
+									"        \"id\": { \"type\": \"string\" },\r",
+									"        \"name\": { \"type\": \"string\" },\r",
+									"        \"cfa_url\": { \"type\": \"string\", \"format\": \"url\" },\r",
+									"        \"vetstreet_url\": { \"type\": \"string\", \"format\": \"uri\" },\r",
+									"        \"vcahospitals_url\": { \"type\": \"string\", \"format\": \"url\", \"nullable\": true, \"optional\": true },\r",
+									"        \"temperament\": { \"type\": \"string\" },\r",
+									"        \"origin\": { \"type\": \"string\" },\r",
+									"        \"country_codes\": { \"type\": \"string\" },\r",
+									"        \"country_code\": { \"type\": \"string\" },\r",
+									"        \"description\": { \"type\": \"string\" },\r",
+									"        \"life_span\": { \"type\": \"string\" },\r",
+									"        \"indoor\": { \"type\": \"integer\" },\r",
+									"        \"lap\": { \"type\": \"integer\" },\r",
+									"        \"alt_names\": { \"type\": \"string\" },\r",
+									"        \"adaptability\": { \"type\": \"integer\" },\r",
+									"        \"affection_level\": { \"type\": \"integer\" },\r",
+									"        \"child_friendly\": { \"type\": \"integer\" },\r",
+									"        \"dog_friendly\": { \"type\": \"integer\" },\r",
+									"        \"energy_level\": { \"type\": \"integer\" },\r",
+									"        \"grooming\": { \"type\": \"integer\" },\r",
+									"        \"health_issues\": { \"type\": \"integer\" },\r",
+									"        \"intelligence\": { \"type\": \"integer\" },\r",
+									"        \"shedding_level\": { \"type\": \"integer\" },\r",
+									"        \"social_needs\": { \"type\": \"integer\" },\r",
+									"        \"stranger_friendly\": { \"type\": \"integer\" },\r",
+									"        \"vocalisation\": { \"type\": \"integer\" },\r",
+									"        \"experimental\": { \"type\": \"integer\" },\r",
+									"        \"hairless\": { \"type\": \"integer\" },\r",
+									"        \"natural\": { \"type\": \"integer\" },\r",
+									"        \"rare\": { \"type\": \"integer\" },\r",
+									"        \"rex\": { \"type\": \"integer\" },\r",
+									"        \"suppressed_tail\": { \"type\": \"integer\" },\r",
+									"        \"short_legs\": { \"type\": \"integer\" },\r",
+									"        \"wikipedia_url\": { \"type\": \"string\", \"format\": \"uri\" },\r",
+									"        \"hypoallergenic\": { \"type\": \"integer\" },\r",
+									"        \"reference_image_id\": { \"type\": \"string\" },\r",
+									"        \"image\": {\r",
+									"            \"type\": \"object\",\r",
+									"            \"properties\": {\r",
+									"                \"id\": { \"type\": \"string\" },\r",
+									"                \"width\": { \"type\": \"integer\" },\r",
+									"                \"height\": { \"type\": \"integer\" },\r",
+									"                \"url\": { \"type\": \"string\", \"format\": \"uri\" }\r",
+									"            },\r",
+									"            \"required\": [\"id\", \"width\", \"height\", \"url\"]\r",
+									"        }\r",
+									"    },\r",
+									"    \"required\": [\"weight\", \"id\", \"name\", \"temperament\", \"origin\", \"country_codes\", \"country_code\", \"description\", \"life_span\", \"indoor\", \"adaptability\", \"affection_level\", \"child_friendly\", \"dog_friendly\", \"energy_level\", \"grooming\", \"health_issues\", \"intelligence\", \"shedding_level\", \"social_needs\", \"stranger_friendly\", \"vocalisation\", \"experimental\", \"hairless\", \"natural\", \"rare\", \"rex\", \"suppressed_tail\", \"short_legs\", \"hypoallergenic\", \"reference_image_id\", \"image\"]\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Each element matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    jsonResponse.forEach((item, idx) => {\r",
+									"        const valid = ajv.validate(itemSchema, item);\r",
+									"        if (!valid) {\r",
+									"            console.log('Schema error at index', idx, ajv.errors);\r",
+									"        }\r",
+									"    });\r",
+									"    // console.log(\"Each item matches shema!\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/breeds/search?q=air&attach_image=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"breeds",
+								"search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "air"
+								},
+								{
+									"key": "attach_image",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/images/search?limit=",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const result=pm.response.json();\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Length of response is correct\", function () {\r",
+									"    const imagesLength = pm.variables.get(\"imagesLimit\");\r",
+									"    pm.expect(pm.response.json().length).to.eql(imagesLength);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    pm.response.to.have.header(\"authenticated\", \"true\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    $schema: \"http://json-schema.org/draft-07/schema#\",\r",
+									"    title: \"Images\",\r",
+									"    type: \"object\",\r",
+									"    required: [\"url\", \"width\", \"height\", \"id\", \"breeds\"],\r",
+									"    properties: {\r",
+									"        url: { type: \"string\" },\r",
+									"        width: { type: \"integer\" },\r",
+									"        height: { type: \"integer\" },\r",
+									"        id: { type: \"string\" },\r",
+									"        breeds:{ type: \"array\" },\r",
+									"        categories: { type: \"array\" }\r",
+									"    },\r",
+									"    additionalProperties: true\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Each element matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    jsonResponse.forEach((item, idx) => {\r",
+									"        const valid = ajv.validate(itemSchema, item);\r",
+									"        if (!valid) {\r",
+									"            console.log('Schema error at index', idx, ajv.errors);\r",
+									"        }\r",
+									"    });\r",
+									"    // console.log(\"Each item matches shema!\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const imagesLimit = Math.floor(Math.random()*100);\r",
+									"pm.variables.set(\"imagesLimit\", imagesLimit);"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/images/search?limit={{imagesLimit}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"images",
+								"search"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "{{imagesLimit}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Problems",
+			"item": [
+				{
+					"name": "/breeds/:idBreed/facts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"reference_image_id is valid\", function(){\r",
+									"    const imageId = pm.response.json().reference_image_id;\r",
+									"    pm.expect(imageId).to.be.a(\"string\");\r",
+									"    pm.expect(imageId).to.match(/^[0-9a-zA-Z-_]{9}$/); \r",
+									"    pm.collectionVariables.set(\"imageId\", imageId);\r",
+									"    console.log(\"imageId: \", imageId)\r",
+									"})\r",
+									"\r",
+									"pm.test(\"imageId is written to collection variable\", function () {\r",
+									"    pm.expect(pm.variables.get(\"imageId\")).to.be.not.empty;\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    \"$schema\": \"http://json-schema.org/draft-07/schema#\",\r",
+									"    \"title\": \"Cat Information\",\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"weight\": {\r",
+									"            \"type\": \"object\",\r",
+									"            \"properties\": {\r",
+									"                \"imperial\": { \"type\": \"string\" },\r",
+									"                \"metric\": { \"type\": \"string\" }\r",
+									"            },\r",
+									"            \"required\": [\"imperial\", \"metric\"]\r",
+									"        },\r",
+									"        \"id\": { \"type\": \"string\" },\r",
+									"        \"name\": { \"type\": \"string\" },\r",
+									"        \"temperament\": { \"type\": \"string\" },\r",
+									"        \"origin\": { \"type\": \"string\" },\r",
+									"        \"country_codes\": { \"type\": \"string\" },\r",
+									"        \"country_code\": { \"type\": \"string\" },\r",
+									"        \"description\": { \"type\": \"string\" },\r",
+									"        \"life_span\": { \"type\": \"string\" },\r",
+									"        \"indoor\": { \"type\": \"integer\" },\r",
+									"        \"lap\": { \"type\": \"integer\" },\r",
+									"        \"alt_names\": { \"type\": \"string\" },\r",
+									"        \"adaptability\": { \"type\": \"integer\" },\r",
+									"        \"affection_level\": { \"type\": \"integer\" },\r",
+									"        \"child_friendly\": { \"type\": \"integer\" },\r",
+									"        \"dog_friendly\": { \"type\": \"integer\" },\r",
+									"        \"energy_level\": { \"type\": \"integer\" },\r",
+									"        \"grooming\": { \"type\": \"integer\" },\r",
+									"        \"health_issues\": { \"type\": \"integer\" },\r",
+									"        \"intelligence\": { \"type\": \"integer\" },\r",
+									"        \"shedding_level\": { \"type\": \"integer\" },\r",
+									"        \"social_needs\": { \"type\": \"integer\" },\r",
+									"        \"stranger_friendly\": { \"type\": \"integer\" },\r",
+									"        \"vocalisation\": { \"type\": \"integer\" },\r",
+									"        \"experimental\": { \"type\": \"integer\" },\r",
+									"        \"hairless\": { \"type\": \"integer\" },\r",
+									"        \"natural\": { \"type\": \"integer\" },\r",
+									"        \"rare\": { \"type\": \"integer\" },\r",
+									"        \"rex\": { \"type\": \"integer\" },\r",
+									"        \"suppressed_tail\": { \"type\": \"integer\" },\r",
+									"        \"short_legs\": { \"type\": \"integer\" },\r",
+									"        \"wikipedia_url\": { \"type\": \"string\" },\r",
+									"        \"hypoallergenic\": { \"type\": \"integer\" },\r",
+									"        \"reference_image_id\": { \"type\": \"string\" }\r",
+									"    },\r",
+									"    \"required\": [\"weight\", \"id\", \"name\", \"temperament\", \"origin\", \"country_codes\", \"country_code\", \"description\", \"life_span\", \"indoor\", \"adaptability\", \"affection_level\", \"child_friendly\", \"dog_friendly\", \"energy_level\", \"grooming\", \"health_issues\", \"intelligence\", \"shedding_level\", \"social_needs\", \"stranger_friendly\", \"vocalisation\", \"experimental\", \"hairless\", \"natural\", \"rare\", \"rex\", \"suppressed_tail\", \"short_legs\", \"hypoallergenic\", \"reference_image_id\"]\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Breed object matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect( ajv.validate(itemSchema, jsonResponse)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/breeds/{{idBreed}}/facts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"breeds",
+								"{{idBreed}}",
+								"facts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/facts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// \r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"id\": { \"type\": \"integer\" },\r",
+									"        \"image_id\": { \"type\": \"string\" },\r",
+									"        \"sub_id\": { \"type\": \"string\" },\r",
+									"        \"created_at\": { \"type\": \"string\", \"format\": \"date-time\" },\r",
+									"        \"value\": { \"type\": \"integer\" },\r",
+									"        \"country_code\": { \"type\": \"string\" },\r",
+									"        \"image\": { \"type\": \"object\" }\r",
+									"    },\r",
+									"    \"required\": [\"id\", \"image_id\", \"sub_id\", \"created_at\", \"value\", \"country_code\", \"image\"]\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Each element matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    jsonResponse.forEach((item, idx) => {\r",
+									"        const valid = ajv.validate(itemSchema, item);\r",
+									"        if (!valid) {\r",
+									"            console.log('Schema error at index', idx, ajv.errors);\r",
+									"        }\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/facts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"facts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/webhook",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// \r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"id\": { \"type\": \"integer\" },\r",
+									"        \"image_id\": { \"type\": \"string\" },\r",
+									"        \"sub_id\": { \"type\": \"string\" },\r",
+									"        \"created_at\": { \"type\": \"string\", \"format\": \"date-time\" },\r",
+									"        \"value\": { \"type\": \"integer\" },\r",
+									"        \"country_code\": { \"type\": \"string\" },\r",
+									"        \"image\": { \"type\": \"object\" }\r",
+									"    },\r",
+									"    \"required\": [\"id\", \"image_id\", \"sub_id\", \"created_at\", \"value\", \"country_code\", \"image\"]\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Each element matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    jsonResponse.forEach((item, idx) => {\r",
+									"        const valid = ajv.validate(itemSchema, item);\r",
+									"        if (!valid) {\r",
+									"            console.log('Schema error at index', idx, ajv.errors);\r",
+									"        }\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test Webhook\",\r\n    \"url\": \"https://webhook.site/8ff\",\r\n    \"events\": [\"favourite.created\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/webhooks",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"webhooks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "live_ITUwxKsqOsSw4j3mlY0zzdlr1E2orBg2rG5Xbpmij4bdXIvLsMtZXTXzvK21LS3C",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "x-api-key",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.thecatapi.com/v1",
+			"description": {
+				"content": "keep the same value in Shared Value collumn to be sure when you export it the data will exported too",
+				"type": "text/plain"
+			}
+		},
+		{
+			"key": "token",
+			"value": ""
+		},
+		{
+			"key": "idBreed",
+			"value": ""
+		},
+		{
+			"key": "imageId",
+			"value": ""
+		},
+		{
+			"key": "idUpload",
+			"value": ""
+		},
+		{
+			"key": "idFavorite",
+			"value": ""
+		},
+		{
+			"key": "idSub",
+			"value": ""
+		},
+		{
+			"key": "idVote",
+			"value": ""
+		},
+		{
+			"key": "idBreeds",
+			"value": ""
+		}
+	]
+}
