@@ -175,13 +175,7 @@
 									"    const imageId = pm.response.json().reference_image_id;\r",
 									"    pm.expect(imageId).to.be.a(\"string\");\r",
 									"    pm.expect(imageId).to.match(/^[0-9a-zA-Z-_]{9}$/); \r",
-									"    pm.collectionVariables.set(\"imageId\", imageId);\r",
-									"    console.log(\"imageId: \", imageId)\r",
 									"})\r",
-									"\r",
-									"pm.test(\"imageId is written to collection variable\", function () {\r",
-									"    pm.expect(pm.variables.get(\"imageId\")).to.be.not.empty;\r",
-									"});\r",
 									"\r",
 									"const itemSchema = {\r",
 									"    \"$schema\": \"http://json-schema.org/draft-07/schema#\",\r",
@@ -283,668 +277,6 @@
 			]
 		},
 		{
-			"name": "Favourites",
-			"item": [
-				{
-					"name": "/favourites",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.variables.set(\"breedsLimit\", pm.response.json().length);\r",
-									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Status code name has string\", function () {\r",
-									"    pm.response.to.have.status(\"OK\");\r",
-									"});\r",
-									"\r",
-									"pm.test(\"idFavorite is written to collection variable\", function () {\r",
-									"    const jsonResponse = pm.response.json();\r",
-									"    pm.collectionVariables.set(\"idFavorite\", jsonResponse.id);\r",
-									"    console.log(\"idFavorite: \",  pm.collectionVariables.get(\"idFavorite\"));\r",
-									"    pm.expect(pm.collectionVariables.get(\"idFavorite\")).to.match(/[0-9]{9}/);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Content-Type is present\", function () {\r",
-									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
-									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
-									"});\r",
-									"\r",
-									"const itemSchema = {\r",
-									"    \"type\": \"object\",\r",
-									"    \"properties\": {\r",
-									"        \"message\": { \"type\": \"string\" },\r",
-									"        \"id\": { \"type\": \"integer\" }\r",
-									"    },\r",
-									"    \"required\": [\"message\", \"id\"]\r",
-									"};\r",
-									"\r",
-									"const Ajv = require('ajv');\r",
-									"const ajv = new Ajv();\r",
-									"\r",
-									"pm.test('Response object matches schema', function () {\r",
-									"    const jsonResponse = pm.response.json();\r",
-									"    pm.expect( ajv.validate(itemSchema, jsonResponse)).to.be.true;\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "// actually it is id of breed!!! aege abys asf2 abob acur \r\n{\r\n\t\"image_id\": \"{{idBreed}}\",\r\n\t\"sub_id\": \"{{idSub}}\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/favourites",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"favourites"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/favourites/:idFavorites",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"// \r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Status code name has string\", function () {\r",
-									"    pm.response.to.have.status(\"OK\");\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Content-Type is present\", function () {\r",
-									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
-									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
-									"});\r",
-									"\r",
-									"const itemSchema = {\r",
-									"    \"type\": \"object\",\r",
-									"    \"properties\": {\r",
-									"        \"id\": { \"type\": \"integer\" },\r",
-									"        \"user_id\": { \"type\": \"string\" },\r",
-									"        \"image_id\": { \"type\": \"string\" },\r",
-									"        \"sub_id\": { \"type\": \"string\" },\r",
-									"        \"created_at\": { \"type\": \"string\", \"format\": \"date-time\" },\r",
-									"        \"image\": { \"type\": \"object\" }\r",
-									"    },\r",
-									"    \"required\": [\"id\", \"user_id\", \"image_id\", \"sub_id\", \"created_at\", \"image\"]\r",
-									"};\r",
-									"\r",
-									"const Ajv = require('ajv');\r",
-									"const ajv = new Ajv();\r",
-									"\r",
-									"pm.test('Response object matches schema', function () {\r",
-									"    const jsonResponse = pm.response.json();\r",
-									"    pm.expect( ajv.validate(itemSchema, jsonResponse)).to.be.true;\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/favourites/{{idFavorite}}",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"favourites",
-								"{{idFavorite}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/favourites",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"// \r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Status code name has string\", function () {\r",
-									"    pm.response.to.have.status(\"OK\");\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Content-Type is present\", function () {\r",
-									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
-									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
-									"});\r",
-									"\r",
-									"const itemSchema = {\r",
-									"    \"type\": \"object\",\r",
-									"    \"properties\": {\r",
-									"        \"id\": { \"type\": \"integer\" },\r",
-									"        \"user_id\": { \"type\": \"string\" },\r",
-									"        \"image_id\": { \"type\": \"string\" },\r",
-									"        \"sub_id\": { \"type\": \"string\" },\r",
-									"        \"created_at\": { \"type\": \"string\", \"format\": \"date-time\" },\r",
-									"        \"image\": { \"type\": \"object\" }\r",
-									"    },\r",
-									"    \"required\": [\"id\", \"user_id\", \"image_id\", \"sub_id\", \"created_at\", \"image\"]\r",
-									"};\r",
-									"\r",
-									"const Ajv = require('ajv');\r",
-									"const ajv = new Ajv();\r",
-									"\r",
-									"pm.test('Each element matches schema', function () {\r",
-									"    const jsonResponse = pm.response.json();\r",
-									"    jsonResponse.forEach((item, idx) => {\r",
-									"        const valid = ajv.validate(itemSchema, item);\r",
-									"        if (!valid) {\r",
-									"            console.log('Schema error at index', idx, ajv.errors);\r",
-									"        }\r",
-									"    });\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/favourites",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"favourites"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/favourites/:idFavorites Copy",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"// \r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Status code name has string\", function () {\r",
-									"    pm.response.to.have.status(\"OK\");\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Content-Type is present\", function () {\r",
-									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
-									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
-									"});\r",
-									"\r",
-									"pm.test('Response message is SUCCESS', function () {\r",
-									"    const jsonResponse = pm.response.json();\r",
-									"    pm.expect(jsonResponse.message).to.be.equal(\"SUCCESS\");\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/favourites/{{idFavorite}}",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"favourites",
-								"{{idFavorite}}"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Votes",
-			"item": [
-				{
-					"name": "/votes",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 201\", function () {\r",
-									"    pm.response.to.have.status(201);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Status code name has string\", function () {\r",
-									"    pm.response.to.have.status(\"Created\");\r",
-									"});\r",
-									"\r",
-									"pm.test(\"idVote is written to collection variable\", function () {\r",
-									"    const jsonResponse = pm.response.json();\r",
-									"    pm.collectionVariables.set(\"idVote\", jsonResponse.id);\r",
-									"    console.log(\"idVote: \",  pm.collectionVariables.get(\"idVote\"));\r",
-									"    pm.expect(pm.collectionVariables.get(\"idVote\")).to.match(/[0-9]{7}/);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Content-Type is present\", function () {\r",
-									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
-									"});\r",
-									"\r",
-									"const itemSchema = {\r",
-									"    \"type\": \"object\",\r",
-									"    \"properties\": {\r",
-									"        \"message\": { \"type\": \"string\" },\r",
-									"        \"id\": { \"type\": \"integer\" },\r",
-									"        \"image_id\": { \"type\": \"string\" },\r",
-									"        \"sub_id\": { \"type\": \"string\" },\r",
-									"        \"value\": { \"type\": \"integer\" },\r",
-									"        \"country_code\": { \"type\": \"string\" }\r",
-									"    },\r",
-									"    \"required\": [\"message\", \"id\", \"image_id\", \"sub_id\", \"value\", \"country_code\"]\r",
-									"};\r",
-									"\r",
-									"const Ajv = require('ajv');\r",
-									"const ajv = new Ajv();\r",
-									"\r",
-									"pm.test('Response object matches schema', function () {\r",
-									"    const jsonResponse = pm.response.json();\r",
-									"    pm.expect( ajv.validate(itemSchema, jsonResponse)).to.be.true;\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "// actually it is id of breed!!! aege abys asf2 abob acur \r\n{\r\n\t\"image_id\": \"{{idBreed}}\",\r\n\t\"sub_id\": \"{{idSub}}\",\r\n    \"value\": 1\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/votes",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"votes"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/votes/:idVote",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"// \r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Status code name has string\", function () {\r",
-									"    pm.response.to.have.status(\"OK\");\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Content-Type is present\", function () {\r",
-									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
-									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
-									"});\r",
-									"\r",
-									"const itemSchema = {\r",
-									"    \"type\": \"object\",\r",
-									"    \"properties\": {\r",
-									"        \"id\": { \"type\": \"integer\" },\r",
-									"        \"user_id\": { \"type\": \"string\" },\r",
-									"        \"image_id\": { \"type\": \"string\" },\r",
-									"        \"sub_id\": { \"type\": \"string\" },\r",
-									"        \"created_at\": { \"type\": \"string\", \"format\": \"date-time\" },\r",
-									"        \"value\": { \"type\": \"integer\" },\r",
-									"        \"country_code\": { \"type\": \"string\" },\r",
-									"        \"image\": { \"type\": \"object\" }\r",
-									"    },\r",
-									"    \"required\": [\"id\", \"user_id\", \"image_id\", \"sub_id\", \"created_at\", \"value\", \"country_code\", \"image\"]\r",
-									"};\r",
-									"\r",
-									"const Ajv = require('ajv');\r",
-									"const ajv = new Ajv();\r",
-									"\r",
-									"pm.test('Response bject matches schema', function () {\r",
-									"    const jsonResponse = pm.response.json();\r",
-									"    pm.expect( ajv.validate(itemSchema, jsonResponse)).to.be.true;\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/votes/{{idVote}}",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"votes",
-								"{{idVote}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/votes",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"// \r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Status code name has string\", function () {\r",
-									"    pm.response.to.have.status(\"OK\");\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Content-Type is present\", function () {\r",
-									"    pm.response.to.have.header(\"Content-Type\", \"application/json\");\r",
-									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
-									"});\r",
-									"\r",
-									"const itemSchema = {\r",
-									"    \"type\": \"object\",\r",
-									"    \"properties\": {\r",
-									"        \"id\": { \"type\": \"integer\" },\r",
-									"        \"image_id\": { \"type\": \"string\" },\r",
-									"        \"sub_id\": { \"type\": \"string\" },\r",
-									"        \"created_at\": { \"type\": \"string\", \"format\": \"date-time\" },\r",
-									"        \"value\": { \"type\": \"integer\" },\r",
-									"        \"country_code\": { \"type\": \"string\" },\r",
-									"        \"image\": { \"type\": \"object\" }\r",
-									"    },\r",
-									"    \"required\": [\"id\", \"image_id\", \"sub_id\", \"created_at\", \"value\", \"country_code\", \"image\"]\r",
-									"};\r",
-									"\r",
-									"const Ajv = require('ajv');\r",
-									"const ajv = new Ajv();\r",
-									"\r",
-									"pm.test('Each element matches schema', function () {\r",
-									"    const jsonResponse = pm.response.json();\r",
-									"    jsonResponse.forEach((item, idx) => {\r",
-									"        const valid = ajv.validate(itemSchema, item);\r",
-									"        if (!valid) {\r",
-									"            console.log('Schema error at index', idx, ajv.errors);\r",
-									"        }\r",
-									"    });\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/votes",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"votes"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/votes/:idVote",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"// \r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Status code name has string\", function () {\r",
-									"    pm.response.to.have.status(\"OK\");\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Content-Type is present\", function () {\r",
-									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
-									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
-									"});\r",
-									"\r",
-									"pm.test('Response message is SUCCESS', function () {\r",
-									"    const jsonResponse = pm.response.json();\r",
-									"    pm.expect(jsonResponse.message).to.be.equal(\"SUCCESS\");\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/votes/{{idVote}}",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"votes",
-								"{{idVote}}"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
 			"name": "Images",
 			"item": [
 				{
@@ -967,6 +299,18 @@
 									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
 									"    pm.response.to.have.header(\"authenticated\", \"true\");\r",
 									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Save to collectionVariables imageId and imageUrl\", function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    const imageId = jsonResponse[0].id;\r",
+									"    const imageUrl = jsonResponse[0].url;    \r",
+									"    pm.collectionVariables.set(\"imageId\", imageId);\r",
+									"    pm.collectionVariables.set(\"imageUrl\", imageUrl);    \r",
+									"    console.log(\"imageId: \", imageId);\r",
+									"    console.log(\"imageUrl: \", imageUrl);\r",
+									"    pm.expect(pm.collectionVariables.get(\"imageId\")).to.be.equal(imageId);\r",
+									"    pm.expect(pm.collectionVariables.get(\"imageUrl\")).to.be.equal(imageUrl);\r",
 									"});\r",
 									"\r",
 									"const itemSchema = {\r",
@@ -998,6 +342,17 @@
 									"    });\r",
 									"    // console.log(\"Each item matches shema!\");\r",
 									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
 								],
 								"type": "text/javascript",
 								"packages": {},
@@ -1041,6 +396,32 @@
 									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
 									"});\r",
 									"\r",
+									"const itemSchema = {\r",
+									"    $schema: \"http://json-schema.org/draft-07/schema#\",\r",
+									"    title: \"Image\",\r",
+									"    type: \"object\",\r",
+									"    required: [\"url\", \"width\", \"height\", \"id\"],\r",
+									"    properties: {\r",
+									"        url: { type: \"string\" },\r",
+									"        width: { type: \"integer\" },\r",
+									"        height: { type: \"integer\" },\r",
+									"        id: { type: \"string\", minimum: 0 },\r",
+									"        categories: { type: \"array\" }\r",
+									"    },\r",
+									"    additionalProperties: true\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Image object matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect( ajv.validate(itemSchema, jsonResponse)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"// if use id from breeds the shema will be\r",
+									"/*\r",
 									"const itemSchema = {\r",
 									"    $schema: 'http://json-schema.org/draft-07/schema#',\r",
 									"    title: 'Images',\r",
@@ -1135,16 +516,7 @@
 									"        }\r",
 									"    },\r",
 									"    additionalProperties: false\r",
-									"};\r",
-									"\r",
-									"const Ajv = require('ajv');\r",
-									"const ajv = new Ajv();\r",
-									"\r",
-									"pm.test('Image object matches schema', function () {\r",
-									"    const jsonResponse = pm.response.json();\r",
-									"    pm.expect( ajv.validate(itemSchema, jsonResponse)).to.be.true;\r",
-									"});\r",
-									""
+									"};*/"
 								],
 								"type": "text/javascript",
 								"packages": {},
@@ -1475,7 +847,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "/D:/other/robot_dreams/AQA-TypeScript/lesson13-Api-integration-contract-testing/images/pexels-cat.jpg"
+									"src": "postman-cloud:///1f0bb5ca-7383-4770-a513-216b2f9f5459"
 								},
 								{
 									"key": "sub_id",
@@ -1642,7 +1014,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "// i used idUpload in Url to insert this bread to created image by images/upload\r\n{\r\n\t\"breed_id\": \"abys\"\r\n}",
+							"raw": "// i used idUpload in Url to insert this bread to created image by images/upload\r\n{\r\n\t\"breed_id\": \"abys\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1693,6 +1065,7 @@
 									"        width: { type: 'integer' },\r",
 									"        height: { type: 'integer' },\r",
 									"        id: { type: 'string' },\r",
+									"        sub_id:{ type: 'string' },\r",
 									"        breeds: {\r",
 									"            type: 'array',\r",
 									"            items: {\r",
@@ -1935,6 +1308,707 @@
 							"path": [
 								"images",
 								"{{idUpload}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Favourites",
+			"item": [
+				{
+					"name": "/favourites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.variables.set(\"breedsLimit\", pm.response.json().length);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"idFavorite is written to collection variable\", function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.collectionVariables.set(\"idFavorite\", jsonResponse.id);\r",
+									"    console.log(\"idFavorite: \",  pm.collectionVariables.get(\"idFavorite\"));\r",
+									"    pm.expect(pm.collectionVariables.get(\"idFavorite\")).to.match(/[0-9]{9}/);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"message\": { \"type\": \"string\" },\r",
+									"        \"id\": { \"type\": \"integer\" }\r",
+									"    },\r",
+									"    \"required\": [\"message\", \"id\"]\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Response object matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect( ajv.validate(itemSchema, jsonResponse)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "// actually it is id of breed!!! aege abys asf2 abob acur \r\n{\r\n\t\"image_id\": \"{{imageId}}\",\r\n\t\"sub_id\": \"{{idSub}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/favourites",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"favourites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/favourites/:idFavorites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// \r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response object 'imageId'='image.id'\", function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect(pm.collectionVariables.get(\"imageId\")).to.equal(jsonResponse.image.id);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response object 'image.url' is not empty\", function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect(jsonResponse.image.url).to.equal(pm.collectionVariables.get(\"imageUrl\"));\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"  type: \"object\",\r",
+									"  properties: {\r",
+									"    id: { type: \"integer\" },\r",
+									"    user_id: { type: \"string\" },\r",
+									"    image_id: { type: \"string\" },\r",
+									"    sub_id: { type: \"string\" },\r",
+									"    created_at: { type: \"string\", format: \"date-time\" },\r",
+									"    image: {\r",
+									"      type: \"object\",\r",
+									"      properties: {\r",
+									"        id: { type: \"string\" },\r",
+									"        url: { type: \"string\" },\r",
+									"      },\r",
+									"      required: [\"id\", \"url\"],\r",
+									"    },\r",
+									"  },\r",
+									"  required: [\"id\", \"user_id\", \"image_id\", \"sub_id\", \"created_at\", \"image\"],\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Response object matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect( ajv.validate(itemSchema, jsonResponse)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/favourites/{{idFavorite}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"favourites",
+								"{{idFavorite}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/favourites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// \r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"id\": { \"type\": \"integer\" },\r",
+									"        \"user_id\": { \"type\": \"string\" },\r",
+									"        \"image_id\": { \"type\": \"string\" },\r",
+									"        \"sub_id\": { \"type\": \"string\" },\r",
+									"        \"created_at\": { \"type\": \"string\", \"format\": \"date-time\" },\r",
+									"        \"image\": { \"type\": \"object\" }\r",
+									"    },\r",
+									"    \"required\": [\"id\", \"user_id\", \"image_id\", \"sub_id\", \"created_at\", \"image\"]\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Each element matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    jsonResponse.forEach((item, idx) => {\r",
+									"        const valid = ajv.validate(itemSchema, item);\r",
+									"        if (!valid) {\r",
+									"            console.log('Schema error at index', idx, ajv.errors);\r",
+									"        }\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/favourites",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"favourites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/favourites/:idFavorites Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// \r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"pm.test('Response message is SUCCESS', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect(jsonResponse.message).to.be.equal(\"SUCCESS\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/favourites/{{idFavorite}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"favourites",
+								"{{idFavorite}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Votes",
+			"item": [
+				{
+					"name": "/votes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"idVote is written to collection variable\", function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.collectionVariables.set(\"idVote\", jsonResponse.id);\r",
+									"    console.log(\"idVote: \",  pm.collectionVariables.get(\"idVote\"));\r",
+									"    pm.expect(pm.collectionVariables.get(\"idVote\")).to.match(/[0-9]{7}/);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"message\": { \"type\": \"string\" },\r",
+									"        \"id\": { \"type\": \"integer\" },\r",
+									"        \"image_id\": { \"type\": \"string\" },\r",
+									"        \"sub_id\": { \"type\": \"string\" },\r",
+									"        \"value\": { \"type\": \"integer\" },\r",
+									"        \"country_code\": { \"type\": \"string\" }\r",
+									"    },\r",
+									"    \"required\": [\"message\", \"id\", \"image_id\", \"sub_id\", \"value\", \"country_code\"]\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Response object matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect( ajv.validate(itemSchema, jsonResponse)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"image_id\": \"{{imageId}}\",\r\n\t\"sub_id\": \"{{idSub}}\",\r\n    \"value\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/votes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"votes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/votes/:idVote",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// \r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response object 'image_id'='image.id'\", function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect(pm.collectionVariables.get(\"imageId\")).to.equal(jsonResponse.image.id);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response object 'image.url' is not empty\", function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect(jsonResponse.image.url).to.be.equal(pm.collectionVariables.get(\"imageUrl\"));\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"id\": { \"type\": \"integer\" },\r",
+									"        \"user_id\": { \"type\": \"string\" },\r",
+									"        \"image_id\": { \"type\": \"string\" },\r",
+									"        \"sub_id\": { \"type\": \"string\" },\r",
+									"        \"created_at\": { \"type\": \"string\", \"format\": \"date-time\" },\r",
+									"        \"value\": { \"type\": \"integer\" },\r",
+									"        \"country_code\": { \"type\": \"string\" },\r",
+									"        \"image\": { \"type\": \"object\" }\r",
+									"    },\r",
+									"    \"required\": [\"id\", \"user_id\", \"image_id\", \"sub_id\", \"created_at\", \"value\", \"country_code\", \"image\"]\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Response bject matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect( ajv.validate(itemSchema, jsonResponse)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/votes/{{idVote}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"votes",
+								"{{idVote}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/votes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// \r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"const itemSchema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"id\": { \"type\": \"integer\" },\r",
+									"        \"image_id\": { \"type\": \"string\" },\r",
+									"        \"sub_id\": { \"type\": \"string\" },\r",
+									"        \"created_at\": { \"type\": \"string\", \"format\": \"date-time\" },\r",
+									"        \"value\": { \"type\": \"integer\" },\r",
+									"        \"country_code\": { \"type\": \"string\" },\r",
+									"        \"image\": { \"type\": \"object\" }\r",
+									"    },\r",
+									"    \"required\": [\"id\", \"image_id\", \"sub_id\", \"created_at\", \"value\", \"country_code\", \"image\"]\r",
+									"};\r",
+									"\r",
+									"const Ajv = require('ajv');\r",
+									"const ajv = new Ajv();\r",
+									"\r",
+									"pm.test('Each element matches schema', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    jsonResponse.forEach((item, idx) => {\r",
+									"        const valid = ajv.validate(itemSchema, item);\r",
+									"        if (!valid) {\r",
+									"            console.log('Schema error at index', idx, ajv.errors);\r",
+									"        }\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/votes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"votes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/votes/:idVote",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// \r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"    pm.response.to.have.header(\"Content-Encoding\", \"br\");\r",
+									"});\r",
+									"\r",
+									"pm.test('Response message is SUCCESS', function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.expect(jsonResponse.message).to.be.equal(\"SUCCESS\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/votes/{{idVote}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"votes",
+								"{{idVote}}"
 							]
 						}
 					},
@@ -2754,6 +2828,10 @@
 		},
 		{
 			"key": "idBreeds",
+			"value": ""
+		},
+		{
+			"key": "imageUrl",
 			"value": ""
 		}
 	]
