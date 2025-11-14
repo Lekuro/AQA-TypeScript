@@ -26,7 +26,7 @@ export class FetchApiService implements IApiService<Response> {
     }
 
     public async post(uri: string, body: unknown, headers?: Record<string, string>): Promise<Response> {
-        const defaultHeaders = this.getDefaultHeaders(headers);
+        const defaultHeaders = { ...this.getDefaultHeaders(headers), 'Content-Type': 'application/json' };
 
         return await fetch(`${this.baseUrl}${uri}`, {
             method: 'POST',

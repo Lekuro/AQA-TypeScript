@@ -1,5 +1,5 @@
 import { IApiService } from '../../services/abstraction/i-api-service';
-import { IImageDto } from '../../models/the-cat-api/image.dto';
+import { IImageDto, IBreedDto, IImageAnalysisDto, IUploadedImageDto, IUploadedBreedDto } from '../../models/the-cat-api/index';
 import * as fs from 'fs';
 
 export class TheCatImageApi {
@@ -14,16 +14,28 @@ export class TheCatImageApi {
 
     public async getImageById(imageId: string): Promise<[Response, IImageDto]> {
         const response = await this.apiService.get(`/images/${imageId}`);
-        const image = await response.json();
+        const jsonResponse = await response.json();
 
-        return [response, image];
+        return [response, jsonResponse];
     }
 
-    public async uploadImage(imagePath: string, subId?: string, breeds?: string[]): Promise<[Response, IImageDto]> {
+    public async getAnalysisImageById(imageId: string): Promise<[Response, IImageAnalysisDto[]]> {
+        const response = await this.apiService.get(`/images/${imageId}/analysis`);
+        const jsonResponse = await response.json();
+
+        return [response, jsonResponse];
+    }
+
+    public async uploadImage(
+        imagePath: string,
+        imageFileName: string,
+        subId?: string,
+        breeds?: string[]
+    ): Promise<[Response, IUploadedImageDto]> {
         const formData = new FormData();
         const file = fs.readFileSync(imagePath);
         // node 24.x
-        const binaryFile = new File([new Uint8Array(file)], 'pexels-cat.jpg', { type: 'image/jpeg' });
+        const binaryFile = new File([new Uint8Array(file)], imageFileName, { type: 'image/jpeg' });
 
         // node 22.x
         // const binaryFile = new File([file], 'the_dog_1.jpg', { type: 'image/jpeg' });
@@ -31,20 +43,40 @@ export class TheCatImageApi {
         formData.append('file', binaryFile);
         subId && formData.append('sub_id', subId);
         breeds && formData.append('breeds', breeds.join(','));
-        console.log(breeds);
 
         const response = await this.apiService.postForm('/images/upload', formData);
         // const response2 = await fetch (`${this.baseUrl}/images/upload`, { method: 'POST', body: formData });
 
-        const imageResponse = await response.json();
+        const jsonResponse = await response.json();
 
-        return [response, imageResponse];
+        return [response, jsonResponse];
     }
 
-    public async getMyImages(): Promise<[Response, IImageDto[]]> {
+    public async getUploadedImages(): Promise<[Response, IUploadedImageDto[]]> {
         const response = await this.apiService.get('/images');
-        const images = await response.json();
+        const jsonResponse = await response.json();
 
-        return [response, images];
+        return [response, jsonResponse];
+    }
+
+    public async getUploadedImageById(imageId: string): Promise<[Response, IImageDto]> {
+        const response = await this.apiService.get('/images/' + imageId);
+        const jsonResponse = await response.json();
+
+        return [response, jsonResponse];
+    }
+
+    public async uploadBreedToUploadedImage(imageId: string, breedId: string): Promise<[Response, IUploadedBreedDto]> {
+        const response = await this.apiService.post(`/images/${imageId}/breeds`, { breed_id: breedId });
+        const jsonResponse = await response.json();
+
+        return [response, jsonResponse];
+    }
+
+    public async getUploadedBreeds(imageId: string): Promise<[Response, IBreedDto[]]> {
+        const response = await this.apiService.get(`/images/${imageId}/breeds`);
+        const jsonResponse = await response.json();
+
+        return [response, jsonResponse];
     }
 }
