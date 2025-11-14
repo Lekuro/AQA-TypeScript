@@ -158,4 +158,58 @@ describe('The Cat Api integration tests', () => {
         expect(jsonResponse).to.have.property('height').that.is.a('number');
         expect(jsonResponse).toMatchSnapshot();
     });
+
+    it('should delete uploaded breed by id', async () => {
+        // Arrange
+        const breed = 'aege';
+        const response = await apiWorld.catsImageApi.deleteUploadedBreed(uploadedImage.id, breed);
+        console.log('response', response);
+
+        // Assert
+        expect(response.status).toBe(204);
+        expect(response.statusText).toBe('No Content');
+        expect(response.url).toBe(`https://api.thecatapi.com/v1/images/${uploadedImage.id}/breeds/${breed}`);
+    });
+
+    it('should fetch uploaded image by id', async () => {
+        // Arrange
+        const [response, jsonResponse] = await apiWorld.catsImageApi.getUploadedImageById(uploadedImage.id);
+        console.log('response', response, '\njsonResponse', jsonResponse);
+
+        // Assert
+        expect(response.status).toBe(200);
+        expect(response.statusText).toBe('OK');
+        expect(response.url).toBe(`https://api.thecatapi.com/v1/images/${uploadedImage.id}`);
+        expect(jsonResponse.id).to.be.eql(uploadedImage.id);
+        expect(jsonResponse.url).to.be.eql(uploadedImage.url);
+        expect(jsonResponse.sub_id).to.be.eql(uploadedImage.sub_id);
+        expect(jsonResponse.breeds).to.be.an('array');
+        expect(jsonResponse.breeds).to.have.length(1);
+        expect(jsonResponse).to.have.property('width').that.is.a('number');
+        expect(jsonResponse).to.have.property('height').that.is.a('number');
+        expect(jsonResponse).toMatchSnapshot();
+    });
+
+    it('should delete uploaded image by id', async () => {
+        // Arrange
+        const response = await apiWorld.catsImageApi.deleteUploadedImage(uploadedImage.id);
+        console.log('response', response);
+
+        // Assert
+        expect(response.status).toBe(204);
+        expect(response.statusText).toBe('No Content');
+        expect(response.url).toBe(`https://api.thecatapi.com/v1/images/${uploadedImage.id}`);
+    });
+
+    it('should not fetch uploaded image by id', async () => {
+        // Arrange
+        const [response, jsonResponse] = await apiWorld.catsImageApi.getUploadedImageById(uploadedImage.id);
+        console.log('response', response, '\njsonResponse', jsonResponse);
+
+        // Assert
+        expect(response.status).toBe(400);
+        expect(response.statusText).toBe('Bad Request');
+        expect(response.url).toBe(`https://api.thecatapi.com/v1/images/${uploadedImage.id}`);
+        expect(response.ok).toBe(false);
+    });
 });

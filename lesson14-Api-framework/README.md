@@ -9,3 +9,9 @@ npm i -D dotenv-safe
 ```
 npm install eslint-plugin-unicorn@latest --save-dev
 ```
+
+### install playwright with browsers
+
+```
+npx playwright install --with-deps
+```

@@ -34,6 +34,7 @@ export class FetchApiService implements IApiService<Response> {
             headers: defaultHeaders
         });
     }
+
     public async postForm(uri: string, formData: FormData, headers?: Record<string, string>): Promise<Response> {
         const defaultHeaders = this.getDefaultHeaders(headers);
 
@@ -43,6 +44,16 @@ export class FetchApiService implements IApiService<Response> {
             headers: defaultHeaders
         });
     }
+
+    public async delete(uri: string, headers?: Record<string, string>): Promise<Response> {
+        const defaultHeaders = this.getDefaultHeaders(headers);
+
+        return await fetch(`${this.baseUrl}${uri}`, {
+            method: 'DELETE',
+            headers: defaultHeaders
+        });
+    }
+
     public async put(uri: string, body: unknown, headers?: Record<string, string>): Promise<Response> {
         const defaultHeaders = this.getDefaultHeaders(headers);
 

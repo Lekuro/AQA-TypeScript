@@ -3,48 +3,48 @@
 exports[`The Cat Api integration tests > should fetch analysis of cat image by id  1`] = `
 [
   {
-    "created_at": "2018-11-25T10:50:17.000Z",
-    "image_id": "dkn",
+    "created_at": "2018-11-25T11:47:33.000Z",
+    "image_id": "eah",
     "labels": [
       {
-        "Confidence": 93.86238861083984,
-        "Name": "Cat",
-      },
-      {
-        "Confidence": 93.86238861083984,
+        "Confidence": 87.45356750488281,
         "Name": "Pet",
       },
       {
-        "Confidence": 93.86238861083984,
-        "Name": "Mammal",
-      },
-      {
-        "Confidence": 93.86238861083984,
+        "Confidence": 87.45356750488281,
         "Name": "Animal",
       },
       {
-        "Confidence": 89.74740600585938,
-        "Name": "Person",
+        "Confidence": 85.53251647949219,
+        "Name": "Rat",
       },
       {
-        "Confidence": 82.669189453125,
-        "Name": "Plant",
+        "Confidence": 85.53251647949219,
+        "Name": "Rodent",
       },
       {
-        "Confidence": 82.57384490966797,
-        "Name": "Manx",
+        "Confidence": 85.53251647949219,
+        "Name": "Mammal",
       },
       {
-        "Confidence": 77.03956604003906,
-        "Name": "Clothing",
+        "Confidence": 84.44538879394531,
+        "Name": "Cat",
       },
       {
-        "Confidence": 76.33657836914062,
-        "Name": "Strap",
+        "Confidence": 73.21109771728516,
+        "Name": "Kitten",
       },
       {
-        "Confidence": 60.897979736328125,
-        "Name": "Flower",
+        "Confidence": 72.1934585571289,
+        "Name": "Sleeping",
+      },
+      {
+        "Confidence": 60.07221603393555,
+        "Name": "Angora",
+      },
+      {
+        "Confidence": 54.2706413269043,
+        "Name": "Snout",
       },
     ],
     "moderation_labels": [],
@@ -55,10 +55,10 @@ exports[`The Cat Api integration tests > should fetch analysis of cat image by i
 
 exports[`The Cat Api integration tests > should fetch cat image by id 1`] = `
 {
-  "height": 337,
-  "id": "dkn",
-  "url": "https://cdn2.thecatapi.com/images/dkn.jpg",
-  "width": 500,
+  "height": 351,
+  "id": "eah",
+  "url": "https://cdn2.thecatapi.com/images/eah.jpg",
+  "width": 300,
 }
 `;
 
@@ -66,10 +66,10 @@ exports[`The Cat Api integration tests > should fetch random cat image 1`] = `
 [
   {
     "breeds": [],
-    "height": 337,
-    "id": "dkn",
-    "url": "https://cdn2.thecatapi.com/images/dkn.jpg",
-    "width": 500,
+    "height": 351,
+    "id": "eah",
+    "url": "https://cdn2.thecatapi.com/images/eah.jpg",
+    "width": 300,
   },
 ]
 `;
@@ -165,12 +165,12 @@ exports[`The Cat Api integration tests > should fetch uploaded cat images 1`] = 
   {
     "breed_ids": null,
     "breeds": [],
-    "created_at": "2025-11-14T21:08:34.000Z",
+    "created_at": "2025-11-14T22:06:59.000Z",
     "height": 3560,
-    "id": "C5xoZtric",
+    "id": "3BbJQZNB5",
     "original_filename": "pexels-cat.jpg",
     "sub_id": "sub_id",
-    "url": "https://cdn2.thecatapi.com/images/C5xoZtric.jpg",
+    "url": "https://cdn2.thecatapi.com/images/3BbJQZNB5.jpg",
     "width": 5360,
   },
 ]
@@ -262,9 +262,63 @@ exports[`The Cat Api integration tests > should fetch uploaded image by id 1`] =
     },
   ],
   "height": 3560,
-  "id": "C5xoZtric",
+  "id": "3BbJQZNB5",
   "sub_id": "sub_id",
-  "url": "https://cdn2.thecatapi.com/images/C5xoZtric.jpg",
+  "url": "https://cdn2.thecatapi.com/images/3BbJQZNB5.jpg",
+  "width": 5360,
+}
+`;
+
+exports[`The Cat Api integration tests > should fetch uploaded image by id 2`] = `
+{
+  "breeds": [
+    {
+      "adaptability": 5,
+      "affection_level": 5,
+      "alt_names": "",
+      "cfa_url": "http://cfa.org/Breeds/BreedsAB/Abyssinian.aspx",
+      "child_friendly": 3,
+      "country_code": "EG",
+      "country_codes": "EG",
+      "description": "The Abyssinian is easy to care for, and a joy to have in your home. They’re affectionate cats and love both people and other animals.",
+      "dog_friendly": 4,
+      "energy_level": 5,
+      "experimental": 0,
+      "grooming": 1,
+      "hairless": 0,
+      "health_issues": 2,
+      "hypoallergenic": 0,
+      "id": "abys",
+      "indoor": 0,
+      "intelligence": 5,
+      "lap": 1,
+      "life_span": "14 - 15",
+      "name": "Abyssinian",
+      "natural": 1,
+      "origin": "Egypt",
+      "rare": 0,
+      "reference_image_id": "0XYvRd7oD",
+      "rex": 0,
+      "shedding_level": 2,
+      "short_legs": 0,
+      "social_needs": 5,
+      "stranger_friendly": 5,
+      "suppressed_tail": 0,
+      "temperament": "Active, Energetic, Independent, Intelligent, Gentle",
+      "vcahospitals_url": "https://vcahospitals.com/know-your-pet/cat-breeds/abyssinian",
+      "vetstreet_url": "http://www.vetstreet.com/cats/abyssinian",
+      "vocalisation": 1,
+      "weight": {
+        "imperial": "7  -  10",
+        "metric": "3 - 5",
+      },
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Abyssinian_(cat)",
+    },
+  ],
+  "height": 3560,
+  "id": "3BbJQZNB5",
+  "sub_id": "sub_id",
+  "url": "https://cdn2.thecatapi.com/images/3BbJQZNB5.jpg",
   "width": 5360,
 }
 `;
@@ -273,11 +327,11 @@ exports[`The Cat Api integration tests > should upload cat image 1`] = `
 {
   "approved": 1,
   "height": 3560,
-  "id": "C5xoZtric",
+  "id": "3BbJQZNB5",
   "original_filename": "pexels-cat.jpg",
   "pending": 0,
   "sub_id": "sub_id",
-  "url": "https://cdn2.thecatapi.com/images/C5xoZtric.jpg",
+  "url": "https://cdn2.thecatapi.com/images/3BbJQZNB5.jpg",
   "width": 5360,
 }
 `;

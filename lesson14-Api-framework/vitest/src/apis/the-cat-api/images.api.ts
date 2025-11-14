@@ -61,7 +61,13 @@ export class TheCatImageApi {
 
     public async getUploadedImageById(imageId: string): Promise<[Response, IImageDto]> {
         const response = await this.apiService.get('/images/' + imageId);
-        const jsonResponse = await response.json();
+        let jsonResponse;
+        try {
+            jsonResponse = await response.json();
+        } catch (error) {
+            console.log(`Error loading image ${imageId}: ${error}`);
+            jsonResponse = { id: imageId };
+        }
 
         return [response, jsonResponse];
     }
@@ -78,5 +84,17 @@ export class TheCatImageApi {
         const jsonResponse = await response.json();
 
         return [response, jsonResponse];
+    }
+
+    public async deleteUploadedBreed(imageId: string, breedId: string): Promise<Response> {
+        const response = await this.apiService.delete(`/images/${imageId}/breeds/${breedId}`);
+
+        return response;
+    }
+
+    public async deleteUploadedImage(imageId: string): Promise<Response> {
+        const response = await this.apiService.delete(`/images/${imageId}`);
+
+        return response;
     }
 }
