@@ -1,0 +1,22 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`The Cat Api integration tests > should fetch cat image by id 1`] = `
+{
+  "height": 318,
+  "id": "bhl",
+  "url": "https://cdn2.thecatapi.com/images/bhl.jpg",
+  "width": 500,
+}
+`;
+
+exports[`The Cat Api integration tests > should fetch random cat image 1`] = `
+[
+  {
+    "breeds": [],
+    "height": 318,
+    "id": "bhl",
+    "url": "https://cdn2.thecatapi.com/images/bhl.jpg",
+    "width": 500,
+  },
+]
+`;
