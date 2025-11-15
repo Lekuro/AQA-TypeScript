@@ -1,5 +1,5 @@
 // import { APIResponse } from 'playwright';
-import { TheCatImageApi } from './apis/the-cat-api/images.api';
+import { TheCatImageApi, TheCatVotesApi } from './apis/the-cat-api/index';
 import { ConfigService } from './services/config.service';
 import { FetchApiService } from './services/fetch-api.service';
 import { IApiService } from './services/abstraction/i-api-service';
@@ -18,6 +18,7 @@ export class ApiWorld {
     }
 
     public catsImageApi: TheCatImageApi;
+    public catsVotesApi: TheCatVotesApi;
 
     public get configService(): ConfigService {
         return this._configService;
@@ -34,5 +35,6 @@ export class ApiWorld {
         this._theCatFetchApiService = new FetchApiService(config.api.theCatApi.baseUrl, { apiKey: config.auth?.theCatApi?.apiKey });
 
         this.catsImageApi = new TheCatImageApi(this._theCatFetchApiService);
+        this.catsVotesApi = new TheCatVotesApi(this._theCatFetchApiService);
     }
 }
