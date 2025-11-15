@@ -46,3 +46,4 @@ npx eslint .\src\
 
 - Ctrl + ` - switch terminal and worked on file
 - Ctrl + Alt + ArrowDown - edit vertically
+- Ctrl + Shift + L - edit all occurrence of variable
