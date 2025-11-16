@@ -1,5 +1,5 @@
 import { IApiService } from '../../services/abstraction/i-api-service';
-import { IVoteDeleteDto, IVoteDto, IVoteWithImageDto } from '../../models/the-cat-api/index';
+import { IDeleteDto, IVoteDto, IVoteWithImageDto } from '../../models/the-cat-api/index';
 
 export class TheCatVotesApi {
     public constructor(private readonly apiService: IApiService<Response>) {}
@@ -25,10 +25,10 @@ export class TheCatVotesApi {
         return [response, jsonResponse];
     }
 
-    public async deleteVoteById(voteId: number): Promise<[Response, IVoteDeleteDto]> {
+    public async deleteVoteById(voteId: number): Promise<[Response, IDeleteDto]> {
         const response = await this.apiService.delete(`/votes/${voteId}`);
         const jsonResponse = await response.json();
-    
+
         return [response, jsonResponse];
     }
 }

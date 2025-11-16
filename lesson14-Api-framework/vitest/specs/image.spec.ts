@@ -48,7 +48,7 @@ describe('The Cat Api integration tests', () => {
     it('should fetch analysis of cat image by id ', async () => {
         // Arrange
         const [response, jsonResponse] = await apiWorld.catsImageApi.getAnalysisImageById(imageId);
-        console.log('response', response, '\njsonResponse', jsonResponse);
+        // console.log('response', response, '\njsonResponse', jsonResponse);
 
         // Assert
         expect(response.status).toBe(200);
@@ -63,7 +63,7 @@ describe('The Cat Api integration tests', () => {
         const imageFileName = 'pexels-cat.jpg';
         const imagePath = `artifacts/${imageFileName}`;
         const [response, jsonResponse] = await apiWorld.catsImageApi.uploadImage(imagePath, imageFileName, 'sub_id', ['abys', 'aege']);
-        console.log('response', response, '\njsonResponse', jsonResponse);
+        // console.log('response', response, '\njsonResponse', jsonResponse);
 
         // Act
         uploadedImage = jsonResponse as IUploadedImageDto;
@@ -86,7 +86,7 @@ describe('The Cat Api integration tests', () => {
     it('should fetch uploaded cat images', async () => {
         // Arrange
         const [response, jsonResponse] = await apiWorld.catsImageApi.getUploadedImages();
-        console.log('response', response, '\njsonResponse', jsonResponse);
+        // console.log('response', response, '\njsonResponse', jsonResponse);
 
         // Assert
         expect(response.status).toBe(200);
@@ -103,7 +103,7 @@ describe('The Cat Api integration tests', () => {
         // Arrange
         const breed = 'abys';
         const [response, jsonResponse] = await apiWorld.catsImageApi.uploadBreedToUploadedImage(uploadedImage.id, breed);
-        console.log('response', response, '\njsonResponse', jsonResponse);
+        // console.log('response', response, '\njsonResponse', jsonResponse);
 
         // Assert
         expect(response.status).toBe(200);
@@ -116,7 +116,7 @@ describe('The Cat Api integration tests', () => {
         // Arrange
         const breed = 'aege';
         const [response, jsonResponse] = await apiWorld.catsImageApi.uploadBreedToUploadedImage(uploadedImage.id, breed);
-        console.log('response', response, '\njsonResponse', jsonResponse);
+        // console.log('response', response, '\njsonResponse', jsonResponse);
 
         // Assert
         expect(response.status).toBe(200);
@@ -128,7 +128,7 @@ describe('The Cat Api integration tests', () => {
     it('should fetch uploaded breeds', async () => {
         // Arrange
         const [response, jsonResponse] = await apiWorld.catsImageApi.getUploadedBreeds(uploadedImage.id);
-        console.log('response', response, '\njsonResponse', jsonResponse);
+        // console.log('response', response, '\njsonResponse', jsonResponse);
 
         // Assert
         expect(response.status).toBe(200);
@@ -142,7 +142,7 @@ describe('The Cat Api integration tests', () => {
     it('should fetch uploaded image by id', async () => {
         // Arrange
         const [response, jsonResponse] = await apiWorld.catsImageApi.getUploadedImageById(uploadedImage.id);
-        console.log('response', response, '\njsonResponse', jsonResponse);
+        // console.log('response', response, '\njsonResponse', jsonResponse);
 
         // Assert
         expect(response.status).toBe(200);
@@ -162,7 +162,7 @@ describe('The Cat Api integration tests', () => {
         // Arrange
         const breed = 'aege';
         const response = await apiWorld.catsImageApi.deleteUploadedBreed(uploadedImage.id, breed);
-        console.log('response', response);
+        // console.log('response', response);
 
         // Assert
         expect(response.status).toBe(204);
@@ -173,7 +173,7 @@ describe('The Cat Api integration tests', () => {
     it('should fetch uploaded image by id', async () => {
         // Arrange
         const [response, jsonResponse] = await apiWorld.catsImageApi.getUploadedImageById(uploadedImage.id);
-        console.log('response', response, '\njsonResponse', jsonResponse);
+        // console.log('response', response, '\njsonResponse', jsonResponse);
 
         // Assert
         expect(response.status).toBe(200);
@@ -192,7 +192,7 @@ describe('The Cat Api integration tests', () => {
     it('should delete uploaded image by id', async () => {
         // Arrange
         const response = await apiWorld.catsImageApi.deleteUploadedImage(uploadedImage.id);
-        console.log('response', response);
+        // console.log('response', response);
 
         // Assert
         expect(response.status).toBe(204);
@@ -203,7 +203,7 @@ describe('The Cat Api integration tests', () => {
     it('should not fetch uploaded image by id', async () => {
         // Arrange
         const [response, jsonResponse] = await apiWorld.catsImageApi.getUploadedImageById(uploadedImage.id);
-        console.log('response', response, '\njsonResponse', jsonResponse);
+        // console.log('response', response, '\njsonResponse', jsonResponse);
 
         // Assert
         expect(response.status).toBe(400);

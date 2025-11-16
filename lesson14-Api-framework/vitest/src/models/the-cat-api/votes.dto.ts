@@ -21,6 +21,6 @@ export interface IVoteWithImageDto {
     };
 }
 
-export interface IVoteDeleteDto {
+export interface IDeleteDto {
     message: string;
 }
