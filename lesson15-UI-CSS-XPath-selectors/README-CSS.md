@@ -1,4 +1,4 @@
-## CSS selectors
+## CSS selectors <https://www.w3schools.com/cssref/css_ref_pseudo_elements.php>
 ### CSS Simple Selectors
 | Selector | Example | Example description |
 | --- | --- | --- |
