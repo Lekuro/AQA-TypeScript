@@ -20,7 +20,7 @@
 ## XPath selectors
 | Селектор | Приклад | Значення |
 | --- | --- | --- |
-| //<element> | //div | Знаходить усі <div> у дереві |
+| \/\/<element\> | //div | Знаходить усі \<div\> у дереві |
 | //<element>//<element> | //div//p | Знаходить усі елементи <p> будь-якої вкладеності в <div> |
 | //<element>/<element> | //div/p | Знаходить усі елементи <p>, що розкладені одразу під елементом <div> |
 | //<element>[@attribute=”attributeValue”] | //div[@class=”field”] | Знаходить усі елементи <element>, у якому значення атрибута attribute буде ”attributeValue” |
