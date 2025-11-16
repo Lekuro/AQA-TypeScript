@@ -52,9 +52,9 @@ In the table below we have listed some path expressions with predicates and the 
 ### Selecting Several Paths
 | Path Expression | Result |
 | --- | --- |
-| //book/title | //book/price | Selects all the title AND price elements of all book elements |
-| //title | //price | Selects all the title AND price elements in the document |
-| /bookstore/book/title | //price | Selects all the title elements of the book element of the bookstore element AND all the price elements in the document |
+| //book/title \| //book/price | Selects all the title AND price elements of all book elements |
+| //title \| //price | Selects all the title AND price elements in the document |
+| /bookstore/book/title \| //price | Selects all the title elements of the book element of the bookstore element AND all the price elements in the document |
 ### XPath Axes
 | AxisName | Result |
 | --- | --- |
