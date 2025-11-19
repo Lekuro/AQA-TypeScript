@@ -10,6 +10,13 @@ export interface IImageDto {
     sub_id?: string;
 }
 
+export interface IUploadImageParams {
+    imagePath: string;
+    imageFileName: string;
+    subId?: string;
+    breeds?: string[];
+}
+
 export interface IImageAnalysisDto {
     labels: ILabelDto[];
     moderation_labels: ILabelDto[];

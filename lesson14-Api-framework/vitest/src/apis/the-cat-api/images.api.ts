@@ -1,5 +1,12 @@
 import { IApiService } from '../../services/abstraction/i-api-service';
-import { IImageDto, IBreedDto, IImageAnalysisDto, IUploadedImageDto, IUploadedBreedDto } from '../../models/the-cat-api/index';
+import {
+    IImageDto,
+    IBreedDto,
+    IImageAnalysisDto,
+    IUploadedImageDto,
+    IUploadedBreedDto,
+    IUploadImageParams
+} from '../../models/the-cat-api/index';
 import * as fs from 'fs';
 
 export class TheCatImageApi {
@@ -26,12 +33,8 @@ export class TheCatImageApi {
         return [response, jsonResponse];
     }
 
-    public async uploadImage(
-        imagePath: string,
-        imageFileName: string,
-        subId?: string,
-        breeds?: string[]
-    ): Promise<[Response, IUploadedImageDto]> {
+    public async uploadImage(params: IUploadImageParams): Promise<[Response, IUploadedImageDto]> {
+        const { imagePath, imageFileName, subId, breeds } = params;
         const formData = new FormData();
         const file = fs.readFileSync(imagePath);
         // node 24.x

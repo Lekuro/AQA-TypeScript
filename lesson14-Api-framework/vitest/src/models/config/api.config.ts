@@ -4,17 +4,17 @@ export interface ConfigDto {
 }
 
 export interface AuthConfigDto {
-    theDogsApi?: TheDogsApiAuthConfigDto;
+    theCatApi?: TheCatApiAuthConfigDto;
 }
 
 export interface ApiConfigDto {
-    theDogsApi: TheDogsApiConfigDto;
+    theCatApi: TheCatApiConfigDto;
 }
 
-export interface TheDogsApiAuthConfigDto {
+export interface TheCatApiAuthConfigDto {
     apiKey?: string;
 }
 
-export interface TheDogsApiConfigDto {
+export interface TheCatApiConfigDto {
     baseUrl: string;
 }

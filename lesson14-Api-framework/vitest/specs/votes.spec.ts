@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, beforeAll } from 'vitest';
 import { apiWorld, imageIdRegex, userIdRegex, createdAtRegex, countryCodeRegex } from '../src/hooks/vitest-global-setup';
 // import { expect as expectChai } from 'chai';
 
@@ -8,27 +8,10 @@ describe('The Cat Api integration tests - Votes section', () => {
     const subId = 'sub_id';
     const voteValue = 10;
 
-    it('should fetch and save random cat image', async () => {
-        // Arrange
+    beforeAll(async () => {
         const [response, jsonResponse] = await apiWorld.catsImageApi.getRandomImage();
-        // console.log('response', response, '\njsonResponse', jsonResponse);
-
-        // Act
         imageId = jsonResponse[0].id;
-        console.log('imageId', imageId);
-
-        // Assert
-        expect(response.status).toBe(200);
-        expect(response.statusText).toBe('OK');
-        expect(response.url).toBe('https://api.thecatapi.com/v1/images/search');
-        expect(jsonResponse).to.be.an('array');
-        expect(jsonResponse).to.have.length(1);
-        expect(jsonResponse[0]).to.have.property('id').that.is.a('string');
-        expect(jsonResponse[0]).to.have.property('url').that.is.a('string');
-        expect(jsonResponse[0]).to.have.property('width').that.is.a('number');
-        expect(jsonResponse[0]).to.have.property('height').that.is.a('number');
-        expect(jsonResponse[0]).to.have.property('breeds').that.is.an('array');
-        // expect(jsonResponse).toMatchSnapshot();
+        console.log('response', response, '\njsonResponse', jsonResponse, '\nimageId', imageId);
     });
 
     it('should upload the vote to image by id with a value', async () => {
@@ -68,8 +51,8 @@ describe('The Cat Api integration tests - Votes section', () => {
         expect(jsonResponse.created_at).toMatch(createdAtRegex);
         expect(jsonResponse.value).to.be.equal(voteValue);
         expect(jsonResponse.country_code).toMatch(countryCodeRegex);
-        expect(jsonResponse.image.id).to.be.equal(imageId);
-        expect(jsonResponse.image.url).to.contain('https://cdn2.thecatapi.com/images/', '.jpg');
+        expect(jsonResponse.image).to.have.property('id', imageId);
+        expect(jsonResponse.image).to.have.property('url').to.contain('https://cdn2.thecatapi.com/images/', '.jpg');
         // expect(jsonResponse).toMatchSnapshot();
     });
 
@@ -84,11 +67,11 @@ describe('The Cat Api integration tests - Votes section', () => {
         expect(response.url).toBe('https://api.thecatapi.com/v1/votes');
         expect(jsonResponse).to.be.an('array');
         expect(jsonResponse[0]).to.have.property('id').that.is.a('number');
-        expect(jsonResponse[0]).to.have.property('image_id').that.is.a('string');
+        expect(jsonResponse[0]).to.have.property('image_id').match(imageIdRegex);
         expect(jsonResponse[0]).to.have.property('sub_id').that.is.a('string');
-        expect(jsonResponse[0]).to.have.property('created_at').that.is.a('string');
+        expect(jsonResponse[0]).to.have.property('created_at').match(createdAtRegex);
         expect(jsonResponse[0]).to.have.property('value').that.is.a('number');
-        expect(jsonResponse[0].country_code).toMatch(countryCodeRegex);
+        expect(jsonResponse[0]).to.have.property('country_code').match(countryCodeRegex);
         expect(jsonResponse[0]).to.have.property('image').that.is.an('object');
         // expect(jsonResponse).toMatchSnapshot();
     });
@@ -102,6 +85,18 @@ describe('The Cat Api integration tests - Votes section', () => {
         expect(response.status).toBe(200);
         expect(response.statusText).toBe('OK');
         expect(response.url).toBe(`https://api.thecatapi.com/v1/votes/${voteId}`);
-        expect(jsonResponse.message).to.be.equal('SUCCESS');
+        expect(jsonResponse).to.have.property('message', 'SUCCESS');
+    });
+
+    it('should not fetch vote by id', async () => {
+        // Arrange
+        const [response, jsonResponse] = await apiWorld.catsVotesApi.getVoteById(voteId);
+        console.log('response', response, '\njsonResponse', jsonResponse);
+
+        // Assert
+        expect(response.status).toBe(404);
+        expect(response.statusText).toBe('Not Found');
+        expect(response.url).toBe(`https://api.thecatapi.com/v1/votes/${voteId}`);
+        expect(response.ok).toBe(false);
     });
 });

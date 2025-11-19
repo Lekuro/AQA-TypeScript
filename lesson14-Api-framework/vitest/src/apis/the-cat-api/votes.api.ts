@@ -13,7 +13,13 @@ export class TheCatVotesApi {
 
     public async getVoteById(voteId: number): Promise<[Response, IVoteWithImageDto]> {
         const response = await this.apiService.get(`/votes/${voteId}`);
-        const jsonResponse = await response.json();
+        let jsonResponse;
+        try {
+            jsonResponse = await response.json();
+        } catch (error) {
+            console.log(`Error loading image ${voteId}: ${error}`);
+            jsonResponse = { id: voteId };
+        }
 
         return [response, jsonResponse];
     }

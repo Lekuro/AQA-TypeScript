@@ -13,7 +13,13 @@ export class TheCatFavoritesApi {
 
     public async getFavoriteById(favoriteId: number): Promise<[Response, IFavoriteWithImageDto]> {
         const response = await this.apiService.get(`/favourites/${favoriteId}`);
-        const jsonResponse = await response.json();
+        let jsonResponse;
+        try {
+            jsonResponse = await response.json();
+        } catch (error) {
+            console.log(`Error loading favorite ${favoriteId}: ${error}`);
+            jsonResponse = { id: favoriteId };
+        }
 
         return [response, jsonResponse];
     }

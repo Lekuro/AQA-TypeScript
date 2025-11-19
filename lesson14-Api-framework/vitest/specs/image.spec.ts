@@ -62,7 +62,8 @@ describe('The Cat Api integration tests', () => {
         // Arrange
         const imageFileName = 'pexels-cat.jpg';
         const imagePath = `artifacts/${imageFileName}`;
-        const [response, jsonResponse] = await apiWorld.catsImageApi.uploadImage(imagePath, imageFileName, 'sub_id', ['abys', 'aege']);
+        const params = { imagePath, imageFileName, subId: 'sub_id', breeds: ['abys', 'aege'] };
+        const [response, jsonResponse] = await apiWorld.catsImageApi.uploadImage(params);
         // console.log('response', response, '\njsonResponse', jsonResponse);
 
         // Act
@@ -203,7 +204,7 @@ describe('The Cat Api integration tests', () => {
     it('should not fetch uploaded image by id', async () => {
         // Arrange
         const [response, jsonResponse] = await apiWorld.catsImageApi.getUploadedImageById(uploadedImage.id);
-        // console.log('response', response, '\njsonResponse', jsonResponse);
+        console.log('response', response, '\njsonResponse', jsonResponse);
 
         // Assert
         expect(response.status).toBe(400);
