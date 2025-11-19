@@ -14,11 +14,7 @@ await $('#submit-button')
 
 ```
 
-👎
-
-```
-await $('.button')
-```
+👎 `await $('.button')`
 
 ### Limit the amount of element queries
 
