@@ -1,6 +1,6 @@
 import { expect, browser } from '@wdio/globals';
 // import { expect } from 'expect-webdriverio';
-import { LoginPage, IncomesPage } from './page-objects/index';
+import { LoginPage, IncomesPage } from '../src/page-objects/index';
 
 describe('-------- Login page --------', () => {
     let loginPage: LoginPage;
