@@ -26,12 +26,14 @@ export class TheCatImageApi {
         return [response, jsonResponse];
     }
 
-    public async uploadImage(
+    export interface UploadImageParams {
         imagePath: string,
         imageFileName: string,
         subId?: string,
         breeds?: string[]
-    ): Promise<[Response, IUploadedImageDto]> {
+    }
+
+    public async uploadImage(params: UploadImageParams ): Promise<[Response, IUploadedImageDto]> {
         const formData = new FormData();
         const file = fs.readFileSync(imagePath);
         // node 24.x
