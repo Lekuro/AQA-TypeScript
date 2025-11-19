@@ -1,6 +1,6 @@
 import { expect, browser } from '@wdio/globals';
 // import { expect } from 'expect-webdriverio';
-import { LoginPage, IncomesPage } from '../src/page-objects/index';
+import { LoginPage, IncomesPage } from './page-objects/index';
 
 describe('-------- Login page --------', () => {
     let loginPage: LoginPage;
@@ -24,7 +24,7 @@ describe('-------- Login page --------', () => {
         await expect(loginPage.errorEnterPassword).toBeDisplayed();
         await expect(loginPage.errorEnterPassword).toHaveText(expect.stringContaining('Password is required'));
 
-        await browser.saveScreenshot('./tests/screenshots/error-empty-email-password.jpeg', { fullPage: true, format: 'jpeg' });
+        await browser.saveScreenshot('./tests/screenshots/login-error-empty-email-password.jpeg', { fullPage: true, format: 'jpeg' });
     });
 
     it('should show error when invalid email', async () => {
@@ -34,7 +34,7 @@ describe('-------- Login page --------', () => {
         await expect(loginPage.errorInvalidUsernameOrPassword).toBeDisplayed();
         await expect(loginPage.errorInvalidUsernameOrPassword).toHaveText(expect.stringContaining('Invalid username or password'));
 
-        await browser.saveScreenshot('./tests/screenshots/error-invalid-email.jpeg', { fullPage: true, format: 'jpeg' });
+        await browser.saveScreenshot('./tests/screenshots/login-error-invalid-email.jpeg', { fullPage: true, format: 'jpeg' });
     });
 
     it('should show error when invalid password', async () => {
@@ -43,7 +43,7 @@ describe('-------- Login page --------', () => {
         await expect(loginPage.errorInvalidUsernameOrPassword).toBeDisplayed();
         await expect(loginPage.errorInvalidUsernameOrPassword).toHaveText(expect.stringContaining('Invalid username or password'));
 
-        await browser.saveScreenshot('./tests/screenshots/error-invalid-password.jpeg', { fullPage: true, format: 'jpeg' });
+        await browser.saveScreenshot('./tests/screenshots/login-error-invalid-password.jpeg', { fullPage: true, format: 'jpeg' });
     });
 
     it('should help with forgotten password', async () => {
@@ -53,19 +53,19 @@ describe('-------- Login page --------', () => {
         await expect(loginPage.pageHeader).toHaveText(expect.stringContaining('Вхід до системи'));
         await loginPage.linkForgotPassword.click();
 
-        await browser.saveScreenshot('./tests/screenshots/forgot-password-alert.jpeg', { fullPage: true, format: 'jpeg' });
+        await browser.saveScreenshot('./tests/screenshots/login-forgot-password-alert.jpeg', { fullPage: true, format: 'jpeg' });
     });
 
-    it('should redirect to "sign in" page', async () => {
+    it('should redirect to "register" page', async () => {
         await loginPage.goTo();
         await loginPage.signInButton.click();
         await expect(loginPage.pageHeader).toBeDisplayed();
         await expect(loginPage.pageHeader).toHaveText(expect.stringContaining('Вхід до системи'));
-        await loginPage.linkSignIn.click();
+        await loginPage.linkRegister.click();
         await expect(loginPage.pageHeader).toBeDisplayed();
         await expect(loginPage.pageHeader).toHaveText(expect.stringContaining('Реєстрація'));
 
-        await browser.saveScreenshot('./tests/screenshots/redirect-to-sign-in.jpeg', { fullPage: true, format: 'jpeg' });
+        await browser.saveScreenshot('./tests/screenshots/login-redirect-to-register.jpeg', { fullPage: true, format: 'jpeg' });
     });
 
     it('should login with valid credentials', async () => {
@@ -76,6 +76,6 @@ describe('-------- Login page --------', () => {
         await expect(incomePage.welcomeText).toBeDisplayed();
         await expect(incomePage.welcomeText).toHaveText(expect.stringContaining('lilolovol+2@gmail.com'));
 
-        await browser.saveScreenshot('./tests/screenshots/success-login.jpeg', { fullPage: true, format: 'jpeg' });
+        await browser.saveScreenshot('./tests/screenshots/login-success.jpeg', { fullPage: true, format: 'jpeg' });
     });
 });

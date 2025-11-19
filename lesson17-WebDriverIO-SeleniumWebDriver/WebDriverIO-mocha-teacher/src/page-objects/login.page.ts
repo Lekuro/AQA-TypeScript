@@ -45,7 +45,7 @@ export class LoginPage extends Page {
         return $('//form//*[contains(text(), "Забули пароль?")]');
     }
 
-    public get linkSignIn(): ChainablePromiseElement {
+    public get linkRegister(): ChainablePromiseElement {
         return $('//form//*[contains(text(), "Зареєструватися")]');
     }
 
