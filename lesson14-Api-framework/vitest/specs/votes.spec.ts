@@ -4,6 +4,7 @@ import { apiWorld, imageIdRegex, userIdRegex, createdAtRegex, countryCodeRegex }
 
 describe('The Cat Api integration tests - Votes section', () => {
     let imageId: string;
+    let imageUrl: string;
     let voteId: number;
     const subId = 'sub_id';
     const voteValue = 10;
@@ -11,6 +12,7 @@ describe('The Cat Api integration tests - Votes section', () => {
     beforeAll(async () => {
         const [response, jsonResponse] = await apiWorld.catsImageApi.getRandomImage();
         imageId = jsonResponse[0].id;
+        imageUrl = jsonResponse[0].url;
         console.log('response', response, '\njsonResponse', jsonResponse, '\nimageId', imageId);
     });
 
@@ -52,7 +54,7 @@ describe('The Cat Api integration tests - Votes section', () => {
         expect(jsonResponse.value).to.be.equal(voteValue);
         expect(jsonResponse.country_code).toMatch(countryCodeRegex);
         expect(jsonResponse.image).to.have.property('id', imageId);
-        expect(jsonResponse.image).to.have.property('url').to.contain('https://cdn2.thecatapi.com/images/', '.jpg');
+        expect(jsonResponse.image).to.have.property('url', imageUrl);
         // expect(jsonResponse).toMatchSnapshot();
     });
 

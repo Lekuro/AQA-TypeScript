@@ -3,12 +3,14 @@ import { apiWorld, imageIdRegex, userIdRegex, createdAtRegex } from '../src/hook
 
 describe('The Cat Api integration tests - Favorites section', () => {
     let imageId: string;
+    let imageUrl: string;
     let favoriteId: number;
     const subId = 'sub_id';
 
     beforeAll(async () => {
         const [response, jsonResponse] = await apiWorld.catsImageApi.getRandomImage();
         imageId = jsonResponse[0].id;
+        imageUrl = jsonResponse[0].url;
         console.log('response', response, '\njsonResponse', jsonResponse, '\nimageId', imageId);
     });
 
@@ -44,7 +46,7 @@ describe('The Cat Api integration tests - Favorites section', () => {
         expect(jsonResponse.sub_id).to.be.equal(subId);
         expect(jsonResponse.created_at).toMatch(createdAtRegex);
         expect(jsonResponse.image).to.have.property('id', imageId);
-        expect(jsonResponse.image).to.have.property('url').to.contain('https://cdn2.thecatapi.com/images/', '.jpg');
+        expect(jsonResponse.image).to.have.property('url', imageUrl);
         // expect(jsonResponse).toMatchSnapshot();
     });
 
