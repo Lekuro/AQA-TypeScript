@@ -1,0 +1,65 @@
+{
+  "consumer": {
+    "name": "cat-consumer"
+  },
+  "interactions": [
+    {
+      "description": "a request for cats",
+      "providerStates": [
+        {
+          "name": "cats exists"
+        }
+      ],
+      "request": {
+        "headers": {
+          "accept": "*/*",
+          "x-api-key": "live_ITUwxKsqOsSw4j3mlY0zzdlr1E2orBg2rG5Xbpmij4bdXIvLsMtZXTXzvK21LS3C"
+        },
+        "method": "GET",
+        "path": "/images/search"
+      },
+      "response": {
+        "body": [
+          {
+            "breeds": [],
+            "height": 398,
+            "id": "drg",
+            "url": "https://cdn2.thecatapi.com/images/drg.jpg",
+            "width": 600
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "16.0.2"
+    },
+    "pactRust": {
+      "ffi": "0.4.28",
+      "models": "1.3.5"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "cat-provider"
+  }
+}
