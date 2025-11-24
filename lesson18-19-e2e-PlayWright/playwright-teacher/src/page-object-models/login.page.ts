@@ -1,0 +1,69 @@
+import { Locator, Page } from '@playwright/test';
+
+/**
+ * sub page containing specific selectors and methods for a specific page
+ */
+export class LoginPage {
+    private readonly _url = 'https://new.fophelp.pro/';
+
+    public get signInButton(): Locator {
+        return this.page.locator('.signin-button');
+    }
+
+    private get inputEmail(): Locator {
+        return this.page.locator('input[type="email"]');
+    }
+
+    private get inputPassword(): Locator {
+        return this.page.locator('input[type="password"]');
+    }
+
+    private get btnSubmit(): Locator {
+        return this.page.locator('button[type="submit"]');
+    }
+
+    public get errorEnterEmail(): Locator {
+        return this.page.locator('input[type="email"] + p');
+    }
+
+    public get errorEnterPassword(): Locator {
+        return this.page.locator('input[type="password"] + p');
+    }
+
+    public get errorEmailShouldContainSymbol(): Locator {
+        return this.page.locator('//form//*[contains(text(), "Електрона адреса має містити знак")]');
+    }
+
+    public get errorInvalidUsernameOrPassword(): Locator {
+        return this.page.locator('//form//*[contains(text(), "Invalid username or password")]');
+    }
+
+    public get linkForgotPassword(): Locator {
+        return this.page.locator('//form//*[contains(text(), "Забули пароль?")]');
+    }
+
+    public get linkRegister(): Locator {
+        return this.page.locator('//form//*[contains(text(), "Зареєструватися")]');
+    }
+
+    public get pageHeader(): Locator {
+        return this.page.locator('//button[@aria-label="Close modal"]/../h2');
+    }
+
+    public constructor(private readonly page: Page) {}
+
+    /**
+     * a method to encapsule automation code to interact with the page
+     * e.g. to login using username and password
+     */
+    public async login(email: string, password: string): Promise<void> {
+        await this.signInButton.click();
+        await this.inputEmail.fill(email);
+        await this.inputPassword.fill(password);
+        await this.btnSubmit.click();
+    }
+
+    public async goTo(path?: string): Promise<void> {
+        await this.page.goto(`${this._url}${path}`);
+    }
+}
