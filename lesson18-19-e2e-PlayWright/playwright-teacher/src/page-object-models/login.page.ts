@@ -1,12 +1,9 @@
 import { Locator, Page } from '@playwright/test';
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
 export class LoginPage {
     private readonly _url = 'https://new.fophelp.pro/';
 
-    public get signInButton(): Locator {
+    private get signInButton(): Locator {
         return this.page.locator('.signin-button');
     }
 
@@ -42,7 +39,7 @@ export class LoginPage {
         return this.page.locator('//form//*[contains(text(), "Забули пароль?")]');
     }
 
-    public get linkRegister(): Locator {
+    private get linkRegister(): Locator {
         return this.page.locator('//form//*[contains(text(), "Зареєструватися")]');
     }
 
@@ -52,10 +49,6 @@ export class LoginPage {
 
     public constructor(private readonly page: Page) {}
 
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
     public async login(email: string, password: string): Promise<void> {
         await this.signInButton.click();
         await this.inputEmail.fill(email);
@@ -65,5 +58,23 @@ export class LoginPage {
 
     public async goTo(path?: string): Promise<void> {
         await this.page.goto(`${this._url}${path}`);
+    }
+
+    public async clickSignInButton(): Promise<void> {
+        if (await this.signInButton.isVisible()) {
+            await this.signInButton.click();
+        } else {
+            console.error('Sign in button is not visible');
+            throw new Error('Sign in button is not visible');
+        }
+    }
+
+    public async clickRegister(): Promise<void> {
+        if (await this.linkRegister.isVisible()) {
+            await this.linkRegister.click();
+        } else {
+            console.error('Register link is not visible');
+            throw new Error('Register link is not visible');
+        }
     }
 }

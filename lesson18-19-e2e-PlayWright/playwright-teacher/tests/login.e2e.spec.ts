@@ -2,12 +2,14 @@ import { test, expect } from '@playwright/test';
 import 'dotenv/config';
 import { LoginPage } from '../src/page-object-models/index';
 
-test.describe('-------- Login page --------', () => {
+test.describe('Login page:', () => {
     let loginPage: LoginPage;
+
     test.beforeEach(async ({ page }) => {
         loginPage = new LoginPage(page);
         await loginPage.goTo();
     });
+
     test('should show error when email, password is empty', async ({ page }) => {
         await loginPage.login('', '');
         await expect(loginPage.errorEnterEmail).toBeVisible();
@@ -19,45 +21,30 @@ test.describe('-------- Login page --------', () => {
     });
 
     test('should show error when invalid email', async () => {
-        console.log('process.env.PASSWORD', process.env.PASSWORD);
         await loginPage.login('bad-email@try.me', process.env.PASSWORD as string);
         await expect(loginPage.errorInvalidUsernameOrPassword).toBeVisible();
         await expect(loginPage.errorInvalidUsernameOrPassword).toHaveText('Invalid username or password');
     });
 
     test('should show error when invalid password', async () => {
-        await loginPage.goTo();
         await loginPage.login(process.env.EMAIL as string, 'bad-password');
         await expect(loginPage.errorInvalidUsernameOrPassword).toBeVisible();
         await expect(loginPage.errorInvalidUsernameOrPassword).toHaveText('Invalid username or password');
     });
 
     test('should help with forgotten password', async () => {
-        await loginPage.goTo();
-        await loginPage.signInButton.click();
+        await loginPage.clickSignInButton();
         await expect(loginPage.pageHeader).toBeVisible();
         await expect(loginPage.pageHeader).toHaveText('Вхід до системи');
         await loginPage.linkForgotPassword.click();
     });
 
     test('should redirect to "register" page', async () => {
-        await loginPage.goTo();
-        await loginPage.signInButton.click();
+        await loginPage.clickSignInButton();
         await expect(loginPage.pageHeader).toBeVisible();
         await expect(loginPage.pageHeader).toHaveText('Вхід до системи');
-        await loginPage.linkRegister.click();
+        await loginPage.clickRegister();
         await expect(loginPage.pageHeader).toBeVisible();
         await expect(loginPage.pageHeader).toHaveText('Реєстрація');
     });
-
-    // it('should login with valid credentials', async () => {
-    //     await loginPage.goTo();
-    //     incomePage = new IncomesPage();
-
-    //     await loginPage.login(process.env.EMAIL as string, process.env.PASSWORD as string);
-    //     await expect(incomePage.welcomeText).toBeDisplayed();
-    //     await expect(incomePage.welcomeText).toHaveText(expect.stringContaining('lilolovol+2@gmail.com'));
-
-    //     await browser.saveScreenshot('./tests/screenshots/login-success.jpeg', { fullPage: true, format: 'jpeg' });
-    // });
 });
