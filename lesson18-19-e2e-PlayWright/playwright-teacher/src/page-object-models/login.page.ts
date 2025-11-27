@@ -61,20 +61,10 @@ export class LoginPage {
     }
 
     public async clickSignInButton(): Promise<void> {
-        if (await this.signInButton.isVisible()) {
-            await this.signInButton.click();
-        } else {
-            console.error('Sign in button is not visible');
-            throw new Error('Sign in button is not visible');
-        }
+        await this.signInButton.click();
     }
 
     public async clickRegister(): Promise<void> {
-        if (await this.linkRegister.isVisible()) {
-            await this.linkRegister.click();
-        } else {
-            console.error('Register link is not visible');
-            throw new Error('Register link is not visible');
-        }
+        await this.linkRegister.click();
     }
 }
