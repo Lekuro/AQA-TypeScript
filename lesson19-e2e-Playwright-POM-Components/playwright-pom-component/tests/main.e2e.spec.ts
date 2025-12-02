@@ -1,4 +1,4 @@
-import { test } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import 'dotenv/config';
 import { MainPage } from '../src/page-object-models/index';
 
@@ -10,16 +10,17 @@ test.describe('Main page:', () => {
         await mainPage.goTo();
     });
 
-    test('has title double', () => {
-        test.step('verify title on main page', async () => {
+    test('has title main page', async () => {
+        await test.step('verify title on main page', async () => {
             await mainPage.verifyTitle('Fast and reliable end-to-end testing for modern web apps | Playwright');
         });
     });
 
-    test('should redirect to github page', () => {
-        test.step('click github link in header', async () => {
+    test('should redirect to github page', async () => {
+        await test.step('click github link in header', async () => {
             await mainPage.headerComponent.clickGitHubButton();
         });
+        expect(page.url()).includes('github.com/playwright');
     });
 
     // test('should show error when invalid email', async () => {

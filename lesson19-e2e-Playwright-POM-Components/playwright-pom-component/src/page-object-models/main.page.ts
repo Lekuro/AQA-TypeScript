@@ -14,7 +14,7 @@ export class MainPage {
     }
 
     public get title(): Locator {
-        return this.page.locator('//title');
+        return this.page.locator('title');
     }
 
     public readonly headerComponent: HeaderComponent;
@@ -33,7 +33,7 @@ export class MainPage {
     }
 
     public async verifyTitle(expectedTitle: string): Promise<void> {
-        const text = await this.title.textContent();
+        const text = (await this.title.textContent()) as string;
         console.log(text);
 
         await expect(this.page).toHaveTitle(expectedTitle);
