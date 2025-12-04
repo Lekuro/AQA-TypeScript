@@ -10,44 +10,78 @@ test.describe('Main page:', () => {
         await mainPage.goTo();
     });
 
-    test('has title main page', async () => {
+    test('the main page should has title', async () => {
         await test.step('verify title on main page', async () => {
             await mainPage.verifyTitle('Fast and reliable end-to-end testing for modern web apps | Playwright');
         });
     });
 
-    test('should redirect to github page', async () => {
+    test('the getStartedButton on main page should redirect to /docs/intro page', async () => {
+        await test.step('click on getStarted button on main page', async () => {
+            await mainPage.clickGetStarted();
+        });
+        await test.step('check redirect to /docs/intro page', async () => {
+            await expect(mainPage.page).toHaveURL('https://playwright.dev/docs/intro');
+        });
+    });
+
+    test('gitHub star button on main page should redirect to github page', async ({ context }) => {
+        // Set up a promise to wait for the new page
+        const newPagePromise = context.waitForEvent('page');
+        await test.step('click github link in header', async () => {
+            await mainPage.clickStarGitHub();
+        });
+        // Get the new page instance
+        const newPage = await newPagePromise;
+        // Wait for the new page to load (including redirects)
+        await newPage.waitForLoadState();
+        await test.step('check redirect to github', async () => {
+            await expect(newPage).toHaveURL('https://github.com/microsoft/playwright');
+        });
+    });
+
+    test('gitHub star gazers button on main page should redirect to github page', async ({ context }) => {
+        // Set up a promise to wait for the new page
+        const newPagePromise = context.waitForEvent('page');
+        await test.step('click github link in header', async () => {
+            await mainPage.clickStarGazersGitHub();
+        });
+        // Get the new page instance
+        const newPage = await newPagePromise;
+        // Wait for the new page to load (including redirects)
+        await newPage.waitForLoadState();
+        await test.step('check redirect to github', async () => {
+            await expect(newPage).toHaveURL('https://github.com/microsoft/playwright/stargazers');
+        });
+    });
+
+    test('header gitHub icon should redirect to github page', async ({ context }) => {
+        // Set up a promise to wait for the new page
+        const newPagePromise = context.waitForEvent('page');
         await test.step('click github link in header', async () => {
             await mainPage.headerComponent.clickGitHubButton();
         });
-        expect(page.url()).includes('github.com/playwright');
+        // Get the new page instance
+        const newPage = await newPagePromise;
+        // Wait for the new page to load (including redirects)
+        await newPage.waitForLoadState();
+        await test.step('check redirect to github', async () => {
+            await expect(newPage).toHaveURL('https://github.com/microsoft/playwright');
+        });
     });
 
-    // test('should show error when invalid email', async () => {
-    //     await loginPage.login('bad-email@try.me', process.env.PASSWORD as string);
-    //     await expect(loginPage.errorInvalidUsernameOrPassword).toBeVisible();
-    //     await expect(loginPage.errorInvalidUsernameOrPassword).toHaveText('Invalid username or password');
-    // });
-
-    // test('should show error when invalid password', async () => {
-    //     await loginPage.login(process.env.EMAIL as string, 'bad-password');
-    //     await expect(loginPage.errorInvalidUsernameOrPassword).toBeVisible();
-    //     await expect(loginPage.errorInvalidUsernameOrPassword).toHaveText('Invalid username or password');
-    // });
-
-    // test('should help with forgotten password', async () => {
-    //     await loginPage.clickSignInButton();
-    //     await expect(loginPage.pageHeader).toBeVisible();
-    //     await expect(loginPage.pageHeader).toHaveText('Вхід до системи');
-    //     await loginPage.linkForgotPassword.click();
-    // });
-
-    // test('should redirect to "register" page', async () => {
-    //     await loginPage.clickSignInButton();
-    //     await expect(loginPage.pageHeader).toBeVisible();
-    //     await expect(loginPage.pageHeader).toHaveText('Вхід до системи');
-    //     await loginPage.clickRegister();
-    //     await expect(loginPage.pageHeader).toBeVisible();
-    //     await expect(loginPage.pageHeader).toHaveText('Реєстрація');
-    // });
+    test('header discord icon should redirect to discord page', async ({ context }) => {
+        // Set up a promise to wait for the new page
+        const newPagePromise = context.waitForEvent('page');
+        await test.step('click github link in header', async () => {
+            await mainPage.headerComponent.clickDiscordButton();
+        });
+        // Get the new page instance
+        const newPage = await newPagePromise;
+        // Wait for the new page to load (including redirects)
+        await newPage.waitForLoadState();
+        await test.step('check redirect to github', async () => {
+            await expect(newPage).toHaveURL('https://discord.com/servers/playwright-807756831384403968');
+        });
+    });
 });
