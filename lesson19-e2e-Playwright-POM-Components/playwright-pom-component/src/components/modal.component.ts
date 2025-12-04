@@ -14,4 +14,12 @@ export class ModalComponent {
     }
 
     public constructor(private readonly searchModalLocator: Locator) {}
+
+    public async clickSearchButton(): Promise<void> {
+        await this.searchField.click();
+    }
+
+    public async clickAlgoliaButton(): Promise<void> {
+        await this.algoliaButton.click();
+    }
 }

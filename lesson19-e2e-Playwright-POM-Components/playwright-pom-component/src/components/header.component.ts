@@ -1,5 +1,4 @@
 import { Locator } from '@playwright/test';
-// import { ModalComponent } from './modal.component';
 
 export class HeaderComponent {
     public get gitHubButton(): Locator {
@@ -13,7 +12,7 @@ export class HeaderComponent {
     }
 
     private get switchModesButton(): Locator {
-        return this.headerLocator.locator('button[aria-label="Switch between dark and light mode (currently dark mode)"]');
+        return this.headerLocator.locator('button[aria-label*="Switch between dark and light mode"]');
     }
 
     private get searchButton(): Locator {

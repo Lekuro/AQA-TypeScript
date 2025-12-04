@@ -19,6 +19,10 @@ export class MainPage {
         return this.page.locator('title');
     }
 
+    public get htmlElement(): Locator {
+        return this.page.locator('html');
+    }
+
     public readonly headerComponent: HeaderComponent;
     public readonly modalComponent: ModalComponent;
 
