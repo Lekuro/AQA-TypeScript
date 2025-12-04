@@ -31,10 +31,9 @@ export class HeaderComponent {
 
     public async clickSearchButton(): Promise<void> {
         await this.searchButton.click();
-        // this.modalComponent = new ModalComponent(this.headerLocator.locator('div[class="DocSearch-Modal"]'));
     }
 
     public async clickSwitchModesButton(): Promise<void> {
-        return this.switchModesButton.click();
+        await this.switchModesButton.click();
     }
 }
