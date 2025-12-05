@@ -1,11 +1,10 @@
 import { IWorldOptions, World } from '@cucumber/cucumber';
 import { Browser, BrowserContext, Page } from 'playwright';
 import { ConfigService } from '../services/config.service.ts';
-import { JiraPage } from '../pages/jira.page.ts';
-import { AtlassianLoginPage } from '../pages/atlassian-login.page.ts';
+import { MainPage } from '../pages/main.page.ts';
 
 export class RobotDreamsWorld extends World {
-    public static globalContext: Map<string, unknown> = new Map<string, unknown> ();
+    public static globalContext: Map<string, unknown> = new Map<string, unknown>();
 
     // we can create a context class that will have its set and get methods for better readability
     public scenarioContext: Map<string, unknown>;
@@ -23,11 +22,11 @@ export class RobotDreamsWorld extends World {
     }
 
     // pages getters
-    public get jiraPage(): JiraPage {
-        if (!this._jiraPage) {
-            this._jiraPage = new JiraPage(this.page, this.configService.config.uiConfig.jiraBaseUrl);
+    public get mainPage(): MainPage {
+        if (!this._mainPage) {
+            this._mainPage = new MainPage(this.page, this.configService.config.uiConfig.playwrightBaseUrl);
         }
-        return this._jiraPage;
+        return this._mainPage;
     }
 
     // service getters
@@ -38,16 +37,8 @@ export class RobotDreamsWorld extends World {
         return this._configService;
     }
 
-    public get atlassianLoginPage(): AtlassianLoginPage {
-        if (!this._atlassianLoginPage) {
-            this._atlassianLoginPage = new AtlassianLoginPage(this.page, this.configService);
-        }
-        return this._atlassianLoginPage;
-    }
-
     // pages
-    private _jiraPage: JiraPage;
-    private _atlassianLoginPage: AtlassianLoginPage;
+    private _mainPage: MainPage;
 
     // services
     private _configService: ConfigService;

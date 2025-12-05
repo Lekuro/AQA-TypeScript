@@ -1,9 +1,8 @@
 {
     "uiConfig": {
-        "jiraBaseUrl": "https://levkoniuk.atlassian.net/",
-        "atlassianBaseUrl": "https://www.atlassian.com/"
+        "playwrightBaseUrl": "https://playwright.dev/",
     },
     "apiConfig": {
-        "jiraApiUrl": "https://levkoniuk.atlassian.net/rest/api/2/"
+        "jiraApiUrl": "https://playwright.dev/"
     }
 }
