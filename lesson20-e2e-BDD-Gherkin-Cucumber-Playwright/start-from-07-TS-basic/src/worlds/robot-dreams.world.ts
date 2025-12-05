@@ -12,6 +12,7 @@ export class RobotDreamsWorld extends World {
     public static browser: Browser;
     public context: BrowserContext;
     public page: Page;
+    public newTabPage: Page;
 
     public get browser(): Browser {
         return RobotDreamsWorld.browser;

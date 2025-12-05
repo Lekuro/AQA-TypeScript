@@ -4,17 +4,17 @@
     "elements": [
       {
         "description": "",
-        "id": "jira-tests;verify-jira-side-menu-contains-menu-options",
+        "id": "mainpage-tests;click-getstarted-button-redirect-to-/docs/intro-page-in-the-same-tab",
         "keyword": "Scenario",
-        "line": 7,
-        "name": "Verify jira side menu contains menu options",
+        "line": 6,
+        "name": "Click GetStarted button redirect to /docs/intro page in the same tab",
         "steps": [
           {
             "keyword": "Before",
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 39185499
+              "duration": 23549999
             }
           },
           {
@@ -22,95 +22,46 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 227732199
+              "duration": 136037399
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 4,
-            "name": "the user is authenticated",
+            "name": "the user is navigated to the main page",
             "match": {
-              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\atlassian\\atlassian.steps.ts:11"
+              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\main.steps.ts:12"
             },
             "result": {
-              "status": "failed",
-              "duration": 5644888399,
-              "error_message": "locator.fill: value: expected string, got undefined\n    at AtlassianLoginPage.<anonymous> (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\pages\\atlassian-login.page.ts:53:35)\n    at fulfilled (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\pages\\atlassian-login.page.ts:4:58)"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 5,
-            "name": "the user navigate to the jira home page",
-            "match": {
-              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\jira\\jira.steps.ts:12"
-            },
-            "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 354542299
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 8,
-            "name": "the user reads the side menu options",
+            "line": 7,
+            "name": "the user click the GetStarted button that opens in the same tab",
             "match": {
-              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\jira\\jira.steps.ts:17"
+              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\main.steps.ts:18"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 605987200
             }
           },
           {
-            "arguments": [
-              {
-                "rows": [
-                  {
-                    "cells": [
-                      "options"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "For you"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "Recent"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "Starred"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "Plans"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "Spaces"
-                    ]
-                  }
-                ]
-              }
-            ],
+            "arguments": [],
             "keyword": "Then ",
-            "line": 9,
-            "name": "the user verifies that side menu contains the following options:",
+            "line": 8,
+            "name": "the tab should have the GetStarted URL 'https://playwright.dev/docs/intro'",
             "match": {
-              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\jira\\jira.steps.ts:23"
+              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\main.steps.ts:23"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1257799
             }
           },
           {
@@ -118,16 +69,12 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 406281500
+              "duration": 997199
             },
             "embeddings": [
               {
-                "data": "U3RhdHVzOiBGQUlMRUQuIER1cmF0aW9uOiA1cw==",
+                "data": "U3RhdHVzOiBQQVNTRUQuIER1cmF0aW9uOiAwcw==",
                 "mime_type": "text/plain"
-              },
-              {
-                "data": "iVBORw0KGgoAAAANSUhEUgAABQAAAAQACAIAAAAx8WMUAAAQAElEQVR4nOzcwW1CMRAAUf9AIP03mwQBDkoNPljMewe3YI3s3fOccwAAAMC7Ow8AAAAIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGGAAAFAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAALCXOefrPI5jAABLfQwAYDPfP7//FQwArCSAAWAvr7ff0+l0u90GALCUAAaA7Vwvn/fH835/DABgHQEMADv6ul6eT9+gAWClY5oxAoAtva5om7AAYCFboAFgU+oXANYSwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAA6J0SzAAAB+FJREFUgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEgQwAAAACQIYAACABAEMAABAggAGAAAgQQADAACQIIABAABIEMAAAAAkCGAAAAASBDAAAAAJAhgAAIAEAQwAAECCAAYAACBBAAMAAJAggAEAAEgQwAAAACQIYAAAABIEMAAAAAkCGAAAgAQBDAAAQIIABgAAIEEAAwAAkCCAAQAASBDAAAAAJAhgAAAAEv4AAAD//0KeTKEAAAAGSURBVAMA0cYr4GvSQHEAAAAASUVORK5CYII=",
-                "mime_type": "image/png"
               }
             ]
           },
@@ -136,7 +83,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 14656399
+              "duration": 10870400
             }
           },
           {
@@ -144,7 +91,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 243625899
+              "duration": 24304399
             }
           }
         ],
@@ -153,17 +100,17 @@
       },
       {
         "description": "",
-        "id": "jira-tests;click-jira-side-menu-option-'customize-sidebar'-opens-customize-modal",
+        "id": "mainpage-tests;click-githubstars-button-redirect-to-github-in-new-tab",
         "keyword": "Scenario",
-        "line": 17,
-        "name": "Click jira side menu option 'Customize sidebar' opens customize modal",
+        "line": 10,
+        "name": "Click GitHubStars button redirect to github in new tab",
         "steps": [
           {
             "keyword": "Before",
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 15596299
+              "duration": 22008900
             }
           },
           {
@@ -171,134 +118,58 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 134054400
+              "duration": 149672000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 4,
-            "name": "the user is authenticated",
+            "name": "the user is navigated to the main page",
             "match": {
-              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\atlassian\\atlassian.steps.ts:11"
+              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\main.steps.ts:12"
             },
             "result": {
-              "status": "failed",
-              "duration": 1590890600,
-              "error_message": "page.goto: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - navigating to \"https://www.atlassian.com/\", waiting until \"load\"\u001b[22m\n\n    at AtlassianLoginPage.<anonymous> (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\pages\\atlassian-login.page.ts:42:29)\n    at D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\pages\\atlassian-login.page.ts:7:71\n    at __awaiter (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\pages\\atlassian-login.page.ts:3:12)\n    at AtlassianLoginPage.goto (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\pages\\atlassian-login.page.ts:41:16)\n    at RobotDreamsWorld.<anonymous> (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\atlassian\\atlassian.steps.ts:13:39)\n    at D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\atlassian\\atlassian.steps.ts:7:71\n    at __awaiter (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\atlassian\\atlassian.steps.ts:3:12)\n    at RobotDreamsWorld.<anonymous> (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\atlassian\\atlassian.steps.ts:12:12)"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 5,
-            "name": "the user navigate to the jira home page",
-            "match": {
-              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\jira\\jira.steps.ts:12"
-            },
-            "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 378415400
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 18,
-            "name": "the user clicks the 'Customize sidebar' menu item",
+            "line": 11,
+            "name": "the user click the GitHubStars button that opens in a new tab",
             "match": {
-              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\jira\\jira.steps.ts:28"
+              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\main.steps.ts:30"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1605260699
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 19,
-            "name": "the customize sidebar modal should be opened",
+            "line": 12,
+            "name": "the new tab should have the GitHubStars URL 'https://github.com/microsoft/playwright'",
             "match": {
-              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\jira\\jira.steps.ts:33"
+              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\main.steps.ts:42"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 20,
-            "name": "the user reads the customize navigation elements",
-            "match": {
-              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\jira\\jira.steps.ts:38"
-            },
-            "result": {
-              "status": "skipped",
-              "duration": 0
-            }
-          },
-          {
-            "arguments": [
-              {
-                "rows": [
-                  {
-                    "cells": [
-                      "options"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "For you"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "Recent"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "Starred"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "Plans"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "Spaces"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "keyword": "Then ",
-            "line": 21,
-            "name": "the following options should be present in the customize sidebar modal:",
-            "match": {
-              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\jira\\jira.steps.ts:44"
-            },
-            "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 452000
             }
           },
           {
             "keyword": "After",
             "hidden": true,
             "result": {
-              "status": "failed",
-              "duration": 1574099,
-              "error_message": "page.screenshot: Target page, context or browser has been closed\n    at RobotDreamsWorld.<anonymous> (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\hooks\\attach-result.hook.ts:22:52)\n    at fulfilled (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\hooks\\attach-result.hook.ts:4:58)"
+              "status": "passed",
+              "duration": 211100
             },
             "embeddings": [
               {
-                "data": "U3RhdHVzOiBGQUlMRUQuIER1cmF0aW9uOiAxcw==",
+                "data": "U3RhdHVzOiBQQVNTRUQuIER1cmF0aW9uOiAwcw==",
                 "mime_type": "text/plain"
               }
             ]
@@ -308,7 +179,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 1747299
+              "duration": 10378999
             }
           },
           {
@@ -316,7 +187,295 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 175825799
+              "duration": 321855600
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "mainpage-tests;click-githubstarsgazers-button-redirect-to-github-in-new-tab",
+        "keyword": "Scenario",
+        "line": 14,
+        "name": "Click GitHubStarsGazers button redirect to github in new tab",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 6930399
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 148622500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "the user is navigated to the main page",
+            "match": {
+              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\main.steps.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 368572600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 15,
+            "name": "the user click the GitHubStarsGazers button that opens in a new tab",
+            "match": {
+              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\main.steps.ts:48"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1184603299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "the new tab should have the GitHubStarsGazers URL 'https://github.com/microsoft/playwright/stargazers'",
+            "match": {
+              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\main.steps.ts:56"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 411100
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 100800
+            },
+            "embeddings": [
+              {
+                "data": "U3RhdHVzOiBQQVNTRUQuIER1cmF0aW9uOiAwcw==",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 3731200
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 246328000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "mainpage-tests;click-github-button-in-header-redirect-to-github-in-new-tab",
+        "keyword": "Scenario",
+        "line": 18,
+        "name": "Click GitHub button in header redirect to github in new tab",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 4347400
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 125341199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "the user is navigated to the main page",
+            "match": {
+              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\main.steps.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 372549199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 19,
+            "name": "the user click the GitHub button in header that opens in a new tab",
+            "match": {
+              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\main.steps.ts:61"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1317527200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 20,
+            "name": "the new tab should have the GitHub URL 'https://github.com/microsoft/playwright'",
+            "match": {
+              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\main.steps.ts:69"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 678700
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 243500
+            },
+            "embeddings": [
+              {
+                "data": "U3RhdHVzOiBQQVNTRUQuIER1cmF0aW9uOiAwcw==",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 25603499
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 275830899
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "mainpage-tests;click-discord-button-in-header-redirect-to-github-in-new-tab",
+        "keyword": "Scenario",
+        "line": 22,
+        "name": "Click Discord button in header redirect to github in new tab",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 5088700
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 113863900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "the user is navigated to the main page",
+            "match": {
+              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\main.steps.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 485476300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 23,
+            "name": "the user click the Discord button in header that opens in a new tab",
+            "match": {
+              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\main.steps.ts:74"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1190049199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 24,
+            "name": "the new tab should have the Discord URL 'https://discord.com/servers/playwright-807756831384403968'",
+            "match": {
+              "location": "file:\\D:\\other\\robot_dreams\\AQA-TypeScript\\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\\start-from-07-TS-basic\\src\\steps\\main.steps.ts:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 413500
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 326699
+            },
+            "embeddings": [
+              {
+                "data": "U3RhdHVzOiBQQVNTRUQuIER1cmF0aW9uOiAwcw==",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 4062500
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 266687500
             }
           }
         ],
@@ -324,11 +483,11 @@
         "type": "scenario"
       }
     ],
-    "id": "jira-tests",
+    "id": "mainpage-tests",
     "line": 1,
     "keyword": "Feature",
-    "name": "Jira tests",
+    "name": "MainPage tests",
     "tags": [],
-    "uri": "features\\jira.feature"
+    "uri": "features\\main.feature"
   }
 ]

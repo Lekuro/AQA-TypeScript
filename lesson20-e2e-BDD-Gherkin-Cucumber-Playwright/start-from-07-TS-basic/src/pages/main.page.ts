@@ -1,6 +1,7 @@
-import { expect, Locator, Page } from '@playwright/test';
-import { HeaderComponent } from 'src/components/header.component';
-import { ModalComponent } from 'src/components/modal.component';
+import { Locator, Page } from 'playwright';
+import { HeaderComponent } from '../components/header.component.ts';
+import { ModalComponent } from '../components/modal.component.ts';
+import { expect } from 'chai';
 
 export class MainPage {
     private get getStartedButton(): Locator {
@@ -23,6 +24,10 @@ export class MainPage {
         return this.page.locator('html');
     }
 
+    public get url(): string {
+        return this.page.url();
+    }
+
     public readonly headerComponent: HeaderComponent;
     public readonly modalComponent: ModalComponent;
 
@@ -42,7 +47,7 @@ export class MainPage {
         const text = (await this.title.textContent()) as string;
         console.log(text);
 
-        await expect(this.page).toHaveTitle(expectedTitle);
+        expect(text).to.be.eql(expectedTitle);
     }
 
     public async clickGetStarted(): Promise<void> {

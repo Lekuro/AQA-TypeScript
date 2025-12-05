@@ -1,21 +1,28 @@
 <?xml version="1.0"?>
-<testsuite name="Cucumber" time="9.944" tests="2" skipped="0" failures="2" errors="0" timestamp="2025-12-05T02:16:17.061Z">
-  <testcase classname="Jira tests" name="Verify jira side menu contains menu options" time="6.611">
-    <failure type="Error" message="locator.fill: value: expected string, got undefined"><![CDATA[    at AtlassianLoginPage.<anonymous> (D:\other\robot_dreams\AQA-TypeScript\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\start-from-07-TS-basic\src\pages\atlassian-login.page.ts:53:35)
-    at fulfilled (D:\other\robot_dreams\AQA-TypeScript\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\start-from-07-TS-basic\src\pages\atlassian-login.page.ts:4:58)]]></failure>
-    <system-out><![CDATA[Given the user is authenticated.............................................failed
-And the user navigate to the jira home page.................................skipped
-When the user reads the side menu options...................................skipped
-Then the user verifies that side menu contains the following options:.......skipped]]></system-out>
+<testsuite name="Cucumber" time="10.306" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-12-05T20:12:47.473Z">
+  <testcase classname="MainPage tests" name="Click GetStarted button redirect to /docs/intro page in the same tab" time="1.175">
+    <system-out><![CDATA[Given the user is navigated to the main page................................passed
+When the user click the GetStarted button that opens in the same tab........passed
+Then the tab should have the GetStarted URL 'https://playwright.dev/docs/intro'..passed]]></system-out>
   </testcase>
-  <testcase classname="Jira tests" name="Click jira side menu option 'Customize sidebar' opens customize modal" time="1.954">
-    <failure type="Error" message="page.screenshot: Target page, context or browser has been closed"><![CDATA[    at RobotDreamsWorld.<anonymous> (D:\other\robot_dreams\AQA-TypeScript\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\start-from-07-TS-basic\src\hooks\attach-result.hook.ts:22:52)
-    at fulfilled (D:\other\robot_dreams\AQA-TypeScript\lesson20-e2e-BDD-Gherkin-Cucumber-Playwright\start-from-07-TS-basic\src\hooks\attach-result.hook.ts:4:58)]]></failure>
-    <system-out><![CDATA[Given the user is authenticated.............................................failed
-And the user navigate to the jira home page.................................skipped
-When the user clicks the 'Customize sidebar' menu item......................skipped
-Then the customize sidebar modal should be opened...........................skipped
-When the user reads the customize navigation elements.......................skipped
-Then the following options should be present in the customize sidebar modal:..skipped]]></system-out>
+  <testcase classname="MainPage tests" name="Click GitHubStars button redirect to github in new tab" time="2.492">
+    <system-out><![CDATA[Given the user is navigated to the main page................................passed
+When the user click the GitHubStars button that opens in a new tab..........passed
+Then the new tab should have the GitHubStars URL 'https://github.com/microsoft/playwright'..passed]]></system-out>
+  </testcase>
+  <testcase classname="MainPage tests" name="Click GitHubStarsGazers button redirect to github in new tab" time="1.991">
+    <system-out><![CDATA[Given the user is navigated to the main page................................passed
+When the user click the GitHubStarsGazers button that opens in a new tab....passed
+Then the new tab should have the GitHubStarsGazers URL 'https://github.com/microsoft/playwright/stargazers'..passed]]></system-out>
+  </testcase>
+  <testcase classname="MainPage tests" name="Click GitHub button in header redirect to github in new tab" time="2.141">
+    <system-out><![CDATA[Given the user is navigated to the main page................................passed
+When the user click the GitHub button in header that opens in a new tab.....passed
+Then the new tab should have the GitHub URL 'https://github.com/microsoft/playwright'..passed]]></system-out>
+  </testcase>
+  <testcase classname="MainPage tests" name="Click Discord button in header redirect to github in new tab" time="2.07">
+    <system-out><![CDATA[Given the user is navigated to the main page................................passed
+When the user click the Discord button in header that opens in a new tab....passed
+Then the new tab should have the Discord URL 'https://discord.com/servers/playwright-807756831384403968'..passed]]></system-out>
   </testcase>
 </testsuite>

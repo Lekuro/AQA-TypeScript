@@ -3,63 +3,70 @@ import { RobotDreamsWorld } from '../worlds/robot-dreams.world.ts';
 import { expect } from 'chai';
 import { Page } from 'playwright';
 
-Given('the user navigate to the main page', async function (this: RobotDreamsWorld) {
+Given('the user is navigated to the main page', async function (this: RobotDreamsWorld) {
     await this.mainPage.goTo();
+    // await this.page.waitForTimeout(1000);
 });
 
-When('the user clicks the Get started button', async function (this: RobotDreamsWorld) {
-    const pagePromise: Promise<Page> = await this.globalContext.waitForEvent('page');
+When('the user click the GetStarted button that opens in the same tab', async function (this: RobotDreamsWorld) {
     await this.mainPage.clickGetStarted();
 });
 
-Then('the user verifies that new page is opened', function (this: RobotDreamsWorld) {
-    const context = RobotDreamsWorld.globalContext;
-    const actualOptions = (this.scenarioContext.get('menuItems') as MenuItemOption[]).map((item) => item.itemName);
-
-    expect(actualOptions).to.include.members(expectedOptions);
+Then('the tab should have the GetStarted URL {string}', async function (expectedUrl: string) {
+    await expect(this.mainPage.url).to.be.equal(expectedUrl);
 });
+
 // Assuming you have access to `page` (current page) and `context` (browser context)
 // in your Cucumber world or shared state.
 
-When('I click the link that opens a new tab', async function () {
+When('the user click the GitHubStars button that opens in a new tab', async function (this: RobotDreamsWorld) {
     // Wait for the 'page' (or 'popup') event to occur, which is triggered when a new tab opens
     const pagePromise: Promise<Page> = this.context.waitForEvent('page');
 
     // Perform the action that opens the new tab (e.g., clicking a link with target="_blank")
-    await this.page.getByRole('link', { name: 'Open new tab' }).click();
+    await this.mainPage.clickStarGitHub();
 
     // Await the new page object
-    this.newPage = await pagePromise;
+    this.newTabPage = await pagePromise;
 
     // Wait for the new page to finish loading its initial content/redirects
-    await this.newPage.waitForLoadState();
+    await this.newTabPage.waitForLoadState();
 });
 
-Then('the new tab should have the URL {string}', async function (expectedUrl: string) {
+Then('the new tab should have the GitHubStars URL {string}', async function (expectedUrl: string) {
     // Use Playwright's built-in assertion with auto-waiting
-    await expect(this.newPage).toHaveURL(expectedUrl);
+    await expect(this.newTabPage.url()).to.be.equal(expectedUrl);
 });
 
-// Example using a partial URL or regex
-Then('the new tab should redirect to a URL containing {string}', async function (partialUrl: string) {
-    // You can use a regex or a glob pattern for flexibility
-    await expect(this.newPage).toHaveURL(/.*${partialUrl}.*/);
+When('the user click the GitHubStarsGazers button that opens in a new tab', async function (this: RobotDreamsWorld) {
+    const pagePromise: Promise<Page> = this.context.waitForEvent('page');
+    await this.mainPage.clickStarGazersGitHub();
+    this.newTabPage = await pagePromise;
+    await this.newTabPage.waitForLoadState();
 });
-// When('the user clicks the {string} menu item', async function(this: RobotDreamsWorld, menuItem: string) {
-//     await this.jiraPage.sideMenuComponent.clickMenuItem(menuItem);
-// });
 
-// Then('the customize sidebar modal should be opened', async function(this: RobotDreamsWorld) {
-//     await this.jiraPage.customizeSidebarModalComponent.waitFor();
-// });
+Then('the new tab should have the GitHubStarsGazers URL {string}', async function (expectedUrl: string) {
+    await expect(this.newTabPage.url()).to.be.equal(expectedUrl);
+});
 
-// When('the user reads the customize navigation elements', async function(this: RobotDreamsWorld) {
-//     const customizationElements = await this.jiraPage.customizeSidebarModalComponent.getCustomizeJiraNavigationElements();
-//     this.scenarioContext.set('customizationElements', customizationElements);
-// });
+When('the user click the GitHub button in header that opens in a new tab', async function (this: RobotDreamsWorld) {
+    const pagePromise: Promise<Page> = this.context.waitForEvent('page');
+    await this.mainPage.headerComponent.clickGitHubButton();
+    this.newTabPage = await pagePromise;
+    await this.newTabPage.waitForLoadState();
+});
 
-// Then('the following options should be present in the customize sidebar modal:', function(this: RobotDreamsWorld, data: DataTable) {
-//     const actualOptions = this.scenarioContext.get('customizationElements') as string[];
-//     const expectedOptions = data.hashes().map(row => row['options']);
-//     expect(actualOptions).to.include.members(expectedOptions);
-// });
+Then('the new tab should have the GitHub URL {string}', async function (expectedUrl: string) {
+    await expect(this.newTabPage.url()).to.be.equal(expectedUrl);
+});
+
+When('the user click the Discord button in header that opens in a new tab', async function (this: RobotDreamsWorld) {
+    const pagePromise: Promise<Page> = this.context.waitForEvent('page');
+    await this.mainPage.headerComponent.clickDiscordButton();
+    this.newTabPage = await pagePromise;
+    await this.newTabPage.waitForLoadState();
+});
+
+Then('the new tab should have the Discord URL {string}', async function (expectedUrl: string) {
+    await expect(this.newTabPage.url()).to.be.equal(expectedUrl);
+});

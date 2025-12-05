@@ -18,7 +18,7 @@ export class ConfigService {
     }
 
     private readFileConfig(): void {
-        const filePath = path.resolve(process.cwd(), 'src/configs/jira-test.config.json');
+        const filePath = path.resolve(process.cwd(), 'src/configs/main-test.config.json');
         const fileContent = fs.readFileSync(filePath, 'utf-8');
         this._config = { ...this._config, ...JSON.parse(fileContent) } as ConfigDto;
     }
