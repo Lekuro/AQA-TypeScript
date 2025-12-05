@@ -6,7 +6,5 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
-.auth/
-allure*/
-local.log
-log/
+*.auth/
+*test-results/
