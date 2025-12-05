@@ -1,8 +1,8 @@
-import { SideMenuComponent } from '../../components/side-menu.component.ts';
+// import { SideMenuComponent } from '../../components/header.component';
 
-export interface MenuItemOption {
-    itemName: string;
-    isExpanded: boolean;
-    isExpandable: boolean;
-    nestedSubmenu?: SideMenuComponent[];
-}
+// export interface MenuItemOption {
+//     itemName: string;
+//     isExpanded: boolean;
+//     isExpandable: boolean;
+//     nestedSubmenu?: SideMenuComponent[];
+// }

@@ -1,20 +1,18 @@
 import { DataTable, Given, Then, When } from '@cucumber/cucumber';
-import { RobotDreamsWorld } from '../../worlds/robot-dreams.world.ts';
-import { MenuItemOption } from '../../models/ui/side-menu-item.dto.ts';
+import { RobotDreamsWorld } from '../worlds/robot-dreams.world.ts';
 import { expect } from 'chai';
 
 Given('the user navigate to the jira home page', async function(this: RobotDreamsWorld) {
-    await this.jiraPage.goTo();
+    await this.mainPage.goTo();
 });
 
 
-When('the user reads the side menu options', async function(this: RobotDreamsWorld) {
-    const menuItems = await this.jiraPage.sideMenuComponent.getMenuItems();
-    this.scenarioContext.set('menuItems', menuItems);
+When('the user clicks the Get started button', async function(this: RobotDreamsWorld) {
+    await this.mainPage.clickGetStarted();
 });
 
-Then('the user verifies that side menu contains the following options:', function(this: RobotDreamsWorld, data: DataTable) {
-    const expectedOptions = data.hashes().map(row => row['options']);
+Then('the user verifies that new page is opened', function(this: RobotDreamsWorld) {
+    const context = RobotDreamsWorld.globalContext;
     const actualOptions = (this.scenarioContext.get('menuItems') as MenuItemOption[]).map(item => item.itemName);
 
     expect(actualOptions).to.include.members(expectedOptions);
