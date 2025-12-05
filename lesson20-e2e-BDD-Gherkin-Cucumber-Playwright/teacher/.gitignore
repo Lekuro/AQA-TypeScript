@@ -1,8 +1,8 @@
-node_modules/
+*node_modules/
 .vscode/
 .idea/
 build/
 **/*.js
 .auth/
-reports/
-videos/
+*reports/
+*videos/
