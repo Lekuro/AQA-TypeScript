@@ -15,6 +15,9 @@ test.describe('fixture-based Main page test example', { tag: ['@fixture'] }, () 
         });
         await test.step('check redirect to /docs/intro page', async () => {
             await expect(mainPage.page).toHaveURL('https://playwright.dev/docs/intro');
+            // will it be better code bellow?
+            await expect(mainPage.page).toHaveTitle('Installation | Playwright');
+            await expect(mainPage.page.waitForURL('https://playwright.dev/docs/intro')).toBeTruthy();
         });
         await test.step('verify title on /docs/intro page', async () => {
             await mainPage.verifyTitle('Installation | Playwright');

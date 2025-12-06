@@ -39,9 +39,6 @@ export class MainPage {
     }
 
     public async verifyTitle(expectedTitle: string): Promise<void> {
-        const text = (await this.title.textContent()) as string;
-        console.log(text);
-
         await expect(this.page).toHaveTitle(expectedTitle);
     }
 
