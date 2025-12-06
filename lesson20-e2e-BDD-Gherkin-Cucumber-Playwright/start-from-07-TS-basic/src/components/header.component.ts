@@ -1,7 +1,7 @@
 import { Locator } from 'playwright';
 
 export class HeaderComponent {
-    public get gitHubButton(): Locator {
+    private get gitHubButton(): Locator {
         return this.headerLocator.locator('a[aria-label="GitHub repository"]:visible');
         // return this.page.locator('nav a[href="https://github.com/microsoft/playwright"]');
     }
