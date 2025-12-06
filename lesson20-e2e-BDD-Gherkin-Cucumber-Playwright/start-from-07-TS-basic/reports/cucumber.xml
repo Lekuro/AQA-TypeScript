@@ -1,28 +1,13 @@
 <?xml version="1.0"?>
-<testsuite name="Cucumber" time="10.306" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-12-05T20:12:47.473Z">
-  <testcase classname="MainPage tests" name="Click GetStarted button redirect to /docs/intro page in the same tab" time="1.175">
+<testsuite name="Cucumber" time="4.047" tests="1" skipped="0" failures="1" errors="0" timestamp="2025-12-06T15:03:22.190Z">
+  <testcase classname="MainPage tests" name="Check that user could search for data from header" time="3.423">
+    <failure type="AssertionError" message="expected +0 to be above +0"><![CDATA[    at RobotDreamsWorld.<anonymous> (file:///D:/other/robot_dreams/AQA-TypeScript/lesson20-e2e-BDD-Gherkin-Cucumber-Playwright/start-from-07-TS-basic/src/steps/main.steps.ts:164:48)
+    at fulfilled (file:///D:/other/robot_dreams/AQA-TypeScript/lesson20-e2e-BDD-Gherkin-Cucumber-Playwright/start-from-07-TS-basic/src/steps/main.steps.ts:4:58)]]></failure>
     <system-out><![CDATA[Given the user is navigated to the main page................................passed
-When the user click the GetStarted button that opens in the same tab........passed
-Then the tab should have the GetStarted URL 'https://playwright.dev/docs/intro'..passed]]></system-out>
-  </testcase>
-  <testcase classname="MainPage tests" name="Click GitHubStars button redirect to github in new tab" time="2.492">
-    <system-out><![CDATA[Given the user is navigated to the main page................................passed
-When the user click the GitHubStars button that opens in a new tab..........passed
-Then the new tab should have the GitHubStars URL 'https://github.com/microsoft/playwright'..passed]]></system-out>
-  </testcase>
-  <testcase classname="MainPage tests" name="Click GitHubStarsGazers button redirect to github in new tab" time="1.991">
-    <system-out><![CDATA[Given the user is navigated to the main page................................passed
-When the user click the GitHubStarsGazers button that opens in a new tab....passed
-Then the new tab should have the GitHubStarsGazers URL 'https://github.com/microsoft/playwright/stargazers'..passed]]></system-out>
-  </testcase>
-  <testcase classname="MainPage tests" name="Click GitHub button in header redirect to github in new tab" time="2.141">
-    <system-out><![CDATA[Given the user is navigated to the main page................................passed
-When the user click the GitHub button in header that opens in a new tab.....passed
-Then the new tab should have the GitHub URL 'https://github.com/microsoft/playwright'..passed]]></system-out>
-  </testcase>
-  <testcase classname="MainPage tests" name="Click Discord button in header redirect to github in new tab" time="2.07">
-    <system-out><![CDATA[Given the user is navigated to the main page................................passed
-When the user click the Discord button in header that opens in a new tab....passed
-Then the new tab should have the Discord URL 'https://discord.com/servers/playwright-807756831384403968'..passed]]></system-out>
+When the user click search button...........................................passed
+And the user type 'assertion'...............................................passed
+Then the input field is filled with 'assertion'.............................passed
+And the data is found.......................................................passed
+And the data is found as array..............................................failed]]></system-out>
   </testcase>
 </testsuite>

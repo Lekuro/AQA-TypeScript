@@ -70,3 +70,70 @@ When('the user click the Discord button in header that opens in a new tab', asyn
 Then('the new tab should have the Discord URL {string}', async function (expectedUrl: string) {
     await expect(this.newTabPage.url()).to.be.equal(expectedUrl);
 });
+
+When('the site is opened', async function (this: RobotDreamsWorld) {
+    await this.page.waitForTimeout(1000);
+});
+
+Then('the system mode is chosen', async function (this: RobotDreamsWorld) {
+    const theme = await this.mainPage.htmlElement.getAttribute('data-theme-choice');
+    expect(theme).to.be.equal('system');
+});
+
+When('the user click switch mode button first time', async function (this: RobotDreamsWorld) {
+    await this.mainPage.headerComponent.clickSwitchModesButton();
+});
+
+Then('the mode should change to {string} first time', async function (expectedMode: string) {
+    const theme = await this.mainPage.htmlElement.getAttribute('data-theme-choice');
+    expect(theme).to.be.equal(expectedMode);
+});
+
+When('the user click switch mode button second time', async function (this: RobotDreamsWorld) {
+    await this.mainPage.headerComponent.clickSwitchModesButton();
+    await this.mainPage.headerComponent.clickSwitchModesButton();
+});
+
+Then('the mode should change to {string} second time', async function (expectedMode: string) {
+    const theme = await this.mainPage.htmlElement.getAttribute('data-theme-choice');
+    expect(theme).to.be.equal(expectedMode);
+});
+
+When('the user click switch mode button third time', async function (this: RobotDreamsWorld) {
+    await this.mainPage.headerComponent.clickSwitchModesButton();
+    await this.mainPage.headerComponent.clickSwitchModesButton();
+    await this.mainPage.headerComponent.clickSwitchModesButton();
+});
+
+Then('the mode should change to {string} third time', async function (expectedMode: string) {
+    const theme = await this.mainPage.htmlElement.getAttribute('data-theme-choice');
+    expect(theme).to.be.equal(expectedMode);
+});
+
+When('the user click search button', async function (this: RobotDreamsWorld) {
+    await this.mainPage.headerComponent.clickSearchButton();
+});
+
+When('the user type {string}', async function (searchText: string) {
+    await this.mainPage.modalComponent.fillSearchInput(searchText);
+});
+
+Then('the input field is filled with {string}', async function (searchText: string) {
+    const searchInputValue = await this.mainPage.modalComponent.getSearchInputValue();
+    expect(searchInputValue).to.be.equal(searchText);
+});
+
+Then('the data is found', async function () {
+    const searchResult = await this.mainPage.modalComponent.searchResult;
+    expect(searchResult).to.be.not.empty;
+    // я очікувала масив і ставила аll для масиву але воно не працює
+    // коли я лишаю непрацюючий код коментом і пишу що маю з ним проблему ви просто закрили завдання
+    //  а як до вас достукатись я незнаю
+});
+
+Then('the data is found as array', async function () {
+    const searchResultArray = await this.mainPage.modalComponent.searchResultArray;
+    console.log('-------- searchResultArray --------', searchResultArray, searchResultArray.length);
+    await this.page.waitForTimeout(1000);
+    expect(searchResultArray.length).to.be.greaterThan(0);
+});
