@@ -8,3 +8,7 @@ official_joke_api
 lesson13-Teacher-Contracts
 cookies.json
 *.auth/
+*test-results/
+*reports/
+*videos/
+
