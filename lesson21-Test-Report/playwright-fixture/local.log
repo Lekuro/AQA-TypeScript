@@ -1,0 +1,20 @@
+"" 
+
+Sun Dec 07 2025 22:31:30:366 GMT+0200 (Фінляндія (зима)) -- Binary semantic version is v8.9.22
+Sun Dec 07 2025 22:31:30:366 GMT+0200 (Фінляндія (зима)) -- Setting output as extra verbose with request parsing
+Sun Dec 07 2025 22:31:32:677 GMT+0200 (Фінляндія (зима)) -- [SUCCESS] You can now access your local server(s) in our remote browser
+
+Sun Dec 07 2025 22:31:32:799 GMT+0200 (Фінляндія (зима)) -- Connecting to BrowserStack using WebSocket protocol...
+Sun Dec 07 2025 22:31:32:799 GMT+0200 (Фінляндія (зима)) -- Platform supports WebSocket connections.
+
+Sun Dec 07 2025 22:31:32:910 GMT+0200 (Фінляндія (зима)) -- Press Ctrl-C to exit
+
+
+Sun Dec 07 2025 22:31:33:122 GMT+0200 (Фінляндія (зима)) -- Starting configuration console on http://localhost:45454
+
+Sun Dec 07 2025 22:31:38:905 GMT+0200 (Фінляндія (зима)) -- [WARNING] Skipping initialisation of configuration console because: port already in use by another Binary
+Sun Dec 07 2025 22:31:40:156 GMT+0200 (Фінляндія (зима)) -- [SUCCESS] You can now access your local server(s) in our remote browser
+
+Sun Dec 07 2025 22:31:40:488 GMT+0200 (Фінляндія (зима)) -- Press Ctrl-C to exit
+
+

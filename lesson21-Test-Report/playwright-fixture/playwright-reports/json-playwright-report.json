@@ -1,0 +1,1245 @@
+{
+  "config": {
+    "configFile": "D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\playwright-browserstack-sdk.config.ts",
+    "rootDir": "D:/other/robot_dreams/AQA-TypeScript/lesson21-Test-Report/playwright-fixture/tests",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": "D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\node_modules\\browserstack-node-sdk\\src\\bin\\playwright\\globalSetup.js",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "playwright-reports/json-playwright-report.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "playwright-reports/html-playwright-report"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "playwright-reports/xmls-playwright-report.xml"
+        }
+      ],
+      [
+        "D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\node_modules\\browserstack-node-sdk\\src\\bin\\playwright\\reporter\\reporter.js",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "D:/other/robot_dreams/AQA-TypeScript/lesson21-Test-Report/playwright-fixture/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "-latest:OSX Big Sur-browserstack",
+        "name": "-latest:OSX Big Sur-browserstack",
+        "testDir": "D:/other/robot_dreams/AQA-TypeScript/lesson21-Test-Report/playwright-fixture/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "tests\\main-fixture.e2e.spec.ts"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/other/robot_dreams/AQA-TypeScript/lesson21-Test-Report/playwright-fixture/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "-latest:Windows 10-browserstack",
+        "name": "-latest:Windows 10-browserstack",
+        "testDir": "D:/other/robot_dreams/AQA-TypeScript/lesson21-Test-Report/playwright-fixture/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "tests\\main-fixture.e2e.spec.ts"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/other/robot_dreams/AQA-TypeScript/lesson21-Test-Report/playwright-fixture/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "-Samsung Galaxy S22 Ultra:12.0-browserstack-mobile",
+        "name": "-Samsung Galaxy S22 Ultra:12.0-browserstack-mobile",
+        "testDir": "D:/other/robot_dreams/AQA-TypeScript/lesson21-Test-Report/playwright-fixture/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "tests\\main-fixture.e2e.spec.ts"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.56.1",
+    "workers": 3,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "main-fixture.e2e.spec.ts",
+      "file": "main-fixture.e2e.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "fixture-based Main page test example",
+          "file": "main-fixture.e2e.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "the main page should has title",
+              "ok": true,
+              "tags": [
+                "fixture"
+              ],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "-latest:OSX Big Sur-browserstack",
+                  "projectName": "-latest:OSX Big Sur-browserstack",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4238,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "2025-12-07 22:31:49 - \u001b[32minfo\u001b[39m: [BrowserstackCLI] Starting as child process with session ID: 0295be51-b7d2-4853-b991-3dbf65bf96e4\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:49 - \u001b[32minfo\u001b[39m: [BrowserstackCLI] startChild: client and channel already exist, stopping here\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:49 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: created instance for target=12772:0, state=AutomationFrameworkState.CREATE\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:49 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: saved instance contextId=1dfa7591ab98e757430934e48041e7a4955f7aaa14dc1fb607866a0375e9c6d5 target=12772:0\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:53 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: instance already exists\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:53 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: instance already exists\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:53 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending DriverInit\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:53 - \u001b[32minfo\u001b[39m: [GrpcClient] DriverInit request successful\n"
+                        },
+                        {
+                          "text": "chromium\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:56 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: instance already exists\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:56 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending TestSessionEvent\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:56 - \u001b[32minfo\u001b[39m: [GrpcClient] TestSessionEvent request successful\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:56 - \u001b[32minfo\u001b[39m: [ObservabilityModule] onBeforeTest: TEST REPORTING AND ANALYTICS sync done\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:57 - \u001b[32minfo\u001b[39m: [PlaywrightDriverModule] testId: 4c4954beab26506ff037-eb5578ce995625d6b668\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:57 - \u001b[32minfo\u001b[39m: [PlaywrightDriverModule] testData from onAfterTest: {\n  uuid: 'd5791640-fff8-46aa-9fbc-625acd96591b',\n  test_framework_name: 'Playwright',\n  test_framework_version: '1.56.1',\n  test_logs: [],\n  test_hooks_finished: {},\n  test_hooks_started: {},\n  test_uuid: 'd5791640-fff8-46aa-9fbc-625acd96591b',\n  test_result: 'pending',\n  automate_session_name: 'fixture-based Main page test example - the main page should has title',\n  test_file_path: 'D:\\\\other\\\\robot_dreams\\\\AQA-TypeScript\\\\lesson21-Test-Report\\\\playwright-fixture\\\\tests\\\\main-fixture.e2e.spec.ts',\n  test_id: '4c4954beab26506ff037-eb5578ce995625d6b668',\n  test_name: 'the main page should has title',\n  test_location: 'D:\\\\other\\\\robot_dreams\\\\AQA-TypeScript\\\\lesson21-Test-Report\\\\playwright-fixture\\\\tests\\\\main-fixture.e2e.spec.ts:6',\n  test_code: 'async ({\\n' +\n    '    mainPage\\n' +\n    '  }) => {\\n' +\n    \"    await _playwrightSite.test.step('verify title on main page', async () => {\\n\" +\n    \"      await mainPage.verifyTitle('Fast and reliable end-to-end testing for modern web apps | Playwright');\\n\" +\n    '    });\\n' +\n    '  }',\n  test_tags: [ 'fixture' ],\n  test_started_at: '2025-12-07T20:31:49.409Z',\n  test_scope: 'fixture-based Main page test example - the main page should has title',\n  test_scopes: [ 'fixture-based Main page test example' ],\n  test_rerun_name: ' -latest:OSX Big Sur-browserstack main-fixture.e2e.spec.ts fixture-based Main page test example @fixture the main page should has title'\n}\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:57 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending TestSessionEvent\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:57 - \u001b[32minfo\u001b[39m: [GrpcClient] TestSessionEvent request successful\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "verify title on main page",
+                          "duration": 91
+                        }
+                      ],
+                      "startTime": "2025-12-07T20:31:49.409Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4c4954beab26506ff037-eb5578ce995625d6b668",
+              "file": "main-fixture.e2e.spec.ts",
+              "line": 6,
+              "column": 9
+            },
+            {
+              "title": "the getStartedButton on main page should redirect to /docs/intro page",
+              "ok": true,
+              "tags": [
+                "fixture"
+              ],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "-latest:OSX Big Sur-browserstack",
+                  "projectName": "-latest:OSX Big Sur-browserstack",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4416,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "chromium\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:01 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: instance already exists\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:01 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending TestSessionEvent\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:01 - \u001b[32minfo\u001b[39m: [GrpcClient] TestSessionEvent request successful\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:01 - \u001b[32minfo\u001b[39m: [ObservabilityModule] onBeforeTest: TEST REPORTING AND ANALYTICS sync done\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:01 - \u001b[32minfo\u001b[39m: [PlaywrightDriverModule] testId: 4c4954beab26506ff037-c536975ad0fea65a05e5\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:01 - \u001b[32minfo\u001b[39m: [PlaywrightDriverModule] testData from onAfterTest: {\n  uuid: 'f068fdd1-8d0d-4408-b059-6a1353ba0c47',\n  test_framework_name: 'Playwright',\n  test_framework_version: '1.56.1',\n  test_logs: [],\n  test_hooks_finished: {},\n  test_hooks_started: {},\n  test_uuid: 'f068fdd1-8d0d-4408-b059-6a1353ba0c47',\n  test_result: 'pending',\n  automate_session_name: 'fixture-based Main page test example - the getStartedButton on main page should redirect to /docs/intro page',\n  test_file_path: 'D:\\\\other\\\\robot_dreams\\\\AQA-TypeScript\\\\lesson21-Test-Report\\\\playwright-fixture\\\\tests\\\\main-fixture.e2e.spec.ts',\n  test_id: '4c4954beab26506ff037-c536975ad0fea65a05e5',\n  test_name: 'the getStartedButton on main page should redirect to /docs/intro page',\n  test_location: 'D:\\\\other\\\\robot_dreams\\\\AQA-TypeScript\\\\lesson21-Test-Report\\\\playwright-fixture\\\\tests\\\\main-fixture.e2e.spec.ts:12',\n  test_code: 'async ({\\n' +\n    '    mainPage\\n' +\n    '  }) => {\\n' +\n    \"    await _playwrightSite.test.step('click on getStarted button on main page', async () => {\\n\" +\n    '      await mainPage.clickGetStarted();\\n' +\n    '    });\\n' +\n    \"    await _playwrightSite.test.step('check redirect to /docs/intro page', async () => {\\n\" +\n    \"      await (0, _test.expect)(mainPage.page).toHaveURL('https://playwright.dev/docs/intro');\\n\" +\n    '      // will it be better code bellow?\\n' +\n    \"      await (0, _test.expect)(mainPage.page).toHaveTitle('Installation | Playwright');\\n\" +\n    \"      await (0, _test.expect)(mainPage.page.waitForURL('https://playwright.dev/docs/intro')).toBeTruthy();\\n\" +\n    '    });\\n' +\n    \"    await _playwrightSite.test.step('verify title on /docs/intro page', async () => {\\n\" +\n    \"      await mainPage.verifyTitle('Installation | Playwright');\\n\" +\n    '      await mainPage.page.screenshot({\\n' +\n    \"        path: 'tests/screenshots/getStartedButton-redirect-to-docs-intro.jpeg'\\n\" +\n    '      });\\n' +\n    '    });\\n' +\n    '  }',\n  test_tags: [ 'fixture' ],\n  test_started_at: '2025-12-07T20:31:57.661Z',\n  test_scope: 'fixture-based Main page test example - the getStartedButton on main page should redirect to /docs/intro page',\n  test_scopes: [ 'fixture-based Main page test example' ],\n  test_rerun_name: ' -latest:OSX Big Sur-browserstack main-fixture.e2e.spec.ts fixture-based Main page test example @fixture the getStartedButton on main page should redirect to /docs/intro page',\n  attachments: [\n    {\n      name: 'screenshot',\n      path: 'tests/screenshots/getStartedButton-redirect-to-docs-intro.jpeg'\n    }\n  ]\n}\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:01 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending TestSessionEvent\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:01 - \u001b[32minfo\u001b[39m: [GrpcClient] TestSessionEvent request successful\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "click on getStarted button on main page",
+                          "duration": 167
+                        },
+                        {
+                          "title": "check redirect to /docs/intro page",
+                          "duration": 488
+                        },
+                        {
+                          "title": "verify title on /docs/intro page",
+                          "duration": 352
+                        }
+                      ],
+                      "startTime": "2025-12-07T20:31:57.661Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4c4954beab26506ff037-c536975ad0fea65a05e5",
+              "file": "main-fixture.e2e.spec.ts",
+              "line": 12,
+              "column": 9
+            },
+            {
+              "title": "header switch btn should change theme color",
+              "ok": true,
+              "tags": [
+                "fixture"
+              ],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "-latest:OSX Big Sur-browserstack",
+                  "projectName": "-latest:OSX Big Sur-browserstack",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9093,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "chromium\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:10 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: instance already exists\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:10 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending TestSessionEvent\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:10 - \u001b[32minfo\u001b[39m: [GrpcClient] TestSessionEvent request successful\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:10 - \u001b[32minfo\u001b[39m: [ObservabilityModule] onBeforeTest: TEST REPORTING AND ANALYTICS sync done\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:10 - \u001b[32minfo\u001b[39m: [PlaywrightDriverModule] testId: 4c4954beab26506ff037-0a05d762120528d50a40\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:10 - \u001b[32minfo\u001b[39m: [PlaywrightDriverModule] testData from onAfterTest: {\n  uuid: '6e33b3b2-18d8-45ca-9e2f-dc3cd2f40c54',\n  test_framework_name: 'Playwright',\n  test_framework_version: '1.56.1',\n  test_logs: [],\n  test_hooks_finished: {},\n  test_hooks_started: {},\n  test_uuid: '6e33b3b2-18d8-45ca-9e2f-dc3cd2f40c54',\n  test_result: 'pending',\n  automate_session_name: 'fixture-based Main page test example - header switch btn should change theme color',\n  test_file_path: 'D:\\\\other\\\\robot_dreams\\\\AQA-TypeScript\\\\lesson21-Test-Report\\\\playwright-fixture\\\\tests\\\\main-fixture.e2e.spec.ts',\n  test_id: '4c4954beab26506ff037-0a05d762120528d50a40',\n  test_name: 'header switch btn should change theme color',\n  test_location: 'D:\\\\other\\\\robot_dreams\\\\AQA-TypeScript\\\\lesson21-Test-Report\\\\playwright-fixture\\\\tests\\\\main-fixture.e2e.spec.ts:92',\n  test_code: 'async ({\\n' +\n    '    mainPage\\n' +\n    '  }) => {\\n' +\n    \"    await _playwrightSite.test.step('check background color', async () => {\\n\" +\n    \"      const theme = await mainPage.htmlElement.getAttribute('data-theme-choice');\\n\" +\n    \"      (0, _test.expect)(theme).toBe('system');\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.screenshot({\\n' +\n    \"      path: 'tests/screenshots/switch-mode-system-beginning.jpeg'\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.waitForTimeout(1000); // Waits for 1 seconds\\n' +\n    \"    await _playwrightSite.test.step('click switch button', async () => {\\n\" +\n    '      await mainPage.headerComponent.clickSwitchModesButton();\\n' +\n    '    });\\n' +\n    \"    await _playwrightSite.test.step('check background color', async () => {\\n\" +\n    \"      const theme = await mainPage.htmlElement.getAttribute('data-theme-choice');\\n\" +\n    \"      (0, _test.expect)(theme).toBe('light');\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.screenshot({\\n' +\n    \"      path: 'tests/screenshots/switch-mode-light.jpeg'\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.waitForTimeout(1000); // Waits for 1 seconds\\n' +\n    \"    await _playwrightSite.test.step('click switch button', async () => {\\n\" +\n    '      await mainPage.headerComponent.clickSwitchModesButton();\\n' +\n    '    });\\n' +\n    \"    await _playwrightSite.test.step('check background color', async () => {\\n\" +\n    \"      const theme = await mainPage.htmlElement.getAttribute('data-theme-choice');\\n\" +\n    \"      (0, _test.expect)(theme).toBe('dark');\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.screenshot({\\n' +\n    \"      path: 'tests/screenshots/switch-mode-dark.jpeg'\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.waitForTimeout(1000); // Waits for 1 seconds\\n' +\n    \"    await _playwrightSite.test.step('click switch button', async () => {\\n\" +\n    '      await mainPage.headerComponent.clickSwitchModesButton();\\n' +\n    '    });\\n' +\n    \"    await _playwrightSite.test.step('check background color', async () => {\\n\" +\n    \"      const theme = await mainPage.htmlElement.getAttribute('data-theme-choice');\\n\" +\n    \"      (0, _test.expect)(theme).toBe('system');\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.screenshot({\\n' +\n    \"      path: 'tests/screenshots/switch-mode-system-end.jpeg'\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.waitForTimeout(1000); // Waits for 1 seconds\\n' +\n    '  }',\n  test_tags: [ 'fixture' ],\n  test_started_at: '2025-12-07T20:32:02.097Z',\n  test_scope: 'fixture-based Main page test example - header switch btn should change theme color',\n  test_scopes: [ 'fixture-based Main page test example' ],\n  test_rerun_name: ' -latest:OSX Big Sur-browserstack main-fixture.e2e.spec.ts fixture-based Main page test example @fixture header switch btn should change theme color',\n  attachments: [\n    {\n      name: 'screenshot',\n      path: 'tests/screenshots/switch-mode-system-end.jpeg'\n    },\n    {\n      name: 'screenshot',\n      path: 'tests/screenshots/switch-mode-dark.jpeg'\n    },\n    {\n      name: 'screenshot',\n      path: 'tests/screenshots/switch-mode-light.jpeg'\n    },\n    {\n      name: 'screenshot',\n      path: 'tests/screenshots/switch-mode-system-beginning.jpeg'\n    }\n  ]\n}\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:10 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending TestSessionEvent\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:10 - \u001b[32minfo\u001b[39m: [GrpcClient] TestSessionEvent request successful\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "check background color",
+                          "duration": 63
+                        },
+                        {
+                          "title": "click switch button",
+                          "duration": 75
+                        },
+                        {
+                          "title": "check background color",
+                          "duration": 38
+                        },
+                        {
+                          "title": "click switch button",
+                          "duration": 84
+                        },
+                        {
+                          "title": "check background color",
+                          "duration": 48
+                        },
+                        {
+                          "title": "click switch button",
+                          "duration": 86
+                        },
+                        {
+                          "title": "check background color",
+                          "duration": 38
+                        }
+                      ],
+                      "startTime": "2025-12-07T20:32:02.097Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4c4954beab26506ff037-0a05d762120528d50a40",
+              "file": "main-fixture.e2e.spec.ts",
+              "line": 92,
+              "column": 9
+            },
+            {
+              "title": "modal search should be opened",
+              "ok": false,
+              "tags": [
+                "fixture"
+              ],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "-latest:OSX Big Sur-browserstack",
+                  "projectName": "-latest:OSX Big Sur-browserstack",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 33516,
+                      "error": {
+                        "message": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('nav[aria-label=\"Main\"]').locator('button[aria-label=\"Search (Ctrl+K)\"]')\u001b[22m\n",
+                        "stack": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('nav[aria-label=\"Main\"]').locator('button[aria-label=\"Search (Ctrl+K)\"]')\u001b[22m\n\n    at HeaderComponent.clickSearchButton (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\components\\header.component.ts:31:33)\n    at D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\tests\\main-fixture.e2e.spec.ts:130:44\n    at D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\tests\\main-fixture.e2e.spec.ts:129:20",
+                        "location": {
+                          "file": "D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\components\\header.component.ts",
+                          "column": 33,
+                          "line": 31
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\src\\components\\header.component.ts:31\n\n\u001b[0m \u001b[90m 29 |\u001b[39m\n \u001b[90m 30 |\u001b[39m     \u001b[36mpublic\u001b[39m \u001b[36masync\u001b[39m clickSearchButton()\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 31 |\u001b[39m         \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39msearchButton\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 32 |\u001b[39m     }\n \u001b[90m 33 |\u001b[39m\n \u001b[90m 34 |\u001b[39m     \u001b[36mpublic\u001b[39m \u001b[36masync\u001b[39m clickSwitchModesButton()\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\components\\header.component.ts",
+                            "column": 33,
+                            "line": 31
+                          },
+                          "message": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('nav[aria-label=\"Main\"]').locator('button[aria-label=\"Search (Ctrl+K)\"]')\u001b[22m\n\n\n\u001b[90m   at \u001b[39m..\\src\\components\\header.component.ts:31\n\n\u001b[0m \u001b[90m 29 |\u001b[39m\n \u001b[90m 30 |\u001b[39m     \u001b[36mpublic\u001b[39m \u001b[36masync\u001b[39m clickSearchButton()\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 31 |\u001b[39m         \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39msearchButton\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 32 |\u001b[39m     }\n \u001b[90m 33 |\u001b[39m\n \u001b[90m 34 |\u001b[39m     \u001b[36mpublic\u001b[39m \u001b[36masync\u001b[39m clickSwitchModesButton()\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\u001b[0m\n\u001b[2m    at HeaderComponent.clickSearchButton (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\components\\header.component.ts:31:33)\u001b[22m\n\u001b[2m    at D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\tests\\main-fixture.e2e.spec.ts:130:44\u001b[22m\n\u001b[2m    at D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\tests\\main-fixture.e2e.spec.ts:129:20\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "chromium\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:43 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: instance already exists\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:43 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending TestSessionEvent\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:43 - \u001b[32minfo\u001b[39m: [GrpcClient] TestSessionEvent request successful\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:43 - \u001b[32minfo\u001b[39m: [ObservabilityModule] onBeforeTest: TEST REPORTING AND ANALYTICS sync done\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:44 - \u001b[32minfo\u001b[39m: [PlaywrightDriverModule] testId: 4c4954beab26506ff037-5b14c0c38d7b01755d0c\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:44 - \u001b[32minfo\u001b[39m: [PlaywrightDriverModule] testData from onAfterTest: {\n  uuid: '00e156af-6095-4285-aee0-535b0557a9ec',\n  test_framework_name: 'Playwright',\n  test_framework_version: '1.56.1',\n  test_logs: [],\n  test_hooks_finished: {},\n  test_hooks_started: {},\n  test_uuid: '00e156af-6095-4285-aee0-535b0557a9ec',\n  test_result: 'pending',\n  automate_session_name: 'fixture-based Main page test example - modal search should be opened',\n  test_file_path: 'D:\\\\other\\\\robot_dreams\\\\AQA-TypeScript\\\\lesson21-Test-Report\\\\playwright-fixture\\\\tests\\\\main-fixture.e2e.spec.ts',\n  test_id: '4c4954beab26506ff037-5b14c0c38d7b01755d0c',\n  test_name: 'modal search should be opened',\n  test_location: 'D:\\\\other\\\\robot_dreams\\\\AQA-TypeScript\\\\lesson21-Test-Report\\\\playwright-fixture\\\\tests\\\\main-fixture.e2e.spec.ts:128',\n  test_code: 'async ({\\n' +\n    '    mainPage\\n' +\n    '  }) => {\\n' +\n    \"    await _playwrightSite.test.step('click search button', async () => {\\n\" +\n    '      await mainPage.headerComponent.clickSearchButton();\\n' +\n    '    });\\n' +\n    '    await mainPage.page.waitForTimeout(1000); // Waits for 1 seconds\\n' +\n    \"    await _playwrightSite.test.step('check modal is opened', async () => {\\n\" +\n    \"      const inputData = 'assertions';\\n\" +\n    '      await mainPage.modalComponent.fillSearchInput(inputData);\\n' +\n    '      await (0, _test.expect)(mainPage.modalComponent.searchInput).toHaveValue(inputData);\\n' +\n    '    });\\n' +\n    '    await mainPage.page.screenshot({\\n' +\n    \"      path: 'tests/screenshots/modal-search-filled.jpeg'\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.waitForTimeout(1000); // Waits for 1 seconds\\n' +\n    '  }',\n  test_tags: [ 'fixture' ],\n  test_started_at: '2025-12-07T20:32:11.216Z',\n  test_scope: 'fixture-based Main page test example - modal search should be opened',\n  test_scopes: [ 'fixture-based Main page test example' ],\n  test_rerun_name: ' -latest:OSX Big Sur-browserstack main-fixture.e2e.spec.ts fixture-based Main page test example @fixture modal search should be opened'\n}\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:44 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending TestSessionEvent\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:44 - \u001b[32minfo\u001b[39m: [GrpcClient] TestSessionEvent request successful\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "click search button",
+                          "duration": 30071,
+                          "error": {
+                            "message": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('nav[aria-label=\"Main\"]').locator('button[aria-label=\"Search (Ctrl+K)\"]')\u001b[22m\n",
+                            "stack": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('nav[aria-label=\"Main\"]').locator('button[aria-label=\"Search (Ctrl+K)\"]')\u001b[22m\n\n    at HeaderComponent.clickSearchButton (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\components\\header.component.ts:31:33)\n    at D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\tests\\main-fixture.e2e.spec.ts:130:44\n    at D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\tests\\main-fixture.e2e.spec.ts:129:20",
+                            "location": {
+                              "file": "D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\components\\header.component.ts",
+                              "column": 33,
+                              "line": 31
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\components\\header.component.ts:31\n\n\u001b[0m \u001b[90m 29 |\u001b[39m\n \u001b[90m 30 |\u001b[39m     \u001b[36mpublic\u001b[39m \u001b[36masync\u001b[39m clickSearchButton()\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 31 |\u001b[39m         \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39msearchButton\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 32 |\u001b[39m     }\n \u001b[90m 33 |\u001b[39m\n \u001b[90m 34 |\u001b[39m     \u001b[36mpublic\u001b[39m \u001b[36masync\u001b[39m clickSwitchModesButton()\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\u001b[0m"
+                          }
+                        }
+                      ],
+                      "startTime": "2025-12-07T20:32:11.216Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\components\\header.component.ts",
+                        "column": 33,
+                        "line": 31
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "4c4954beab26506ff037-5b14c0c38d7b01755d0c",
+              "file": "main-fixture.e2e.spec.ts",
+              "line": 128,
+              "column": 9
+            },
+            {
+              "title": "the main page should has title",
+              "ok": true,
+              "tags": [
+                "fixture"
+              ],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "-latest:Windows 10-browserstack",
+                  "projectName": "-latest:Windows 10-browserstack",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 4890,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "2025-12-07 22:31:49 - \u001b[32minfo\u001b[39m: [BrowserstackCLI] Starting as child process with session ID: 0295be51-b7d2-4853-b991-3dbf65bf96e4\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:49 - \u001b[32minfo\u001b[39m: [BrowserstackCLI] startChild: client and channel already exist, stopping here\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:49 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: created instance for target=22140:0, state=AutomationFrameworkState.CREATE\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:49 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: saved instance contextId=54e60d5026da2b3894bc2433596e775ad42ad202ec29d6ca1057cd4f04065f84 target=22140:0\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:54 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: instance already exists\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:54 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: instance already exists\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:54 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending DriverInit\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:54 - \u001b[32minfo\u001b[39m: [GrpcClient] DriverInit request successful\n"
+                        },
+                        {
+                          "text": "chromium\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:58 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: instance already exists\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:58 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending TestSessionEvent\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:58 - \u001b[32minfo\u001b[39m: [GrpcClient] TestSessionEvent request successful\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:58 - \u001b[32minfo\u001b[39m: [ObservabilityModule] onBeforeTest: TEST REPORTING AND ANALYTICS sync done\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:59 - \u001b[32minfo\u001b[39m: [PlaywrightDriverModule] testId: 4c4954beab26506ff037-4b06b46f58893c003f55\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:59 - \u001b[32minfo\u001b[39m: [PlaywrightDriverModule] testData from onAfterTest: {\n  uuid: 'e577764e-7bf9-4f1c-a152-0719488ecd8b',\n  test_framework_name: 'Playwright',\n  test_framework_version: '1.56.1',\n  test_logs: [],\n  test_hooks_finished: {},\n  test_hooks_started: {},\n  test_uuid: 'e577764e-7bf9-4f1c-a152-0719488ecd8b',\n  test_result: 'pending',\n  automate_session_name: 'fixture-based Main page test example - the main page should has title',\n  test_file_path: 'D:\\\\other\\\\robot_dreams\\\\AQA-TypeScript\\\\lesson21-Test-Report\\\\playwright-fixture\\\\tests\\\\main-fixture.e2e.spec.ts',\n  test_id: '4c4954beab26506ff037-4b06b46f58893c003f55',\n  test_name: 'the main page should has title',\n  test_location: 'D:\\\\other\\\\robot_dreams\\\\AQA-TypeScript\\\\lesson21-Test-Report\\\\playwright-fixture\\\\tests\\\\main-fixture.e2e.spec.ts:6',\n  test_code: 'async ({\\n' +\n    '    mainPage\\n' +\n    '  }) => {\\n' +\n    \"    await _playwrightSite.test.step('verify title on main page', async () => {\\n\" +\n    \"      await mainPage.verifyTitle('Fast and reliable end-to-end testing for modern web apps | Playwright');\\n\" +\n    '    });\\n' +\n    '  }',\n  test_tags: [ 'fixture' ],\n  test_started_at: '2025-12-07T20:31:49.406Z',\n  test_scope: 'fixture-based Main page test example - the main page should has title',\n  test_scopes: [ 'fixture-based Main page test example' ],\n  test_rerun_name: ' -latest:Windows 10-browserstack main-fixture.e2e.spec.ts fixture-based Main page test example @fixture the main page should has title'\n}\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:59 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending TestSessionEvent\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:59 - \u001b[32minfo\u001b[39m: [GrpcClient] TestSessionEvent request successful\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "verify title on main page",
+                          "duration": 116
+                        }
+                      ],
+                      "startTime": "2025-12-07T20:31:49.406Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4c4954beab26506ff037-4b06b46f58893c003f55",
+              "file": "main-fixture.e2e.spec.ts",
+              "line": 6,
+              "column": 9
+            },
+            {
+              "title": "the getStartedButton on main page should redirect to /docs/intro page",
+              "ok": true,
+              "tags": [
+                "fixture"
+              ],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "-latest:Windows 10-browserstack",
+                  "projectName": "-latest:Windows 10-browserstack",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 7718,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "chromium\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:06 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: instance already exists\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:06 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending TestSessionEvent\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:06 - \u001b[32minfo\u001b[39m: [GrpcClient] TestSessionEvent request successful\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:06 - \u001b[32minfo\u001b[39m: [ObservabilityModule] onBeforeTest: TEST REPORTING AND ANALYTICS sync done\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:06 - \u001b[32minfo\u001b[39m: [PlaywrightDriverModule] testId: 4c4954beab26506ff037-f0d79202f5dc1a123280\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:06 - \u001b[32minfo\u001b[39m: [PlaywrightDriverModule] testData from onAfterTest: {\n  uuid: 'a4a83aca-f741-450c-bfc2-41ad0bf8a8fe',\n  test_framework_name: 'Playwright',\n  test_framework_version: '1.56.1',\n  test_logs: [],\n  test_hooks_finished: {},\n  test_hooks_started: {},\n  test_uuid: 'a4a83aca-f741-450c-bfc2-41ad0bf8a8fe',\n  test_result: 'pending',\n  automate_session_name: 'fixture-based Main page test example - the getStartedButton on main page should redirect to /docs/intro page',\n  test_file_path: 'D:\\\\other\\\\robot_dreams\\\\AQA-TypeScript\\\\lesson21-Test-Report\\\\playwright-fixture\\\\tests\\\\main-fixture.e2e.spec.ts',\n  test_id: '4c4954beab26506ff037-f0d79202f5dc1a123280',\n  test_name: 'the getStartedButton on main page should redirect to /docs/intro page',\n  test_location: 'D:\\\\other\\\\robot_dreams\\\\AQA-TypeScript\\\\lesson21-Test-Report\\\\playwright-fixture\\\\tests\\\\main-fixture.e2e.spec.ts:12',\n  test_code: 'async ({\\n' +\n    '    mainPage\\n' +\n    '  }) => {\\n' +\n    \"    await _playwrightSite.test.step('click on getStarted button on main page', async () => {\\n\" +\n    '      await mainPage.clickGetStarted();\\n' +\n    '    });\\n' +\n    \"    await _playwrightSite.test.step('check redirect to /docs/intro page', async () => {\\n\" +\n    \"      await (0, _test.expect)(mainPage.page).toHaveURL('https://playwright.dev/docs/intro');\\n\" +\n    '      // will it be better code bellow?\\n' +\n    \"      await (0, _test.expect)(mainPage.page).toHaveTitle('Installation | Playwright');\\n\" +\n    \"      await (0, _test.expect)(mainPage.page.waitForURL('https://playwright.dev/docs/intro')).toBeTruthy();\\n\" +\n    '    });\\n' +\n    \"    await _playwrightSite.test.step('verify title on /docs/intro page', async () => {\\n\" +\n    \"      await mainPage.verifyTitle('Installation | Playwright');\\n\" +\n    '      await mainPage.page.screenshot({\\n' +\n    \"        path: 'tests/screenshots/getStartedButton-redirect-to-docs-intro.jpeg'\\n\" +\n    '      });\\n' +\n    '    });\\n' +\n    '  }',\n  test_tags: [ 'fixture' ],\n  test_started_at: '2025-12-07T20:31:59.718Z',\n  test_scope: 'fixture-based Main page test example - the getStartedButton on main page should redirect to /docs/intro page',\n  test_scopes: [ 'fixture-based Main page test example' ],\n  test_rerun_name: ' -latest:Windows 10-browserstack main-fixture.e2e.spec.ts fixture-based Main page test example @fixture the getStartedButton on main page should redirect to /docs/intro page',\n  attachments: [\n    {\n      name: 'screenshot',\n      path: 'tests/screenshots/getStartedButton-redirect-to-docs-intro.jpeg'\n    }\n  ]\n}\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:06 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending TestSessionEvent\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:06 - \u001b[32minfo\u001b[39m: [GrpcClient] TestSessionEvent request successful\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "click on getStarted button on main page",
+                          "duration": 165
+                        },
+                        {
+                          "title": "check redirect to /docs/intro page",
+                          "duration": 299
+                        },
+                        {
+                          "title": "verify title on /docs/intro page",
+                          "duration": 618
+                        }
+                      ],
+                      "startTime": "2025-12-07T20:31:59.718Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4c4954beab26506ff037-f0d79202f5dc1a123280",
+              "file": "main-fixture.e2e.spec.ts",
+              "line": 12,
+              "column": 9
+            },
+            {
+              "title": "header switch btn should change theme color",
+              "ok": true,
+              "tags": [
+                "fixture"
+              ],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "-latest:Windows 10-browserstack",
+                  "projectName": "-latest:Windows 10-browserstack",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 10626,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "chromium\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:17 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: instance already exists\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:17 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending TestSessionEvent\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:17 - \u001b[32minfo\u001b[39m: [GrpcClient] TestSessionEvent request successful\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:17 - \u001b[32minfo\u001b[39m: [ObservabilityModule] onBeforeTest: TEST REPORTING AND ANALYTICS sync done\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:17 - \u001b[32minfo\u001b[39m: [PlaywrightDriverModule] testId: 4c4954beab26506ff037-fa3044ae8da0e845a2d0\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:17 - \u001b[32minfo\u001b[39m: [PlaywrightDriverModule] testData from onAfterTest: {\n  uuid: '7ffb3855-52e8-4e8e-8bf7-1eee45103bc1',\n  test_framework_name: 'Playwright',\n  test_framework_version: '1.56.1',\n  test_logs: [],\n  test_hooks_finished: {},\n  test_hooks_started: {},\n  test_uuid: '7ffb3855-52e8-4e8e-8bf7-1eee45103bc1',\n  test_result: 'pending',\n  automate_session_name: 'fixture-based Main page test example - header switch btn should change theme color',\n  test_file_path: 'D:\\\\other\\\\robot_dreams\\\\AQA-TypeScript\\\\lesson21-Test-Report\\\\playwright-fixture\\\\tests\\\\main-fixture.e2e.spec.ts',\n  test_id: '4c4954beab26506ff037-fa3044ae8da0e845a2d0',\n  test_name: 'header switch btn should change theme color',\n  test_location: 'D:\\\\other\\\\robot_dreams\\\\AQA-TypeScript\\\\lesson21-Test-Report\\\\playwright-fixture\\\\tests\\\\main-fixture.e2e.spec.ts:92',\n  test_code: 'async ({\\n' +\n    '    mainPage\\n' +\n    '  }) => {\\n' +\n    \"    await _playwrightSite.test.step('check background color', async () => {\\n\" +\n    \"      const theme = await mainPage.htmlElement.getAttribute('data-theme-choice');\\n\" +\n    \"      (0, _test.expect)(theme).toBe('system');\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.screenshot({\\n' +\n    \"      path: 'tests/screenshots/switch-mode-system-beginning.jpeg'\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.waitForTimeout(1000); // Waits for 1 seconds\\n' +\n    \"    await _playwrightSite.test.step('click switch button', async () => {\\n\" +\n    '      await mainPage.headerComponent.clickSwitchModesButton();\\n' +\n    '    });\\n' +\n    \"    await _playwrightSite.test.step('check background color', async () => {\\n\" +\n    \"      const theme = await mainPage.htmlElement.getAttribute('data-theme-choice');\\n\" +\n    \"      (0, _test.expect)(theme).toBe('light');\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.screenshot({\\n' +\n    \"      path: 'tests/screenshots/switch-mode-light.jpeg'\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.waitForTimeout(1000); // Waits for 1 seconds\\n' +\n    \"    await _playwrightSite.test.step('click switch button', async () => {\\n\" +\n    '      await mainPage.headerComponent.clickSwitchModesButton();\\n' +\n    '    });\\n' +\n    \"    await _playwrightSite.test.step('check background color', async () => {\\n\" +\n    \"      const theme = await mainPage.htmlElement.getAttribute('data-theme-choice');\\n\" +\n    \"      (0, _test.expect)(theme).toBe('dark');\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.screenshot({\\n' +\n    \"      path: 'tests/screenshots/switch-mode-dark.jpeg'\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.waitForTimeout(1000); // Waits for 1 seconds\\n' +\n    \"    await _playwrightSite.test.step('click switch button', async () => {\\n\" +\n    '      await mainPage.headerComponent.clickSwitchModesButton();\\n' +\n    '    });\\n' +\n    \"    await _playwrightSite.test.step('check background color', async () => {\\n\" +\n    \"      const theme = await mainPage.htmlElement.getAttribute('data-theme-choice');\\n\" +\n    \"      (0, _test.expect)(theme).toBe('system');\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.screenshot({\\n' +\n    \"      path: 'tests/screenshots/switch-mode-system-end.jpeg'\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.waitForTimeout(1000); // Waits for 1 seconds\\n' +\n    '  }',\n  test_tags: [ 'fixture' ],\n  test_started_at: '2025-12-07T20:32:07.468Z',\n  test_scope: 'fixture-based Main page test example - header switch btn should change theme color',\n  test_scopes: [ 'fixture-based Main page test example' ],\n  test_rerun_name: ' -latest:Windows 10-browserstack main-fixture.e2e.spec.ts fixture-based Main page test example @fixture header switch btn should change theme color',\n  attachments: [\n    {\n      name: 'screenshot',\n      path: 'tests/screenshots/switch-mode-system-end.jpeg'\n    },\n    {\n      name: 'screenshot',\n      path: 'tests/screenshots/switch-mode-dark.jpeg'\n    },\n    {\n      name: 'screenshot',\n      path: 'tests/screenshots/switch-mode-light.jpeg'\n    },\n    {\n      name: 'screenshot',\n      path: 'tests/screenshots/switch-mode-system-beginning.jpeg'\n    }\n  ]\n}\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:17 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending TestSessionEvent\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:17 - \u001b[32minfo\u001b[39m: [GrpcClient] TestSessionEvent request successful\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "check background color",
+                          "duration": 103
+                        },
+                        {
+                          "title": "click switch button",
+                          "duration": 84
+                        },
+                        {
+                          "title": "check background color",
+                          "duration": 58
+                        },
+                        {
+                          "title": "click switch button",
+                          "duration": 99
+                        },
+                        {
+                          "title": "check background color",
+                          "duration": 61
+                        },
+                        {
+                          "title": "click switch button",
+                          "duration": 92
+                        },
+                        {
+                          "title": "check background color",
+                          "duration": 56
+                        }
+                      ],
+                      "startTime": "2025-12-07T20:32:07.468Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4c4954beab26506ff037-fa3044ae8da0e845a2d0",
+              "file": "main-fixture.e2e.spec.ts",
+              "line": 92,
+              "column": 9
+            },
+            {
+              "title": "modal search should be opened",
+              "ok": true,
+              "tags": [
+                "fixture"
+              ],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "-latest:Windows 10-browserstack",
+                  "projectName": "-latest:Windows 10-browserstack",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 6638,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "chromium\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:23 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: instance already exists\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:23 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending TestSessionEvent\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:23 - \u001b[32minfo\u001b[39m: [GrpcClient] TestSessionEvent request successful\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:24 - \u001b[32minfo\u001b[39m: [ObservabilityModule] onBeforeTest: TEST REPORTING AND ANALYTICS sync done\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:24 - \u001b[32minfo\u001b[39m: [PlaywrightDriverModule] testId: 4c4954beab26506ff037-414cc18ad4cfbe0ebc91\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:24 - \u001b[32minfo\u001b[39m: [PlaywrightDriverModule] testData from onAfterTest: {\n  uuid: '0b31d68e-9997-474f-b539-f10c34faab98',\n  test_framework_name: 'Playwright',\n  test_framework_version: '1.56.1',\n  test_logs: [],\n  test_hooks_finished: {},\n  test_hooks_started: {},\n  test_uuid: '0b31d68e-9997-474f-b539-f10c34faab98',\n  test_result: 'pending',\n  automate_session_name: 'fixture-based Main page test example - modal search should be opened',\n  test_file_path: 'D:\\\\other\\\\robot_dreams\\\\AQA-TypeScript\\\\lesson21-Test-Report\\\\playwright-fixture\\\\tests\\\\main-fixture.e2e.spec.ts',\n  test_id: '4c4954beab26506ff037-414cc18ad4cfbe0ebc91',\n  test_name: 'modal search should be opened',\n  test_location: 'D:\\\\other\\\\robot_dreams\\\\AQA-TypeScript\\\\lesson21-Test-Report\\\\playwright-fixture\\\\tests\\\\main-fixture.e2e.spec.ts:128',\n  test_code: 'async ({\\n' +\n    '    mainPage\\n' +\n    '  }) => {\\n' +\n    \"    await _playwrightSite.test.step('click search button', async () => {\\n\" +\n    '      await mainPage.headerComponent.clickSearchButton();\\n' +\n    '    });\\n' +\n    '    await mainPage.page.waitForTimeout(1000); // Waits for 1 seconds\\n' +\n    \"    await _playwrightSite.test.step('check modal is opened', async () => {\\n\" +\n    \"      const inputData = 'assertions';\\n\" +\n    '      await mainPage.modalComponent.fillSearchInput(inputData);\\n' +\n    '      await (0, _test.expect)(mainPage.modalComponent.searchInput).toHaveValue(inputData);\\n' +\n    '    });\\n' +\n    '    await mainPage.page.screenshot({\\n' +\n    \"      path: 'tests/screenshots/modal-search-filled.jpeg'\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.waitForTimeout(1000); // Waits for 1 seconds\\n' +\n    '  }',\n  test_tags: [ 'fixture' ],\n  test_started_at: '2025-12-07T20:32:18.118Z',\n  test_scope: 'fixture-based Main page test example - modal search should be opened',\n  test_scopes: [ 'fixture-based Main page test example' ],\n  test_rerun_name: ' -latest:Windows 10-browserstack main-fixture.e2e.spec.ts fixture-based Main page test example @fixture modal search should be opened',\n  attachments: [\n    {\n      name: 'screenshot',\n      path: 'tests/screenshots/modal-search-filled.jpeg'\n    }\n  ]\n}\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:24 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending TestSessionEvent\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:24 - \u001b[32minfo\u001b[39m: [GrpcClient] TestSessionEvent request successful\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "click search button",
+                          "duration": 156
+                        },
+                        {
+                          "title": "check modal is opened",
+                          "duration": 141
+                        }
+                      ],
+                      "startTime": "2025-12-07T20:32:18.118Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4c4954beab26506ff037-414cc18ad4cfbe0ebc91",
+              "file": "main-fixture.e2e.spec.ts",
+              "line": 128,
+              "column": 9
+            },
+            {
+              "title": "the main page should has title",
+              "ok": false,
+              "tags": [
+                "fixture"
+              ],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "-Samsung Galaxy S22 Ultra:12.0-browserstack-mobile",
+                  "projectName": "-Samsung Galaxy S22 Ultra:12.0-browserstack-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 1281,
+                      "error": {
+                        "message": "Error: androidDevice.launchBrowser: Executable doesn't exist at /nix/store/5ch3d3bq9dxfs48x8q5b4hxn88jyl0s9-playwright-1.56.1/node_modules/playwright-core/.local-browsers/ffmpeg-1011/ffmpeg-linux\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: androidDevice.launchBrowser: Executable doesn't exist at /nix/store/5ch3d3bq9dxfs48x8q5b4hxn88jyl0s9-playwright-1.56.1/node_modules/playwright-core/.local-browsers/ffmpeg-1011/ffmpeg-linux\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝\n    at Object.mainPage (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\fixtures\\playwright-site.fixture.ts:12:25)",
+                        "location": {
+                          "file": "D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\fixtures\\playwright-site.fixture.ts",
+                          "column": 25,
+                          "line": 12
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\src\\fixtures\\playwright-site.fixture.ts:12\n\n\u001b[0m \u001b[90m 10 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m test \u001b[33m=\u001b[39m base\u001b[33m.\u001b[39mextend\u001b[33m<\u001b[39m\u001b[33mPlaywrightSiteFixture\u001b[39m\u001b[33m>\u001b[39m({\n \u001b[90m 11 |\u001b[39m     mainPage\u001b[33m:\u001b[39m \u001b[36masync\u001b[39m ({ browser\u001b[33m,\u001b[39m configService }\u001b[33m,\u001b[39m use) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 |\u001b[39m         \u001b[36mconst\u001b[39m context \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m browser\u001b[33m.\u001b[39mnewContext({\n \u001b[90m    |\u001b[39m                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 13 |\u001b[39m             recordVideo\u001b[33m:\u001b[39m {\n \u001b[90m 14 |\u001b[39m                 dir\u001b[33m:\u001b[39m \u001b[32m'test-results/videos'\u001b[39m\n \u001b[90m 15 |\u001b[39m             }\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\fixtures\\playwright-site.fixture.ts",
+                            "column": 25,
+                            "line": 12
+                          },
+                          "message": "Error: androidDevice.launchBrowser: Executable doesn't exist at /nix/store/5ch3d3bq9dxfs48x8q5b4hxn88jyl0s9-playwright-1.56.1/node_modules/playwright-core/.local-browsers/ffmpeg-1011/ffmpeg-linux\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝\n\n\u001b[90m   at \u001b[39m..\\src\\fixtures\\playwright-site.fixture.ts:12\n\n\u001b[0m \u001b[90m 10 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m test \u001b[33m=\u001b[39m base\u001b[33m.\u001b[39mextend\u001b[33m<\u001b[39m\u001b[33mPlaywrightSiteFixture\u001b[39m\u001b[33m>\u001b[39m({\n \u001b[90m 11 |\u001b[39m     mainPage\u001b[33m:\u001b[39m \u001b[36masync\u001b[39m ({ browser\u001b[33m,\u001b[39m configService }\u001b[33m,\u001b[39m use) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 |\u001b[39m         \u001b[36mconst\u001b[39m context \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m browser\u001b[33m.\u001b[39mnewContext({\n \u001b[90m    |\u001b[39m                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 13 |\u001b[39m             recordVideo\u001b[33m:\u001b[39m {\n \u001b[90m 14 |\u001b[39m                 dir\u001b[33m:\u001b[39m \u001b[32m'test-results/videos'\u001b[39m\n \u001b[90m 15 |\u001b[39m             }\u001b[0m\n\u001b[2m    at Object.mainPage (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\fixtures\\playwright-site.fixture.ts:12:25)\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "2025-12-07 22:31:49 - \u001b[32minfo\u001b[39m: [BrowserstackCLI] Starting as child process with session ID: 0295be51-b7d2-4853-b991-3dbf65bf96e4\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:49 - \u001b[32minfo\u001b[39m: [BrowserstackCLI] startChild: client and channel already exist, stopping here\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:49 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: created instance for target=1728:0, state=AutomationFrameworkState.CREATE\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:49 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: saved instance contextId=4809322fde8cb7a0bdbed27db67d72232755620ce5e7b626adc8c39e51a4ec7b target=1728:0\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:58 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: instance already exists\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:58 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: instance already exists\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:58 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending DriverInit\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:31:58 - \u001b[32minfo\u001b[39m: [GrpcClient] DriverInit request successful\n"
+                        },
+                        {
+                          "text": "chromium\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:00 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: instance already exists\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:00 - \u001b[32minfo\u001b[39m: [PlaywrightDriverModule] testId: 4c4954beab26506ff037-ef4273f02eb0bc8fda92\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:00 - \u001b[32minfo\u001b[39m: [PlaywrightDriverModule] testData from onAfterTest: {\n  uuid: 'a1db70a9-9a7b-4954-89ec-e34f54b09b8f',\n  test_framework_name: 'Playwright',\n  test_framework_version: '1.56.1',\n  test_logs: [],\n  test_hooks_finished: {},\n  test_hooks_started: {},\n  test_uuid: 'a1db70a9-9a7b-4954-89ec-e34f54b09b8f',\n  test_result: 'pending',\n  automate_session_name: 'fixture-based Main page test example - the main page should has title',\n  test_file_path: 'D:\\\\other\\\\robot_dreams\\\\AQA-TypeScript\\\\lesson21-Test-Report\\\\playwright-fixture\\\\tests\\\\main-fixture.e2e.spec.ts',\n  test_id: '4c4954beab26506ff037-ef4273f02eb0bc8fda92',\n  test_name: 'the main page should has title',\n  test_location: 'D:\\\\other\\\\robot_dreams\\\\AQA-TypeScript\\\\lesson21-Test-Report\\\\playwright-fixture\\\\tests\\\\main-fixture.e2e.spec.ts:6',\n  test_code: 'async ({\\n' +\n    '    mainPage\\n' +\n    '  }) => {\\n' +\n    \"    await _playwrightSite.test.step('verify title on main page', async () => {\\n\" +\n    \"      await mainPage.verifyTitle('Fast and reliable end-to-end testing for modern web apps | Playwright');\\n\" +\n    '    });\\n' +\n    '  }',\n  test_tags: [ 'fixture' ],\n  test_started_at: '2025-12-07T20:31:49.512Z',\n  test_scope: 'fixture-based Main page test example - the main page should has title',\n  test_scopes: [ 'fixture-based Main page test example' ],\n  test_rerun_name: ' -Samsung Galaxy S22 Ultra:12.0-browserstack-mobile main-fixture.e2e.spec.ts fixture-based Main page test example @fixture the main page should has title'\n}\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:00 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending TestSessionEvent\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-07T20:31:49.512Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\fixtures\\playwright-site.fixture.ts",
+                        "column": 25,
+                        "line": 12
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "4c4954beab26506ff037-ef4273f02eb0bc8fda92",
+              "file": "main-fixture.e2e.spec.ts",
+              "line": 6,
+              "column": 9
+            },
+            {
+              "title": "the getStartedButton on main page should redirect to /docs/intro page",
+              "ok": false,
+              "tags": [
+                "fixture"
+              ],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "-Samsung Galaxy S22 Ultra:12.0-browserstack-mobile",
+                  "projectName": "-Samsung Galaxy S22 Ultra:12.0-browserstack-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 1450,
+                      "error": {
+                        "message": "Error: androidDevice.launchBrowser: Executable doesn't exist at /nix/store/5ch3d3bq9dxfs48x8q5b4hxn88jyl0s9-playwright-1.56.1/node_modules/playwright-core/.local-browsers/ffmpeg-1011/ffmpeg-linux\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: androidDevice.launchBrowser: Executable doesn't exist at /nix/store/5ch3d3bq9dxfs48x8q5b4hxn88jyl0s9-playwright-1.56.1/node_modules/playwright-core/.local-browsers/ffmpeg-1011/ffmpeg-linux\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝\n    at Object.mainPage (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\fixtures\\playwright-site.fixture.ts:12:25)",
+                        "location": {
+                          "file": "D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\fixtures\\playwright-site.fixture.ts",
+                          "column": 25,
+                          "line": 12
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\src\\fixtures\\playwright-site.fixture.ts:12\n\n\u001b[0m \u001b[90m 10 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m test \u001b[33m=\u001b[39m base\u001b[33m.\u001b[39mextend\u001b[33m<\u001b[39m\u001b[33mPlaywrightSiteFixture\u001b[39m\u001b[33m>\u001b[39m({\n \u001b[90m 11 |\u001b[39m     mainPage\u001b[33m:\u001b[39m \u001b[36masync\u001b[39m ({ browser\u001b[33m,\u001b[39m configService }\u001b[33m,\u001b[39m use) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 |\u001b[39m         \u001b[36mconst\u001b[39m context \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m browser\u001b[33m.\u001b[39mnewContext({\n \u001b[90m    |\u001b[39m                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 13 |\u001b[39m             recordVideo\u001b[33m:\u001b[39m {\n \u001b[90m 14 |\u001b[39m                 dir\u001b[33m:\u001b[39m \u001b[32m'test-results/videos'\u001b[39m\n \u001b[90m 15 |\u001b[39m             }\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\fixtures\\playwright-site.fixture.ts",
+                            "column": 25,
+                            "line": 12
+                          },
+                          "message": "Error: androidDevice.launchBrowser: Executable doesn't exist at /nix/store/5ch3d3bq9dxfs48x8q5b4hxn88jyl0s9-playwright-1.56.1/node_modules/playwright-core/.local-browsers/ffmpeg-1011/ffmpeg-linux\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝\n\n\u001b[90m   at \u001b[39m..\\src\\fixtures\\playwright-site.fixture.ts:12\n\n\u001b[0m \u001b[90m 10 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m test \u001b[33m=\u001b[39m base\u001b[33m.\u001b[39mextend\u001b[33m<\u001b[39m\u001b[33mPlaywrightSiteFixture\u001b[39m\u001b[33m>\u001b[39m({\n \u001b[90m 11 |\u001b[39m     mainPage\u001b[33m:\u001b[39m \u001b[36masync\u001b[39m ({ browser\u001b[33m,\u001b[39m configService }\u001b[33m,\u001b[39m use) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 |\u001b[39m         \u001b[36mconst\u001b[39m context \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m browser\u001b[33m.\u001b[39mnewContext({\n \u001b[90m    |\u001b[39m                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 13 |\u001b[39m             recordVideo\u001b[33m:\u001b[39m {\n \u001b[90m 14 |\u001b[39m                 dir\u001b[33m:\u001b[39m \u001b[32m'test-results/videos'\u001b[39m\n \u001b[90m 15 |\u001b[39m             }\u001b[0m\n\u001b[2m    at Object.mainPage (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\fixtures\\playwright-site.fixture.ts:12:25)\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "2025-12-07 22:32:03 - \u001b[32minfo\u001b[39m: [BrowserstackCLI] Starting as child process with session ID: 0295be51-b7d2-4853-b991-3dbf65bf96e4\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:03 - \u001b[32minfo\u001b[39m: [BrowserstackCLI] startChild: client and channel already exist, stopping here\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:03 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: created instance for target=23116:0, state=AutomationFrameworkState.CREATE\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:03 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: saved instance contextId=102da82baf73c54f360c4fcf2cb7c72bbf9974066cd656677c656af3f8cb6d24 target=23116:0\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:11 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: instance already exists\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:11 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: instance already exists\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:11 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending DriverInit\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:11 - \u001b[32minfo\u001b[39m: [GrpcClient] DriverInit request successful\n"
+                        },
+                        {
+                          "text": "chromium\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:12 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: instance already exists\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:12 - \u001b[32minfo\u001b[39m: [PlaywrightDriverModule] testId: 4c4954beab26506ff037-56b197e0a68d23287311\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:12 - \u001b[32minfo\u001b[39m: [PlaywrightDriverModule] testData from onAfterTest: {\n  uuid: '24ae0ce3-6cf7-4701-a35a-781d85a7789e',\n  test_framework_name: 'Playwright',\n  test_framework_version: '1.56.1',\n  test_logs: [],\n  test_hooks_finished: {},\n  test_hooks_started: {},\n  test_uuid: '24ae0ce3-6cf7-4701-a35a-781d85a7789e',\n  test_result: 'pending',\n  automate_session_name: 'fixture-based Main page test example - the getStartedButton on main page should redirect to /docs/intro page',\n  test_file_path: 'D:\\\\other\\\\robot_dreams\\\\AQA-TypeScript\\\\lesson21-Test-Report\\\\playwright-fixture\\\\tests\\\\main-fixture.e2e.spec.ts',\n  test_id: '4c4954beab26506ff037-56b197e0a68d23287311',\n  test_name: 'the getStartedButton on main page should redirect to /docs/intro page',\n  test_location: 'D:\\\\other\\\\robot_dreams\\\\AQA-TypeScript\\\\lesson21-Test-Report\\\\playwright-fixture\\\\tests\\\\main-fixture.e2e.spec.ts:12',\n  test_code: 'async ({\\n' +\n    '    mainPage\\n' +\n    '  }) => {\\n' +\n    \"    await _playwrightSite.test.step('click on getStarted button on main page', async () => {\\n\" +\n    '      await mainPage.clickGetStarted();\\n' +\n    '    });\\n' +\n    \"    await _playwrightSite.test.step('check redirect to /docs/intro page', async () => {\\n\" +\n    \"      await (0, _test.expect)(mainPage.page).toHaveURL('https://playwright.dev/docs/intro');\\n\" +\n    '      // will it be better code bellow?\\n' +\n    \"      await (0, _test.expect)(mainPage.page).toHaveTitle('Installation | Playwright');\\n\" +\n    \"      await (0, _test.expect)(mainPage.page.waitForURL('https://playwright.dev/docs/intro')).toBeTruthy();\\n\" +\n    '    });\\n' +\n    \"    await _playwrightSite.test.step('verify title on /docs/intro page', async () => {\\n\" +\n    \"      await mainPage.verifyTitle('Installation | Playwright');\\n\" +\n    '      await mainPage.page.screenshot({\\n' +\n    \"        path: 'tests/screenshots/getStartedButton-redirect-to-docs-intro.jpeg'\\n\" +\n    '      });\\n' +\n    '    });\\n' +\n    '  }',\n  test_tags: [ 'fixture' ],\n  test_started_at: '2025-12-07T20:32:03.436Z',\n  test_scope: 'fixture-based Main page test example - the getStartedButton on main page should redirect to /docs/intro page',\n  test_scopes: [ 'fixture-based Main page test example' ],\n  test_rerun_name: ' -Samsung Galaxy S22 Ultra:12.0-browserstack-mobile main-fixture.e2e.spec.ts fixture-based Main page test example @fixture the getStartedButton on main page should redirect to /docs/intro page'\n}\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:12 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending TestSessionEvent\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-07T20:32:03.436Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\fixtures\\playwright-site.fixture.ts",
+                        "column": 25,
+                        "line": 12
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "4c4954beab26506ff037-56b197e0a68d23287311",
+              "file": "main-fixture.e2e.spec.ts",
+              "line": 12,
+              "column": 9
+            },
+            {
+              "title": "header switch btn should change theme color",
+              "ok": false,
+              "tags": [
+                "fixture"
+              ],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "-Samsung Galaxy S22 Ultra:12.0-browserstack-mobile",
+                  "projectName": "-Samsung Galaxy S22 Ultra:12.0-browserstack-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 1390,
+                      "error": {
+                        "message": "Error: androidDevice.launchBrowser: Executable doesn't exist at /nix/store/5ch3d3bq9dxfs48x8q5b4hxn88jyl0s9-playwright-1.56.1/node_modules/playwright-core/.local-browsers/ffmpeg-1011/ffmpeg-linux\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: androidDevice.launchBrowser: Executable doesn't exist at /nix/store/5ch3d3bq9dxfs48x8q5b4hxn88jyl0s9-playwright-1.56.1/node_modules/playwright-core/.local-browsers/ffmpeg-1011/ffmpeg-linux\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝\n    at Object.mainPage (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\fixtures\\playwright-site.fixture.ts:12:25)",
+                        "location": {
+                          "file": "D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\fixtures\\playwright-site.fixture.ts",
+                          "column": 25,
+                          "line": 12
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\src\\fixtures\\playwright-site.fixture.ts:12\n\n\u001b[0m \u001b[90m 10 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m test \u001b[33m=\u001b[39m base\u001b[33m.\u001b[39mextend\u001b[33m<\u001b[39m\u001b[33mPlaywrightSiteFixture\u001b[39m\u001b[33m>\u001b[39m({\n \u001b[90m 11 |\u001b[39m     mainPage\u001b[33m:\u001b[39m \u001b[36masync\u001b[39m ({ browser\u001b[33m,\u001b[39m configService }\u001b[33m,\u001b[39m use) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 |\u001b[39m         \u001b[36mconst\u001b[39m context \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m browser\u001b[33m.\u001b[39mnewContext({\n \u001b[90m    |\u001b[39m                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 13 |\u001b[39m             recordVideo\u001b[33m:\u001b[39m {\n \u001b[90m 14 |\u001b[39m                 dir\u001b[33m:\u001b[39m \u001b[32m'test-results/videos'\u001b[39m\n \u001b[90m 15 |\u001b[39m             }\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\fixtures\\playwright-site.fixture.ts",
+                            "column": 25,
+                            "line": 12
+                          },
+                          "message": "Error: androidDevice.launchBrowser: Executable doesn't exist at /nix/store/5ch3d3bq9dxfs48x8q5b4hxn88jyl0s9-playwright-1.56.1/node_modules/playwright-core/.local-browsers/ffmpeg-1011/ffmpeg-linux\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝\n\n\u001b[90m   at \u001b[39m..\\src\\fixtures\\playwright-site.fixture.ts:12\n\n\u001b[0m \u001b[90m 10 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m test \u001b[33m=\u001b[39m base\u001b[33m.\u001b[39mextend\u001b[33m<\u001b[39m\u001b[33mPlaywrightSiteFixture\u001b[39m\u001b[33m>\u001b[39m({\n \u001b[90m 11 |\u001b[39m     mainPage\u001b[33m:\u001b[39m \u001b[36masync\u001b[39m ({ browser\u001b[33m,\u001b[39m configService }\u001b[33m,\u001b[39m use) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 |\u001b[39m         \u001b[36mconst\u001b[39m context \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m browser\u001b[33m.\u001b[39mnewContext({\n \u001b[90m    |\u001b[39m                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 13 |\u001b[39m             recordVideo\u001b[33m:\u001b[39m {\n \u001b[90m 14 |\u001b[39m                 dir\u001b[33m:\u001b[39m \u001b[32m'test-results/videos'\u001b[39m\n \u001b[90m 15 |\u001b[39m             }\u001b[0m\n\u001b[2m    at Object.mainPage (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\fixtures\\playwright-site.fixture.ts:12:25)\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "2025-12-07 22:32:16 - \u001b[32minfo\u001b[39m: [BrowserstackCLI] Starting as child process with session ID: 0295be51-b7d2-4853-b991-3dbf65bf96e4\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:16 - \u001b[32minfo\u001b[39m: [BrowserstackCLI] startChild: client and channel already exist, stopping here\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:16 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: created instance for target=24684:0, state=AutomationFrameworkState.CREATE\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:16 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: saved instance contextId=456282de85f89de466ad866d305d439d293bcda1bf3fde331c3e38da01480705 target=24684:0\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:26 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: instance already exists\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:26 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: instance already exists\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:26 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending DriverInit\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:26 - \u001b[32minfo\u001b[39m: [GrpcClient] DriverInit request successful\n"
+                        },
+                        {
+                          "text": "chromium\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:28 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: instance already exists\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:28 - \u001b[32minfo\u001b[39m: [PlaywrightDriverModule] testId: 4c4954beab26506ff037-ee90ff45eee307847755\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:28 - \u001b[32minfo\u001b[39m: [PlaywrightDriverModule] testData from onAfterTest: {\n  uuid: 'cec3eb03-29c3-438e-bf03-83aea619932e',\n  test_framework_name: 'Playwright',\n  test_framework_version: '1.56.1',\n  test_logs: [],\n  test_hooks_finished: {},\n  test_hooks_started: {},\n  test_uuid: 'cec3eb03-29c3-438e-bf03-83aea619932e',\n  test_result: 'pending',\n  automate_session_name: 'fixture-based Main page test example - header switch btn should change theme color',\n  test_file_path: 'D:\\\\other\\\\robot_dreams\\\\AQA-TypeScript\\\\lesson21-Test-Report\\\\playwright-fixture\\\\tests\\\\main-fixture.e2e.spec.ts',\n  test_id: '4c4954beab26506ff037-ee90ff45eee307847755',\n  test_name: 'header switch btn should change theme color',\n  test_location: 'D:\\\\other\\\\robot_dreams\\\\AQA-TypeScript\\\\lesson21-Test-Report\\\\playwright-fixture\\\\tests\\\\main-fixture.e2e.spec.ts:92',\n  test_code: 'async ({\\n' +\n    '    mainPage\\n' +\n    '  }) => {\\n' +\n    \"    await _playwrightSite.test.step('check background color', async () => {\\n\" +\n    \"      const theme = await mainPage.htmlElement.getAttribute('data-theme-choice');\\n\" +\n    \"      (0, _test.expect)(theme).toBe('system');\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.screenshot({\\n' +\n    \"      path: 'tests/screenshots/switch-mode-system-beginning.jpeg'\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.waitForTimeout(1000); // Waits for 1 seconds\\n' +\n    \"    await _playwrightSite.test.step('click switch button', async () => {\\n\" +\n    '      await mainPage.headerComponent.clickSwitchModesButton();\\n' +\n    '    });\\n' +\n    \"    await _playwrightSite.test.step('check background color', async () => {\\n\" +\n    \"      const theme = await mainPage.htmlElement.getAttribute('data-theme-choice');\\n\" +\n    \"      (0, _test.expect)(theme).toBe('light');\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.screenshot({\\n' +\n    \"      path: 'tests/screenshots/switch-mode-light.jpeg'\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.waitForTimeout(1000); // Waits for 1 seconds\\n' +\n    \"    await _playwrightSite.test.step('click switch button', async () => {\\n\" +\n    '      await mainPage.headerComponent.clickSwitchModesButton();\\n' +\n    '    });\\n' +\n    \"    await _playwrightSite.test.step('check background color', async () => {\\n\" +\n    \"      const theme = await mainPage.htmlElement.getAttribute('data-theme-choice');\\n\" +\n    \"      (0, _test.expect)(theme).toBe('dark');\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.screenshot({\\n' +\n    \"      path: 'tests/screenshots/switch-mode-dark.jpeg'\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.waitForTimeout(1000); // Waits for 1 seconds\\n' +\n    \"    await _playwrightSite.test.step('click switch button', async () => {\\n\" +\n    '      await mainPage.headerComponent.clickSwitchModesButton();\\n' +\n    '    });\\n' +\n    \"    await _playwrightSite.test.step('check background color', async () => {\\n\" +\n    \"      const theme = await mainPage.htmlElement.getAttribute('data-theme-choice');\\n\" +\n    \"      (0, _test.expect)(theme).toBe('system');\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.screenshot({\\n' +\n    \"      path: 'tests/screenshots/switch-mode-system-end.jpeg'\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.waitForTimeout(1000); // Waits for 1 seconds\\n' +\n    '  }',\n  test_tags: [ 'fixture' ],\n  test_started_at: '2025-12-07T20:32:16.835Z',\n  test_scope: 'fixture-based Main page test example - header switch btn should change theme color',\n  test_scopes: [ 'fixture-based Main page test example' ],\n  test_rerun_name: ' -Samsung Galaxy S22 Ultra:12.0-browserstack-mobile main-fixture.e2e.spec.ts fixture-based Main page test example @fixture header switch btn should change theme color'\n}\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:28 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending TestSessionEvent\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-07T20:32:16.835Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\fixtures\\playwright-site.fixture.ts",
+                        "column": 25,
+                        "line": 12
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "4c4954beab26506ff037-ee90ff45eee307847755",
+              "file": "main-fixture.e2e.spec.ts",
+              "line": 92,
+              "column": 9
+            },
+            {
+              "title": "modal search should be opened",
+              "ok": false,
+              "tags": [
+                "fixture"
+              ],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "-Samsung Galaxy S22 Ultra:12.0-browserstack-mobile",
+                  "projectName": "-Samsung Galaxy S22 Ultra:12.0-browserstack-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 1264,
+                      "error": {
+                        "message": "Error: androidDevice.launchBrowser: Executable doesn't exist at /nix/store/5ch3d3bq9dxfs48x8q5b4hxn88jyl0s9-playwright-1.56.1/node_modules/playwright-core/.local-browsers/ffmpeg-1011/ffmpeg-linux\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: androidDevice.launchBrowser: Executable doesn't exist at /nix/store/5ch3d3bq9dxfs48x8q5b4hxn88jyl0s9-playwright-1.56.1/node_modules/playwright-core/.local-browsers/ffmpeg-1011/ffmpeg-linux\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝\n    at Object.mainPage (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\fixtures\\playwright-site.fixture.ts:12:25)",
+                        "location": {
+                          "file": "D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\fixtures\\playwright-site.fixture.ts",
+                          "column": 25,
+                          "line": 12
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\src\\fixtures\\playwright-site.fixture.ts:12\n\n\u001b[0m \u001b[90m 10 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m test \u001b[33m=\u001b[39m base\u001b[33m.\u001b[39mextend\u001b[33m<\u001b[39m\u001b[33mPlaywrightSiteFixture\u001b[39m\u001b[33m>\u001b[39m({\n \u001b[90m 11 |\u001b[39m     mainPage\u001b[33m:\u001b[39m \u001b[36masync\u001b[39m ({ browser\u001b[33m,\u001b[39m configService }\u001b[33m,\u001b[39m use) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 |\u001b[39m         \u001b[36mconst\u001b[39m context \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m browser\u001b[33m.\u001b[39mnewContext({\n \u001b[90m    |\u001b[39m                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 13 |\u001b[39m             recordVideo\u001b[33m:\u001b[39m {\n \u001b[90m 14 |\u001b[39m                 dir\u001b[33m:\u001b[39m \u001b[32m'test-results/videos'\u001b[39m\n \u001b[90m 15 |\u001b[39m             }\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\fixtures\\playwright-site.fixture.ts",
+                            "column": 25,
+                            "line": 12
+                          },
+                          "message": "Error: androidDevice.launchBrowser: Executable doesn't exist at /nix/store/5ch3d3bq9dxfs48x8q5b4hxn88jyl0s9-playwright-1.56.1/node_modules/playwright-core/.local-browsers/ffmpeg-1011/ffmpeg-linux\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝\n\n\u001b[90m   at \u001b[39m..\\src\\fixtures\\playwright-site.fixture.ts:12\n\n\u001b[0m \u001b[90m 10 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m test \u001b[33m=\u001b[39m base\u001b[33m.\u001b[39mextend\u001b[33m<\u001b[39m\u001b[33mPlaywrightSiteFixture\u001b[39m\u001b[33m>\u001b[39m({\n \u001b[90m 11 |\u001b[39m     mainPage\u001b[33m:\u001b[39m \u001b[36masync\u001b[39m ({ browser\u001b[33m,\u001b[39m configService }\u001b[33m,\u001b[39m use) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 |\u001b[39m         \u001b[36mconst\u001b[39m context \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m browser\u001b[33m.\u001b[39mnewContext({\n \u001b[90m    |\u001b[39m                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 13 |\u001b[39m             recordVideo\u001b[33m:\u001b[39m {\n \u001b[90m 14 |\u001b[39m                 dir\u001b[33m:\u001b[39m \u001b[32m'test-results/videos'\u001b[39m\n \u001b[90m 15 |\u001b[39m             }\u001b[0m\n\u001b[2m    at Object.mainPage (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\fixtures\\playwright-site.fixture.ts:12:25)\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "2025-12-07 22:32:30 - \u001b[32minfo\u001b[39m: [BrowserstackCLI] Starting as child process with session ID: 0295be51-b7d2-4853-b991-3dbf65bf96e4\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:30 - \u001b[32minfo\u001b[39m: [BrowserstackCLI] startChild: client and channel already exist, stopping here\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:30 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: created instance for target=3372:0, state=AutomationFrameworkState.CREATE\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:30 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: saved instance contextId=fe818c1d01e086025beb0e4af3011c7fadc136c7d3dfdfca2e82366b2b6b8b8c target=3372:0\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:39 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: instance already exists\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:39 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: instance already exists\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:39 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending DriverInit\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:39 - \u001b[32minfo\u001b[39m: [GrpcClient] DriverInit request successful\n"
+                        },
+                        {
+                          "text": "chromium\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:41 - \u001b[32minfo\u001b[39m: [PlaywrightAutomationFramework] trackPlaywrightInstance: instance already exists\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:41 - \u001b[32minfo\u001b[39m: [PlaywrightDriverModule] testId: 4c4954beab26506ff037-d3cb41dd706b3ba8c0f2\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:41 - \u001b[32minfo\u001b[39m: [PlaywrightDriverModule] testData from onAfterTest: {\n  uuid: '6723c939-904f-4c99-86bd-0e9db4016e6b',\n  test_framework_name: 'Playwright',\n  test_framework_version: '1.56.1',\n  test_logs: [],\n  test_hooks_finished: {},\n  test_hooks_started: {},\n  test_uuid: '6723c939-904f-4c99-86bd-0e9db4016e6b',\n  test_result: 'pending',\n  automate_session_name: 'fixture-based Main page test example - modal search should be opened',\n  test_file_path: 'D:\\\\other\\\\robot_dreams\\\\AQA-TypeScript\\\\lesson21-Test-Report\\\\playwright-fixture\\\\tests\\\\main-fixture.e2e.spec.ts',\n  test_id: '4c4954beab26506ff037-d3cb41dd706b3ba8c0f2',\n  test_name: 'modal search should be opened',\n  test_location: 'D:\\\\other\\\\robot_dreams\\\\AQA-TypeScript\\\\lesson21-Test-Report\\\\playwright-fixture\\\\tests\\\\main-fixture.e2e.spec.ts:128',\n  test_code: 'async ({\\n' +\n    '    mainPage\\n' +\n    '  }) => {\\n' +\n    \"    await _playwrightSite.test.step('click search button', async () => {\\n\" +\n    '      await mainPage.headerComponent.clickSearchButton();\\n' +\n    '    });\\n' +\n    '    await mainPage.page.waitForTimeout(1000); // Waits for 1 seconds\\n' +\n    \"    await _playwrightSite.test.step('check modal is opened', async () => {\\n\" +\n    \"      const inputData = 'assertions';\\n\" +\n    '      await mainPage.modalComponent.fillSearchInput(inputData);\\n' +\n    '      await (0, _test.expect)(mainPage.modalComponent.searchInput).toHaveValue(inputData);\\n' +\n    '    });\\n' +\n    '    await mainPage.page.screenshot({\\n' +\n    \"      path: 'tests/screenshots/modal-search-filled.jpeg'\\n\" +\n    '    });\\n' +\n    '    await mainPage.page.waitForTimeout(1000); // Waits for 1 seconds\\n' +\n    '  }',\n  test_tags: [ 'fixture' ],\n  test_started_at: '2025-12-07T20:32:30.761Z',\n  test_scope: 'fixture-based Main page test example - modal search should be opened',\n  test_scopes: [ 'fixture-based Main page test example' ],\n  test_rerun_name: ' -Samsung Galaxy S22 Ultra:12.0-browserstack-mobile main-fixture.e2e.spec.ts fixture-based Main page test example @fixture modal search should be opened'\n}\n"
+                        },
+                        {
+                          "text": "2025-12-07 22:32:41 - \u001b[32minfo\u001b[39m: [GrpcClient] Sending TestSessionEvent\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-07T20:32:30.761Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\fixtures\\playwright-site.fixture.ts",
+                        "column": 25,
+                        "line": 12
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "4c4954beab26506ff037-d3cb41dd706b3ba8c0f2",
+              "file": "main-fixture.e2e.spec.ts",
+              "line": 128,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-12-07T20:31:45.195Z",
+    "duration": 60090.616,
+    "expected": 7,
+    "skipped": 0,
+    "unexpected": 5,
+    "flaky": 0
+  }
+}
