@@ -1,6 +1,6 @@
 ## Playwright <https://playwright.dev/docs/test-reporters>
 
-### change playwright.config.ts file
+### change `playwright.config.ts` file
 
 ```
 export default defineConfig({
@@ -65,12 +65,45 @@ For example, if you use the command `npx playwright test sample --project=chromi
 ```
 npx browserstack-node-sdk playwright test
 ```
+
 ### copy link from browserstack to share with people
+
 ```
 https://automation.browserstack.com/projects/playwright-fixture/builds
 ```
+
 ## Mocha-awesome
 
 ## Allure
+
+### Install allure
+
+```
+npm install -D allure-commandline
+npx allure --version
+```
+
+### Install adapter for your framework. For more details look <https://allurereport.org/docs/frameworks/>
+
+```
+npm install -D allure-playwright
+```
+
+### change `playwright.config.ts` file
+
+```
+export default defineConfig({
+  // ...
+  reporter: [
+    ['allure-playwright',{resultsDir: "allure-html-results"}]
+  ],
+});
+```
+
+### Run the allure report after serve is resultsDir by default allure-results
+
+```
+npx allure serve allure-html-results
+```
 
 ## ReportPortal
