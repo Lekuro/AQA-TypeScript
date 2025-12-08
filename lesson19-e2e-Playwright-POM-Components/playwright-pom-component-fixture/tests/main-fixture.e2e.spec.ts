@@ -139,26 +139,28 @@ test.describe('fixture-based Main page test example', { tag: ['@fixture'] }, () 
         await mainPage.page.waitForTimeout(1000); // Waits for 1 seconds
     });
 
-    // test('Algolia btn in modal-search should redirect to Algolia page', async ({ context, mainPage }) => {
-    //     // Set up a promise to wait for the new page
-    //     const newPagePromise = context.waitForEvent('page');
-    //     await test.step('click search button', async () => {
-    //         await mainPage.headerComponent.clickSearchButton();
-    //     });
-    //     await mainPage.page.waitForTimeout(1000); // Waits for 1 seconds
-    //     await test.step('click algolia button', async () => {
-    //         await mainPage.modalComponent.clickAlgoliaButton();
-    //     });
-    //     await mainPage.page.waitForTimeout(1000); // Waits for 1 seconds
-    //     // Get the new page instance
-    //     const newPage = await newPagePromise;
-    //     // Wait for the new page to load (including redirects)
-    //     await newPage.waitForLoadState();
-    //     await test.step('check redirect to Algolia', async () => {
-    //         await expect(newPage).toHaveURL(
-    //             'https://www.algolia.com/developers?utm_source=playwright.dev&utm_medium=referral&utm_content=powered_by&utm_campaign=docsearch'
-    //         );
-    //         await newPage.screenshot({ path: 'tests/screenshots/AlgoliaFromModalSearch-redirect-to-Algolia.jpeg' });
-    //     });
-    // });
+    test('Algolia btn in modal-search should redirect to Algolia page', async ({ mainPage }) => {
+        // Set up a promise to wait for the new page
+        const newPagePromise = mainPage.page.waitForEvent('popup');
+        await test.step('click search button', async () => {
+            await mainPage.headerComponent.clickSearchButton();
+        });
+        await mainPage.page.waitForTimeout(1000); // Waits for 1 seconds
+
+        await test.step('click algolia button', async () => {
+            await mainPage.modalComponent.clickAlgoliaButton();
+        });
+        const newPage = await newPagePromise;
+        await mainPage.page.waitForTimeout(1000); // Waits for 1 seconds
+        // Get the new page instance
+
+        // Wait for the new page to load (including redirects)
+        await newPage.waitForLoadState();
+        await test.step('check redirect to Algolia', async () => {
+            await expect(newPage).toHaveURL(
+                'https://www.algolia.com/developers?utm_source=playwright.dev&utm_medium=referral&utm_content=powered_by&utm_campaign=docsearch'
+            );
+            await newPage.screenshot({ path: 'tests/screenshots/AlgoliaFromModalSearch-redirect-to-Algolia.jpeg' });
+        });
+    });
 });
