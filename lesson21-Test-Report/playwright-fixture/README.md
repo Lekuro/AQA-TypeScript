@@ -106,6 +106,25 @@ export default defineConfig({
 npx allure serve allure-html-results
 ```
 
+### Help of allure
+
+```
+npx allure awesome --help
+```
+
+### Generate allure-report folder with single file useful for CI
+
+```
+npx allure generate allure-results --single-file
+```
+
+### Open ready allure single file from allure-report folder
+
+```
+npx allure open allure-report
+
+```
+
 ### Exit with `Ctrl_C`
 
 ## ReportPortal
