@@ -45,25 +45,3 @@ Feature: MainPage tests
     Then the input field is filled with 'assertion'
     And the data is found
 #   # And the data is found as array # it is commented because it don't work
-# 
-# 
-#   Scenario: Verify header menu contains menu options
-#     When the user reads the header menu options
-#     Then the user verifies that header menu contains the following options:
-#       | options |
-#       | For you |
-#       | Recent  |
-#       | Starred |
-#       | Plans   |
-#       | Spaces  |
-#   Scenario: Click jira side menu option 'Customize sidebar' opens customize modal
-#     When the user clicks the 'Customize sidebar' menu item
-#     Then the customize sidebar modal should be opened
-#     When the user reads the customize navigation elements
-#     Then the following options should be present in the customize sidebar modal:
-#       | options |
-#       | For you |
-#       | Recent  |
-#       | Starred |
-#       | Plans   |
-#       | Spaces  |
