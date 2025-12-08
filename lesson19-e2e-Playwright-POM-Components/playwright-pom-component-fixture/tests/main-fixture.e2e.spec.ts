@@ -25,69 +25,69 @@ test.describe('fixture-based Main page test example', { tag: ['@fixture'] }, () 
         });
     });
 
-    // test('gitHub star button on main page should redirect to github page', async ({ context, mainPage }) => {
-    //     // Set up a promise to wait for the new page
-    //     const newPagePromise = context.waitForEvent('page');
-    //     await test.step('click github link in header', async () => {
-    //         await mainPage.clickStarGitHub();
-    //     });
-    //     // Get the new page instance
-    //     const newPage = await newPagePromise;
-    //     // Wait for the new page to load (including redirects)
-    //     await newPage.waitForLoadState();
-    //     await test.step('check redirect to github', async () => {
-    //         await expect(newPage).toHaveURL('https://github.com/microsoft/playwright');
-    //         await newPage.screenshot({ path: 'tests/screenshots/gitHubStar-redirect-to-github-page.jpeg' });
-    //     });
-    // });
+    test('gitHub star button on main page should redirect to github page', async ({ mainPage }) => {
+        // Set up a promise to wait for the new page
+        const newPagePromise = mainPage.page.waitForEvent('popup');
+        await test.step('click github link in header', async () => {
+            await mainPage.clickStarGitHub();
+        });
+        // Get the new page instance
+        const newPage = await newPagePromise;
+        // Wait for the new page to load (including redirects)
+        await newPage.waitForLoadState();
+        await test.step('check redirect to github', async () => {
+            await expect(newPage).toHaveURL('https://github.com/microsoft/playwright');
+            await newPage.screenshot({ path: 'tests/screenshots/gitHubStar-redirect-to-github-page.jpeg' });
+        });
+    });
 
-    // test('gitHub star gazers button on main page should redirect to github page', async ({ context, mainPage }) => {
-    //     // Set up a promise to wait for the new page
-    //     const newPagePromise = context.waitForEvent('page');
-    //     await test.step('click github link in header', async () => {
-    //         await mainPage.clickStarGazersGitHub();
-    //     });
-    //     // Get the new page instance
-    //     const newPage = await newPagePromise;
-    //     // Wait for the new page to load (including redirects)
-    //     await newPage.waitForLoadState();
-    //     await test.step('check redirect to github', async () => {
-    //         await expect(newPage).toHaveURL('https://github.com/microsoft/playwright/stargazers');
-    //         await newPage.screenshot({ path: 'tests/screenshots/gitHubStarGazers-redirect-to-github-page.jpeg' });
-    //     });
-    // });
+    test('gitHub star gazers button on main page should redirect to github page', async ({ mainPage }) => {
+        // Set up a promise to wait for the new page
+        const newPagePromise = mainPage.page.waitForEvent('popup');
+        await test.step('click github link in header', async () => {
+            await mainPage.clickStarGazersGitHub();
+        });
+        // Get the new page instance
+        const newPage = await newPagePromise;
+        // Wait for the new page to load (including redirects)
+        await newPage.waitForLoadState();
+        await test.step('check redirect to github', async () => {
+            await expect(newPage).toHaveURL('https://github.com/microsoft/playwright/stargazers');
+            await newPage.screenshot({ path: 'tests/screenshots/gitHubStarGazers-redirect-to-github-page.jpeg' });
+        });
+    });
 
-    // test('header gitHub icon should redirect to github page', async ({ context, mainPage }) => {
-    //     // Set up a promise to wait for the new page
-    //     const newPagePromise = context.waitForEvent('page');
-    //     await test.step('click github link in header', async () => {
-    //         await mainPage.headerComponent.clickGitHubButton();
-    //     });
-    //     // Get the new page instance
-    //     const newPage = await newPagePromise;
-    //     // Wait for the new page to load (including redirects)
-    //     await newPage.waitForLoadState();
-    //     await test.step('check redirect to github', async () => {
-    //         await expect(newPage).toHaveURL('https://github.com/microsoft/playwright');
-    //         await newPage.screenshot({ path: 'tests/screenshots/gitHubFromHeader-redirect-to-github-page.jpeg' });
-    //     });
-    // });
+    test('header gitHub icon should redirect to github page', async ({ mainPage }) => {
+        // Set up a promise to wait for the new page
+        const newPagePromise = mainPage.page.waitForEvent('popup');
+        await test.step('click github link in header', async () => {
+            await mainPage.headerComponent.clickGitHubButton();
+        });
+        // Get the new page instance
+        const newPage = await newPagePromise;
+        // Wait for the new page to load (including redirects)
+        await newPage.waitForLoadState();
+        await test.step('check redirect to github', async () => {
+            await expect(newPage).toHaveURL('https://github.com/microsoft/playwright');
+            await newPage.screenshot({ path: 'tests/screenshots/gitHubFromHeader-redirect-to-github-page.jpeg' });
+        });
+    });
 
-    // test('header discord icon should redirect to discord page', async ({ context, mainPage }) => {
-    //     // Set up a promise to wait for the new page
-    //     const newPagePromise = context.waitForEvent('page');
-    //     await test.step('click github link in header', async () => {
-    //         await mainPage.headerComponent.clickDiscordButton();
-    //     });
-    //     // Get the new page instance
-    //     const newPage = await newPagePromise;
-    //     // Wait for the new page to load (including redirects)
-    //     await newPage.waitForLoadState();
-    //     await test.step('check redirect to github', async () => {
-    //         await expect(newPage).toHaveURL('https://discord.com/servers/playwright-807756831384403968');
-    //         await newPage.screenshot({ path: 'tests/screenshots/discordFromHeader-redirect-to-github-page.jpeg' });
-    //     });
-    // });
+    test('header discord icon should redirect to discord page', async ({ mainPage }) => {
+        // Set up a promise to wait for the new page
+        const newPagePromise = mainPage.page.waitForEvent('popup');
+        await test.step('click github link in header', async () => {
+            await mainPage.headerComponent.clickDiscordButton();
+        });
+        // Get the new page instance
+        const newPage = await newPagePromise;
+        // Wait for the new page to load (including redirects)
+        await newPage.waitForLoadState();
+        await test.step('check redirect to github', async () => {
+            await expect(newPage).toHaveURL('https://discord.com/servers/playwright-807756831384403968');
+            await newPage.screenshot({ path: 'tests/screenshots/discordFromHeader-redirect-to-github-page.jpeg' });
+        });
+    });
 
     test('header switch btn should change theme color', async ({ mainPage }) => {
         await test.step('check background color', async () => {
