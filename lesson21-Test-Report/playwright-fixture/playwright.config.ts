@@ -27,7 +27,14 @@ export default defineConfig({
         ['json', { outputFile: 'playwright-reports/json-playwright-report.json' }],
         ['html', { outputFolder: 'playwright-reports/html-playwright-report' }],
         ['junit', { outputFile: 'playwright-reports/xmls-playwright-report.xml' }],
-        ['allure-playwright', { resultsDir: 'allure-results' }]
+        ['allure-playwright', { resultsDir: 'allure-results' }],
+        [
+            'pwmochawesome',
+            {
+                outputJSON: true,
+                outputFileName: 'result.json'
+            }
+        ]
     ],
     timeout: 45000,
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */

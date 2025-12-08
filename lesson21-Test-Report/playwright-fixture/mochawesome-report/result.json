@@ -1,0 +1,161 @@
+{
+    "stats": {
+        "suites": 1,
+        "tests": 4,
+        "passes": 0,
+        "pending": 0,
+        "failures": 4,
+        "start": "Mon Dec 08 2025 02:52:36 GMT+0200 (за східноєвропейським стандартним часом)",
+        "end": "Mon Dec 08 2025 02:52:49 GMT+0200 (за східноєвропейським стандартним часом)",
+        "duration": 1919,
+        "testsRegistered": 4,
+        "passPercent": 0,
+        "pendingPercent": 0,
+        "other": 0,
+        "hasOther": false,
+        "skipped": 0,
+        "hasSkipped": false
+    },
+    "results": [
+        {
+            "uuid": "",
+            "title": "",
+            "fullFile": "",
+            "file": "",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [],
+            "suites": [
+                {
+                    "uuid": "bebb5a9e-fa11-4e23-8f0e-eee54cfeca4e",
+                    "title": "fixture-based Main page test example",
+                    "fullFile": "D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\tests\\main-fixture.e2e.spec.ts",
+                    "file": "main-fixture.e2e.spec.ts",
+                    "beforeHooks": [],
+                    "afterHooks": [],
+                    "tests": [
+                        {
+                            "parentTitle": "fixture-based Main page test example",
+                            "title": "the main page should has title",
+                            "fullTitle": "fixture-based Main page test example the main page should has title",
+                            "timedOut": false,
+                            "duration": 364,
+                            "state": "failed",
+                            "speed": "slow",
+                            "pass": false,
+                            "fail": true,
+                            "pending": false,
+                            "context": "[]",
+                            "code": "//Step: Launch browser | Category: pw:api | Duration: 318\n//Step: Fixture \"browser\" | Category: fixture | Duration: 335\n//Step: Fixture \"configService\" | Category: fixture | Duration: 2\n//Step: Create context | Category: pw:api | Duration: 37\n//Step: Create page | Category: pw:api | Duration: 266\n//Step: Navigate to \"/\" | Category: pw:api | Duration: 30\n//Step: Fixture \"mainPage\" | Category: fixture | Duration: 352\n//Step: Before Hooks | Category: hook | Duration: 725\n//Step: Fixture \"mainPage\" | Category: fixture | Duration: 1\n//Step: Fixture \"configService\" | Category: fixture | Duration: 1\n//Step: After Hooks | Category: hook | Duration: 275\n//Step: Fixture \"browser\" | Category: fixture | Duration: 482\n//Step: Worker Cleanup | Category: hook | Duration: 485",
+                            "err": {
+                                "message": "Error: page.goto: net::ERR_INTERNET_DISCONNECTED at https://playwright.dev/\nCall log:\n  - navigating to \"https://playwright.dev/\", waiting until \"load\"\n",
+                                "estack": "Error: page.goto: net::ERR_INTERNET_DISCONNECTED at https://playwright.dev/\nCall log:\n  - navigating to \"https://playwright.dev/\", waiting until \"load\"\n\n    at MainPage.goTo (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\pages\\main.page.ts:38:25)\n    at Object.mainPage (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\fixtures\\playwright-site.fixture.ts:19:24)"
+                            },
+                            "uuid": "47eefc28-0d02-4661-916a-d99479c94dce",
+                            "isHook": false,
+                            "skipped": false
+                        },
+                        {
+                            "parentTitle": "fixture-based Main page test example",
+                            "title": "the getStartedButton on main page should redirect to /docs/intro page",
+                            "fullTitle": "fixture-based Main page test example the getStartedButton on main page should redirect to /docs/intro page",
+                            "timedOut": false,
+                            "duration": 549,
+                            "state": "failed",
+                            "speed": "slow",
+                            "pass": false,
+                            "fail": true,
+                            "pending": false,
+                            "context": "[]",
+                            "code": "//Step: Launch browser | Category: pw:api | Duration: 321\n//Step: Fixture \"browser\" | Category: fixture | Duration: 326\n//Step: Fixture \"configService\" | Category: fixture | Duration: 1\n//Step: Create context | Category: pw:api | Duration: 27\n//Step: Create page | Category: pw:api | Duration: 472\n//Step: Navigate to \"/\" | Category: pw:api | Duration: 27\n//Step: Fixture \"mainPage\" | Category: fixture | Duration: 543\n//Step: Before Hooks | Category: hook | Duration: 887\n//Step: Fixture \"mainPage\" | Category: fixture | Duration: 1\n//Step: Fixture \"configService\" | Category: fixture | Duration: 0\n//Step: After Hooks | Category: hook | Duration: 1094\n//Step: Fixture \"browser\" | Category: fixture | Duration: 377\n//Step: Worker Cleanup | Category: hook | Duration: 380",
+                            "err": {
+                                "message": "Error: page.goto: net::ERR_INTERNET_DISCONNECTED at https://playwright.dev/\nCall log:\n  - navigating to \"https://playwright.dev/\", waiting until \"load\"\n",
+                                "estack": "Error: page.goto: net::ERR_INTERNET_DISCONNECTED at https://playwright.dev/\nCall log:\n  - navigating to \"https://playwright.dev/\", waiting until \"load\"\n\n    at MainPage.goTo (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\pages\\main.page.ts:38:25)\n    at Object.mainPage (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\fixtures\\playwright-site.fixture.ts:19:24)"
+                            },
+                            "uuid": "68065651-b8e5-4edd-8866-e1f876c48c0d",
+                            "isHook": false,
+                            "skipped": false
+                        },
+                        {
+                            "parentTitle": "fixture-based Main page test example",
+                            "title": "header switch btn should change theme color",
+                            "fullTitle": "fixture-based Main page test example header switch btn should change theme color",
+                            "timedOut": false,
+                            "duration": 690,
+                            "state": "failed",
+                            "speed": "slow",
+                            "pass": false,
+                            "fail": true,
+                            "pending": false,
+                            "context": "[]",
+                            "code": "//Step: Launch browser | Category: pw:api | Duration: 356\n//Step: Fixture \"browser\" | Category: fixture | Duration: 363\n//Step: Fixture \"configService\" | Category: fixture | Duration: 2\n//Step: Create context | Category: pw:api | Duration: 36\n//Step: Create page | Category: pw:api | Duration: 600\n//Step: Navigate to \"/\" | Category: pw:api | Duration: 28\n//Step: Fixture \"mainPage\" | Category: fixture | Duration: 682\n//Step: Before Hooks | Category: hook | Duration: 1067\n//Step: Fixture \"mainPage\" | Category: fixture | Duration: 0\n//Step: Fixture \"configService\" | Category: fixture | Duration: 0\n//Step: After Hooks | Category: hook | Duration: 1072\n//Step: Fixture \"browser\" | Category: fixture | Duration: 342\n//Step: Worker Cleanup | Category: hook | Duration: 346",
+                            "err": {
+                                "message": "Error: page.goto: net::ERR_INTERNET_DISCONNECTED at https://playwright.dev/\nCall log:\n  - navigating to \"https://playwright.dev/\", waiting until \"load\"\n",
+                                "estack": "Error: page.goto: net::ERR_INTERNET_DISCONNECTED at https://playwright.dev/\nCall log:\n  - navigating to \"https://playwright.dev/\", waiting until \"load\"\n\n    at MainPage.goTo (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\pages\\main.page.ts:38:25)\n    at Object.mainPage (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\fixtures\\playwright-site.fixture.ts:19:24)"
+                            },
+                            "uuid": "ea24a302-5ccf-4d35-829f-be38d4fcee87",
+                            "isHook": false,
+                            "skipped": false
+                        },
+                        {
+                            "parentTitle": "fixture-based Main page test example",
+                            "title": "modal search should be opened",
+                            "fullTitle": "fixture-based Main page test example modal search should be opened",
+                            "timedOut": false,
+                            "duration": 316,
+                            "state": "failed",
+                            "speed": "slow",
+                            "pass": false,
+                            "fail": true,
+                            "pending": false,
+                            "context": "[]",
+                            "code": "//Step: Launch browser | Category: pw:api | Duration: 336\n//Step: Fixture \"browser\" | Category: fixture | Duration: 345\n//Step: Fixture \"configService\" | Category: fixture | Duration: 2\n//Step: Create context | Category: pw:api | Duration: 30\n//Step: Create page | Category: pw:api | Duration: 231\n//Step: Navigate to \"/\" | Category: pw:api | Duration: 31\n//Step: Fixture \"mainPage\" | Category: fixture | Duration: 308\n//Step: Before Hooks | Category: hook | Duration: 672\n//Step: Fixture \"mainPage\" | Category: fixture | Duration: 0\n//Step: Fixture \"configService\" | Category: fixture | Duration: 0\n//Step: After Hooks | Category: hook | Duration: 300\n//Step: Fixture \"browser\" | Category: fixture | Duration: 355\n//Step: Worker Cleanup | Category: hook | Duration: 357",
+                            "err": {
+                                "message": "Error: page.goto: net::ERR_INTERNET_DISCONNECTED at https://playwright.dev/\nCall log:\n  - navigating to \"https://playwright.dev/\", waiting until \"load\"\n",
+                                "estack": "Error: page.goto: net::ERR_INTERNET_DISCONNECTED at https://playwright.dev/\nCall log:\n  - navigating to \"https://playwright.dev/\", waiting until \"load\"\n\n    at MainPage.goTo (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\pages\\main.page.ts:38:25)\n    at Object.mainPage (D:\\other\\robot_dreams\\AQA-TypeScript\\lesson21-Test-Report\\playwright-fixture\\src\\fixtures\\playwright-site.fixture.ts:19:24)"
+                            },
+                            "uuid": "47a343fb-a4dd-4fd5-a26c-b41fa3e4c1e5",
+                            "isHook": false,
+                            "skipped": false
+                        }
+                    ],
+                    "suites": [],
+                    "passes": [],
+                    "failures": [
+                        "47eefc28-0d02-4661-916a-d99479c94dce",
+                        "68065651-b8e5-4edd-8866-e1f876c48c0d",
+                        "ea24a302-5ccf-4d35-829f-be38d4fcee87",
+                        "47a343fb-a4dd-4fd5-a26c-b41fa3e4c1e5"
+                    ],
+                    "pending": [],
+                    "skipped": [],
+                    "duration": 1919,
+                    "root": false,
+                    "rootEmpty": false,
+                    "_timeout": 0
+                }
+            ],
+            "passes": [],
+            "failures": [],
+            "pending": [],
+            "skipped": [],
+            "duration": 0,
+            "root": true,
+            "rootEmpty": true,
+            "_timeout": 0
+        }
+    ],
+    "meta": {
+        "mochawesome": {
+            "options": {},
+            "version": "7.1.3"
+        },
+        "marge": {
+            "options": {},
+            "version": "6.2.0"
+        },
+        "mocha": {
+            "version": "7.1.3"
+        }
+    }
+}

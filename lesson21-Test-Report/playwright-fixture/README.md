@@ -74,6 +74,36 @@ https://automation.browserstack.com/projects/playwright-fixture/builds
 
 ## Mocha-awesome
 
+### web site <https://github.com/armindojr/pwmochawesome>
+
+### Install mocha-awesome
+
+```
+npm i -D pwmochawesome
+```
+
+### change `playwright.config.ts` file. By default is html. It's possible to add json
+
+```
+export default defineConfig({
+  reporter: [['pwmochawesome']]
+});
+```
+
+```
+export default defineConfig({
+  reporter: [
+    [
+      'pwmochawesome',
+      {
+        outputJSON: true,
+        outputFileName: 'result.json'
+      }
+    ]
+  ]
+});
+```
+
 ## Allure
 
 ### Install allure

@@ -30,5 +30,8 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.47.0"
+  },
+  "dependencies": {
+    "pwmochawesome": "^2.0.2"
   }
 }
