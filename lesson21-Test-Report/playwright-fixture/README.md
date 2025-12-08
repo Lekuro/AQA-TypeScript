@@ -106,4 +106,6 @@ export default defineConfig({
 npx allure serve allure-html-results
 ```
 
+### Exit with `Ctrl_C`
+
 ## ReportPortal

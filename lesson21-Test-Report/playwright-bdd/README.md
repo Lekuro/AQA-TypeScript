@@ -38,4 +38,34 @@ npm run test-browserstack
 
 ## Allure
 
+### Install allure
+
+```
+npm install -D allure-commandline
+npx allure --version
+```
+
+### Install adapter for your framework. For more details look <https://allurereport.org/docs/frameworks/>
+
+```
+npm install --save-dev @cucumber/cucumber @cucumber/messages allure-cucumberjs
+```
+
+### change `cucumber.cjs` file
+
+```
+export default {
+  format: ["allure-cucumberjs/reporter"],
+  formatOptions: {
+    resultsDir: "allure-results",
+  },
+};
+```
+
+### Run the allure report after serve is resultsDir by default allure-results
+
+```
+npx allure serve allure-results
+```
+
 ## ReportPortal

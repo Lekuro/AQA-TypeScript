@@ -12,12 +12,14 @@ const ci = {
     ...common,
     format: [
         ...common.format,
+        'allure-cucumberjs/reporter:allure',
         'json:./reports/cucumber.json',
         'html:./reports/cucumber-embedded.html',
         'junit:./reports/cucumber.xml'
     ],
     formatOptions: {
-        ...common.formatOptions
+        ...common.formatOptions,
+        resultDir: 'allure-results'
     },
     retry: 3
 };
