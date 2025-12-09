@@ -2,7 +2,7 @@ import { expect } from '@playwright/test';
 import { test } from '../../src/fixtures/playwright-site.fixture';
 import 'dotenv/config';
 
-test.describe('fixture-based Main page test example', { tag: ['@fixture'] }, () => {
+test.describe('fixture-based Main page test example', { tag: ['@ui'] }, () => {
     test('the main page should has title', async ({ mainPage }) => {
         await test.step('verify title on main page', async () => {
             await mainPage.verifyTitle('Fast and reliable end-to-end testing for modern web apps | Playwright');

@@ -7,6 +7,8 @@
     "test": "eslint && npx playwright test",
     "test:ui": "eslint && npx playwright test tests/ui",
     "test:api": "eslint && npx playwright test tests/api",
+    "test:ui2": "eslint && npx playwright test --grep @ui",
+    "test:api2": "eslint && npx playwright test --grep @api",
     "postinstall": "npm update browserstack-node-sdk",
     "test-browserstack": "eslint && npx browserstack-node-sdk playwright test"
   },
