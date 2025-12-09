@@ -11,4 +11,13 @@ cookies.json
 *test-results/
 /reports/
 *videos/
-
+/test-results/
+/playwright-report/
+/playwright-reports/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+allure*/
+local.log
+log/
+mochawesome-report/
