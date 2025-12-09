@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "eslint && npx playwright test",
+    "test:ui": "eslint && npx playwright test tests/ui",
+    "test:api": "eslint && npx playwright test tests/api",
     "postinstall": "npm update browserstack-node-sdk",
     "test-browserstack": "eslint && npx browserstack-node-sdk playwright test"
   },
