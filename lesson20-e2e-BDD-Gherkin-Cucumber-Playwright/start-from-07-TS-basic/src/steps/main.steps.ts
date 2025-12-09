@@ -12,7 +12,7 @@ When('the user click the GetStarted button that opens in the same tab', async fu
     await this.mainPage.clickGetStarted();
 });
 
-Then('the tab should have the GetStarted URL {string}', async function (expectedUrl: string) {
+Then('the tab should have the GetStarted URL {string}', async function (this: RobotDreamsWorld, expectedUrl: string) {
     await expect(this.mainPage.url).to.be.equal(expectedUrl);
 });
 
@@ -33,7 +33,7 @@ When('the user click the GitHubStars button that opens in a new tab', async func
     await this.newTabPage.waitForLoadState();
 });
 
-Then('the new tab should have the GitHubStars URL {string}', async function (expectedUrl: string) {
+Then('the new tab should have the GitHubStars URL {string}', async function (this: RobotDreamsWorld, expectedUrl: string) {
     // Use Playwright's built-in assertion with auto-waiting
     await expect(this.newTabPage.url()).to.be.equal(expectedUrl);
 });
@@ -46,7 +46,7 @@ When('the user click the GitHubStarsGazers button that opens in a new tab', asyn
     await this.newTabPage.waitForLoadState();
 });
 
-Then('the new tab should have the GitHubStarsGazers URL {string}', async function (expectedUrl: string) {
+Then('the new tab should have the GitHubStarsGazers URL {string}', async function (this: RobotDreamsWorld, expectedUrl: string) {
     await expect(this.newTabPage.url()).to.be.equal(expectedUrl);
 });
 
@@ -57,7 +57,7 @@ When('the user click the GitHub button in header that opens in a new tab', async
     await this.newTabPage.waitForLoadState();
 });
 
-Then('the new tab should have the GitHub URL {string}', async function (expectedUrl: string) {
+Then('the new tab should have the GitHub URL {string}', async function (this: RobotDreamsWorld, expectedUrl: string) {
     await expect(this.newTabPage.url()).to.be.equal(expectedUrl);
 });
 
@@ -68,7 +68,7 @@ When('the user click the Discord button in header that opens in a new tab', asyn
     await this.newTabPage.waitForLoadState();
 });
 
-Then('the new tab should have the Discord URL {string}', async function (expectedUrl: string) {
+Then('the new tab should have the Discord URL {string}', async function (this: RobotDreamsWorld, expectedUrl: string) {
     await expect(this.newTabPage.url()).to.be.equal(expectedUrl);
 });
 
@@ -85,7 +85,7 @@ When('the user click switch mode button first time', async function (this: Robot
     await this.mainPage.headerComponent.clickSwitchModesButton();
 });
 
-Then('the mode should change to {string} first time', async function (expectedMode: string) {
+Then('the mode should change to {string} first time', async function (this: RobotDreamsWorld, expectedMode: string) {
     const theme = await this.mainPage.htmlElement.getAttribute('data-theme-choice');
     expect(theme).to.be.equal(expectedMode);
 });
@@ -95,7 +95,7 @@ When('the user click switch mode button second time', async function (this: Robo
     await this.mainPage.headerComponent.clickSwitchModesButton();
 });
 
-Then('the mode should change to {string} second time', async function (expectedMode: string) {
+Then('the mode should change to {string} second time', async function (this: RobotDreamsWorld, expectedMode: string) {
     const theme = await this.mainPage.htmlElement.getAttribute('data-theme-choice');
     expect(theme).to.be.equal(expectedMode);
 });
@@ -106,7 +106,7 @@ When('the user click switch mode button third time', async function (this: Robot
     await this.mainPage.headerComponent.clickSwitchModesButton();
 });
 
-Then('the mode should change to {string} third time', async function (expectedMode: string) {
+Then('the mode should change to {string} third time', async function (this: RobotDreamsWorld, expectedMode: string) {
     const theme = await this.mainPage.htmlElement.getAttribute('data-theme-choice');
     expect(theme).to.be.equal(expectedMode);
 });
@@ -128,9 +128,6 @@ Then('the data is found', async function (this: RobotDreamsWorld) {
     // проблема тут була в тому що треба дочекатися, поки промалюється перший елемент, а потім читати всі елементи
     const searchResult = await this.mainPage.modalComponent.searchResult.all();
     expect(searchResult).to.have.length.greaterThan(0);
-    // я очікувала масив і ставила аll для масиву але воно не працює
-    // коли я лишаю непрацюючий код коментом і пишу що маю з ним проблему ви просто закрили завдання
-    //  а як до вас достукатись я незнаю
 });
 
 Then('the data is found as array', async function (this: RobotDreamsWorld) {
