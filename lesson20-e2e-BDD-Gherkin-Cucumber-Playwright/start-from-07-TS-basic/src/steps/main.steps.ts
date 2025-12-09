@@ -21,7 +21,7 @@ Then('the tab should have the GetStarted URL {string}', async function (expected
 
 When('the user click the GitHubStars button that opens in a new tab', async function (this: RobotDreamsWorld) {
     // Wait for the 'page' (or 'popup') event to occur, which is triggered when a new tab opens
-    const pagePromise: Promise<Page> = this.context.waitForEvent('page');
+    const pagePromise: Promise<Page> = this.page.waitForEvent('popup');
 
     // Perform the action that opens the new tab (e.g., clicking a link with target="_blank")
     await this.mainPage.clickStarGitHub();
@@ -38,6 +38,7 @@ Then('the new tab should have the GitHubStars URL {string}', async function (exp
     await expect(this.newTabPage.url()).to.be.equal(expectedUrl);
 });
 
+// it work and with context but right is use page
 When('the user click the GitHubStarsGazers button that opens in a new tab', async function (this: RobotDreamsWorld) {
     const pagePromise: Promise<Page> = this.context.waitForEvent('page');
     await this.mainPage.clickStarGazersGitHub();
@@ -50,7 +51,7 @@ Then('the new tab should have the GitHubStarsGazers URL {string}', async functio
 });
 
 When('the user click the GitHub button in header that opens in a new tab', async function (this: RobotDreamsWorld) {
-    const pagePromise: Promise<Page> = this.context.waitForEvent('page');
+    const pagePromise: Promise<Page> = this.page.waitForEvent('popup');
     await this.mainPage.headerComponent.clickGitHubButton();
     this.newTabPage = await pagePromise;
     await this.newTabPage.waitForLoadState();
@@ -61,7 +62,7 @@ Then('the new tab should have the GitHub URL {string}', async function (expected
 });
 
 When('the user click the Discord button in header that opens in a new tab', async function (this: RobotDreamsWorld) {
-    const pagePromise: Promise<Page> = this.context.waitForEvent('page');
+    const pagePromise: Promise<Page> = this.page.waitForEvent('popup');
     await this.mainPage.headerComponent.clickDiscordButton();
     this.newTabPage = await pagePromise;
     await this.newTabPage.waitForLoadState();

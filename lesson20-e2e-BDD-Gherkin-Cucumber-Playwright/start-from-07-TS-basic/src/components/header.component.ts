@@ -3,12 +3,10 @@ import { Locator } from 'playwright';
 export class HeaderComponent {
     private get gitHubButton(): Locator {
         return this.headerLocator.locator('a[aria-label="GitHub repository"]:visible');
-        // return this.page.locator('nav a[href="https://github.com/microsoft/playwright"]');
     }
 
     private get discordButton(): Locator {
         return this.headerLocator.locator('a[aria-label="Discord server"]');
-        // return this.page.locator('nav a[href="https://aka.ms/playwright/discord"]');
     }
 
     private get switchModesButton(): Locator {
