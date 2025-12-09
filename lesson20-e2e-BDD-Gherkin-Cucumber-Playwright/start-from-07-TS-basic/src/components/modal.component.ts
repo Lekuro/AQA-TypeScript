@@ -12,11 +12,19 @@ export class ModalComponent {
     }
 
     public get searchResult(): Locator {
-        return this.searchModalLocator.locator('ul#docsearch-list li');
+        return this.searchModalLocator.locator('#docsearch-list>li');
     }
 
-    public get searchResultArray(): Promise<Locator[]> {
-        return this.searchModalLocator.locator('div>div>section li').all();
+    // гетер не може вертати проміс
+    public async searchResultArray(): Promise<string[]> {
+        await this.searchResult.first().waitFor({ state: 'visible' });
+        const results = await this.searchResult.all();
+        const resultsArray: string[] = [];
+        for (const result of results) {
+            const resultText = await result.locator('span').first().innerText();
+            resultsArray.push(resultText);
+        }
+        return resultsArray;
     }
 
     public constructor(private readonly searchModalLocator: Locator) {}

@@ -38,13 +38,13 @@ Feature: MainPage tests
   Scenario: Check that switch mode button change mode to system third time
     When the user click switch mode button third time
     Then the mode should change to 'system' third time
-
+@debug
   Scenario: Check that user could search for data from header
     When the user click search button
     And the user type 'assertion'
     Then the input field is filled with 'assertion'
-    And the data is found
-#   # And the data is found as array # it is commented because it don't work
+    #And the data is found
+    And the data is found as array
 # 
 # 
 #   Scenario: Verify header menu contains menu options

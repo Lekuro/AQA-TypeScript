@@ -7,7 +7,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js --config cucumber.cjs --profile local"
+    "test": "cucumber-js --config cucumber.cjs --profile local",
+    "debug:local": "cucumber-js --config cucumber.cjs --profile local --tags @debug"
   },
   "devDependencies": {
     "@cucumber/cucumber": "^12.3.0",

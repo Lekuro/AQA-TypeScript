@@ -114,26 +114,25 @@ When('the user click search button', async function (this: RobotDreamsWorld) {
     await this.mainPage.headerComponent.clickSearchButton();
 });
 
-When('the user type {string}', async function (searchText: string) {
+When('the user type {string}', async function (this: RobotDreamsWorld, searchText: string) {
     await this.mainPage.modalComponent.fillSearchInput(searchText);
 });
 
-Then('the input field is filled with {string}', async function (searchText: string) {
+Then('the input field is filled with {string}', async function (this: RobotDreamsWorld, searchText: string) {
     const searchInputValue = await this.mainPage.modalComponent.getSearchInputValue();
     expect(searchInputValue).to.be.equal(searchText);
 });
 
-Then('the data is found', async function () {
-    const searchResult = await this.mainPage.modalComponent.searchResult;
-    expect(searchResult).to.be.not.empty;
+Then('the data is found', async function (this: RobotDreamsWorld) {
+    // проблема тут була в тому що треба дочекатися, поки промалюється перший елемент, а потім читати всі елементи
+    const searchResult = await this.mainPage.modalComponent.searchResult.all();
+    expect(searchResult).to.have.length.greaterThan(0);
     // я очікувала масив і ставила аll для масиву але воно не працює
     // коли я лишаю непрацюючий код коментом і пишу що маю з ним проблему ви просто закрили завдання
     //  а як до вас достукатись я незнаю
 });
 
-Then('the data is found as array', async function () {
-    const searchResultArray = await this.mainPage.modalComponent.searchResultArray;
-    console.log('-------- searchResultArray --------', searchResultArray, searchResultArray.length);
-    await this.page.waitForTimeout(1000);
+Then('the data is found as array', async function (this: RobotDreamsWorld) {
+    const searchResultArray = await this.mainPage.modalComponent.searchResultArray();
     expect(searchResultArray.length).to.be.greaterThan(0);
 });
