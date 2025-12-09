@@ -8,8 +8,9 @@ official_joke_api
 lesson13-Teacher-Contracts
 cookies.json
 *.auth/
+*.github/
 *test-results/
-*/reports/
+*reports/
 *videos/
 /test-results/
 /playwright-report/
@@ -22,3 +23,4 @@ local.log
 log/
 logs/
 *mochawesome-report/
+*screenshots/

@@ -7,7 +7,14 @@ import { defineConfig, devices } from '@playwright/test';
 // import dotenv from 'dotenv';
 // import path from 'path';
 // dotenv.config({ path: path.resolve(__dirname, '.env') });
-
+const rpConfig = {
+    apiKey: 'r-d_YZwgDZc4RsmNPB8tgpulA44PRXs4NFaPOum7L9bpxgK24EpQ1vJibEmL6c7TALep',
+    endpoint: 'http://localhost:8080/api/v2',
+    project: 'test_automation',
+    launch: 'Playwright Jira test run',
+    attributes: [],
+    description: 'playwright reportportal example'
+};
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
@@ -18,12 +25,14 @@ export default defineConfig({
     /* Fail the build on CI if you accidentally left test.only in the source code. */
     forbidOnly: !!process.env.CI,
     /* Retry on CI only */
-    retries: process.env.CI ? 2 : 0,
+    retries: process.env.CI ? 1 : 0,
     /* Opt out of parallel tests on CI. */
-    workers: process.env.CI ? 1 : undefined,
+    workers: process.env.CI ? 1 : 1,
     /* Reporter to use. See https://playwright.dev/docs/test-reporters */
     reporter: [
         ['list'],
+        ['@reportportal/agent-js-playwright', rpConfig],
+        ['json'],
         ['json', { outputFile: 'playwright-reports/json-playwright-report.json' }],
         ['html', { outputFolder: 'playwright-reports/html-playwright-report' }],
         ['junit', { outputFile: 'playwright-reports/xmls-playwright-report.xml' }],
