@@ -158,39 +158,58 @@ npx allure open allure-report
 ### Exit with `Ctrl_C`
 
 ## ReportPortal
+
 ### web site <https://reportportal.io/installation>
+
 #### Якщо Windows, то встановлюємо WSL (https://learn.microsoft.com/en-us/windows/wsl/install)
+
 ```
  wsl --install
- ```
+```
+
 #### Встановлюємо Docker <https://www.docker.com/get-started/>.
+
 #### Завантажуємо docker-compose.yml і покладемо його в теку ~/docker:
-https://raw.githubusercontent.com/reportportal/reportportal/master/docker-compose.yml 
+
+https://raw.githubusercontent.com/reportportal/reportportal/master/docker-compose.yml
+
 #### Запускаємо створення контейнера там де лежить файл docker-compose.yml
+
 ```
 docker-compose -p reportportal up -d --force-recreate
 ```
+
 ### Install Report portal
+
 ```
 npm i -D @reportportal/agent-js-playwright
 ```
+
 ### Change `playwright.config.ts`
+
 const rpConfig = {
-    apiKey: 'r-d_YZwgDZc4RsmNPB8tgpulA44PRXs4NFaPOum7L9bpxgK24EpQ1vJibEmL6c7TALep',
-    endpoint: 'http://localhost:8080/api/v2',
-    project: 'test_automation',
-    launch: 'Playwright Jira test run',
-    attributes: [],
-    description: 'playwright reportportal example'
+apiKey: 'r-d_YZwgDZc4RsmNPB8tgpulA44PRXs4NFaPOum7L9bpxgK24EpQ1vJibEmL6c7TALep',
+endpoint: 'http://localhost:8080/api/v2',
+project: 'test_automation',
+launch: 'Playwright Jira test run',
+attributes: [],
+description: 'playwright reportportal example'
 };
 
 export default defineConfig({
-    …
-    reporter: [['@reportportal/agent-js-playwright', rpConfig]],
-    …
+…
+reporter: [['@reportportal/agent-js-playwright', rpConfig]],
+…
 });
 
 ### Results
+
 ```
 http://localhost:8080/
+```
+
+### cmd to find what is working on 8080 port
+
+```
+netstat -ano | findstr "8080"
 ```

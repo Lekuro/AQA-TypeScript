@@ -108,7 +108,7 @@ services:
       - "8080:8080"  ## ReportPortal UI 
       - "8081:8081"  ## Traefik dashboard
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+      - /run/docker.sock:/run/docker.sock
     command:
       - --providers.docker=true
       - --providers.docker.constraints=Label(`traefik.expose`, `true`)
