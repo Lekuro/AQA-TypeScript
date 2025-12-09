@@ -2,7 +2,7 @@ name: Playwright CI Tests reporters
 
 on:
   push:
-    branches: [main, master, lesson22]
+    branches: [main, master, 22-CI-CD]
   pull_request:
     branches: [main]
 
