@@ -1,0 +1,20 @@
+
+# Playwright
+node_modules/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+*.auth/
+*test-results/
+/test-results/
+/playwright-reports/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+.auth/
+allure*/
+local.log
+log/
+logs/
+*mochawesome-report/
+screenshots/
