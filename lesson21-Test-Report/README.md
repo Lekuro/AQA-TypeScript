@@ -17,6 +17,7 @@ wsl --version
 ```
 systeminfo
 ```
+
 ### Встановлюємо Docker <https://www.docker.com/get-started/>
 
 #### список усіх дистрибутивів та їх версій
@@ -25,3 +26,8 @@ systeminfo
 wsl -l -v
 ```
 
+### is port free
+
+```
+netstat -a | findstr "8080"
+```
