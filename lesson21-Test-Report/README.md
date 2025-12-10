@@ -26,8 +26,16 @@ systeminfo
 wsl -l -v
 ```
 
-### is port free
+### if is LISTENING than port isn't free
 
 ```
 netstat -a | findstr "8080"
+```
+### to find PID of LISTENING app
+```
+netstat -ano | findstr "8080"
+```
+### change PID for number from previous command to find app
+```
+tasklist | findstr "PID"
 ```
