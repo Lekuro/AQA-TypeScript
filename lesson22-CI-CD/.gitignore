@@ -1,18 +1,14 @@
-.vscode/
-*node_modules/
-build/
-.idea/
-**/*.js
-official_joke_api
-*.env
-lesson13-Teacher-Contracts
-cookies.json
+
+# Playwright
+node_modules/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
 *.auth/
-*.github/
 *test-results/
-*reports/
-*videos/
+/test-results/
 /playwright-report/
+/playwright-reports/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
@@ -22,4 +18,4 @@ local.log
 log/
 logs/
 *mochawesome-report/
-*screenshots/
+screenshots/
