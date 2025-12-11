@@ -35,6 +35,10 @@ CMD ["serve", "-s", "build", "-l", "3000"]
 # reportportal by yml
 # curl -O https://raw.githubusercontent.com/reportportal/reportportal/master/docker-compose.yml
 # docker-compose -p reportportal up -d
+# from lecture: 
+# docker-compose -p reportportal up -d --force-recreate
+# docker-compose -p reportportal down
+
 
 # reportportal by git
 # git clone https://github.com/reportportal/reportportal.git

@@ -20,6 +20,12 @@ services:
     depends_on:
       expense-tracker:
         condition: service_healthy
+    environment:
+      - BASE_URL=http://expense-tracker:3000
+      - RP_ENDPOINT=http://host.docker.internal:8080/api/v2
+      - RP_API_KEY=robot-dreams_MUY79I08Rm-eHIiOFmvxP8S2dfscP1U1yKhB3AHs6aXwRcDMYrAp54oIiHsHDMol
+      - RP_PROJECT=playwright-docker-reportportal
+      - RP_LAUNCH=Playwright docker run
     volumes:
       - ./playwright-report:/app/playwright-report
       - ./allure-results:/app/allure-results
@@ -52,3 +58,8 @@ services:
 # docker-compose up --build -d
 # to watch logs: docker-compose logs -f
 # to stop: docker-compose down
+
+# restart commands:
+# docker-compose down
+# docker-compose up --build -d
+# docker-compose logs -f playwright-tests

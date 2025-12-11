@@ -1,13 +1,13 @@
 import { defineConfig, devices } from '@playwright/test';
 
-// const rpConfig = {
-//     apiKey: 'r-d_YZwgDZc4RsmNPB8tgpulA44PRXs4NFaPOum7L9bpxgK24EpQ1vJibEmL6c7TALep',
-//     endpoint: 'http://localhost:8080/api/v2',
-//     project: 'test_automation',
-//     launch: 'Playwright Jira test run',
-//     attributes: [],
-//     description: 'playwright reportportal example'
-// };
+const rpConfig = {
+    apiKey: process.env.RP_API_KEY || 'robot-dreams_MUY79I08Rm-eHIiOFmvxP8S2dfscP1U1yKhB3AHs6aXwRcDMYrAp54oIiHsHDMol',
+    endpoint: process.env.RP_ENDPOINT || 'http://localhost:8080/api/v2',
+    project: process.env.RP_PROJECT || 'playwright-docker-reportportal',
+    launch: process.env.RP_LAUNCH || 'Playwright docker run',
+    attributes: [],
+    description: 'playwright reportportal example'
+};
 
 /**
  * Read environment variables from file.
@@ -31,12 +31,12 @@ export default defineConfig({
     /* Opt out of parallel tests on CI. */
     workers: process.env.CI ? 1 : 1,
     /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-    reporter: [['html'], ['allure-playwright']], //, ['@reportportal/agent-js-playwright', rpConfig]],
+    reporter: [['html'], ['allure-playwright'], ['@reportportal/agent-js-playwright', rpConfig]],
     timeout: 45000,
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
     use: {
         /* Base URL to use in actions like `await page.goto('')`. */
-        baseURL: 'http://expense-tracker:3000',
+        baseURL: process.env.BASE_URL || 'http://localhost:3000',
 
         /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
         trace: 'retain-on-failure',
