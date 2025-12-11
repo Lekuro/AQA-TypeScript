@@ -1,0 +1,8 @@
+{
+    "uiConfig": {
+        "playwrightBaseUrl": "https://playwright.dev/"
+    },
+    "apiConfig": {
+        "playwrightApiUrl": "https://playwright.dev/"
+    }
+}
