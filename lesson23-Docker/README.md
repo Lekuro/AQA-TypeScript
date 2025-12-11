@@ -82,6 +82,13 @@ curl -O https://raw.githubusercontent.com/reportportal/reportportal/master/docke
 
 ```
 
+#### Change version of traefik for me v2.11.28 was nightmare
+
+```
+gateway:
+    image: traefik:v2.11.31
+```
+
 ### Build reportportal in docker. second from lecture
 
 ```
