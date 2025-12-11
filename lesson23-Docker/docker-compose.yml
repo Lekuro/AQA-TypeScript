@@ -1,0 +1,54 @@
+version: '3.9'
+
+services:
+  expense-tracker:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  playwright-tests:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.ui
+    depends_on:
+      expense-tracker:
+        condition: service_healthy
+    volumes:
+      - ./playwright-report:/app/playwright-report
+      - ./allure-results:/app/allure-results
+      - ./allure-report:/app/allure-report
+    # command: >
+    #   bash -c "
+    #     npx playwright test --reporter=html,allure-playwright &&
+    #     npx allure generate --single-file allure-results --clean -o allure-report
+    #   "
+
+  playwright-report:
+    image: nginx:alpine
+    depends_on:
+      - playwright-tests
+    volumes:
+      - ./playwright-report:/usr/share/nginx/html
+    ports:
+      - "8082:80"
+
+  allure-report:
+    image: nginx:alpine
+    depends_on:
+      - playwright-tests
+    volumes:
+      - ./allure-report:/usr/share/nginx/html
+    ports:
+      - "8083:80"
+
+# run: -d означає detached mode — тобто запуск у фоні.
+# docker-compose up --build -d
+# to watch logs: docker-compose logs -f
+# to stop: docker-compose down

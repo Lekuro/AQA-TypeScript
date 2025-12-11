@@ -1,0 +1,22 @@
+FROM node:24-slim AS base
+
+RUN apt-get update && apt-get install -y \
+    git\
+    curl\
+    openjdk-17-jre-headless\
+    && rm -rf /var/lib/aptlists/*
+
+ENV CI=true
+
+WORKDIR /app
+
+COPY . .
+
+RUN npm install
+RUN npx playwright install --with-deps chromium
+
+CMD [ "npm", "run", "test" ]
+
+# on level of dockerfile
+# docker build -t playwright-docker:latest -f docker/Dockerfile.ui .
+# docker run -d -p 9323:9323 playwright-docker:latest
