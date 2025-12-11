@@ -12,7 +12,7 @@ cookies.json
 *test-results/
 *reports/
 *videos/
-/playwright-report/
+*playwright-report/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
