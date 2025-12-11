@@ -22,6 +22,6 @@ RUN npx playwright install --with-deps chromium
 
 CMD [ "npm", "run", "test" ]
 
-# on level of dockerfile
+# not on level of dockerfile
 # docker build -t playwright-docker:latest -f docker/Dockerfile.ui .
 # docker run -d -p 9323:9323 playwright-docker:latest
