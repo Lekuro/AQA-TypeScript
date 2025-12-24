@@ -1,0 +1,27 @@
+FROM node:24-slim AS base
+
+RUN apt-get update && apt-get install -y \
+    git\
+    curl\
+    openjdk-17-jre-headless\
+    && rm -rf /var/lib/aptlists/*
+
+ENV CI=true
+# ReportPortal environment variables
+ENV RP_ENDPOINT="http://host.docker.internal:8080/api/v2"
+ENV RP_API_KEY="robot-dreams_MUY79I08Rm-eHIiOFmvxP8S2dfscP1U1yKhB3AHs6aXwRcDMYrAp54oIiHsHDMol"
+ENV RP_PROJECT="playwright-docker-reportportal"
+ENV RP_LAUNCH="Playwright docker run"
+
+WORKDIR /app
+
+COPY . .
+
+RUN npm install
+RUN npx playwright install --with-deps chromium
+
+CMD [ "npm", "run", "test" ]
+
+# not on level of dockerfile
+# docker build -t playwright-docker:latest -f docker/Dockerfile.ui .
+# docker run -d -p 9323:9323 playwright-docker:latest

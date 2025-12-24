@@ -1,0 +1,59 @@
+Ага, Windows 11! На Windows є специфіка з Docker socket. Ось що треба зробити:
+Рішення для Windows 11 + Docker Desktop
+1. Перевір Docker Desktop Settings
+Відкрий Docker Desktop → Settings → General і переконайся що:
+:white_check_mark: "Expose daemon on tcp://localhost:2375 without TLS" - ВИМКНЕНО (це небезпечно)
+:white_check_mark: Use WSL 2 based engine - увімкнено (якщо використовуєш WSL2)
+2. Виправ шлях до Docker socket
+На Windows Docker Desktop, шлях має бути таким:
+yaml
+gateway:
+  image: traefik:v2.11.28
+  logging:
+    <<: *logging
+  ports:
+    - "8080:8080"
+    - "8081:8081"
+  volumes:
+    - //var/run/docker.sock:/var/run/docker.sock:ro  # Подвійний слеш на початку!
+Або якщо це не спрацює:
+yaml
+volumes:
+  - /var/run/docker.sock:/var/run/docker.sock:ro
+3. Альтернатива через named pipe (якщо вище не працює)
+yaml
+volumes:
+  - //./pipe/docker_engine:/var/run/docker.sock
+4. Повний перезапуск
+bash
+# Зупини все
+docker compose down
+
+# Перезапусти Docker Desktop
+# Права кнопка на іконці в system tray → Restart
+
+# Запусти знову
+docker compose up -d
+5. Якщо нічого не працює - використай TCP
+Тільки для локальної розробки!
+У Docker Desktop увімкни:
+Settings → General → Expose daemon on tcp://localhost:2375 without TLS
+Потім у docker-compose.yml:
+yaml
+gateway:
+  image: traefik:v2.11.28
+  environment:
+    - DOCKER_HOST=tcp://host.docker.internal:2375  # Для Windows
+  # Прибери volumes з docker.sock
+6. Найкраще рішення - WSL2
+Якщо використовуєш WSL2:
+bash
+# В WSL2 терміналі
+cd /path/to/reportportal
+docker compose up -d
+У WSL2 шлях /var/run/docker.sock працює без проблем.
+Що я рекомендую спробувати першим:
+Змінити на //var/run/docker.sock:/var/run/docker.sock:ro (подвійний слеш)
+Перезапустити Docker Desktop
+docker compose down && docker compose up -d
+Напиши яке з рішень спрацювало! :whale:

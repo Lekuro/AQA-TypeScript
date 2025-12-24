@@ -22,4 +22,6 @@ local.log
 log/
 logs/
 *mochawesome-report/
+*all-reporters/
 *screenshots/
+

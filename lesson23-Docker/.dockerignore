@@ -1,0 +1,23 @@
+# Git
+.git
+.gitignore
+
+# Node modules (will be installed in container)
+**/node_modules
+
+# Test outputs (generated during runs)
+**/test-results
+**/playwright-report
+**/blob-report
+**/allure-results
+**/allure-report
+**/mochawesome-report
+
+# Local environment files
+**/.env
+**/.env.local
+
+# IDE
+.vscode
+.idea
+**/.claude
